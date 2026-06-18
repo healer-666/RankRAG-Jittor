@@ -18,15 +18,39 @@ This is not a full reproduction of RankRAG. It does not reproduce LLM instructio
 - Reproduced: RankRAG-style context ranking / evidence filtering.
 - Reproduced: PyTorch baseline and Jittor implementation.
 - Reproduced: training, evaluation, visualization, and PyTorch/Jittor alignment.
+- Reproduced: L2 multi-model ranking comparison on MS MARCO small subset, including TF-IDF, BM25, MLP, and TextCNN.
 - Not reproduced: full LLM instruction tuning.
 - Not reproduced: answer generation.
 - Not equivalent to: RankRAG's full LLM-based generation pipeline.
 
 The current scorer is deliberately lightweight, so its results should not be over-claimed as full RankRAG performance.
 
+## Project Scope
+
+This project is a lightweight reproduction of RankRAG-style context ranking in Jittor. It does not reproduce full Llama3 instruction tuning or answer generation.
+
+## Experiment Levels
+
+### L0 Synthetic smoke test
+
+Used to validate pipeline correctness.
+
+### L1 MS MARCO MLP reranker
+
+Uses an MS MARCO small subset to validate the MLP scorer and PyTorch/Jittor alignment.
+
+### L2 Multi-model context ranking
+
+Adds traditional retrieval baselines and a TextCNN reranker:
+
+- TF-IDF / BM25 baseline
+- MLP scorer, PyTorch + Jittor
+- TextCNN reranker, PyTorch + Jittor
+- case study and error analysis
+
 ## Method
 
-The implemented ranking pipeline is:
+The L1 MLP ranking pipeline is:
 
 ```text
 query + candidate context
@@ -37,6 +61,18 @@ query + candidate context
 ```
 
 Feature dimension is `1537`: `q_emb, c_emb, abs(q-c), q*c, cosine`, where the HashingVectorizer embedding dimension is `384`, so `384 * 4 + 1 = 1537`.
+
+The L2 TextCNN reranker uses:
+
+```text
+query <sep> candidate passage
+-> token ids
+-> embedding
+-> Conv1d kernels 3/4/5
+-> max-over-time pooling
+-> linear scorer
+-> pairwise ranking loss
+```
 
 ## Environment
 
@@ -107,6 +143,18 @@ python src/compare_results.py --run_name msmarco
 python src/plot_results.py --run_name msmarco
 ```
 
+Run L2 multi-model experiments:
+
+```bash
+bash scripts/run_retrieval_baselines_msmarco.sh
+bash scripts/run_train_textcnn_torch_msmarco.sh
+bash scripts/run_eval_textcnn_torch_msmarco.sh
+bash scripts/run_train_textcnn_jittor_msmarco.sh
+bash scripts/run_eval_textcnn_jittor_msmarco.sh
+python src/aggregate_l2_results.py
+python src/case_study_msmarco.py
+```
+
 Readiness check:
 
 ```bash
@@ -130,6 +178,19 @@ Subset size:
 | test | 200 | 4.99 | 200 | 798 |
 
 The subset is small by design. It is not the full MS MARCO dataset and is not a leaderboard submission setting.
+
+## L2 Multi-model MS MARCO Results
+
+| Method | Framework | Status | Recall@1 | Recall@3 | Recall@5 | NDCG@1 | NDCG@3 | NDCG@5 | MRR | Pairwise Accuracy |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| TFIDF | sklearn/rank_bm25 | ready | 0.2950 | 0.7500 | 1.0000 | 0.2950 | 0.5579 | 0.6598 | 0.5477 | 0.6129 |
+| BM25 | sklearn/rank_bm25 | ready | 0.3100 | 0.7600 | 1.0000 | 0.3100 | 0.5664 | 0.6656 | 0.5552 | 0.6242 |
+| MLP | PyTorch | ready | 0.2600 | 0.6500 | 1.0000 | 0.2600 | 0.4812 | 0.6251 | 0.5031 | 0.5529 |
+| MLP | Jittor | ready | 0.2450 | 0.6700 | 1.0000 | 0.2450 | 0.4863 | 0.6214 | 0.4978 | 0.5546 |
+| TextCNN | PyTorch | ready | 0.2400 | 0.6350 | 1.0000 | 0.2400 | 0.4670 | 0.6165 | 0.4917 | 0.5396 |
+| TextCNN | Jittor | ready | 0.2400 | 0.6250 | 1.0000 | 0.2400 | 0.4567 | 0.6106 | 0.4842 | 0.5267 |
+
+On this small subset, BM25 is the strongest L2 method among the tested lightweight rankers. TextCNN does not clearly improve over MLP or BM25 under the current short training setup. Its value here is that it adds a Jittor-native neural reranker and makes the comparison more complete. Stronger semantic ranking would likely require a pretrained encoder or LLM-style reranker, which is outside this project's current L2 scope.
 
 ## Current Main Results: MS MARCO
 
@@ -176,6 +237,21 @@ MS MARCO outputs:
 - `outputs/msmarco_metrics_compare.png`
 - `outputs/msmarco_demo_ranking_result_torch.json`
 - `outputs/msmarco_demo_ranking_result_jittor.json`
+- `outputs/msmarco_retrieval_baseline_metrics.json`
+- `outputs/msmarco_retrieval_baseline_metrics.md`
+- `outputs/msmarco_retrieval_baseline_rankings.json`
+- `logs/msmarco_textcnn_torch_train.log`
+- `logs/msmarco_textcnn_jittor_train.log`
+- `outputs/msmarco_textcnn_torch_metrics.json`
+- `outputs/msmarco_textcnn_jittor_metrics.json`
+- `outputs/msmarco_textcnn_demo_ranking_result_torch.json`
+- `outputs/msmarco_textcnn_demo_ranking_result_jittor.json`
+- `outputs/l2_msmarco_results.json`
+- `outputs/l2_msmarco_results.md`
+- `outputs/l2_msmarco_results.png`
+- `outputs/msmarco_case_study.json`
+- `docs/msmarco_case_study.md`
+- `docs/hardware_report.md`
 
 Synthetic outputs:
 
@@ -192,7 +268,9 @@ Synthetic outputs:
 
 ## Result Boundary
 
-This project should be read as a lightweight RankRAG-style context ranking reproduction in Jittor. MS MARCO small subset results are more meaningful than the synthetic smoke-test, but they still use a small subset and a compact MLP scorer. The project does not claim full RankRAG reproduction, LLM generation quality, or real academic search generalization.
+This project should be read as a lightweight RankRAG-style context ranking reproduction in Jittor. MS MARCO small subset results are more meaningful than the synthetic smoke-test, but they still use a small subset and compact rankers. The project does not claim full RankRAG reproduction, LLM generation quality, or real academic search generalization.
+
+L2 results are intended to compare lightweight context ranking choices, not to exceed RankRAG. The synthetic metrics only validate smoke-test correctness. MS MARCO is the main public ranking data used here, but this is still a small subset. Lightweight MLP/TextCNN rankers lack the deep semantic judgment of RankRAG's LLM reranking setup.
 
 ## File Structure
 
@@ -210,6 +288,6 @@ outputs/   Metrics, figures, and demo ranking results
 
 - Add a more standard MS MARCO passage ranking evaluation setup.
 - Add BEIR-SciFact for scientific fact/paper relevance evaluation.
-- Replace the fixed-feature MLP with a stronger neural reranker.
+- Add stronger non-LLM rerankers before attempting L3.
 - Evaluate larger subsets while keeping storage and runtime manageable.
 - Keep the scope focused on RankRAG-style context ranking unless full LLM instruction tuning is explicitly added.

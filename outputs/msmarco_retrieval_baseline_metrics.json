@@ -1,0 +1,30 @@
+{
+  "tfidf": {
+    "run_name": "msmarco",
+    "status": "ready",
+    "metrics": {
+      "recall@1": 0.295,
+      "ndcg@1": 0.295,
+      "recall@3": 0.75,
+      "ndcg@3": 0.5578510334642928,
+      "recall@5": 1.0,
+      "ndcg@5": 0.65982308537359,
+      "mrr": 0.5476666666666666,
+      "pairwise_accuracy": 0.6129166666666667
+    }
+  },
+  "bm25": {
+    "run_name": "msmarco",
+    "status": "ready",
+    "metrics": {
+      "recall@1": 0.31,
+      "ndcg@1": 0.31,
+      "recall@3": 0.76,
+      "ndcg@3": 0.5664231408571492,
+      "recall@5": 1.0,
+      "ndcg@5": 0.6656222584650721,
+      "mrr": 0.5552499999999998,
+      "pairwise_accuracy": 0.6241666666666668
+    }
+  }
+}

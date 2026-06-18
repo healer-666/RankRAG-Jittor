@@ -1,0 +1,1187 @@
+{
+  "success": [
+    {
+      "query_id": "msmarco_test_000001",
+      "query": "how much does an lpn make an hour in illinois",
+      "bucket": "success",
+      "primary_method": "TextCNN Jittor",
+      "methods": {
+        "TF-IDF": {
+          "positive_rank": 3,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000001_neg_2",
+              "label": 0,
+              "score": 0.1533143351221061,
+              "text_preview": "An LPN, or licensed practical nurse makes, on average $19.89 an hour in Chicago, IL. That means they earn an annually an income of roughly $41,370. From what I have been told, they make about $20 hr. "
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000001_neg_4",
+              "label": 0,
+              "score": 0.10890592777907573,
+              "text_preview": "Top Cities in Illinois for LPNs: Chicago. Illinois has a growing number of opportunities in the nursing field. Within the state, LPNs make up 17 % of nurses in the state. The Illinois LPN comfort scor"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000001_pos_1",
+              "label": 1,
+              "score": 0.06035145179029902,
+              "text_preview": "Bureau of Labor Statistics information for LPNs is classified under Licensed Practical & Licensed Vocational Nurses. A very popular profession that is always in the need of more workers had a median s"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000001_neg_3",
+              "label": 0,
+              "score": 0.04194086301239032,
+              "text_preview": "As you can see from our salary by state LPN wages listed below a licensed practical nurse can expect to make as much $51,000 a year if getting employed in one of the highest paying states. The total n"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000001_neg_5",
+              "label": 0,
+              "score": 0.015475043138353394,
+              "text_preview": "LPN Salary. According to information taken from the Bureau of Labor Statistics (BLS), the median annual LPN salary is $39,030. The middle 50% of LPNs make wages of $33,360 and $46,710 annually. The hi"
+            }
+          ],
+          "analysis": "The positive passage appears in the middle ranks. Hard negatives share enough words or answer style to compete with the positive passage. Keyword overlap is visible (an, hour, in, lpn, make), which can help lexical baselines."
+        },
+        "BM25": {
+          "positive_rank": 4,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000001_neg_4",
+              "label": 0,
+              "score": 2.8252856897009755,
+              "text_preview": "Top Cities in Illinois for LPNs: Chicago. Illinois has a growing number of opportunities in the nursing field. Within the state, LPNs make up 17 % of nurses in the state. The Illinois LPN comfort scor"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000001_neg_2",
+              "label": 0,
+              "score": 2.1748766989430632,
+              "text_preview": "An LPN, or licensed practical nurse makes, on average $19.89 an hour in Chicago, IL. That means they earn an annually an income of roughly $41,370. From what I have been told, they make about $20 hr. "
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000001_neg_3",
+              "label": 0,
+              "score": 1.6440118470783467,
+              "text_preview": "As you can see from our salary by state LPN wages listed below a licensed practical nurse can expect to make as much $51,000 a year if getting employed in one of the highest paying states. The total n"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000001_pos_1",
+              "label": 1,
+              "score": 1.3494095895596483,
+              "text_preview": "Bureau of Labor Statistics information for LPNs is classified under Licensed Practical & Licensed Vocational Nurses. A very popular profession that is always in the need of more workers had a median s"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000001_neg_5",
+              "label": 0,
+              "score": 0.4481247837824774,
+              "text_preview": "LPN Salary. According to information taken from the Bureau of Labor Statistics (BLS), the median annual LPN salary is $39,030. The middle 50% of LPNs make wages of $33,360 and $46,710 annually. The hi"
+            }
+          ],
+          "analysis": "The positive passage is ranked low. This suggests the lightweight reranker is still sensitive to lexical shortcuts and lacks the deeper semantic judgment of pretrained encoder or LLM-style rerankers. Keyword overlap is visible (illinois, in, lpn, make), which can help lexical baselines."
+        },
+        "TextCNN Jittor": {
+          "positive_rank": 1,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000001_pos_1",
+              "label": 1,
+              "score": 6.452173233032227,
+              "text_preview": "Bureau of Labor Statistics information for LPNs is classified under Licensed Practical & Licensed Vocational Nurses. A very popular profession that is always in the need of more workers had a median s"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000001_neg_3",
+              "label": 0,
+              "score": 6.341281890869141,
+              "text_preview": "As you can see from our salary by state LPN wages listed below a licensed practical nurse can expect to make as much $51,000 a year if getting employed in one of the highest paying states. The total n"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000001_neg_5",
+              "label": 0,
+              "score": 5.75163459777832,
+              "text_preview": "LPN Salary. According to information taken from the Bureau of Labor Statistics (BLS), the median annual LPN salary is $39,030. The middle 50% of LPNs make wages of $33,360 and $46,710 annually. The hi"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000001_neg_2",
+              "label": 0,
+              "score": 4.918707370758057,
+              "text_preview": "An LPN, or licensed practical nurse makes, on average $19.89 an hour in Chicago, IL. That means they earn an annually an income of roughly $41,370. From what I have been told, they make about $20 hr. "
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000001_neg_4",
+              "label": 0,
+              "score": 4.714352130889893,
+              "text_preview": "Top Cities in Illinois for LPNs: Chicago. Illinois has a growing number of opportunities in the nursing field. Within the state, LPNs make up 17 % of nurses in the state. The Illinois LPN comfort scor"
+            }
+          ],
+          "analysis": "The positive passage is ranked first. Keyword overlap is visible (an, hour, in, lpn), which can help lexical baselines."
+        }
+      }
+    },
+    {
+      "query_id": "msmarco_test_000007",
+      "query": "what is stone color",
+      "bucket": "success",
+      "primary_method": "TextCNN Jittor",
+      "methods": {
+        "TF-IDF": {
+          "positive_rank": 4,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000007_neg_4",
+              "label": 0,
+              "score": 0.10064386273574855,
+              "text_preview": "Pure topaz, like pure corundum, is transparent and colorless. The wide range of topaz colors that are available is due to either natural trace impurities or defects in the crystal structure. Color div"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000007_neg_5",
+              "label": 0,
+              "score": 0.052010601054778866,
+              "text_preview": "1 Goes Great With: See colors that combine well with your chosen color. 2  More Color Combos: Get more color combinations for your color. 3  See More Shades: View different shades of your selected col"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000007_neg_3",
+              "label": 0,
+              "score": 0.05033233248885874,
+              "text_preview": "1 More Color Combos: Get more color combinations for your color. 2  See More Shades: View different shades of your selected color. 3  View Similar Colors: See colors resembling the one you've chosen. "
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000007_pos_1",
+              "label": 1,
+              "score": 0.040264234410069044,
+              "text_preview": "Skip the talk, take me to the stone colors See also Birthstone Colors. This page will help locate jewelry made with gemstones in a specific color. For instance, if you are looking for blue, green, pin"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000007_neg_2",
+              "label": 0,
+              "score": 0.036245597051682975,
+              "text_preview": "1 See More Shades: View different shades of your selected color. 2  View Similar Colors: See colors resembling the one you've chosen. 3  Share: Share colors with your friends on social networks. 4  Se"
+            }
+          ],
+          "analysis": "The positive passage is ranked low. This suggests the lightweight reranker is still sensitive to lexical shortcuts and lacks the deeper semantic judgment of pretrained encoder or LLM-style rerankers. Keyword overlap is limited (color, is), so the ranker needs more than surface matching."
+        },
+        "BM25": {
+          "positive_rank": 2,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000007_neg_4",
+              "label": 0,
+              "score": 2.1443846319913997,
+              "text_preview": "Pure topaz, like pure corundum, is transparent and colorless. The wide range of topaz colors that are available is due to either natural trace impurities or defects in the crystal structure. Color div"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000007_pos_1",
+              "label": 1,
+              "score": 1.081552095714485,
+              "text_preview": "Skip the talk, take me to the stone colors See also Birthstone Colors. This page will help locate jewelry made with gemstones in a specific color. For instance, if you are looking for blue, green, pin"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000007_neg_5",
+              "label": 0,
+              "score": 0.2956992583871066,
+              "text_preview": "1 Goes Great With: See colors that combine well with your chosen color. 2  More Color Combos: Get more color combinations for your color. 3  See More Shades: View different shades of your selected col"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000007_neg_3",
+              "label": 0,
+              "score": 0.28883317653601276,
+              "text_preview": "1 More Color Combos: Get more color combinations for your color. 2  See More Shades: View different shades of your selected color. 3  View Similar Colors: See colors resembling the one you've chosen. "
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000007_neg_2",
+              "label": 0,
+              "score": 0.27201637473131923,
+              "text_preview": "1 See More Shades: View different shades of your selected color. 2  View Similar Colors: See colors resembling the one you've chosen. 3  Share: Share colors with your friends on social networks. 4  Se"
+            }
+          ],
+          "analysis": "The positive passage appears in the middle ranks. Hard negatives share enough words or answer style to compete with the positive passage. Keyword overlap is limited (color, is), so the ranker needs more than surface matching."
+        },
+        "TextCNN Jittor": {
+          "positive_rank": 1,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000007_pos_1",
+              "label": 1,
+              "score": 4.444179058074951,
+              "text_preview": "Skip the talk, take me to the stone colors See also Birthstone Colors. This page will help locate jewelry made with gemstones in a specific color. For instance, if you are looking for blue, green, pin"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000007_neg_5",
+              "label": 0,
+              "score": 4.327718734741211,
+              "text_preview": "1 Goes Great With: See colors that combine well with your chosen color. 2  More Color Combos: Get more color combinations for your color. 3  See More Shades: View different shades of your selected col"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000007_neg_2",
+              "label": 0,
+              "score": 4.315143585205078,
+              "text_preview": "1 See More Shades: View different shades of your selected color. 2  View Similar Colors: See colors resembling the one you've chosen. 3  Share: Share colors with your friends on social networks. 4  Se"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000007_neg_4",
+              "label": 0,
+              "score": 4.2970075607299805,
+              "text_preview": "Pure topaz, like pure corundum, is transparent and colorless. The wide range of topaz colors that are available is due to either natural trace impurities or defects in the crystal structure. Color div"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000007_neg_3",
+              "label": 0,
+              "score": 4.101499557495117,
+              "text_preview": "1 More Color Combos: Get more color combinations for your color. 2  See More Shades: View different shades of your selected color. 3  View Similar Colors: See colors resembling the one you've chosen. "
+            }
+          ],
+          "analysis": "The positive passage is ranked first. Keyword overlap is limited (color, stone), so the ranker needs more than surface matching."
+        }
+      }
+    },
+    {
+      "query_id": "msmarco_test_000009",
+      "query": "what are environmental impacts of hydropower",
+      "bucket": "success",
+      "primary_method": "TextCNN Jittor",
+      "methods": {
+        "TF-IDF": {
+          "positive_rank": 2,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000009_neg_3",
+              "label": 0,
+              "score": 0.13965650626602746,
+              "text_preview": "Environmental impacts of hydroelectric power. 1  1. ENVIRONMENTAL IMPACTS OF HYDROPOWER. 2  2. About hydropower The water behind the dam flows through an intake and pushes against blades in a turbine,"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000009_pos_2",
+              "label": 1,
+              "score": 0.1104936870927014,
+              "text_preview": "Environmental impacts. Hydropower is emission-free, renewable energy which does not cause any emissions into the air, water, or soil. The construction of hydropower plants changes waterways and their "
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000009_neg_1",
+              "label": 0,
+              "score": 0.08510459930826154,
+              "text_preview": "1 1. ENVIRONMENTAL IMPACTS OF HYDROPOWER. 2  2. About hydropower The water behind the dam flows through an intake and pushes against blades in a turbine, causing them to turn. 3  The turbine spins a g"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000009_neg_4",
+              "label": 0,
+              "score": 0.06495095416662704,
+              "text_preview": "A belief that 'small' hydropower systems are a source of clean energy with little or no environmental problems is driving the growing interest in mini, micro, and pico hydro systems that generate from"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000009_neg_5",
+              "label": 0,
+              "score": 0.038047140573543664,
+              "text_preview": "Hydroelectric power includes both massive hydroelectric dams and small run-of-the-river plants. Large-scale hydroelectric dams continue to be built in many parts of the world (including China and Braz"
+            }
+          ],
+          "analysis": "The positive passage appears in the middle ranks. Hard negatives share enough words or answer style to compete with the positive passage. Keyword overlap is visible (environmental, hydropower, impacts, of), which can help lexical baselines."
+        },
+        "BM25": {
+          "positive_rank": 2,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000009_neg_4",
+              "label": 0,
+              "score": 1.1269741092557646,
+              "text_preview": "A belief that 'small' hydropower systems are a source of clean energy with little or no environmental problems is driving the growing interest in mini, micro, and pico hydro systems that generate from"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000009_pos_2",
+              "label": 1,
+              "score": 1.116237430185882,
+              "text_preview": "Environmental impacts. Hydropower is emission-free, renewable energy which does not cause any emissions into the air, water, or soil. The construction of hydropower plants changes waterways and their "
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000009_neg_3",
+              "label": 0,
+              "score": 1.0949419404224934,
+              "text_preview": "Environmental impacts of hydroelectric power. 1  1. ENVIRONMENTAL IMPACTS OF HYDROPOWER. 2  2. About hydropower The water behind the dam flows through an intake and pushes against blades in a turbine,"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000009_neg_1",
+              "label": 0,
+              "score": 0.8873469232422846,
+              "text_preview": "1 1. ENVIRONMENTAL IMPACTS OF HYDROPOWER. 2  2. About hydropower The water behind the dam flows through an intake and pushes against blades in a turbine, causing them to turn. 3  The turbine spins a g"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000009_neg_5",
+              "label": 0,
+              "score": 0.7721811971160271,
+              "text_preview": "Hydroelectric power includes both massive hydroelectric dams and small run-of-the-river plants. Large-scale hydroelectric dams continue to be built in many parts of the world (including China and Braz"
+            }
+          ],
+          "analysis": "The positive passage appears in the middle ranks. Hard negatives share enough words or answer style to compete with the positive passage. Keyword overlap is visible (are, environmental, hydropower, of), which can help lexical baselines."
+        },
+        "TextCNN Jittor": {
+          "positive_rank": 1,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000009_pos_2",
+              "label": 1,
+              "score": 4.197828769683838,
+              "text_preview": "Environmental impacts. Hydropower is emission-free, renewable energy which does not cause any emissions into the air, water, or soil. The construction of hydropower plants changes waterways and their "
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000009_neg_4",
+              "label": 0,
+              "score": 4.037084102630615,
+              "text_preview": "A belief that 'small' hydropower systems are a source of clean energy with little or no environmental problems is driving the growing interest in mini, micro, and pico hydro systems that generate from"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000009_neg_5",
+              "label": 0,
+              "score": 3.7185170650482178,
+              "text_preview": "Hydroelectric power includes both massive hydroelectric dams and small run-of-the-river plants. Large-scale hydroelectric dams continue to be built in many parts of the world (including China and Braz"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000009_neg_3",
+              "label": 0,
+              "score": 2.844869613647461,
+              "text_preview": "Environmental impacts of hydroelectric power. 1  1. ENVIRONMENTAL IMPACTS OF HYDROPOWER. 2  2. About hydropower The water behind the dam flows through an intake and pushes against blades in a turbine,"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000009_neg_1",
+              "label": 0,
+              "score": 2.4808452129364014,
+              "text_preview": "1 1. ENVIRONMENTAL IMPACTS OF HYDROPOWER. 2  2. About hydropower The water behind the dam flows through an intake and pushes against blades in a turbine, causing them to turn. 3  The turbine spins a g"
+            }
+          ],
+          "analysis": "The positive passage is ranked first. Keyword overlap is visible (environmental, hydropower, impacts, of), which can help lexical baselines."
+        }
+      }
+    }
+  ],
+  "middle": [
+    {
+      "query_id": "msmarco_test_000003",
+      "query": "common extensor tendon origin and insertion",
+      "bucket": "middle",
+      "primary_method": "TextCNN Jittor",
+      "methods": {
+        "TF-IDF": {
+          "positive_rank": 4,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000003_neg_5",
+              "label": 0,
+              "score": 0.2759543190438731,
+              "text_preview": "Tennis elbow. Tendon pathology involving the common extensor tendon origin is the most common cause of elbow pain and/or disability, and is much more common than tendinous injury of the common flexor "
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000003_neg_2",
+              "label": 0,
+              "score": 0.17619213663796643,
+              "text_preview": "Origin: Common extensor tendon from latearl epicondyle of humerus and deep antebrachial fascia Insertion: into expansion of little finger with extensor digitorum tendon Action: Extend MCP joints and I"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000003_neg_1",
+              "label": 0,
+              "score": 0.1429979203293008,
+              "text_preview": "Origin: Common extensor tendon from lateral epicondyle of humerus, and deep antebrachial fascia. Insertion: By four tendons, each penetrating a membranous expansion of the dorsum of the second to fift"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000003_pos_4",
+              "label": 1,
+              "score": 0.11592277313962085,
+              "text_preview": "ORIGIN Common extensor origin on anterior aspect of lateral epicondyle of humerus. INSERTION Extensor expansion of little finger-usually two tendons which are joined by a slip from extensor digitorum "
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000003_neg_3",
+              "label": 0,
+              "score": 0.059763590389077886,
+              "text_preview": "Extensor tendinopathy or as it is most commonly know “tennis elbow” is pain in the outside of the elbow that comes from inflammation and degeneration of the tendons on the outside of the elbow. The te"
+            }
+          ],
+          "analysis": "The positive passage is ranked low. This suggests the lightweight reranker is still sensitive to lexical shortcuts and lacks the deeper semantic judgment of pretrained encoder or LLM-style rerankers. Keyword overlap is visible (and, common, extensor, origin, tendon), which can help lexical baselines."
+        },
+        "BM25": {
+          "positive_rank": 4,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000003_neg_2",
+              "label": 0,
+              "score": 1.5158389650849136,
+              "text_preview": "Origin: Common extensor tendon from latearl epicondyle of humerus and deep antebrachial fascia Insertion: into expansion of little finger with extensor digitorum tendon Action: Extend MCP joints and I"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000003_neg_5",
+              "label": 0,
+              "score": 1.3900518242673074,
+              "text_preview": "Tennis elbow. Tendon pathology involving the common extensor tendon origin is the most common cause of elbow pain and/or disability, and is much more common than tendinous injury of the common flexor "
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000003_neg_1",
+              "label": 0,
+              "score": 1.237696863358219,
+              "text_preview": "Origin: Common extensor tendon from lateral epicondyle of humerus, and deep antebrachial fascia. Insertion: By four tendons, each penetrating a membranous expansion of the dorsum of the second to fift"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000003_pos_4",
+              "label": 1,
+              "score": 1.0057429294002578,
+              "text_preview": "ORIGIN Common extensor origin on anterior aspect of lateral epicondyle of humerus. INSERTION Extensor expansion of little finger-usually two tendons which are joined by a slip from extensor digitorum "
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000003_neg_3",
+              "label": 0,
+              "score": 0.9288011530949102,
+              "text_preview": "Extensor tendinopathy or as it is most commonly know “tennis elbow” is pain in the outside of the elbow that comes from inflammation and degeneration of the tendons on the outside of the elbow. The te"
+            }
+          ],
+          "analysis": "The positive passage is ranked low. This suggests the lightweight reranker is still sensitive to lexical shortcuts and lacks the deeper semantic judgment of pretrained encoder or LLM-style rerankers. Keyword overlap is visible (and, common, extensor, insertion, origin, tendon), which can help lexical baselines."
+        },
+        "TextCNN Jittor": {
+          "positive_rank": 2,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000003_neg_3",
+              "label": 0,
+              "score": 6.302279472351074,
+              "text_preview": "Extensor tendinopathy or as it is most commonly know “tennis elbow” is pain in the outside of the elbow that comes from inflammation and degeneration of the tendons on the outside of the elbow. The te"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000003_pos_4",
+              "label": 1,
+              "score": 5.961578369140625,
+              "text_preview": "ORIGIN Common extensor origin on anterior aspect of lateral epicondyle of humerus. INSERTION Extensor expansion of little finger-usually two tendons which are joined by a slip from extensor digitorum "
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000003_neg_1",
+              "label": 0,
+              "score": 5.545260906219482,
+              "text_preview": "Origin: Common extensor tendon from lateral epicondyle of humerus, and deep antebrachial fascia. Insertion: By four tendons, each penetrating a membranous expansion of the dorsum of the second to fift"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000003_neg_5",
+              "label": 0,
+              "score": 5.342433452606201,
+              "text_preview": "Tennis elbow. Tendon pathology involving the common extensor tendon origin is the most common cause of elbow pain and/or disability, and is much more common than tendinous injury of the common flexor "
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000003_neg_2",
+              "label": 0,
+              "score": 4.885749816894531,
+              "text_preview": "Origin: Common extensor tendon from latearl epicondyle of humerus and deep antebrachial fascia Insertion: into expansion of little finger with extensor digitorum tendon Action: Extend MCP joints and I"
+            }
+          ],
+          "analysis": "The positive passage appears in the middle ranks. Hard negatives share enough words or answer style to compete with the positive passage. Keyword overlap is visible (and, common, extensor, origin, tendon), which can help lexical baselines."
+        }
+      }
+    },
+    {
+      "query_id": "msmarco_test_000004",
+      "query": "when was the death penalty abolished",
+      "bucket": "middle",
+      "primary_method": "TextCNN Jittor",
+      "methods": {
+        "TF-IDF": {
+          "positive_rank": 1,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000004_pos_3",
+              "label": 1,
+              "score": 0.20078902335782606,
+              "text_preview": "The last executions UK took place in 1964, and the death penalty was abolished in 1998. In 2004 the UK became a party to the 13th Protocol to the European Convention on Human Rights and prohibited the"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000004_neg_1",
+              "label": 0,
+              "score": 0.16313583168608298,
+              "text_preview": "Why the Death Penalty should be abolished. The risk of executing innocent people exists in any justice system There have been and always will be cases of executions of innocent people. No matter how d"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000004_neg_4",
+              "label": 0,
+              "score": 0.15660614274149115,
+              "text_preview": "In 1846, Michigan became the first state to abolish the death penalty for all crimes except treason. Later, Rhode Island and Wisconsin abolished the death penalty for all crimes. By the end of the cen"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000004_neg_2",
+              "label": 0,
+              "score": 0.14218870512872225,
+              "text_preview": "Since 2007, six states have abolished the death penalty: Maryland, Connecticut, Illinois, New Mexico and New Jersey. According to the Death Penalty Information Center, a research group opposed to the "
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000004_neg_5",
+              "label": 0,
+              "score": 0.11071477430749738,
+              "text_preview": "California currently spends $184 million on the death penalty each year and is on track to spend $1 billion in the next five years. There are many reasons the death penalty should be abolished. It is "
+            }
+          ],
+          "analysis": "The positive passage is ranked first. Keyword overlap is visible (abolished, death, penalty, the, was), which can help lexical baselines."
+        },
+        "BM25": {
+          "positive_rank": 1,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000004_pos_3",
+              "label": 1,
+              "score": 1.8735858458853378,
+              "text_preview": "The last executions UK took place in 1964, and the death penalty was abolished in 1998. In 2004 the UK became a party to the 13th Protocol to the European Convention on Human Rights and prohibited the"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000004_neg_4",
+              "label": 0,
+              "score": 1.6950810794300462,
+              "text_preview": "In 1846, Michigan became the first state to abolish the death penalty for all crimes except treason. Later, Rhode Island and Wisconsin abolished the death penalty for all crimes. By the end of the cen"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000004_neg_1",
+              "label": 0,
+              "score": 1.4394360294132866,
+              "text_preview": "Why the Death Penalty should be abolished. The risk of executing innocent people exists in any justice system There have been and always will be cases of executions of innocent people. No matter how d"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000004_neg_2",
+              "label": 0,
+              "score": 1.4127037089387289,
+              "text_preview": "Since 2007, six states have abolished the death penalty: Maryland, Connecticut, Illinois, New Mexico and New Jersey. According to the Death Penalty Information Center, a research group opposed to the "
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000004_neg_5",
+              "label": 0,
+              "score": 1.372183589374956,
+              "text_preview": "California currently spends $184 million on the death penalty each year and is on track to spend $1 billion in the next five years. There are many reasons the death penalty should be abolished. It is "
+            }
+          ],
+          "analysis": "The positive passage is ranked first. Keyword overlap is visible (abolished, death, penalty, the, was), which can help lexical baselines."
+        },
+        "TextCNN Jittor": {
+          "positive_rank": 3,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000004_neg_4",
+              "label": 0,
+              "score": 5.657673358917236,
+              "text_preview": "In 1846, Michigan became the first state to abolish the death penalty for all crimes except treason. Later, Rhode Island and Wisconsin abolished the death penalty for all crimes. By the end of the cen"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000004_neg_1",
+              "label": 0,
+              "score": 4.986337661743164,
+              "text_preview": "Why the Death Penalty should be abolished. The risk of executing innocent people exists in any justice system There have been and always will be cases of executions of innocent people. No matter how d"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000004_pos_3",
+              "label": 1,
+              "score": 4.860564231872559,
+              "text_preview": "The last executions UK took place in 1964, and the death penalty was abolished in 1998. In 2004 the UK became a party to the 13th Protocol to the European Convention on Human Rights and prohibited the"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000004_neg_5",
+              "label": 0,
+              "score": 4.639437675476074,
+              "text_preview": "California currently spends $184 million on the death penalty each year and is on track to spend $1 billion in the next five years. There are many reasons the death penalty should be abolished. It is "
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000004_neg_2",
+              "label": 0,
+              "score": 4.2154130935668945,
+              "text_preview": "Since 2007, six states have abolished the death penalty: Maryland, Connecticut, Illinois, New Mexico and New Jersey. According to the Death Penalty Information Center, a research group opposed to the "
+            }
+          ],
+          "analysis": "The positive passage appears in the middle ranks. Hard negatives share enough words or answer style to compete with the positive passage. Keyword overlap is visible (abolished, death, penalty, the, was), which can help lexical baselines."
+        }
+      }
+    },
+    {
+      "query_id": "msmarco_test_000008",
+      "query": "what does a k in a mustang's vin code mean",
+      "bucket": "middle",
+      "primary_method": "TextCNN Jittor",
+      "methods": {
+        "TF-IDF": {
+          "positive_rank": 1,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000008_pos_1",
+              "label": 1,
+              "score": 0.06379019699179508,
+              "text_preview": "The “K” represented the engine code on the VIN number of these Mustangs. The K-Code engine was first introduced by Ford in 1963, and was featured in cars such as the Fairlane and the Comet. Each K-Cod"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000008_neg_2",
+              "label": 0,
+              "score": 0.05490296911018262,
+              "text_preview": "Answer: Ah, the popular K-code Mustang question. Well, the simple answer is the K-Code was a 1965-1967 Mustang that came from the factory with a special 289 High Performance cubic-inch engine beneath "
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000008_neg_4",
+              "label": 0,
+              "score": 0.05116053668054396,
+              "text_preview": "So with that said let start with the facts for both years: (I will also identify specific things with each year). 1. The VIN needs to have either an A code or K code in the 5th position. Transmission "
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000008_neg_5",
+              "label": 0,
+              "score": 0.04491100242891206,
+              "text_preview": "Ford 289 ‘K Code’ engine in 1968 Mustang GT350 (credit: Stephen Foskett). The code refers to the fifth character of the car’s VIN (vehicle identification number), and denotes the engine the car was fi"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000008_neg_3",
+              "label": 0,
+              "score": 0.018970328093485162,
+              "text_preview": "Foxbody Mustang Vehicle Identification Number. The VIN on any vehicle is a very useful line of characters and numbers. It tells us the year, assembly plant, body type and engine option that the car wa"
+            }
+          ],
+          "analysis": "The positive passage is ranked first. Keyword overlap is visible (a, code, in, k, mustang, vin), which can help lexical baselines."
+        },
+        "BM25": {
+          "positive_rank": 2,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000008_neg_5",
+              "label": 0,
+              "score": 2.5876406214488332,
+              "text_preview": "Ford 289 ‘K Code’ engine in 1968 Mustang GT350 (credit: Stephen Foskett). The code refers to the fifth character of the car’s VIN (vehicle identification number), and denotes the engine the car was fi"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000008_pos_1",
+              "label": 1,
+              "score": 1.5200655143550539,
+              "text_preview": "The “K” represented the engine code on the VIN number of these Mustangs. The K-Code engine was first introduced by Ford in 1963, and was featured in cars such as the Fairlane and the Comet. Each K-Cod"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000008_neg_2",
+              "label": 0,
+              "score": 1.4540666973608056,
+              "text_preview": "Answer: Ah, the popular K-code Mustang question. Well, the simple answer is the K-Code was a 1965-1967 Mustang that came from the factory with a special 289 High Performance cubic-inch engine beneath "
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000008_neg_4",
+              "label": 0,
+              "score": 1.2467669003364883,
+              "text_preview": "So with that said let start with the facts for both years: (I will also identify specific things with each year). 1. The VIN needs to have either an A code or K code in the 5th position. Transmission "
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000008_neg_3",
+              "label": 0,
+              "score": 0.7793888829904118,
+              "text_preview": "Foxbody Mustang Vehicle Identification Number. The VIN on any vehicle is a very useful line of characters and numbers. It tells us the year, assembly plant, body type and engine option that the car wa"
+            }
+          ],
+          "analysis": "The positive passage appears in the middle ranks. Hard negatives share enough words or answer style to compete with the positive passage. Keyword overlap is visible (a, code, in, k, mustang, s), which can help lexical baselines."
+        },
+        "TextCNN Jittor": {
+          "positive_rank": 2,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000008_neg_2",
+              "label": 0,
+              "score": 5.4254150390625,
+              "text_preview": "Answer: Ah, the popular K-code Mustang question. Well, the simple answer is the K-Code was a 1965-1967 Mustang that came from the factory with a special 289 High Performance cubic-inch engine beneath "
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000008_pos_1",
+              "label": 1,
+              "score": 5.220194339752197,
+              "text_preview": "The “K” represented the engine code on the VIN number of these Mustangs. The K-Code engine was first introduced by Ford in 1963, and was featured in cars such as the Fairlane and the Comet. Each K-Cod"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000008_neg_3",
+              "label": 0,
+              "score": 5.158795356750488,
+              "text_preview": "Foxbody Mustang Vehicle Identification Number. The VIN on any vehicle is a very useful line of characters and numbers. It tells us the year, assembly plant, body type and engine option that the car wa"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000008_neg_4",
+              "label": 0,
+              "score": 4.440448760986328,
+              "text_preview": "So with that said let start with the facts for both years: (I will also identify specific things with each year). 1. The VIN needs to have either an A code or K code in the 5th position. Transmission "
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000008_neg_5",
+              "label": 0,
+              "score": 4.224688529968262,
+              "text_preview": "Ford 289 ‘K Code’ engine in 1968 Mustang GT350 (credit: Stephen Foskett). The code refers to the fifth character of the car’s VIN (vehicle identification number), and denotes the engine the car was fi"
+            }
+          ],
+          "analysis": "The positive passage appears in the middle ranks. Hard negatives share enough words or answer style to compete with the positive passage. Keyword overlap is visible (a, code, in, k, mustang), which can help lexical baselines."
+        }
+      }
+    }
+  ],
+  "failure": [
+    {
+      "query_id": "msmarco_test_000002",
+      "query": "what does the aortic valve do",
+      "bucket": "failure",
+      "primary_method": "TextCNN Jittor",
+      "methods": {
+        "TF-IDF": {
+          "positive_rank": 4,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000002_neg_2",
+              "label": 0,
+              "score": 0.1927580672098206,
+              "text_preview": "The aortic valve is one of the two semilunar valves of the heart, the other being the pulmonary valve. The heart has four valves and the other two are the mitral and the tricuspid valves. When the pre"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000002_neg_3",
+              "label": 0,
+              "score": 0.1917334430748876,
+              "text_preview": "There are four valves in your heart including the mitral, tricuspid, aortic and pulmonic valves. The aortic valve is located between the left ventricle (lower heart pumping chamber) and the aorta, whi"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000002_neg_4",
+              "label": 0,
+              "score": 0.15437724318464222,
+              "text_preview": "During ventricular systole, pressure rises in the left ventricle. When the pressure in the left ventricle rises above the pressure in the aorta, the aortic valve opens, allowing blood to exit the left"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000002_pos_1",
+              "label": 1,
+              "score": 0.13131627108530072,
+              "text_preview": "The aortic valve opens to allow blood to flow into the aorta and then closes to prevent blood from flowing back into the heart. This animation shows the aortic valve in action."
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000002_neg_5",
+              "label": 0,
+              "score": 0.1255328857273172,
+              "text_preview": "All rights reserved. The aorta is the largest artery in the body. The aorta begins at the top of the left ventricle, the heart's muscular pumping chamber. The heart pumps blood from the left ventricle"
+            }
+          ],
+          "analysis": "The positive passage is ranked low. This suggests the lightweight reranker is still sensitive to lexical shortcuts and lacks the deeper semantic judgment of pretrained encoder or LLM-style rerankers. Keyword overlap is visible (aortic, the, valve), which can help lexical baselines."
+        },
+        "BM25": {
+          "positive_rank": 4,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000002_neg_3",
+              "label": 0,
+              "score": 1.817415747877297,
+              "text_preview": "There are four valves in your heart including the mitral, tricuspid, aortic and pulmonic valves. The aortic valve is located between the left ventricle (lower heart pumping chamber) and the aorta, whi"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000002_neg_2",
+              "label": 0,
+              "score": 0.8671228836703191,
+              "text_preview": "The aortic valve is one of the two semilunar valves of the heart, the other being the pulmonary valve. The heart has four valves and the other two are the mitral and the tricuspid valves. When the pre"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000002_neg_4",
+              "label": 0,
+              "score": 0.8221246589835643,
+              "text_preview": "During ventricular systole, pressure rises in the left ventricle. When the pressure in the left ventricle rises above the pressure in the aorta, the aortic valve opens, allowing blood to exit the left"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000002_pos_1",
+              "label": 1,
+              "score": 0.8047554216947744,
+              "text_preview": "The aortic valve opens to allow blood to flow into the aorta and then closes to prevent blood from flowing back into the heart. This animation shows the aortic valve in action."
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000002_neg_5",
+              "label": 0,
+              "score": 0.7189378358379344,
+              "text_preview": "All rights reserved. The aorta is the largest artery in the body. The aorta begins at the top of the left ventricle, the heart's muscular pumping chamber. The heart pumps blood from the left ventricle"
+            }
+          ],
+          "analysis": "The positive passage is ranked low. This suggests the lightweight reranker is still sensitive to lexical shortcuts and lacks the deeper semantic judgment of pretrained encoder or LLM-style rerankers. Keyword overlap is visible (aortic, does, the, valve), which can help lexical baselines."
+        },
+        "TextCNN Jittor": {
+          "positive_rank": 5,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000002_neg_3",
+              "label": 0,
+              "score": 4.524282932281494,
+              "text_preview": "There are four valves in your heart including the mitral, tricuspid, aortic and pulmonic valves. The aortic valve is located between the left ventricle (lower heart pumping chamber) and the aorta, whi"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000002_neg_5",
+              "label": 0,
+              "score": 4.168968677520752,
+              "text_preview": "All rights reserved. The aorta is the largest artery in the body. The aorta begins at the top of the left ventricle, the heart's muscular pumping chamber. The heart pumps blood from the left ventricle"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000002_neg_2",
+              "label": 0,
+              "score": 4.0345377922058105,
+              "text_preview": "The aortic valve is one of the two semilunar valves of the heart, the other being the pulmonary valve. The heart has four valves and the other two are the mitral and the tricuspid valves. When the pre"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000002_neg_4",
+              "label": 0,
+              "score": 2.271333932876587,
+              "text_preview": "During ventricular systole, pressure rises in the left ventricle. When the pressure in the left ventricle rises above the pressure in the aorta, the aortic valve opens, allowing blood to exit the left"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000002_pos_1",
+              "label": 1,
+              "score": 1.8404934406280518,
+              "text_preview": "The aortic valve opens to allow blood to flow into the aorta and then closes to prevent blood from flowing back into the heart. This animation shows the aortic valve in action."
+            }
+          ],
+          "analysis": "The positive passage is ranked low. This suggests the lightweight reranker is still sensitive to lexical shortcuts and lacks the deeper semantic judgment of pretrained encoder or LLM-style rerankers. Keyword overlap is visible (aortic, does, the, valve), which can help lexical baselines."
+        }
+      }
+    },
+    {
+      "query_id": "msmarco_test_000005",
+      "query": "what types of movements are observed in transport of bedload",
+      "bucket": "failure",
+      "primary_method": "TextCNN Jittor",
+      "methods": {
+        "TF-IDF": {
+          "positive_rank": 3,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000005_neg_1",
+              "label": 0,
+              "score": 0.1007716269829063,
+              "text_preview": "Sediment transport due to fluid motion occurs in rivers, oceans, lakes, seas, and other bodies of water due to currents and tides. Transport is also caused by glaciers as they flow, and on terrestrial"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000005_neg_4",
+              "label": 0,
+              "score": 0.07495561766408414,
+              "text_preview": "Rapids are sections of a river where the gradient of the river bed is relatively steep resulting in an increase in the river’s turbulence and velocity. They form where the gradient of the river is ste"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000005_pos_3",
+              "label": 1,
+              "score": 0.0581999307899434,
+              "text_preview": "On Fraser River at Mission, for example, about 1 million tonnes of the total 22 million tonnes of total sediment transport moves as bedload (about 5%). Equation (4.2) and others of its type utilize a "
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000005_neg_2",
+              "label": 0,
+              "score": 0.05427856139058704,
+              "text_preview": "Sediment transport is the movement of organic and inorganic particles by water 10. In general, the greater the flow, the more sediment that will be conveyed. Water flow can be strong enough to suspend"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000005_neg_5",
+              "label": 0,
+              "score": 0.036746610109263396,
+              "text_preview": "Sediment is a naturally occurring material that is broken down by processes of weathering and erosion, and is subsequently transported by the action of wind, water, or ice, and/or by the force of grav"
+            }
+          ],
+          "analysis": "The positive passage appears in the middle ranks. Hard negatives share enough words or answer style to compete with the positive passage. Keyword overlap is visible (in, of, transport), which can help lexical baselines."
+        },
+        "BM25": {
+          "positive_rank": 3,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000005_neg_4",
+              "label": 0,
+              "score": 2.5859485803862734,
+              "text_preview": "Rapids are sections of a river where the gradient of the river bed is relatively steep resulting in an increase in the river’s turbulence and velocity. They form where the gradient of the river is ste"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000005_neg_1",
+              "label": 0,
+              "score": 1.5876142637098414,
+              "text_preview": "Sediment transport due to fluid motion occurs in rivers, oceans, lakes, seas, and other bodies of water due to currents and tides. Transport is also caused by glaciers as they flow, and on terrestrial"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000005_pos_3",
+              "label": 1,
+              "score": 1.5092516562393932,
+              "text_preview": "On Fraser River at Mission, for example, about 1 million tonnes of the total 22 million tonnes of total sediment transport moves as bedload (about 5%). Equation (4.2) and others of its type utilize a "
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000005_neg_2",
+              "label": 0,
+              "score": 1.3175879796894374,
+              "text_preview": "Sediment transport is the movement of organic and inorganic particles by water 10. In general, the greater the flow, the more sediment that will be conveyed. Water flow can be strong enough to suspend"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000005_neg_5",
+              "label": 0,
+              "score": 0.7836726789068436,
+              "text_preview": "Sediment is a naturally occurring material that is broken down by processes of weathering and erosion, and is subsequently transported by the action of wind, water, or ice, and/or by the force of grav"
+            }
+          ],
+          "analysis": "The positive passage appears in the middle ranks. Hard negatives share enough words or answer style to compete with the positive passage. Keyword overlap is visible (are, bedload, in, of), which can help lexical baselines."
+        },
+        "TextCNN Jittor": {
+          "positive_rank": 4,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000005_neg_2",
+              "label": 0,
+              "score": 5.933258056640625,
+              "text_preview": "Sediment transport is the movement of organic and inorganic particles by water 10. In general, the greater the flow, the more sediment that will be conveyed. Water flow can be strong enough to suspend"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000005_neg_5",
+              "label": 0,
+              "score": 5.32100772857666,
+              "text_preview": "Sediment is a naturally occurring material that is broken down by processes of weathering and erosion, and is subsequently transported by the action of wind, water, or ice, and/or by the force of grav"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000005_neg_1",
+              "label": 0,
+              "score": 5.232887268066406,
+              "text_preview": "Sediment transport due to fluid motion occurs in rivers, oceans, lakes, seas, and other bodies of water due to currents and tides. Transport is also caused by glaciers as they flow, and on terrestrial"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000005_pos_3",
+              "label": 1,
+              "score": 4.263093948364258,
+              "text_preview": "On Fraser River at Mission, for example, about 1 million tonnes of the total 22 million tonnes of total sediment transport moves as bedload (about 5%). Equation (4.2) and others of its type utilize a "
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000005_neg_4",
+              "label": 0,
+              "score": 3.9516141414642334,
+              "text_preview": "Rapids are sections of a river where the gradient of the river bed is relatively steep resulting in an increase in the river’s turbulence and velocity. They form where the gradient of the river is ste"
+            }
+          ],
+          "analysis": "The positive passage is ranked low. This suggests the lightweight reranker is still sensitive to lexical shortcuts and lacks the deeper semantic judgment of pretrained encoder or LLM-style rerankers. Keyword overlap is visible (in, of, transport), which can help lexical baselines."
+        }
+      }
+    },
+    {
+      "query_id": "msmarco_test_000006",
+      "query": "what is the average bookkeeper hourly rate",
+      "bucket": "failure",
+      "primary_method": "TextCNN Jittor",
+      "methods": {
+        "TF-IDF": {
+          "positive_rank": 5,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000006_neg_5",
+              "label": 0,
+              "score": 0.09258908449124645,
+              "text_preview": "Hourly Wages. The average hourly wage for bookkeepers is $16.71, according to 2009 data from the Bureau of Labor Statistics. This wage translates to an annual salary of $34,750 for those working full-"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000006_neg_3",
+              "label": 0,
+              "score": 0.07712218912182701,
+              "text_preview": "For example the median expected hourly pay for a typical Bookkeeper in the United States is $18 an hour, so 50% of the people who perform the job of Bookkeeper in the United States are expected to mak"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000006_neg_4",
+              "label": 0,
+              "score": 0.07557381388335747,
+              "text_preview": "Bookkeeping service fee charged by the hour. Some bookkeepers charge out their bookkeeping service at a basic hourly fee with a set minimum charge. The average rate for general bookkeeping services ri"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000006_neg_2",
+              "label": 0,
+              "score": 0.0574548119030375,
+              "text_preview": "1 A typical salary for an in-house bookkeeper in the United States runs $30,400-$39,898 according to Salary.com. 2  The average annual pay for a bookkeeping account executive is $68,294, or $57,600 fo"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000006_pos_1",
+              "label": 1,
+              "score": 0.05279668029669981,
+              "text_preview": "A bookkeeper usually earns an hourly rate between $15 and $20. Entry level bookkeepers can expect starting pay between $12 and $15 an hour while senior bookkeepers can expect to earn a little more tha"
+            }
+          ],
+          "analysis": "The positive passage is ranked low. This suggests the lightweight reranker is still sensitive to lexical shortcuts and lacks the deeper semantic judgment of pretrained encoder or LLM-style rerankers. Keyword overlap is visible (average, bookkeeper, hourly, is, the), which can help lexical baselines."
+        },
+        "BM25": {
+          "positive_rank": 5,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000006_neg_5",
+              "label": 0,
+              "score": 1.4596641742437217,
+              "text_preview": "Hourly Wages. The average hourly wage for bookkeepers is $16.71, according to 2009 data from the Bureau of Labor Statistics. This wage translates to an annual salary of $34,750 for those working full-"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000006_neg_4",
+              "label": 0,
+              "score": 1.307181265508391,
+              "text_preview": "Bookkeeping service fee charged by the hour. Some bookkeepers charge out their bookkeeping service at a basic hourly fee with a set minimum charge. The average rate for general bookkeeping services ri"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000006_neg_3",
+              "label": 0,
+              "score": 1.1664338038752304,
+              "text_preview": "For example the median expected hourly pay for a typical Bookkeeper in the United States is $18 an hour, so 50% of the people who perform the job of Bookkeeper in the United States are expected to mak"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000006_neg_2",
+              "label": 0,
+              "score": 1.00131746322628,
+              "text_preview": "1 A typical salary for an in-house bookkeeper in the United States runs $30,400-$39,898 according to Salary.com. 2  The average annual pay for a bookkeeping account executive is $68,294, or $57,600 fo"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000006_pos_1",
+              "label": 1,
+              "score": 0.8139101948605607,
+              "text_preview": "A bookkeeper usually earns an hourly rate between $15 and $20. Entry level bookkeepers can expect starting pay between $12 and $15 an hour while senior bookkeepers can expect to earn a little more tha"
+            }
+          ],
+          "analysis": "The positive passage is ranked low. This suggests the lightweight reranker is still sensitive to lexical shortcuts and lacks the deeper semantic judgment of pretrained encoder or LLM-style rerankers. Keyword overlap is visible (average, bookkeeper, hourly, is, the), which can help lexical baselines."
+        },
+        "TextCNN Jittor": {
+          "positive_rank": 5,
+          "ranking": [
+            {
+              "rank": 1,
+              "doc_id": "msmarco_test_000006_neg_3",
+              "label": 0,
+              "score": 6.235647678375244,
+              "text_preview": "For example the median expected hourly pay for a typical Bookkeeper in the United States is $18 an hour, so 50% of the people who perform the job of Bookkeeper in the United States are expected to mak"
+            },
+            {
+              "rank": 2,
+              "doc_id": "msmarco_test_000006_neg_4",
+              "label": 0,
+              "score": 6.016871452331543,
+              "text_preview": "Bookkeeping service fee charged by the hour. Some bookkeepers charge out their bookkeeping service at a basic hourly fee with a set minimum charge. The average rate for general bookkeeping services ri"
+            },
+            {
+              "rank": 3,
+              "doc_id": "msmarco_test_000006_neg_5",
+              "label": 0,
+              "score": 5.951550483703613,
+              "text_preview": "Hourly Wages. The average hourly wage for bookkeepers is $16.71, according to 2009 data from the Bureau of Labor Statistics. This wage translates to an annual salary of $34,750 for those working full-"
+            },
+            {
+              "rank": 4,
+              "doc_id": "msmarco_test_000006_neg_2",
+              "label": 0,
+              "score": 4.650053977966309,
+              "text_preview": "1 A typical salary for an in-house bookkeeper in the United States runs $30,400-$39,898 according to Salary.com. 2  The average annual pay for a bookkeeping account executive is $68,294, or $57,600 fo"
+            },
+            {
+              "rank": 5,
+              "doc_id": "msmarco_test_000006_pos_1",
+              "label": 1,
+              "score": 3.4570324420928955,
+              "text_preview": "A bookkeeper usually earns an hourly rate between $15 and $20. Entry level bookkeepers can expect starting pay between $12 and $15 an hour while senior bookkeepers can expect to earn a little more tha"
+            }
+          ],
+          "analysis": "The positive passage is ranked low. This suggests the lightweight reranker is still sensitive to lexical shortcuts and lacks the deeper semantic judgment of pretrained encoder or LLM-style rerankers. Keyword overlap is visible (bookkeeper, hourly, is, the), which can help lexical baselines."
+        }
+      }
+    }
+  ]
+}

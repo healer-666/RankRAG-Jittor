@@ -44,6 +44,32 @@ MSMARCO_FILES = {
     ],
 }
 
+L2_FILES = {
+    "Retrieval baselines": [
+        "outputs/msmarco_retrieval_baseline_metrics.json",
+        "outputs/msmarco_retrieval_baseline_rankings.json",
+    ],
+    "TextCNN PyTorch": [
+        "outputs/msmarco_textcnn_torch_metrics.json",
+        "logs/msmarco_textcnn_torch_train.log",
+    ],
+    "TextCNN Jittor": [
+        "outputs/msmarco_textcnn_jittor_metrics.json",
+        "logs/msmarco_textcnn_jittor_train.log",
+    ],
+    "L2 aggregate results": [
+        "outputs/l2_msmarco_results.md",
+        "outputs/l2_msmarco_results.png",
+    ],
+    "Case study": [
+        "docs/msmarco_case_study.md",
+        "outputs/msmarco_case_study.json",
+    ],
+    "Hardware report": [
+        "docs/hardware_report.md",
+    ],
+}
+
 
 def exists(relative_path: str) -> bool:
     return (ROOT / relative_path).exists()
@@ -93,6 +119,10 @@ def main() -> None:
 
     print("\nMS MARCO status summary")
     for name, paths in MSMARCO_FILES.items():
+        print(f"{name}: {status_for(paths)}")
+
+    print("\nL2 status summary")
+    for name, paths in L2_FILES.items():
         print(f"{name}: {status_for(paths)}")
 
     if missing:

@@ -7,3 +7,4 @@ torch
 jittor
 datasets
 socksio
+rank_bm25

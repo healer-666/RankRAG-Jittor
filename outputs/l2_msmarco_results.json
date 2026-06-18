@@ -1,0 +1,80 @@
+[
+  {
+    "Method": "TFIDF",
+    "Framework": "sklearn/rank_bm25",
+    "Status": "ready",
+    "recall@1": 0.295,
+    "recall@3": 0.75,
+    "recall@5": 1.0,
+    "ndcg@1": 0.295,
+    "ndcg@3": 0.5578510334642928,
+    "ndcg@5": 0.65982308537359,
+    "mrr": 0.5476666666666666,
+    "pairwise_accuracy": 0.6129166666666667
+  },
+  {
+    "Method": "BM25",
+    "Framework": "sklearn/rank_bm25",
+    "Status": "ready",
+    "recall@1": 0.31,
+    "recall@3": 0.76,
+    "recall@5": 1.0,
+    "ndcg@1": 0.31,
+    "ndcg@3": 0.5664231408571492,
+    "ndcg@5": 0.6656222584650721,
+    "mrr": 0.5552499999999998,
+    "pairwise_accuracy": 0.6241666666666668
+  },
+  {
+    "Method": "MLP",
+    "Framework": "PyTorch",
+    "Status": "ready",
+    "recall@1": 0.26,
+    "recall@3": 0.65,
+    "recall@5": 1.0,
+    "ndcg@1": 0.26,
+    "ndcg@3": 0.481185950714291,
+    "ndcg@5": 0.6251300646599559,
+    "mrr": 0.5030833333333333,
+    "pairwise_accuracy": 0.5529166666666667
+  },
+  {
+    "Method": "MLP",
+    "Framework": "Jittor",
+    "Status": "ready",
+    "recall@1": 0.245,
+    "recall@3": 0.67,
+    "recall@5": 1.0,
+    "ndcg@1": 0.245,
+    "ndcg@3": 0.4863045457857202,
+    "ndcg@5": 0.621416009815723,
+    "mrr": 0.49783333333333324,
+    "pairwise_accuracy": 0.5545833333333333
+  },
+  {
+    "Method": "TextCNN",
+    "Framework": "PyTorch",
+    "Status": "ready",
+    "recall@1": 0.24,
+    "recall@3": 0.635,
+    "recall@5": 1.0,
+    "ndcg@1": 0.24,
+    "ndcg@3": 0.46695919455357754,
+    "ndcg@5": 0.6164869818535664,
+    "mrr": 0.49166666666666686,
+    "pairwise_accuracy": 0.5395833333333333
+  },
+  {
+    "Method": "TextCNN",
+    "Framework": "Jittor",
+    "Status": "ready",
+    "recall@1": 0.24,
+    "recall@3": 0.625,
+    "recall@5": 1.0,
+    "ndcg@1": 0.24,
+    "ndcg@3": 0.4567220044107194,
+    "ndcg@5": 0.6105565572914424,
+    "mrr": 0.4841666666666668,
+    "pairwise_accuracy": 0.5266666666666666
+  }
+]

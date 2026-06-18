@@ -73,6 +73,39 @@ MS MARCO small subset 使用真实 query-passage 数据，因此更能反映 ran
 
 `data/academic_demo.json` 用于展示 Paper-Skill 学术搜索场景下的候选文档排序。它适合做 qualitative demo，但不能替代公开 benchmark。
 
+## L2 Multi-model MS MARCO Results
+
+L2 升级将单一 MLP scorer 扩展为多模型 context ranking 对比，包括传统检索 baseline、MLP reranker 和 TextCNN reranker。
+
+| Method | Framework | Status | Recall@1 | Recall@3 | Recall@5 | NDCG@1 | NDCG@3 | NDCG@5 | MRR | Pairwise Accuracy |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| TFIDF | sklearn/rank_bm25 | ready | 0.2950 | 0.7500 | 1.0000 | 0.2950 | 0.5579 | 0.6598 | 0.5477 | 0.6129 |
+| BM25 | sklearn/rank_bm25 | ready | 0.3100 | 0.7600 | 1.0000 | 0.3100 | 0.5664 | 0.6656 | 0.5552 | 0.6242 |
+| MLP | PyTorch | ready | 0.2600 | 0.6500 | 1.0000 | 0.2600 | 0.4812 | 0.6251 | 0.5031 | 0.5529 |
+| MLP | Jittor | ready | 0.2450 | 0.6700 | 1.0000 | 0.2450 | 0.4863 | 0.6214 | 0.4978 | 0.5546 |
+| TextCNN | PyTorch | ready | 0.2400 | 0.6350 | 1.0000 | 0.2400 | 0.4670 | 0.6165 | 0.4917 | 0.5396 |
+| TextCNN | Jittor | ready | 0.2400 | 0.6250 | 1.0000 | 0.2400 | 0.4567 | 0.6106 | 0.4842 | 0.5267 |
+
+### 主要观察
+
+- BM25 在当前 small subset 上表现最好，说明词面匹配和局部统计仍然是强 baseline。
+- MLP PyTorch 与 Jittor 仍然基本对齐，差异处于轻量 CPU 训练和框架数值差异可接受范围内。
+- TextCNN 在 small subset 和 5 epoch 短训练设置下没有稳定优于 MLP 或 BM25。
+- TextCNN 的主要价值不是指标提升，而是补充了一个 Jittor 原生 neural reranker，使 L2 comparison 更完整。
+
+### 失败案例总结
+
+`docs/msmarco_case_study.md` 中的 case study 显示，失败或中间案例通常来自：
+
+- query 与 hard negative 有较高关键词重合；
+- negative passage 的 answer style 与 positive 很接近；
+- 轻量模型缺少 pretrained encoder 或 LLM reranker 的深层语义判断；
+- TextCNN 只从当前 small subset 学习 embedding 和卷积特征，泛化能力有限。
+
+### 与完整 RankRAG 的差距
+
+完整 RankRAG 使用 LLM instruction tuning 来统一 context ranking 和 answer generation。本项目 L2 仍然是轻量 context ranking reproduction，不包含 Llama3 微调、answer generation 或 LLM-style reranking。因此不能将当前结果解释为完整 RankRAG 性能。
+
 ## 与原 RankRAG 的关系
 
 原 RankRAG 统一 context ranking 与 answer generation，通过 instruction tuning 让同一个 LLM 同时承担上下文排序和答案生成。
@@ -82,7 +115,7 @@ MS MARCO small subset 使用真实 query-passage 数据，因此更能反映 ran
 ## 当前局限
 
 - 只使用 MS MARCO small subset。
-- 只做轻量 fixed-feature MLP scorer。
+- 只做轻量 TF-IDF/BM25、fixed-feature MLP 和 TextCNN reranker。
 - 未复现 RankRAG 的 LLM instruction tuning。
 - 未复现 answer generation。
 - 未使用完整 MS MARCO passage ranking leaderboard 设置。
