@@ -9,12 +9,23 @@ from typing import Any
 from utils import read_json, resolve_path, write_json
 
 
-METRIC_ORDER = ["recall@1", "ndcg@1", "recall@3", "ndcg@3", "recall@5", "ndcg@5", "mrr", "pairwise_accuracy"]
+METRIC_ORDER = [
+    "recall@1",
+    "ndcg@1",
+    "recall@3",
+    "ndcg@3",
+    "recall@5",
+    "ndcg@5",
+    "recall@10",
+    "ndcg@10",
+    "mrr",
+    "pairwise_accuracy",
+]
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--run_name", default="synthetic", choices=["synthetic", "msmarco"])
+    parser.add_argument("--run_name", default="synthetic", choices=["synthetic", "msmarco", "msmarco_medium"])
     return parser.parse_args()
 
 
@@ -25,6 +36,13 @@ def paths_for_run(run_name: str) -> dict[str, str]:
             "jittor_metrics": "outputs/msmarco_jittor_metrics.json",
             "compare_json": "outputs/msmarco_metrics_compare.json",
             "compare_md": "outputs/msmarco_metrics_compare.md",
+        }
+    if run_name == "msmarco_medium":
+        return {
+            "torch_metrics": "outputs/msmarco_medium_torch_metrics.json",
+            "jittor_metrics": "outputs/msmarco_medium_jittor_metrics.json",
+            "compare_json": "outputs/msmarco_medium_metrics_compare.json",
+            "compare_md": "outputs/msmarco_medium_metrics_compare.md",
         }
     return {
         "torch_metrics": "outputs/torch_metrics.json",
@@ -79,6 +97,8 @@ def main() -> None:
 
     rows = []
     for metric in METRIC_ORDER:
+        if metric not in torch_metrics and (not jittor_metrics or metric not in jittor_metrics):
+            continue
         torch_value = torch_metrics.get(metric)
         jittor_value = jittor_metrics.get(metric) if jittor_metrics else None
         diff = None if torch_value is None or jittor_value is None else float(jittor_value) - float(torch_value)

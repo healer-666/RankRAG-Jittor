@@ -17,7 +17,7 @@ from typing import Iterable
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = ROOT / "data" / "processed" / "msmarco"
+DEFAULT_OUTPUT_DIR = ROOT / "data" / "processed" / "msmarco"
 
 
 def parse_args() -> argparse.Namespace:
@@ -26,6 +26,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max_valid_queries", type=int, default=200)
     parser.add_argument("--max_test_queries", type=int, default=200)
     parser.add_argument("--candidates_per_query", type=int, default=5)
+    parser.add_argument("--output_dir", default="data/processed/msmarco")
+    parser.add_argument("--run_name", default="msmarco")
     parser.add_argument("--seed", type=int, default=42)
     return parser.parse_args()
 
@@ -251,14 +253,36 @@ def summarize(records: list[dict]) -> dict[str, float | int]:
     }
 
 
-def write_dataset_card(source: str, splits: dict[str, list[dict]], candidates_per_query: int) -> None:
+def resolve_output_dir(path: str | Path) -> Path:
+    path = Path(path)
+    if path.is_absolute():
+        return path
+    return ROOT / path
+
+
+def write_dataset_card(
+    output_dir: Path,
+    source: str,
+    splits: dict[str, list[dict]],
+    candidates_per_query: int,
+    run_name: str,
+) -> None:
+    title = "MS MARCO Medium Subset" if "medium" in run_name else "MS MARCO Small Subset"
+    size_note = (
+        "This medium subset is larger than the initial small subset and increases candidates_per_query from 5 to 10, "
+        "making Recall@5 and NDCG@5 more discriminative."
+        if "medium" in run_name
+        else "This small subset is designed for quick reproduction and debugging."
+    )
     lines = [
-        "# MS MARCO Small Subset",
+        f"# {title}",
         "",
         f"Data source: `{source}`.",
+        f"Run name: `{run_name}`.",
         "",
-        "This is a small MS MARCO query-passage ranking subset prepared for the lightweight RankRAG-style context ranking reproduction.",
+        "This is an MS MARCO v1.1 small/medium query-passage ranking subset prepared for the lightweight RankRAG-style context ranking reproduction.",
         "It is not the full MS MARCO dataset and is not a leaderboard submission setup.",
+        size_note,
         "",
         "Construction:",
         "- Keep queries with at least one positive passage and one negative passage.",
@@ -276,12 +300,14 @@ def write_dataset_card(source: str, splits: dict[str, list[dict]], candidates_pe
             f"| {split} | {stats['queries']} | {stats['avg_candidates']:.2f} | {stats['positives']} | {stats['negatives']} |"
         )
     lines.append("")
-    (OUTPUT_DIR / "dataset_card.md").write_text("\n".join(lines), encoding="utf-8")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / "dataset_card.md").write_text("\n".join(lines), encoding="utf-8")
 
 
 def main() -> None:
     args = parse_args()
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_dir = resolve_output_dir(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     errors = []
     try:
@@ -297,10 +323,10 @@ def main() -> None:
             raise SystemExit(1) from None
 
     for split, records in splits.items():
-        write_jsonl(OUTPUT_DIR / f"{split}.jsonl", records)
-    write_dataset_card(source, splits, args.candidates_per_query)
+        write_jsonl(output_dir / f"{split}.jsonl", records)
+    write_dataset_card(output_dir, source, splits, args.candidates_per_query, args.run_name)
 
-    print(f"Wrote MS MARCO subset to {OUTPUT_DIR}")
+    print(f"Wrote MS MARCO subset to {output_dir}")
     for split, records in splits.items():
         stats = summarize(records)
         print(

@@ -25,7 +25,7 @@ LOG_PATTERN = re.compile(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--run_name", default="synthetic", choices=["synthetic", "msmarco"])
+    parser.add_argument("--run_name", default="synthetic", choices=["synthetic", "msmarco", "msmarco_medium"])
     return parser.parse_args()
 
 
@@ -36,6 +36,13 @@ def paths_for_run(run_name: str) -> dict[str, str]:
             "jittor_log": "logs/msmarco_jittor_train.log",
             "loss_png": "outputs/msmarco_loss_curve.png",
             "metrics_png": "outputs/msmarco_metrics_compare.png",
+        }
+    if run_name == "msmarco_medium":
+        return {
+            "torch_log": "logs/msmarco_medium_torch_train.log",
+            "jittor_log": "logs/msmarco_medium_jittor_train.log",
+            "loss_png": "outputs/msmarco_medium_loss_curve.png",
+            "metrics_png": "outputs/msmarco_medium_metrics_compare.png",
         }
     return {
         "torch_log": "logs/torch_train.log",

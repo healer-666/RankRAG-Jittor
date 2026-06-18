@@ -95,7 +95,10 @@ def main() -> None:
     scored_test = score_rows(model, test_rows, jt)
     metrics = evaluate_grouped(scored_test, topk=list(config["eval"]["topk"]))
     write_json(output_path(config, "jittor_metrics", "outputs/msmarco_textcnn_jittor_metrics.json"), metrics)
-    write_json("outputs/msmarco_textcnn_jittor_rankings.json", rank_group(scored_test))
+    ranking_output = output_path(config, "jittor_rankings", "outputs/msmarco_textcnn_jittor_test_rankings.json")
+    write_json(ranking_output, rank_group(scored_test))
+    if ranking_output == "outputs/msmarco_textcnn_jittor_test_rankings.json":
+        write_json("outputs/msmarco_textcnn_jittor_rankings.json", rank_group(scored_test))
 
     demo_rows = load_text_demo_candidates(config["data"]["demo_path"], vocab, int(config["text"]["max_len"]))
     demo_rankings = rank_group(score_rows(model, demo_rows, jt))

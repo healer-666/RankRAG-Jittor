@@ -70,6 +70,33 @@ L2_FILES = {
     ],
 }
 
+MSMARCO_MEDIUM_FILES = {
+    "MS MARCO medium data": [
+        "data/processed/msmarco_medium/train.jsonl",
+        "data/processed/msmarco_medium/valid.jsonl",
+        "data/processed/msmarco_medium/test.jsonl",
+    ],
+    "MS MARCO medium retrieval baselines": [
+        "outputs/msmarco_medium_retrieval_baseline_metrics.json",
+    ],
+    "MS MARCO medium MLP PyTorch/Jittor": [
+        "outputs/msmarco_medium_torch_metrics.json",
+        "outputs/msmarco_medium_jittor_metrics.json",
+    ],
+    "MS MARCO medium TextCNN PyTorch/Jittor": [
+        "outputs/msmarco_medium_textcnn_torch_metrics.json",
+        "outputs/msmarco_medium_textcnn_jittor_metrics.json",
+    ],
+    "MS MARCO medium aggregate results": [
+        "outputs/l2_msmarco_medium_results.md",
+        "outputs/l2_msmarco_medium_results.png",
+    ],
+    "MS MARCO medium case study": [
+        "docs/msmarco_medium_case_study.md",
+        "outputs/msmarco_medium_case_study.json",
+    ],
+}
+
 
 def exists(relative_path: str) -> bool:
     return (ROOT / relative_path).exists()
@@ -123,6 +150,10 @@ def main() -> None:
 
     print("\nL2 status summary")
     for name, paths in L2_FILES.items():
+        print(f"{name}: {status_for(paths)}")
+
+    print("\nMS MARCO medium status summary")
+    for name, paths in MSMARCO_MEDIUM_FILES.items():
         print(f"{name}: {status_for(paths)}")
 
     if missing:

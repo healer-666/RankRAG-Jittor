@@ -1,0 +1,34 @@
+{
+  "tfidf": {
+    "run_name": "msmarco_medium",
+    "status": "ready",
+    "metrics": {
+      "recall@1": 0.222,
+      "ndcg@1": 0.222,
+      "recall@3": 0.57,
+      "ndcg@3": 0.41878177712143283,
+      "recall@5": 0.788,
+      "ndcg@5": 0.5083745391992252,
+      "recall@10": 1.0,
+      "ndcg@10": 0.5784938765864581,
+      "mrr": 0.4464619047619048,
+      "pairwise_accuracy": 0.6326857142857146
+    }
+  },
+  "bm25": {
+    "run_name": "msmarco_medium",
+    "status": "ready",
+    "metrics": {
+      "recall@1": 0.23,
+      "ndcg@1": 0.23,
+      "recall@3": 0.554,
+      "ndcg@3": 0.41268690106428957,
+      "recall@5": 0.784,
+      "ndcg@5": 0.5074477818389626,
+      "recall@10": 1.0,
+      "ndcg@10": 0.5791384097556803,
+      "mrr": 0.44759761904761924,
+      "pairwise_accuracy": 0.6253015873015875
+    }
+  }
+}

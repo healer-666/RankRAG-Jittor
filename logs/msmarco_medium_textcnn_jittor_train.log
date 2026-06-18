@@ -1,0 +1,7 @@
+2026-06-18 21:15:12,225 | INFO | Training Jittor TextCNN on 35567 pairwise samples; vocab=30000
+2026-06-18 21:19:53,863 | INFO | epoch=1 train_loss=0.520574 valid_pairwise_acc=0.5608 valid_recall@1=0.1940 valid_recall@3=0.4680 valid_recall@5=0.6860 valid_mrr=0.4005 valid_ndcg@1=0.1940 valid_ndcg@3=0.3488 valid_ndcg@5=0.4380
+2026-06-18 21:24:25,688 | INFO | epoch=2 train_loss=0.232228 valid_pairwise_acc=0.5622 valid_recall@1=0.1860 valid_recall@3=0.4320 valid_recall@5=0.6960 valid_mrr=0.3924 valid_ndcg@1=0.1860 valid_ndcg@3=0.3255 valid_ndcg@5=0.4339
+2026-06-18 21:28:52,391 | INFO | epoch=3 train_loss=0.123590 valid_pairwise_acc=0.5587 valid_recall@1=0.1920 valid_recall@3=0.4440 valid_recall@5=0.6940 valid_mrr=0.3984 valid_ndcg@1=0.1920 valid_ndcg@3=0.3361 valid_ndcg@5=0.4386
+2026-06-18 21:33:17,697 | INFO | epoch=4 train_loss=0.082342 valid_pairwise_acc=0.5561 valid_recall@1=0.2060 valid_recall@3=0.4280 valid_recall@5=0.6940 valid_mrr=0.4020 valid_ndcg@1=0.2060 valid_ndcg@3=0.3319 valid_ndcg@5=0.4411
+2026-06-18 21:37:30,141 | INFO | epoch=5 train_loss=0.060848 valid_pairwise_acc=0.5468 valid_recall@1=0.1700 valid_recall@3=0.4260 valid_recall@5=0.7040 valid_mrr=0.3815 valid_ndcg@1=0.1700 valid_ndcg@3=0.3153 valid_ndcg@5=0.4293
+2026-06-18 21:37:30,178 | INFO | Saved model to /home/dora/桌面/rankrag-jittor-reproduction/outputs/msmarco_medium_textcnn_jittor_model.pkl

@@ -83,6 +83,19 @@ L2 仍然只覆盖 context ranking / evidence filtering。它不包含 Llama3 in
 
 `docs/hardware_report.md` 显示本机 NVIDIA 驱动当前无法通过 `nvidia-smi` 正常通信，PyTorch 是 CPU-only，LoRA 依赖也未准备好。因此 L3 small-model LoRA 不适合作为当前主线。当前更稳妥的升级路线是继续完善 L2：BM25 / TF-IDF baseline、TextCNN reranker、case study 和 error analysis。
 
+## Medium-scale Public Ranking Evaluation
+
+small subset 主要用于快速验证数据准备、训练、评估和 PyTorch/Jittor 对齐流程。它的候选数较少，运行快，适合作为 smoke test 之后的轻量公开数据检查。
+
+medium subset 是更稳定的公开 ranking 实验：
+
+- train/valid/test 扩展到 5000/500/500 queries；
+- candidates_per_query 从 5 提高到 10；
+- Recall@5 不再等同于覆盖全部候选；
+- 保留 CPU 可运行的工程边界，不下载大模型，不进入 L3 LoRA。
+
+这个升级提高了复现可信度：模型必须在更多 query 和更多 hard negatives 下排序，而不是只证明 small subset pipeline 能运行。与此同时，它仍然不是完整 RankRAG，因为没有 LLM instruction tuning、answer generation 或 LLM reranker。
+
 ## 8. 下一步
 
 - 扩展到更标准的 MS MARCO passage ranking 设置。

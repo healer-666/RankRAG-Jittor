@@ -26,7 +26,18 @@ else:
 
 
 TOKEN_PATTERN = re.compile(r"[a-z0-9]+")
-METRIC_ORDER = ["recall@1", "ndcg@1", "recall@3", "ndcg@3", "recall@5", "ndcg@5", "mrr", "pairwise_accuracy"]
+METRIC_ORDER = [
+    "recall@1",
+    "ndcg@1",
+    "recall@3",
+    "ndcg@3",
+    "recall@5",
+    "ndcg@5",
+    "recall@10",
+    "ndcg@10",
+    "mrr",
+    "pairwise_accuracy",
+]
 
 
 def parse_args() -> argparse.Namespace:
@@ -116,6 +127,8 @@ def markdown_table(metrics_by_method: dict[str, dict]) -> str:
 def main() -> None:
     args = parse_args()
     records = read_jsonl(args.data_path)
+    max_candidates = max((len(record.get("candidates", [])) for record in records), default=0)
+    topk = [1, 3, 5, 10] if max_candidates >= 10 or args.run_name.endswith("medium") else [1, 3, 5]
 
     metrics_by_method: dict[str, dict] = {}
     rankings_by_method: dict[str, list[dict]] = {}
@@ -126,7 +139,7 @@ def main() -> None:
             metrics_by_method[method] = {
                 "run_name": args.run_name,
                 "status": "ready",
-                "metrics": evaluate_grouped(rows, topk=[1, 3, 5]),
+                "metrics": evaluate_grouped(rows, topk=topk),
             }
             rankings_by_method[method] = rankings
         except Exception as exc:

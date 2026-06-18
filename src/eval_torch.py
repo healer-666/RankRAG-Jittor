@@ -53,6 +53,34 @@ def rank_demo(scored_rows: list[dict]) -> dict:
     }
 
 
+def rank_groups(scored_rows: list[dict]) -> list[dict]:
+    grouped: dict[str, list[dict]] = {}
+    for row in scored_rows:
+        grouped.setdefault(row["query_id"], []).append(row)
+
+    results = []
+    for query_id, rows in grouped.items():
+        ranked = sorted(rows, key=lambda row: row["score"], reverse=True)
+        results.append(
+            {
+                "query_id": query_id,
+                "query": ranked[0]["query"] if ranked else "",
+                "ranking": [
+                    {
+                        "rank": index,
+                        "doc_id": row["doc_id"],
+                        "title": row.get("title", ""),
+                        "score": row["score"],
+                        "label": row["label"],
+                        "text": row["text"],
+                    }
+                    for index, row in enumerate(ranked, start=1)
+                ],
+            }
+        )
+    return results
+
+
 def output_path(config: dict, key: str, default: str) -> str:
     return str(config.get("outputs", {}).get(key, default))
 
@@ -73,6 +101,7 @@ def main() -> None:
     scored_test = score_rows(model, test_rows)
     metrics = evaluate_grouped(scored_test, topk=list(config["eval"]["topk"]))
     write_json(output_path(config, "torch_metrics", "outputs/torch_metrics.json"), metrics)
+    write_json(output_path(config, "torch_rankings", "outputs/torch_test_rankings.json"), rank_groups(scored_test))
 
     demo_rows = load_demo_candidates(config["data"]["demo_path"])
     write_json(

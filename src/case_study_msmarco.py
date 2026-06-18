@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import argparse
 from pathlib import Path
 
 from dataset import read_jsonl
@@ -10,24 +11,55 @@ from text_dataset import tokenize
 from utils import ensure_parent, resolve_path, write_json
 
 
-METHOD_FILES = {
-    "TF-IDF": ("outputs/msmarco_retrieval_baseline_rankings.json", "tfidf"),
-    "BM25": ("outputs/msmarco_retrieval_baseline_rankings.json", "bm25"),
-    "MLP Jittor": ("outputs/msmarco_jittor_rankings.json", None),
-    "TextCNN Jittor": ("outputs/msmarco_textcnn_jittor_rankings.json", None),
-}
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--run_name", default="msmarco", choices=["msmarco", "msmarco_medium"])
+    return parser.parse_args()
 
 
-def load_rankings() -> dict[str, dict[str, dict]]:
+def paths_for_run(run_name: str) -> dict:
+    if run_name == "msmarco_medium":
+        return {
+            "data": "data/processed/msmarco_medium/test.jsonl",
+            "json": "outputs/msmarco_medium_case_study.json",
+            "md": "docs/msmarco_medium_case_study.md",
+            "description": "medium MS MARCO subset",
+            "methods": {
+                "TF-IDF": ("outputs/msmarco_medium_retrieval_baseline_rankings.json", "tfidf"),
+                "BM25": ("outputs/msmarco_medium_retrieval_baseline_rankings.json", "bm25"),
+                "MLP Jittor": ("outputs/msmarco_medium_jittor_test_rankings.json", None),
+                "TextCNN Jittor": ("outputs/msmarco_medium_textcnn_jittor_test_rankings.json", None),
+            },
+        }
+    return {
+        "data": "data/processed/msmarco/test.jsonl",
+        "json": "outputs/msmarco_case_study.json",
+        "md": "docs/msmarco_case_study.md",
+        "description": "small MS MARCO subset",
+        "methods": {
+            "TF-IDF": ("outputs/msmarco_retrieval_baseline_rankings.json", "tfidf"),
+            "BM25": ("outputs/msmarco_retrieval_baseline_rankings.json", "bm25"),
+            "MLP Jittor": ("outputs/msmarco_jittor_test_rankings.json", None),
+            "TextCNN Jittor": ("outputs/msmarco_textcnn_jittor_test_rankings.json", None),
+            "TextCNN Jittor legacy": ("outputs/msmarco_textcnn_jittor_rankings.json", None),
+        },
+    }
+
+
+def load_rankings(method_files: dict[str, tuple[str, str | None]]) -> dict[str, dict[str, dict]]:
     loaded: dict[str, dict[str, dict]] = {}
-    for method, (path, key) in METHOD_FILES.items():
+    for method, (path, key) in method_files.items():
         resolved = resolve_path(path)
         if not resolved.exists():
             print(f"case study: skipping {method}, missing {path}")
             continue
+        display_method = "TextCNN Jittor" if method == "TextCNN Jittor legacy" and "TextCNN Jittor" not in loaded else method
+        if display_method in loaded:
+            continue
         data = json.loads(resolved.read_text(encoding="utf-8"))
         rankings = data.get(key, []) if key else data
-        loaded[method] = {item["query_id"]: item for item in rankings}
+        loaded[display_method] = {item["query_id"]: item for item in rankings}
     return loaded
 
 
@@ -91,7 +123,7 @@ def choose_cases(records: list[dict], rankings_by_method: dict[str, dict[str, di
             bucket = "success"
         elif rank in {2, 3}:
             bucket = "middle"
-        elif rank in {4, 5}:
+        elif rank is not None and rank >= 4:
             bucket = "failure"
         else:
             continue
@@ -121,11 +153,13 @@ def choose_cases(records: list[dict], rankings_by_method: dict[str, dict[str, di
     return buckets
 
 
-def write_markdown(cases: dict[str, list[dict]], path: str) -> None:
+def write_markdown(cases: dict[str, list[dict]], path: str, description: str) -> None:
     lines = [
         "# MS MARCO Case Study and Error Analysis",
         "",
-        "These examples are selected from the small MS MARCO subset and use automatic rule-based notes. They should be read as qualitative diagnostics, not proof of generalization.",
+        f"These examples are selected from the {description} and use automatic rule-based notes. They should be read as qualitative diagnostics, not proof of generalization.",
+        "",
+        "The comparison highlights how BM25, MLP Jittor, and TextCNN Jittor behave on the same candidate set. Strong keyword overlap often helps BM25, while the lightweight neural rankers can still struggle with hard negatives because they do not use pretrained semantic encoders or LLM-style reranking.",
         "",
     ]
     for bucket, title in [("success", "Success Cases"), ("middle", "Middle Cases"), ("failure", "Failure Cases")]:
@@ -146,12 +180,14 @@ def write_markdown(cases: dict[str, list[dict]], path: str) -> None:
 
 
 def main() -> None:
-    records = read_jsonl("data/processed/msmarco/test.jsonl")
-    rankings = load_rankings()
+    args = parse_args()
+    paths = paths_for_run(args.run_name)
+    records = read_jsonl(paths["data"])
+    rankings = load_rankings(paths["methods"])
     cases = choose_cases(records, rankings)
-    write_json("outputs/msmarco_case_study.json", cases)
-    write_markdown(cases, "docs/msmarco_case_study.md")
-    print("Saved outputs/msmarco_case_study.json and docs/msmarco_case_study.md")
+    write_json(paths["json"], cases)
+    write_markdown(cases, paths["md"], paths["description"])
+    print(f"Saved {paths['json']} and {paths['md']}")
 
 
 if __name__ == "__main__":

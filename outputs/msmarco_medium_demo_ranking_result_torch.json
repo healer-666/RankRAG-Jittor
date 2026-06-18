@@ -1,0 +1,62 @@
+{
+  "query_id": "academic_demo_001",
+  "query": "非平稳强化学习中，value-based 方法如何使用 UCB 思想进行探索？",
+  "ranking": [
+    {
+      "rank": 1,
+      "doc_id": "paper_ucb_nonstationary_value_rl",
+      "title": "UCB Bonuses for Non-Stationary Value-Based Reinforcement Learning",
+      "score": -5.132207870483398,
+      "label": 1,
+      "text": "This paper studies value-based reinforcement learning in non-stationary environments and uses UCB-style exploration bonuses to balance uncertainty and reward estimation."
+    },
+    {
+      "rank": 2,
+      "doc_id": "hard_general_exploration_bonus",
+      "title": "A Survey of Exploration Bonuses in Deep RL",
+      "score": -7.67155647277832,
+      "label": 0,
+      "text": "This survey reviews exploration bonuses, uncertainty, UCB-inspired optimism, and deep reinforcement learning."
+    },
+    {
+      "rank": 3,
+      "doc_id": "hard_stationary_value_rl",
+      "title": "Value-Based Reinforcement Learning in Stationary MDPs",
+      "score": -7.876955986022949,
+      "label": 0,
+      "text": "This paper studies value-based reinforcement learning and exploration in stationary Markov decision processes."
+    },
+    {
+      "rank": 4,
+      "doc_id": "hard_policy_gradient_exploration",
+      "title": "Policy Gradient Exploration with Entropy Regularization",
+      "score": -8.440437316894531,
+      "label": 0,
+      "text": "This work discusses exploration in reinforcement learning through policy gradient entropy objectives and stochastic policy updates."
+    },
+    {
+      "rank": 5,
+      "doc_id": "easy_database_indexing",
+      "title": "Database Indexing for Transaction Processing",
+      "score": -8.559120178222656,
+      "label": 0,
+      "text": "This article discusses B-tree and LSM-tree indexing strategies for transactional database systems."
+    },
+    {
+      "rank": 6,
+      "doc_id": "hard_ucb_bandit_foundation",
+      "title": "Finite-time Analysis of the Multiarmed Bandit Problem",
+      "score": -9.604966163635254,
+      "label": 0,
+      "text": "A foundational UCB bandit paper that introduces upper confidence bounds for exploration under uncertainty."
+    },
+    {
+      "rank": 7,
+      "doc_id": "easy_image_classification",
+      "title": "Large-Scale Image Classification with Convolutional Networks",
+      "score": -16.214035034179688,
+      "label": 0,
+      "text": "This paper focuses on supervised visual recognition and image classification benchmarks."
+    }
+  ]
+}

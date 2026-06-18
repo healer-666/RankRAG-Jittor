@@ -29,3 +29,5 @@ outputs:
   jittor_metrics: outputs/msmarco_textcnn_jittor_metrics.json
   torch_demo: outputs/msmarco_textcnn_demo_ranking_result_torch.json
   jittor_demo: outputs/msmarco_textcnn_demo_ranking_result_jittor.json
+  torch_rankings: outputs/msmarco_textcnn_torch_test_rankings.json
+  jittor_rankings: outputs/msmarco_textcnn_jittor_test_rankings.json
