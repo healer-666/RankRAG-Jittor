@@ -5,42 +5,50 @@
     {
       "metric": "recall@1",
       "torch": 1.0,
-      "jittor": 1.0
+      "jittor": 1.0,
+      "diff": 0.0
     },
     {
       "metric": "ndcg@1",
       "torch": 1.0,
-      "jittor": 1.0
+      "jittor": 1.0,
+      "diff": 0.0
     },
     {
       "metric": "recall@3",
       "torch": 1.0,
-      "jittor": 1.0
+      "jittor": 1.0,
+      "diff": 0.0
     },
     {
       "metric": "ndcg@3",
       "torch": 1.0,
-      "jittor": 1.0
+      "jittor": 1.0,
+      "diff": 0.0
     },
     {
       "metric": "recall@5",
       "torch": 1.0,
-      "jittor": 1.0
+      "jittor": 1.0,
+      "diff": 0.0
     },
     {
       "metric": "ndcg@5",
       "torch": 1.0,
-      "jittor": 1.0
+      "jittor": 1.0,
+      "diff": 0.0
     },
     {
       "metric": "mrr",
       "torch": 1.0,
-      "jittor": 1.0
+      "jittor": 1.0,
+      "diff": 0.0
     },
     {
       "metric": "pairwise_accuracy",
       "torch": 1.0,
-      "jittor": 1.0
+      "jittor": 1.0,
+      "diff": 0.0
     }
   ]
 }

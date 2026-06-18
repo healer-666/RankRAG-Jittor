@@ -35,13 +35,17 @@ def score_rows(model: MLPScorer, rows: list[dict]) -> list[dict]:
     return scored
 
 
+def output_path(config: dict, key: str, default: str) -> str:
+    return str(config.get("outputs", {}).get(key, default))
+
+
 def main() -> None:
     args = parse_args()
     config = load_config(args.config)
     set_seed(int(config["seed"]))
     torch.manual_seed(int(config["seed"]))
 
-    logger = setup_logger("logs/torch_train.log", "torch_train")
+    logger = setup_logger(output_path(config, "torch_log", "logs/torch_train.log"), "torch_train")
     epochs = args.epochs if args.epochs is not None else int(config["train"]["epochs"])
     batch_size = int(config["train"]["batch_size"])
 
@@ -84,7 +88,7 @@ def main() -> None:
             valid_metrics["ndcg@5"],
         )
 
-    model_path = ensure_parent("outputs/torch_model.pt")
+    model_path = ensure_parent(output_path(config, "torch_model", "outputs/torch_model.pt"))
     torch.save(model.state_dict(), model_path)
     logger.info("Saved model to %s", resolve_path(model_path))
 

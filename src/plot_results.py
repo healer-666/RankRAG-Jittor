@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import re
 from pathlib import Path
 
@@ -20,6 +21,28 @@ LOG_PATTERN = re.compile(
     r"valid_mrr=(?P<mrr>[-+0-9.eE]+)\s+"
     r"valid_ndcg@5=(?P<ndcg5>[-+0-9.eE]+)"
 )
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--run_name", default="synthetic", choices=["synthetic", "msmarco"])
+    return parser.parse_args()
+
+
+def paths_for_run(run_name: str) -> dict[str, str]:
+    if run_name == "msmarco":
+        return {
+            "torch_log": "logs/msmarco_torch_train.log",
+            "jittor_log": "logs/msmarco_jittor_train.log",
+            "loss_png": "outputs/msmarco_loss_curve.png",
+            "metrics_png": "outputs/msmarco_metrics_compare.png",
+        }
+    return {
+        "torch_log": "logs/torch_train.log",
+        "jittor_log": "logs/jittor_train.log",
+        "loss_png": "outputs/loss_curve.png",
+        "metrics_png": "outputs/metrics_compare.png",
+    }
 
 
 def parse_log(path: str | Path) -> list[dict[str, float]]:
@@ -98,19 +121,21 @@ def plot_metrics(curves: dict[str, list[dict[str, float]]], output_path: Path, j
 
 
 def main() -> None:
+    args = parse_args()
+    paths = paths_for_run(args.run_name)
     output_dir = resolve_path("outputs")
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    torch_rows = parse_log("logs/torch_train.log")
-    jittor_rows = parse_log("logs/jittor_train.log")
+    torch_rows = parse_log(paths["torch_log"])
+    jittor_rows = parse_log(paths["jittor_log"])
     jittor_available = bool(jittor_rows)
     curves = {"PyTorch": torch_rows, "Jittor": jittor_rows}
 
     if not jittor_available:
         print("Jittor result is unavailable; plotting PyTorch curves only.")
 
-    loss_path = output_dir / "loss_curve.png"
-    metrics_path = output_dir / "metrics_compare.png"
+    loss_path = resolve_path(paths["loss_png"])
+    metrics_path = resolve_path(paths["metrics_png"])
     plot_loss(curves, loss_path, jittor_available=jittor_available)
     plot_metrics(curves, metrics_path, jittor_available=jittor_available)
 

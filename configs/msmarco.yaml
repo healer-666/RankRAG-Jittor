@@ -1,0 +1,27 @@
+seed: 42
+run_name: msmarco
+data:
+  train_path: data/processed/msmarco/train.jsonl
+  valid_path: data/processed/msmarco/valid.jsonl
+  test_path: data/processed/msmarco/test.jsonl
+  demo_path: data/academic_demo.json
+model:
+  input_dim: 1537
+  hidden_dim: 256
+  dropout: 0.1
+train:
+  batch_size: 32
+  epochs: 5
+  lr: 0.001
+  margin: 1.0
+eval:
+  topk: [1, 3, 5]
+outputs:
+  torch_log: logs/msmarco_torch_train.log
+  jittor_log: logs/msmarco_jittor_train.log
+  torch_model: outputs/msmarco_torch_model.pt
+  jittor_model: outputs/msmarco_jittor_model.pkl
+  torch_metrics: outputs/msmarco_torch_metrics.json
+  jittor_metrics: outputs/msmarco_jittor_metrics.json
+  torch_demo: outputs/msmarco_demo_ranking_result_torch.json
+  jittor_demo: outputs/msmarco_demo_ranking_result_jittor.json

@@ -1,0 +1,7 @@
+2026-06-18 11:50:27,217 | INFO | Training Jittor scorer on 3968 pairwise samples
+2026-06-18 11:50:39,343 | INFO | epoch=1 train_loss=0.659262 valid_pairwise_acc=0.5692 valid_recall@1=0.2250 valid_recall@3=0.7050 valid_recall@5=1.0000 valid_mrr=0.4953 valid_ndcg@5=0.6202
+2026-06-18 11:50:39,886 | INFO | epoch=2 train_loss=0.525960 valid_pairwise_acc=0.5617 valid_recall@1=0.2250 valid_recall@3=0.6850 valid_recall@5=1.0000 valid_mrr=0.4955 valid_ndcg@5=0.6201
+2026-06-18 11:50:40,661 | INFO | epoch=3 train_loss=0.393193 valid_pairwise_acc=0.5667 valid_recall@1=0.2250 valid_recall@3=0.6850 valid_recall@5=1.0000 valid_mrr=0.4965 valid_ndcg@5=0.6210
+2026-06-18 11:50:41,271 | INFO | epoch=4 train_loss=0.254344 valid_pairwise_acc=0.5542 valid_recall@1=0.2150 valid_recall@3=0.6750 valid_recall@5=1.0000 valid_mrr=0.4863 valid_ndcg@5=0.6131
+2026-06-18 11:50:41,917 | INFO | epoch=5 train_loss=0.149369 valid_pairwise_acc=0.5517 valid_recall@1=0.2200 valid_recall@3=0.6700 valid_recall@5=1.0000 valid_mrr=0.4873 valid_ndcg@5=0.6137
+2026-06-18 11:50:41,921 | INFO | Saved model to /home/dora/桌面/rankrag-jittor-reproduction/outputs/msmarco_jittor_model.pkl

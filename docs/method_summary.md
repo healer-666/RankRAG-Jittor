@@ -44,7 +44,22 @@ loss = -log(sigmoid(score_pos - score_neg))
 
 ## 7. 下一步
 
-- 接入真实学术 paper abstract 数据。
-- 绘制训练与验证 loss 曲线。
-- 输出 PyTorch/Jittor 指标对齐表。
+## Dataset Upgrade
+
+项目初始阶段使用 synthetic hard-negative 数据验证 pipeline，包括数据读取、固定文本特征、pairwise ranking loss、PyTorch/Jittor 训练、评估和可视化。
+
+进一步升级后，项目引入 MS MARCO small subset 作为当前主要公开 ranking 数据实验。MS MARCO 使用真实 query-passage 数据，比 synthetic 模板数据更接近 RankRAG context ranking 的公开评测设置，也更能暴露轻量模型的真实局限。
+
+当前项目仍然是 lightweight reproduction，不是 full RankRAG reproduction：
+
+- 不做 LLM instruction tuning。
+- 不做 answer generation。
+- 不使用完整 MS MARCO leaderboard 设置。
+- 重点验证 Jittor context ranking 实现及其与 PyTorch baseline 的对齐。
+
+## 8. 下一步
+
+- 扩展到更标准的 MS MARCO passage ranking 设置。
+- 引入 BEIR-SciFact 等科学文献相关公开评测集。
+- 尝试更强的 neural reranker，同时保持 Jittor/PyTorch 对齐。
 - 制作方法说明 PPT 和录屏材料。

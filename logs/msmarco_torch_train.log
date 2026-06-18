@@ -1,0 +1,7 @@
+2026-06-18 11:50:06,059 | INFO | Training PyTorch scorer on 3968 pairwise samples
+2026-06-18 11:50:06,522 | INFO | epoch=1 train_loss=0.657214 valid_pairwise_acc=0.5617 valid_recall@1=0.2550 valid_recall@3=0.6550 valid_recall@5=1.0000 valid_mrr=0.5039 valid_ndcg@5=0.6260
+2026-06-18 11:50:06,926 | INFO | epoch=2 train_loss=0.520925 valid_pairwise_acc=0.5542 valid_recall@1=0.2150 valid_recall@3=0.6950 valid_recall@5=1.0000 valid_mrr=0.4863 valid_ndcg@5=0.6132
+2026-06-18 11:50:07,397 | INFO | epoch=3 train_loss=0.381381 valid_pairwise_acc=0.5629 valid_recall@1=0.2300 valid_recall@3=0.6700 valid_recall@5=1.0000 valid_mrr=0.4952 valid_ndcg@5=0.6198
+2026-06-18 11:50:07,871 | INFO | epoch=4 train_loss=0.242822 valid_pairwise_acc=0.5592 valid_recall@1=0.2100 valid_recall@3=0.6850 valid_recall@5=1.0000 valid_mrr=0.4859 valid_ndcg@5=0.6130
+2026-06-18 11:50:08,225 | INFO | epoch=5 train_loss=0.140893 valid_pairwise_acc=0.5592 valid_recall@1=0.2000 valid_recall@3=0.6850 valid_recall@5=1.0000 valid_mrr=0.4832 valid_ndcg@5=0.6111
+2026-06-18 11:50:08,229 | INFO | Saved model to /home/dora/桌面/rankrag-jittor-reproduction/outputs/msmarco_torch_model.pt

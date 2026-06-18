@@ -40,6 +40,10 @@ def score_rows(model: MLPScorer, rows: list[dict], jt) -> list[dict]:
     return scored
 
 
+def output_path(config: dict, key: str, default: str) -> str:
+    return str(config.get("outputs", {}).get(key, default))
+
+
 def main() -> None:
     try:
         require_jittor()
@@ -53,7 +57,7 @@ def main() -> None:
     set_seed(int(config["seed"]))
     jt.set_global_seed(int(config["seed"]))
 
-    logger = setup_logger("logs/jittor_train.log", "jittor_train")
+    logger = setup_logger(output_path(config, "jittor_log", "logs/jittor_train.log"), "jittor_train")
     epochs = args.epochs if args.epochs is not None else int(config["train"]["epochs"])
     batch_size = int(config["train"]["batch_size"])
 
@@ -77,7 +81,7 @@ def main() -> None:
             score_neg = model(jt.array(batch_neg.astype("float32")))
             loss = pairwise_ranking_loss(score_pos, score_neg)
             optimizer.step(loss)
-            losses.append(float(loss.numpy()))
+            losses.append(float(np.asarray(loss.numpy()).reshape(-1)[0]))
 
         valid_metrics = evaluate_grouped(score_rows(model, valid_rows, jt), topk=list(config["eval"]["topk"]))
         logger.info(
@@ -92,7 +96,7 @@ def main() -> None:
             valid_metrics["ndcg@5"],
         )
 
-    model_path = ensure_parent("outputs/jittor_model.pkl")
+    model_path = ensure_parent(output_path(config, "jittor_model", "outputs/jittor_model.pkl"))
     jt.save(model.state_dict(), str(model_path))
     logger.info("Saved model to %s", resolve_path(model_path))
 

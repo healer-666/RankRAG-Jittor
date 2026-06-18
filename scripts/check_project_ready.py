@@ -25,6 +25,25 @@ REQUIRED_FILES = [
     "outputs/demo_ranking_result_torch.json",
 ]
 
+MSMARCO_FILES = {
+    "MS MARCO data": [
+        "data/processed/msmarco/train.jsonl",
+        "data/processed/msmarco/valid.jsonl",
+        "data/processed/msmarco/test.jsonl",
+    ],
+    "MS MARCO PyTorch": [
+        "outputs/msmarco_torch_metrics.json",
+    ],
+    "MS MARCO Jittor": [
+        "outputs/msmarco_jittor_metrics.json",
+    ],
+    "MS MARCO visualization": [
+        "outputs/msmarco_metrics_compare.md",
+        "outputs/msmarco_loss_curve.png",
+        "outputs/msmarco_metrics_compare.png",
+    ],
+}
+
 
 def exists(relative_path: str) -> bool:
     return (ROOT / relative_path).exists()
@@ -35,6 +54,10 @@ def load_torch_metrics() -> dict:
     if not metrics_path.exists():
         return {}
     return json.loads(metrics_path.read_text(encoding="utf-8"))
+
+
+def status_for(paths: list[str]) -> str:
+    return "ready" if all(exists(path) for path in paths) else "pending"
 
 
 def main() -> None:
@@ -67,6 +90,10 @@ def main() -> None:
     print(f"Jittor training: {'ready' if jittor_metrics_ready else 'pending'}")
     print(f"Visualization: {'ready' if exists('outputs/loss_curve.png') and exists('outputs/metrics_compare.png') else 'missing'}")
     print(f"README: {'ready' if exists('README.md') else 'missing'}")
+
+    print("\nMS MARCO status summary")
+    for name, paths in MSMARCO_FILES.items():
+        print(f"{name}: {status_for(paths)}")
 
     if missing:
         print("\nMissing required files:")

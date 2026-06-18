@@ -16,7 +16,7 @@ from utils import load_config, resolve_path, write_json
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="configs/default.yaml")
-    parser.add_argument("--model_path", default="outputs/jittor_model.pkl")
+    parser.add_argument("--model_path", default=None)
     return parser.parse_args()
 
 
@@ -52,6 +52,10 @@ def rank_demo(scored_rows: list[dict]) -> dict:
     }
 
 
+def output_path(config: dict, key: str, default: str) -> str:
+    return str(config.get("outputs", {}).get(key, default))
+
+
 def main() -> None:
     try:
         require_jittor()
@@ -68,15 +72,19 @@ def main() -> None:
         hidden_dim=int(config["model"]["hidden_dim"]),
         dropout=float(config["model"]["dropout"]),
     )
-    model.load(str(resolve_path(args.model_path)))
+    model_path = args.model_path or output_path(config, "jittor_model", "outputs/jittor_model.pkl")
+    model.load(str(resolve_path(model_path)))
 
     test_rows = load_candidate_data(config["data"]["test_path"])
     scored_test = score_rows(model, test_rows, jt)
     metrics = evaluate_grouped(scored_test, topk=list(config["eval"]["topk"]))
-    write_json("outputs/jittor_metrics.json", metrics)
+    write_json(output_path(config, "jittor_metrics", "outputs/jittor_metrics.json"), metrics)
 
     demo_rows = load_demo_candidates(config["data"]["demo_path"])
-    write_json("outputs/demo_ranking_result_jittor.json", rank_demo(score_rows(model, demo_rows, jt)))
+    write_json(
+        output_path(config, "jittor_demo", "outputs/demo_ranking_result_jittor.json"),
+        rank_demo(score_rows(model, demo_rows, jt)),
+    )
 
     print("Jittor metrics:")
     for name, value in metrics.items():

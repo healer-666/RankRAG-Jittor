@@ -2,27 +2,27 @@
 
 ## Project Overview
 
-This repository is a lightweight Jittor reproduction of the context ranking / selector idea from **RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs**. It focuses on evidence filtering for academic search enhancement: given a query and a set of candidate paper contexts, the model scores and ranks candidate evidence.
+This repository is a lightweight Jittor reproduction of the context ranking / selector idea from **RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs**. It focuses on evidence filtering: given a query and several candidate passages, the model scores and ranks candidate evidence.
 
-This project does not reproduce full LLM instruction tuning or answer generation. Its goal is to verify a compact ranking pipeline, provide a Jittor implementation, keep a PyTorch baseline, and compare PyTorch/Jittor outputs under the same synthetic benchmark.
+This is not a full reproduction of RankRAG. It does not reproduce LLM instruction tuning or answer generation. The goal is to validate a compact context ranking pipeline, implement it in Jittor, keep a PyTorch baseline, and compare PyTorch/Jittor results on both a smoke-test synthetic benchmark and a public MS MARCO small subset.
 
 ## Paper Information
 
 **Paper:** RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs  
 **Authors:** Yue Yu, Wei Ping, Zihan Liu, Boxin Wang, Jiaxuan You, Chao Zhang, Mohammad Shoeybi, Bryan Catanzaro  
 **Conference:** NeurIPS 2024  
-**Core idea:** the original RankRAG framework unifies context ranking and retrieval-augmented generation so that a model can both rank useful context and generate answers.
+**Core idea:** the original RankRAG framework unifies context ranking and retrieval-augmented generation so that one model can rank useful context and generate answers.
 
 ## Reproduction Scope
 
-This repository reproduces the context ranking / evidence filtering idea in RankRAG.
-
-- Reproduced: context ranking / selector pipeline.
+- Reproduced: RankRAG-style context ranking / evidence filtering.
 - Reproduced: PyTorch baseline and Jittor implementation.
 - Reproduced: training, evaluation, visualization, and PyTorch/Jittor alignment.
 - Not reproduced: full LLM instruction tuning.
 - Not reproduced: answer generation.
-- Goal: verify ranking pipeline correctness, Jittor implementation, and PyTorch/Jittor metric alignment.
+- Not equivalent to: RankRAG's full LLM-based generation pipeline.
+
+The current scorer is deliberately lightweight, so its results should not be over-claimed as full RankRAG performance.
 
 ## Method
 
@@ -40,7 +40,7 @@ Feature dimension is `1537`: `q_emb, c_emb, abs(q-c), q*c, cosine`, where the Ha
 
 ## Environment
 
-The project was completed and verified on Ubuntu 22.04 with CPU mode:
+Verified on Ubuntu 22.04 with CPU mode:
 
 ```text
 Python: 3.10.20
@@ -50,11 +50,9 @@ Jittor mode: CPU, use_cuda=0
 g++: 11.4.0
 ```
 
-The scripts default to CPU mode for Jittor to avoid automatic CUDA/cuDNN downloads. On this machine, Jittor detects a CUDA driver and may otherwise try to download a 5.61GB CUDA/cuDNN package, which is unnecessary for this lightweight reproduction.
+The Jittor scripts default to CPU mode to avoid automatic CUDA/cuDNN downloads. On this machine, Jittor can detect a CUDA driver and may otherwise try to download a 5.61GB CUDA/cuDNN package, which is unnecessary for this lightweight reproduction.
 
 ## Installation
-
-Recommended Conda setup:
 
 ```bash
 conda create -p .venv-jittor python=3.10 -y
@@ -63,72 +61,92 @@ pip install -r requirements.txt
 python -c "import jittor as jt; print(jt.__version__)"
 ```
 
-If using a plain virtual environment on a machine with `python3-venv` installed:
+If the environment uses a SOCKS proxy for Hugging Face downloads, `socksio` is included in `requirements.txt`.
 
-```bash
-python3 -m venv .venv-jittor
-source .venv-jittor/bin/activate
-pip install -r requirements.txt
-python -c "import jittor as jt; print(jt.__version__)"
-```
+## Experiments
 
-## Data Preparation
+### 1. Synthetic hard-negative benchmark
+
+The synthetic benchmark is kept as a smoke test and pipeline correctness check. It verifies data generation, feature extraction, pairwise ranking loss, PyTorch/Jittor training, evaluation, and visualization.
+
+It is no longer the main experiment because the data is template-generated and contains lexical/template regularities.
 
 ```bash
 python scripts/prepare_data.py
-```
-
-This generates:
-
-- `data/processed/train.jsonl`
-- `data/processed/valid.jsonl`
-- `data/processed/test.jsonl`
-- `data/academic_demo.json`
-
-The current benchmark is a synthetic dataset with hard negatives. It is designed to validate the workflow, not to measure real academic search generalization.
-
-## Training
-
-```bash
 bash scripts/run_train_torch.sh
-bash scripts/run_train_jittor.sh
-```
-
-The Jittor script exports CPU defaults:
-
-```bash
-use_cuda=0
-nvcc_path=''
-```
-
-## Evaluation
-
-```bash
 bash scripts/run_eval_torch.sh
+bash scripts/run_train_jittor.sh
 bash scripts/run_eval_jittor.sh
-```
-
-## Alignment and Visualization
-
-```bash
 python src/compare_results.py
 python src/plot_results.py
+```
+
+### 2. MS MARCO small subset
+
+MS MARCO small subset is the current main public ranking-data experiment. It is closer to the RankRAG context ranking setup than the synthetic benchmark because it uses real query-passage data.
+
+Prepare data:
+
+```bash
+python scripts/prepare_msmarco_subset.py \
+  --max_train_queries 1000 \
+  --max_valid_queries 200 \
+  --max_test_queries 200 \
+  --candidates_per_query 5 \
+  --seed 42
+```
+
+Run experiments:
+
+```bash
+bash scripts/run_train_torch_msmarco.sh
+bash scripts/run_eval_torch_msmarco.sh
+bash scripts/run_train_jittor_msmarco.sh
+bash scripts/run_eval_jittor_msmarco.sh
+python src/compare_results.py --run_name msmarco
+python src/plot_results.py --run_name msmarco
+```
+
+Readiness check:
+
+```bash
 python scripts/check_project_ready.py
 ```
 
-Expected ready status:
+### 3. Academic demo
 
-```text
-PyTorch baseline: ready
-Jittor skeleton: ready
-Jittor training: ready
-Visualization: ready
-README: ready
-```
+`data/academic_demo.json` is kept as a small Paper-Skill academic search demo. It shows how candidate evidence passages can be ranked for a specific academic query. It is for demonstration, not a public benchmark.
 
-## Results
+## MS MARCO Small Subset
 
-Current PyTorch/Jittor alignment results:
+Source: `microsoft/ms_marco`, config `v1.1`.
+
+Subset size:
+
+| Split | Queries | Avg candidates | Positives | Negatives |
+| --- | ---: | ---: | ---: | ---: |
+| train | 1000 | 4.97 | 1000 | 3968 |
+| valid | 200 | 5.00 | 200 | 799 |
+| test | 200 | 4.99 | 200 | 798 |
+
+The subset is small by design. It is not the full MS MARCO dataset and is not a leaderboard submission setting.
+
+## Current Main Results: MS MARCO
+
+| Metric | PyTorch | Jittor | Diff |
+| --- | ---: | ---: | ---: |
+| recall@1 | 0.2600 | 0.2450 | -0.0150 |
+| ndcg@1 | 0.2600 | 0.2450 | -0.0150 |
+| recall@3 | 0.6500 | 0.6700 | 0.0200 |
+| ndcg@3 | 0.4812 | 0.4863 | 0.0051 |
+| recall@5 | 1.0000 | 1.0000 | 0.0000 |
+| ndcg@5 | 0.6251 | 0.6214 | -0.0037 |
+| mrr | 0.5031 | 0.4978 | -0.0053 |
+| pairwise_accuracy | 0.5529 | 0.5546 | 0.0017 |
+
+The MS MARCO scores are much lower than the synthetic scores, which is expected: real query-passage ranking is harder and less template-like. The PyTorch/Jittor metrics are close, indicating that the two implementations are reasonably aligned.
+
+## Synthetic Smoke-Test Results
 
 | Metric | PyTorch | Jittor | Diff |
 | --- | ---: | ---: | ---: |
@@ -141,34 +159,46 @@ Current PyTorch/Jittor alignment results:
 | mrr | 1.0000 | 1.0000 | 0.0000 |
 | pairwise_accuracy | 1.0000 | 1.0000 | 0.0000 |
 
-Training logs:
+These synthetic metrics mainly prove that the training, ranking, evaluation, and PyTorch/Jittor alignment workflow is correct. They should not be interpreted as real open academic search generalization.
+
+## Outputs
+
+MS MARCO outputs:
+
+- `data/processed/msmarco/dataset_card.md`
+- `logs/msmarco_torch_train.log`
+- `logs/msmarco_jittor_train.log`
+- `outputs/msmarco_torch_metrics.json`
+- `outputs/msmarco_jittor_metrics.json`
+- `outputs/msmarco_metrics_compare.json`
+- `outputs/msmarco_metrics_compare.md`
+- `outputs/msmarco_loss_curve.png`
+- `outputs/msmarco_metrics_compare.png`
+- `outputs/msmarco_demo_ranking_result_torch.json`
+- `outputs/msmarco_demo_ranking_result_jittor.json`
+
+Synthetic outputs:
 
 - `logs/torch_train.log`
 - `logs/jittor_train.log`
-
-Performance and alignment outputs:
-
 - `outputs/torch_metrics.json`
 - `outputs/jittor_metrics.json`
 - `outputs/metrics_compare.json`
 - `outputs/metrics_compare.md`
+- `outputs/loss_curve.png`
+- `outputs/metrics_compare.png`
 - `outputs/demo_ranking_result_torch.json`
 - `outputs/demo_ranking_result_jittor.json`
 
-Visualizations:
-
-- `outputs/loss_curve.png`
-- `outputs/metrics_compare.png`
-
 ## Result Boundary
 
-Current metrics are all 1.0 mainly because the synthetic benchmark validates training, ranking, evaluation, and PyTorch/Jittor alignment. Since the data is template-generated, even with hard negatives it still contains lexical and structural regularities. Therefore, these results should not be interpreted as generalization ability on real open academic search tasks.
+This project should be read as a lightweight RankRAG-style context ranking reproduction in Jittor. MS MARCO small subset results are more meaningful than the synthetic smoke-test, but they still use a small subset and a compact MLP scorer. The project does not claim full RankRAG reproduction, LLM generation quality, or real academic search generalization.
 
 ## File Structure
 
 ```text
 configs/   Configuration files
-data/      Synthetic data and academic demo
+data/      Synthetic data, MS MARCO small subset, and academic demo
 scripts/   Data preparation, training, evaluation, and readiness scripts
 src/       PyTorch/Jittor models, training, evaluation, metrics, and plotting code
 docs/      Method summary, result analysis, and Jittor setup notes
@@ -176,32 +206,10 @@ logs/      Training logs
 outputs/   Metrics, figures, and demo ranking results
 ```
 
-## Main Artifacts
-
-- `configs/default.yaml`
-- `scripts/prepare_data.py`
-- `scripts/run_train_torch.sh`
-- `scripts/run_train_jittor.sh`
-- `scripts/run_eval_torch.sh`
-- `scripts/run_eval_jittor.sh`
-- `scripts/check_project_ready.py`
-- `src/model_torch.py`
-- `src/model_jittor.py`
-- `src/train_torch.py`
-- `src/train_jittor.py`
-- `src/eval_torch.py`
-- `src/eval_jittor.py`
-- `src/metrics.py`
-- `src/compare_results.py`
-- `src/plot_results.py`
-- `docs/method_summary.md`
-- `docs/result_analysis.md`
-- `docs/jittor_setup.md`
-
 ## Future Work
 
-- Add a more authoritative public benchmark, such as an MS MARCO passage ranking small subset.
+- Add a more standard MS MARCO passage ranking evaluation setup.
 - Add BEIR-SciFact for scientific fact/paper relevance evaluation.
-- Reduce template overlap between train/valid/test.
-- Add richer academic query types and cross-topic hard negatives.
-- Compare CPU/GPU Jittor behavior if a controlled CUDA environment is available.
+- Replace the fixed-feature MLP with a stronger neural reranker.
+- Evaluate larger subsets while keeping storage and runtime manageable.
+- Keep the scope focused on RankRAG-style context ranking unless full LLM instruction tuning is explicitly added.
