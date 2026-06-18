@@ -1,0 +1,48 @@
+{
+  "query_id": "academic_demo_001",
+  "query": "非平稳强化学习中，value-based 方法如何使用 UCB 思想进行探索？",
+  "candidates": [
+    {
+      "doc_id": "paper_ucb_nonstationary_value_rl",
+      "title": "UCB Bonuses for Non-Stationary Value-Based Reinforcement Learning",
+      "text": "This paper studies value-based reinforcement learning in non-stationary environments and uses UCB-style exploration bonuses to balance uncertainty and reward estimation.",
+      "label": 1
+    },
+    {
+      "doc_id": "hard_ucb_bandit_foundation",
+      "title": "Finite-time Analysis of the Multiarmed Bandit Problem",
+      "text": "A foundational UCB bandit paper that introduces upper confidence bounds for exploration under uncertainty.",
+      "label": 0
+    },
+    {
+      "doc_id": "hard_policy_gradient_exploration",
+      "title": "Policy Gradient Exploration with Entropy Regularization",
+      "text": "This work discusses exploration in reinforcement learning through policy gradient entropy objectives and stochastic policy updates.",
+      "label": 0
+    },
+    {
+      "doc_id": "hard_stationary_value_rl",
+      "title": "Value-Based Reinforcement Learning in Stationary MDPs",
+      "text": "This paper studies value-based reinforcement learning and exploration in stationary Markov decision processes.",
+      "label": 0
+    },
+    {
+      "doc_id": "hard_general_exploration_bonus",
+      "title": "A Survey of Exploration Bonuses in Deep RL",
+      "text": "This survey reviews exploration bonuses, uncertainty, UCB-inspired optimism, and deep reinforcement learning.",
+      "label": 0
+    },
+    {
+      "doc_id": "easy_image_classification",
+      "title": "Large-Scale Image Classification with Convolutional Networks",
+      "text": "This paper focuses on supervised visual recognition and image classification benchmarks.",
+      "label": 0
+    },
+    {
+      "doc_id": "easy_database_indexing",
+      "title": "Database Indexing for Transaction Processing",
+      "text": "This article discusses B-tree and LSM-tree indexing strategies for transactional database systems.",
+      "label": 0
+    }
+  ]
+}

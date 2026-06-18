@@ -1,0 +1,45 @@
+2026-06-08 16:56:26,972 | INFO | Training PyTorch scorer on 20 pairwise samples
+2026-06-08 16:56:27,072 | INFO | epoch=1 train_loss=0.695861 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 16:56:27,129 | INFO | Saved model to E:\NK cmm\rankrag-jittor-reproduction\outputs\torch_model.pt
+2026-06-08 17:06:33,847 | INFO | Training PyTorch scorer on 800 pairwise samples
+2026-06-08 17:06:34,016 | INFO | epoch=1 train_loss=0.313875 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:06:34,125 | INFO | epoch=2 train_loss=0.013498 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:06:34,242 | INFO | epoch=3 train_loss=0.002468 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:06:34,375 | INFO | epoch=4 train_loss=0.001449 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:06:34,523 | INFO | epoch=5 train_loss=0.001021 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:06:34,534 | INFO | Saved model to E:\NK cmm\rankrag-jittor-reproduction\outputs\torch_model.pt
+2026-06-08 17:20:25,123 | INFO | Training PyTorch scorer on 800 pairwise samples
+2026-06-08 17:20:25,415 | INFO | epoch=1 train_loss=0.321338 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:20:25,637 | INFO | epoch=2 train_loss=0.014896 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:20:25,847 | INFO | epoch=3 train_loss=0.002763 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:20:26,063 | INFO | epoch=4 train_loss=0.001576 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:20:26,252 | INFO | epoch=5 train_loss=0.001121 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:20:26,261 | INFO | Saved model to E:\NK cmm\rankrag-jittor-reproduction\outputs\torch_model.pt
+2026-06-08 17:23:02,474 | INFO | Training PyTorch scorer on 800 pairwise samples
+2026-06-08 17:23:02,637 | INFO | epoch=1 train_loss=0.329884 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:23:02,770 | INFO | epoch=2 train_loss=0.017273 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:23:02,907 | INFO | epoch=3 train_loss=0.003053 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:23:03,054 | INFO | epoch=4 train_loss=0.001704 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:23:03,201 | INFO | epoch=5 train_loss=0.001204 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:23:03,210 | INFO | Saved model to E:\NK cmm\rankrag-jittor-reproduction\outputs\torch_model.pt
+2026-06-08 17:24:57,354 | INFO | Training PyTorch scorer on 800 pairwise samples
+2026-06-08 17:24:57,527 | INFO | epoch=1 train_loss=0.329884 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:24:57,655 | INFO | epoch=2 train_loss=0.017273 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:24:57,784 | INFO | epoch=3 train_loss=0.003053 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:24:57,929 | INFO | epoch=4 train_loss=0.001704 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:24:58,087 | INFO | epoch=5 train_loss=0.001204 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:24:58,093 | INFO | Saved model to E:\NK cmm\rankrag-jittor-reproduction\outputs\torch_model.pt
+2026-06-08 17:25:54,211 | INFO | Training PyTorch scorer on 800 pairwise samples
+2026-06-08 17:25:54,385 | INFO | epoch=1 train_loss=0.353935 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:25:54,527 | INFO | epoch=2 train_loss=0.026786 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:25:54,671 | INFO | epoch=3 train_loss=0.005002 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:25:54,819 | INFO | epoch=4 train_loss=0.002741 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:25:54,978 | INFO | epoch=5 train_loss=0.001904 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-08 17:25:54,988 | INFO | Saved model to E:\NK cmm\rankrag-jittor-reproduction\outputs\torch_model.pt
+2026-06-18 00:22:28,244 | INFO | Training PyTorch scorer on 800 pairwise samples
+2026-06-18 00:22:28,315 | INFO | epoch=1 train_loss=0.353935 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-18 00:22:28,390 | INFO | epoch=2 train_loss=0.026786 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-18 00:22:28,463 | INFO | epoch=3 train_loss=0.005002 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-18 00:22:28,558 | INFO | epoch=4 train_loss=0.002741 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-18 00:22:28,630 | INFO | epoch=5 train_loss=0.001904 valid_pairwise_acc=1.0000 valid_recall@1=1.0000 valid_recall@3=1.0000 valid_recall@5=1.0000 valid_mrr=1.0000 valid_ndcg@5=1.0000
+2026-06-18 00:22:28,634 | INFO | Saved model to /home/dora/桌面/rankrag-jittor-reproduction/outputs/torch_model.pt
