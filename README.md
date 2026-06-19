@@ -6,6 +6,8 @@ This repository is a lightweight Jittor reproduction of the context ranking / se
 
 This is not a full reproduction of RankRAG. It does not reproduce LLM instruction tuning or answer generation. The goal is to validate a compact context ranking pipeline, implement it in Jittor, keep a PyTorch baseline, and compare PyTorch/Jittor results on smoke-test synthetic data plus public MS MARCO small and medium subsets.
 
+![Reproduction scope](docs/figures/01_reproduction_scope.png)
+
 ## Paper Information
 
 **Paper:** RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs  
@@ -233,6 +235,10 @@ The script requests at most 10 candidates per query. The observed average is abo
 
 ## L2 Multi-model MS MARCO Medium Results
 
+![MS MARCO medium metrics](docs/figures/02_msmarco_medium_metrics.png)
+
+![MS MARCO medium MRR ranking](docs/figures/03_msmarco_medium_mrr_ranking.png)
+
 | Method | Framework | Status | Recall@1 | Recall@3 | Recall@5 | Recall@10 | NDCG@1 | NDCG@3 | NDCG@5 | NDCG@10 | MRR | Pairwise Accuracy |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | TFIDF | sklearn/rank_bm25 | ready | 0.2220 | 0.5700 | 0.7880 | 1.0000 | 0.2220 | 0.4188 | 0.5084 | 0.5785 | 0.4465 | 0.6327 |
@@ -243,6 +249,8 @@ The script requests at most 10 candidates per query. The observed average is abo
 | TextCNN | Jittor | ready | 0.1800 | 0.4500 | 0.6780 | 1.0000 | 0.1800 | 0.3341 | 0.4270 | 0.5341 | 0.3912 | 0.5484 |
 
 Medium results are more discriminative than small results: Recall@5 is no longer naturally 1.0 because each query can have up to 10 candidates. BM25/TF-IDF remain strong because MS MARCO query-passage relevance often has substantial lexical overlap. The MLP and TextCNN models here are trained from scratch and do not use pretrained semantic encoders, which helps explain why they do not consistently exceed lexical baselines.
+
+![Small vs medium subset](docs/figures/04_small_vs_medium.png)
 
 ## L2 Multi-model MS MARCO Results
 
@@ -286,6 +294,12 @@ The MS MARCO scores are much lower than the synthetic scores, which is expected:
 | pairwise_accuracy | 1.0000 | 1.0000 | 0.0000 |
 
 These synthetic metrics mainly prove that the training, ranking, evaluation, and PyTorch/Jittor alignment workflow is correct. They should not be interpreted as real open academic search generalization.
+
+## Training Behavior
+
+![Training curves](docs/figures/05_training_curves.png)
+
+The MS MARCO medium training logs show normal optimization behavior: pairwise training loss decreases for MLP and TextCNN variants, while validation MRR stays in the expected range for compact from-scratch rerankers.
 
 ## Outputs
 
@@ -338,6 +352,7 @@ Medium-specific outputs:
 - `outputs/l2_msmarco_medium_results.png`
 - `outputs/msmarco_medium_case_study.json`
 - `docs/msmarco_medium_case_study.md`
+- `docs/figures/*.png`
 
 Synthetic outputs:
 
@@ -351,6 +366,14 @@ Synthetic outputs:
 - `outputs/metrics_compare.png`
 - `outputs/demo_ranking_result_torch.json`
 - `outputs/demo_ranking_result_jittor.json`
+
+Figure generation:
+
+```bash
+python scripts/make_readme_figures.py
+```
+
+README figures are generated with the `scientific-figure-making` skill installed from `ChenLiu-1996/figures4papers`. Future publication-style project figures should follow the same figures4papers palette, thick-axis, hatch-safe, high-DPI Matplotlib conventions.
 
 ## Result Boundary
 

@@ -12,6 +12,7 @@ __pycache__/
 .huggingface/
 hf_cache/
 datasets_cache/
+local_previews/
 
 *.zip
 *.tar
