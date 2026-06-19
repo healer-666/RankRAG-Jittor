@@ -1,0 +1,24 @@
+{
+  "model_name": "Qwen/Qwen2.5-0.5B-Instruct",
+  "output_dir": "outputs\\lora_adapters\\qwen_0_5b_debug",
+  "device": "cuda",
+  "torch_dtype": "torch.float16",
+  "train_pairs": 200,
+  "valid_pairs": 100,
+  "steps": 20,
+  "max_length": 192,
+  "lora_r": 4,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "loss_start": 0.1566373109817505,
+  "loss_end": 0.058918118476867676,
+  "loss_decreased": true,
+  "runtime_sec": 43.8352255821228
+}

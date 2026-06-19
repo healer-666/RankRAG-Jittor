@@ -1,0 +1,1544 @@
+[
+  {
+    "query_id": "msmarco_test_000001",
+    "query": "how long does it take to drive from st louis to detroit",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000001",
+        "passage_id": "msmarco_test_000001_pos_8",
+        "score": -1.9847763776779175,
+        "label": 1,
+        "logprob_relevant": -2.1220340728759766,
+        "logprob_irrelevant": -0.13725769519805908,
+        "passage": "How long is the drive from Detroit, MI to Saint Louis, MO? The total driving time is 8 hours, 43 minutes."
+      },
+      {
+        "query_id": "msmarco_test_000001",
+        "passage_id": "msmarco_test_000001_neg_7",
+        "score": -2.0788146257400513,
+        "label": 0,
+        "logprob_relevant": -2.2040138244628906,
+        "logprob_irrelevant": -0.12519919872283936,
+        "passage": "552 mi (888km) - about 8 hours 39 mins Saint Louis, MO, USA to Detroit, MI, USA."
+      },
+      {
+        "query_id": "msmarco_test_000001",
+        "passage_id": "msmarco_test_000001_neg_9",
+        "score": -2.2195483446121216,
+        "label": 0,
+        "logprob_relevant": -2.3311243057250977,
+        "logprob_irrelevant": -0.11157596111297607,
+        "passage": "The distance between Missouri, USA, and Detroit, MI, is 660 miles and will take about 10 Hours 20 Minutes of driving time."
+      },
+      {
+        "query_id": "msmarco_test_000001",
+        "passage_id": "msmarco_test_000001_neg_2",
+        "score": -2.314374327659607,
+        "label": 0,
+        "logprob_relevant": -2.417485237121582,
+        "logprob_irrelevant": -0.1031109094619751,
+        "passage": "From St. Louis, Missouri. – Drive on I-64 east for approximately 3 hours; take Exit #57-A South and head south on US 231 to the State Road 162 exit, which will take you directly into the town of Santa Claus and to the Holiday World parking lots."
+      },
+      {
+        "query_id": "msmarco_test_000001",
+        "passage_id": "msmarco_test_000001_neg_3",
+        "score": -2.3911486864089966,
+        "label": 0,
+        "logprob_relevant": -2.489199638366699,
+        "logprob_irrelevant": -0.09805095195770264,
+        "passage": "Your trip begins in Saint Louis, Missouri. It ends in Detroit, Michigan. If you're planning a road trip, you might be interested in seeing the total driving distance from Saint Louis, MO to Detroit, MI."
+      },
+      {
+        "query_id": "msmarco_test_000001",
+        "passage_id": "msmarco_test_000001_neg_5",
+        "score": -2.4065641164779663,
+        "label": 0,
+        "logprob_relevant": -2.505221366882324,
+        "logprob_irrelevant": -0.09865725040435791,
+        "passage": "– Take I-75 south to southwestern Ohio, then I-71 south into Louisville, KY. Take I-64 west into Indiana. Stay on I-64 west for nearly an hour, then take Exit 63. Turn left (south) onto Highway 162 and drive 7 miles until the road comes to a stoplight. Proceed straight at the light into the Holiday World parking lot."
+      },
+      {
+        "query_id": "msmarco_test_000001",
+        "passage_id": "msmarco_test_000001_neg_10",
+        "score": -2.4696083068847656,
+        "label": 0,
+        "logprob_relevant": -2.559920310974121,
+        "logprob_irrelevant": -0.09031200408935547,
+        "passage": "The driving distance between Detroit, MI and Nashville, TN is approximately 535 miles. The driving time would be approximately 8 hours 30 minutes if you were to travel non-sto … p in good driving conditions."
+      },
+      {
+        "query_id": "msmarco_test_000001",
+        "passage_id": "msmarco_test_000001_neg_1",
+        "score": -2.703697681427002,
+        "label": 0,
+        "logprob_relevant": -2.778623580932617,
+        "logprob_irrelevant": -0.07492589950561523,
+        "passage": "Since this is a long drive, you might want to stop halfway and stay overnight in a hotel. You can find the city that is halfway between Saint Louis, MO and Detroit, MI."
+      },
+      {
+        "query_id": "msmarco_test_000001",
+        "passage_id": "msmarco_test_000001_neg_4",
+        "score": -2.7672762870788574,
+        "label": 0,
+        "logprob_relevant": -2.8353471755981445,
+        "logprob_irrelevant": -0.06807088851928711,
+        "passage": "Merge onto I-71 south and stay on it for approximately 1 hour and 10 minutes, then take Exit 1 to I-64 west. Continue on I-64 west for approximately 1 hour then take Exit 63. Turn left (south) onto Highway 162 and drive 7 miles until the road comes to a stoplight."
+      },
+      {
+        "query_id": "msmarco_test_000001",
+        "passage_id": "msmarco_test_000001_neg_6",
+        "score": -2.90770161151886,
+        "label": 0,
+        "logprob_relevant": -2.9702281951904297,
+        "logprob_irrelevant": -0.06252658367156982,
+        "passage": "You can also calculate the cost to drive from Saint Louis, MO to Detroit, MI based on current local gas prices and an estimate of your car's best gas mileage."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000002",
+    "query": "what is cetirizine hydrochloride",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000002",
+        "passage_id": "msmarco_test_000002_neg_3",
+        "score": -0.498046875,
+        "label": 0,
+        "logprob_relevant": -18.509765625,
+        "logprob_irrelevant": -18.01171875,
+        "passage": "Last reviewed on RxList 4/2/2015. Zyrtec (cetirizine hydrochloride) is an antihistamine that treats symptoms, such as itching, runny nose, watery eyes, and sneezing from hay fever (allergic rhinitis) and other allergies, such as allergies to molds and dust mites. It is available in generic form. Common side effects of Zyrtec include: drowsiness, fatigue, dizziness, dry mouth, sore throat, cough, nausea, constipation, or headache. In children, stomach pain and vomiting may occur. Zyrtec is available as regular tablets and chewable tablets (5 mg and 10 mg) and syrup (1 mg/mL)"
+      },
+      {
+        "query_id": "msmarco_test_000002",
+        "passage_id": "msmarco_test_000002_neg_7",
+        "score": -1.6723825931549072,
+        "label": 0,
+        "logprob_relevant": -1.8581266403198242,
+        "logprob_irrelevant": -0.185744047164917,
+        "passage": "Prior to taking cetirizine, it is a good idea to review the drug's safety information. For example, side effects such as fatigue, drowsiness, and dry mouth may occur. In addition, this medicine is not right for certain people, such as those with liver or kidney disease. (Click Cetirizine for more information on this drug, including how it works, whether you can buy the medication without a prescription, and what to do in cases of overdose.). Cetirizine Hydrochloride."
+      },
+      {
+        "query_id": "msmarco_test_000002",
+        "passage_id": "msmarco_test_000002_neg_4",
+        "score": -1.7672384977340698,
+        "label": 0,
+        "logprob_relevant": -1.939396858215332,
+        "logprob_irrelevant": -0.1721583604812622,
+        "passage": "Uses. Cetirizine is an antihistamine used to relieve allergy symptoms such as watery eyes, runny nose, itching eyes /nose, sneezing, hives, and itching. It works by blocking a certain natural substance (histamine) that your body makes during an allergic reaction. Cetirizine does not prevent hives or prevent/treat a serious allergic reaction (such as anaphylaxis). Therefore, if your doctor has prescribed epinephrine to treat allergic reactions, always carry your epinephrine injector with you. Do not use cetirizine in place of your epinephrine."
+      },
+      {
+        "query_id": "msmarco_test_000002",
+        "passage_id": "msmarco_test_000002_neg_5",
+        "score": -1.8755279779434204,
+        "label": 0,
+        "logprob_relevant": -2.0300865173339844,
+        "logprob_irrelevant": -0.15455853939056396,
+        "passage": "Allergies [edit]. Cetirizine's primary indication is for hay fever and other allergies. Because the symptoms of itching and redness in these conditions are caused by histamine acting on the H1 receptor, blocking those receptors temporarily relieves those symptoms. Like many other antihistamine medications, cetirizine is commonly prescribed in combination with pseudoephedrine hydrochloride, a decongestant. These combinations are marketed using the same brand name as the cetirizine with a -D suffix (Zyrtec-D, Virlix-D, etc.)."
+      },
+      {
+        "query_id": "msmarco_test_000002",
+        "passage_id": "msmarco_test_000002_neg_2",
+        "score": -1.9693807363510132,
+        "label": 0,
+        "logprob_relevant": -2.1120080947875977,
+        "logprob_irrelevant": -0.14262735843658447,
+        "passage": "Function. Cetirizine hydrochloride works by blocking receptors in your body that are sensitive to histamine, a chemical released by your immune system in the presence of something that it mistakenly perceives as a threat known as an allergen. Cetirizine hydrochloride is available in its regular form and also in a combination therapy that includes pseudoephedrine, which is used to relieve nasal congestion in addition to allergy symptoms."
+      },
+      {
+        "query_id": "msmarco_test_000002",
+        "passage_id": "msmarco_test_000002_neg_8",
+        "score": -2.094282388687134,
+        "label": 0,
+        "logprob_relevant": -2.2200088500976562,
+        "logprob_irrelevant": -0.12572646141052246,
+        "passage": "Zyrtec-D (cetirizine and pseudoephedrine) is a combination of an antihistamine and a decongestant used to treat cold or allergy symptoms such as nasal and sinus congestion, sneezing, itching, watery eyes, or runny nose."
+      },
+      {
+        "query_id": "msmarco_test_000002",
+        "passage_id": "msmarco_test_000002_neg_6",
+        "score": -2.2822983264923096,
+        "label": 0,
+        "logprob_relevant": -2.3874878883361816,
+        "logprob_irrelevant": -0.10518956184387207,
+        "passage": "Cetirizine /sɛˈtɪrɨziːn/ (trade names Zirtec, Zyrtec, Reactine) is a second-generation antihistamine used in the treatment of hay fever, allergies, angioedema, and urticaria. It is a major metabolite of hydroxyzine, and a racemic selective H1 receptor antagonist. Like many other antihistamine medications, cetirizine is commonly prescribed in combination with pseudoephedrine hydrochloride, a decongestant. These combinations are marketed using the same brand name as the cetirizine with a -D suffix (Zyrtec-D, Virlix-D, etc.)."
+      },
+      {
+        "query_id": "msmarco_test_000002",
+        "passage_id": "msmarco_test_000002_pos_1",
+        "score": -2.422899603843689,
+        "label": 1,
+        "logprob_relevant": -2.514449119567871,
+        "logprob_irrelevant": -0.09154951572418213,
+        "passage": "Cetirizine hydrochloride is the generic name for a prescription and over-the-counter antihistamine medication. Doctors recommend cetirizine hydrochloride for the relief of symptoms associated with allergies. Cetirizine hydrochloride is available in its regular form and also in a combination therapy that includes pseudoephedrine, which is used to relieve nasal congestion in addition to allergy symptoms."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000003",
+    "query": "how much does it cost to join the masters golf club",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000003",
+        "passage_id": "msmarco_test_000003_neg_8",
+        "score": 0.732421875,
+        "label": 0,
+        "logprob_relevant": -22.810546875,
+        "logprob_irrelevant": -23.54296875,
+        "passage": "The Bridge in Bridgehampton, N.Y., charged a whopping $750,000 to join, according to a 2007 Wall Street Journal article. Another Hamptons club, Sebonack Golf Club, billed new members for $650,000 when it opened in 2006, Bloomberg reported. On the other coast, Shady Canyon Country Club in Irvine, Calif., was getting $300,000 in membership and $1,195 in monthly dues in 2007, according to Southland Golf Magazine. That's a relative bargain, but we'll just wait for our invitation from Augusta. Augusta wasn't talking either, according to Businessweek. The club also refused to comment on how much it costs to join. A woman in membership services said simply, That's confidential.. But HuffPost has pieced together a pretty good idea of the amount."
+      },
+      {
+        "query_id": "msmarco_test_000003",
+        "passage_id": "msmarco_test_000003_neg_7",
+        "score": -1.8606560230255127,
+        "label": 0,
+        "logprob_relevant": -2.0149097442626953,
+        "logprob_irrelevant": -0.15425372123718262,
+        "passage": "In 2009, Golf World magazine published an article titled Inside Augusta National Golf Club .. A club member (speaking anonymously) told the magazine that the initiation fee is in the low five-figures.. So definitely less than $50,000, and we can probably interpret that to mean less than $25,000. A lot of money, to be sure, but much less than many, many other exclusive golf clubs charge. As for monthly dues, another source told Golf World they amount to a few thousand dollars per year. So probably in the neighborhood of $250 a month/$3,000 a year. Applying for Augusta National Membership"
+      },
+      {
+        "query_id": "msmarco_test_000003",
+        "passage_id": "msmarco_test_000003_neg_4",
+        "score": -1.9226475954055786,
+        "label": 0,
+        "logprob_relevant": -2.0737104415893555,
+        "logprob_irrelevant": -0.15106284618377686,
+        "passage": "1 The cost to use a room at the Augusta National club is $100 a night. 2 This could be used for weddings, conferences, or banquets of any kind. 3 A bottle of wine at the club can run $1,000 each. 4 However, this does depend on the type of wine. 1 A bottle of wine at the club can run $1,000 each. 2 However, this does depend on the type of wine. 3 The cost for guests to play the golf course with a member is said to be approximately $40 per round."
+      },
+      {
+        "query_id": "msmarco_test_000003",
+        "passage_id": "msmarco_test_000003_neg_3",
+        "score": -1.9863758087158203,
+        "label": 0,
+        "logprob_relevant": -2.128241539001465,
+        "logprob_irrelevant": -0.14186573028564453,
+        "passage": "1 According to an article in BusinessInsider, membership fees to the Augusta National Golf Club are about $10,000 a year. 2 A Huffington Post article states that the Augusta National Golf Club initiation fee is $10,000 to $30,000. 1 A bottle of wine at the club can run $1,000 each. 2 However, this does depend on the type of wine. 3 The cost for guests to play the golf course with a member is said to be approximately $40 per round."
+      },
+      {
+        "query_id": "msmarco_test_000003",
+        "passage_id": "msmarco_test_000003_neg_5",
+        "score": -2.42311954498291,
+        "label": 0,
+        "logprob_relevant": -2.516901969909668,
+        "logprob_irrelevant": -0.09378242492675781,
+        "passage": "Augusta National Golf Club, located in Augusta, Georgia, is one of the most famous golf clubs in the world. Founded by Bobby Jones and Clifford Roberts on the site of the former Fruitland (later Fruitlands) Nursery, the course was designed by Jones and Alister MacKenzie and opened for play in January 1933. The club began granting membership to women in August 2012. Prior to the acceptance of female members, Augusta National defended its position by citing that in 2011, more than 15% of the non-tournament rounds were played by female players who were member guests or spouses of active members."
+      },
+      {
+        "query_id": "msmarco_test_000003",
+        "passage_id": "msmarco_test_000003_pos_1",
+        "score": -2.4851417541503906,
+        "label": 1,
+        "logprob_relevant": -2.574033737182617,
+        "logprob_irrelevant": -0.08889198303222656,
+        "passage": "Augusta National Golf Club has never disclosed the membership cost, but it is believed the initiation fee is between $10,000 and $30,000 with yearly dues costing between $3,000 and $10,000. Dining and lodging and other services are additional costs. 1 However, golf does require a lot of practice in 2 …. Top Five Holes at Augusta National Golf Club The Masters Tournament is held at one of top three golf courses in the world, a course that is often ranked #1 or #2 in the USA, Augusta National Golf Club."
+      },
+      {
+        "query_id": "msmarco_test_000003",
+        "passage_id": "msmarco_test_000003_neg_6",
+        "score": -2.578470230102539,
+        "label": 0,
+        "logprob_relevant": -2.661421775817871,
+        "logprob_irrelevant": -0.08295154571533203,
+        "passage": "Augusta National Golf Club has about 300 members at any given time. Membership is strictly by invitation; there is no application process. In 2004, USA Today published a list of all the current members. The club began granting membership to women in August 2012. Prior to the acceptance of female members, Augusta National defended its position by citing that in 2011, more than 15% of the non-tournament rounds were played by female players who were member guests or spouses of active members."
+      },
+      {
+        "query_id": "msmarco_test_000003",
+        "passage_id": "msmarco_test_000003_neg_2",
+        "score": -7.960533142089844,
+        "label": 0,
+        "logprob_relevant": -25.830078125,
+        "logprob_irrelevant": -17.869544982910156,
+        "passage": "You cannot play Augusta as a walk-on; you mu … st be invited as a guest of one of the club's members. Augusta National Golf Club has never disclosed the membership cost, but it is believed the initiation fee is between $10,000 and $30,000 with yearly dues costing between $3,000 and $10,000. Dining and lodging and other services are additional costs. The club has never disclosed how much membership costs, but it is believed to be around $10,000 a year. There is a very small membership base (of around 300 members) and the majority of the revenue is generated by The Masters Tournament, which is held every year in early April."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000004",
+    "query": "which blood test is for folate",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000004",
+        "passage_id": "msmarco_test_000004_neg_8",
+        "score": 4.300863265991211,
+        "label": 0,
+        "logprob_relevant": -17.13946533203125,
+        "logprob_irrelevant": -21.44032859802246,
+        "passage": "A particular drawback of testing vitamin B12 levels is that the current widely-used blood test only measures the total amount of vitamin B12 in your blood. This means it measures forms of vitamin B12 that are active and can be used by your body, as well as the inactive forms, which can't. If a significant amount of the vitamin B12 in your blood is inactive, a blood test may show that you have normal B12 levels, even though your body cannot use much of it. These tests can often help identify people with a possible vitamin B12 or folate deficiency, but they are not necessarily conclusive, because some people can have problems with normal levels of these vitamins, and others can have low levels despite having no symptoms."
+      },
+      {
+        "query_id": "msmarco_test_000004",
+        "passage_id": "msmarco_test_000004_neg_9",
+        "score": -1.5169628858566284,
+        "label": 0,
+        "logprob_relevant": -1.7329883575439453,
+        "logprob_irrelevant": -0.2160254716873169,
+        "passage": "A folic acid test measures the amount of folic acid in the blood. Folic acid is one of many B vitamins. The body needs folic acid to make red blood cells (RBC) , white blood cells (WBC) , and platelets, and for normal growth. Folic acid also is important for the normal development of a baby (fetus). Folic acid is found in foods such as liver; citrus fruits; dark green, leafy vegetables (spinach); whole grains; cereals with added B vitamins; beans; milk; kidney; and yeast. Folic acid can also be measured as the amount in the red blood cells."
+      },
+      {
+        "query_id": "msmarco_test_000004",
+        "passage_id": "msmarco_test_000004_pos_5",
+        "score": -1.813934564590454,
+        "label": 1,
+        "logprob_relevant": -1.984588623046875,
+        "logprob_irrelevant": -0.1706540584564209,
+        "passage": "Overview. Folic acid is the synthetic form of folate or vitamin B9, which is essential for healthy red blood cells. A folic acid test is usually ordered to check for a lack of folate or Vitamin B9. The procedure consists of a simple blood test. Your doctor interprets the results relayed by a lab technician."
+      },
+      {
+        "query_id": "msmarco_test_000004",
+        "passage_id": "msmarco_test_000004_neg_7",
+        "score": -1.906743049621582,
+        "label": 0,
+        "logprob_relevant": -2.0578432083129883,
+        "logprob_irrelevant": -0.15110015869140625,
+        "passage": "The folate (folic acid) test measures the amount of folate in the blood. Folate and folic acid are forms of B9 vitamin. Quantity: * Whole number only. The folate (folic acid) test measures the amount of folate in the blood. Folate and folic acid are forms of B9 vitamin. Folate is found in many foods and folic acid is the synthetic form of the vitamin."
+      },
+      {
+        "query_id": "msmarco_test_000004",
+        "passage_id": "msmarco_test_000004_neg_1",
+        "score": -1.9544752836227417,
+        "label": 0,
+        "logprob_relevant": -2.1049718856811523,
+        "logprob_irrelevant": -0.15049660205841064,
+        "passage": "1 High folic acid levels can also mean a vitamin B12 deficiency. 2 Body cells need vitamin B12 to use folic acid. 3 So if vitamin B12 levels are very low, folic acid can't be used by the cells, and high levels of it may build up in the blood. 4 But a folic acid test is not a reliable way to test for a vitamin B12 deficiency. Folic acid is found in foods such as liver; citrus fruits; dark green, leafy vegetables (spinach); whole grains; cereals with added B vitamins; beans; milk; kidney; and yeast. Folic acid can also be measured as the amount in the red blood cells."
+      },
+      {
+        "query_id": "msmarco_test_000004",
+        "passage_id": "msmarco_test_000004_neg_6",
+        "score": -2.15725839138031,
+        "label": 0,
+        "logprob_relevant": -2.2805700302124023,
+        "logprob_irrelevant": -0.12331163883209229,
+        "passage": "Vitamin B12 and folate are separate tests often used in conjunction to detect deficiencies and to help diagnose the cause of certain anemias, such as pernicious anemia, an autoimmune disease that affects the absorption of B12. Other laboratory tests that may be used to help detect B12 and folate deficiencies include homocysteine and methylmelonic acid (MMA) . Homocysteine and MMA are elevated in B12 deficiency while only homocysteine, and not MMA, is elevated in folate deficiency."
+      },
+      {
+        "query_id": "msmarco_test_000004",
+        "passage_id": "msmarco_test_000004_neg_3",
+        "score": -2.18823504447937,
+        "label": 0,
+        "logprob_relevant": -2.307866096496582,
+        "logprob_irrelevant": -0.11963105201721191,
+        "passage": "This test measures the levels of vitamin B12 and folate in your blood. Your body needs vitamin B12, also called cobalamin, and folate, also called folic acid, to function normally. Both nutrients play important roles in creating red blood cells and making DNA and RNA to help build cells. If the test is done on your blood plasma, a normal range for folate is 2 to 10 ng/mL. If the test is done on red blood cells, a normal range is 140 to 960 ng/mL."
+      },
+      {
+        "query_id": "msmarco_test_000004",
+        "passage_id": "msmarco_test_000004_neg_2",
+        "score": -2.2834742069244385,
+        "label": 0,
+        "logprob_relevant": -2.3980836868286133,
+        "logprob_irrelevant": -0.1146094799041748,
+        "passage": "B12 and folate levels may be ordered when a complete blood count (CBC) and/or blood smear, done as part of a health checkup or an evaluation for anemia, indicates a low red blood cell (RBC) count with the presence of large RBCs. Specifically, a high mean corpuscular volume (MCV) indicates that the RBCs are enlarged. Other laboratory tests that may be used to help detect B12 and folate deficiencies include homocysteine and methylmelonic acid (MMA) . Homocysteine and MMA are elevated in B12 deficiency while only homocysteine, and not MMA, is elevated in folate deficiency."
+      },
+      {
+        "query_id": "msmarco_test_000004",
+        "passage_id": "msmarco_test_000004_neg_4",
+        "score": -2.546161651611328,
+        "label": 0,
+        "logprob_relevant": -16.095458984375,
+        "logprob_irrelevant": -13.549297332763672,
+        "passage": "Test Overview. A folic acid test measures the amount of folic acid in the blood. Folic acid is one of many B vitamins. The body needs folic acid to make red blood cells (RBC) , white blood cells (WBC) , and platelets, and for normal growth. Folic acid also is important for the normal development of a baby (fetus). Folic acid can be measured in the liquid portion of blood (plasma). This reflects a person's recent intake of folic acid in the diet. Folic acid is found in foods such as liver; citrus fruits; dark green, leafy vegetables (spinach); whole grains; cereals with added B vitamins; beans; milk; kidney; and yeast. Folic acid can also be measured as the amount in the red blood cells."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000005",
+    "query": "what is the cause of HPV",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000005",
+        "passage_id": "msmarco_test_000005_neg_7",
+        "score": -1.672630786895752,
+        "label": 0,
+        "logprob_relevant": -1.8613166809082031,
+        "logprob_irrelevant": -0.18868589401245117,
+        "passage": "HPV stands for human papillomavirus. These viruses are the direct causes of HPV and infect the skin or mucous membranes (mucous membranes are the moist, inner lining of some organs and body cavities, such as the nose, mouth, lungs, and stomach)."
+      },
+      {
+        "query_id": "msmarco_test_000005",
+        "passage_id": "msmarco_test_000005_neg_6",
+        "score": -1.7355140447616577,
+        "label": 0,
+        "logprob_relevant": -1.9220085144042969,
+        "logprob_irrelevant": -0.18649446964263916,
+        "passage": "1. The strains of HPV known to cause genital warts are low-risk HPV 6 and 11, while the strains of HPV associated with cancer include high-risk HPV 16, 18, 31, 33, 45, 52 and 58. 2. HPV is a virus which is passed skin-to-skin through sexual intercourse or other forms of skin-to-skin contact of the genitals."
+      },
+      {
+        "query_id": "msmarco_test_000005",
+        "passage_id": "msmarco_test_000005_pos_1",
+        "score": -1.9691803455352783,
+        "label": 1,
+        "logprob_relevant": -2.1124801635742188,
+        "logprob_irrelevant": -0.14329981803894043,
+        "passage": "Human papilloma virus (HPV) is the major cause of cervical cancer. There are many different types of HPV. Some types of HPV cause genital warts and are sometimes called the genital wart virus. The types of HPV that cause warts do not usually cause cell changes that develop into cancer. Some other types of HPV are considered high risk for cancer of the cervix."
+      },
+      {
+        "query_id": "msmarco_test_000005",
+        "passage_id": "msmarco_test_000005_neg_3",
+        "score": -1.9995768070220947,
+        "label": 0,
+        "logprob_relevant": -2.139453411102295,
+        "logprob_irrelevant": -0.1398766040802002,
+        "passage": "HPV is a different virus than HIV and HSV (herpes). HPV is so common that nearly all sexually active men and women get it at some point in their lives. There are many different types of HPV. Some types can cause health problems including genital warts and cancers."
+      },
+      {
+        "query_id": "msmarco_test_000005",
+        "passage_id": "msmarco_test_000005_neg_4",
+        "score": -2.1718794107437134,
+        "label": 0,
+        "logprob_relevant": -2.290022373199463,
+        "logprob_irrelevant": -0.11814296245574951,
+        "passage": "Certain HPV types are classified as high-risk because they lead to abnormal cell changes and can cause genital cancers: cervical cancer as well as cancer of the vulva, anus, and penis. In fact, researchers say that virtually all cervical cancers -- more than 99% -- are caused by these high-risk HPV viruses."
+      },
+      {
+        "query_id": "msmarco_test_000005",
+        "passage_id": "msmarco_test_000005_neg_2",
+        "score": -2.328652501106262,
+        "label": 0,
+        "logprob_relevant": -2.4326343536376953,
+        "logprob_irrelevant": -0.1039818525314331,
+        "passage": "There are more than 100 types of HPV. About 30 or so types can cause genital infections. Some can cause genital warts; other types can cause cervical or other genital cancers. The other 70 or so HPV types can cause infections and warts elsewhere on the body, such as on the hands."
+      },
+      {
+        "query_id": "msmarco_test_000005",
+        "passage_id": "msmarco_test_000005_neg_5",
+        "score": -2.470512866973877,
+        "label": 0,
+        "logprob_relevant": -2.565567970275879,
+        "logprob_irrelevant": -0.09505510330200195,
+        "passage": "Other types of HPV can cause warts and verrucas. These types of HPV are sometimes called the wart virus or genital wart virus and they include types 6 and 11. Warts and verrucas are most common on the hands and feet, in the genital area and around the anus. But they can be on any part of the body."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000006",
+    "query": "average gas in harrisonburg, va",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000006",
+        "passage_id": "msmarco_test_000006_pos_1",
+        "score": -2.0012080669403076,
+        "label": 1,
+        "logprob_relevant": -2.1375699043273926,
+        "logprob_irrelevant": -0.13636183738708496,
+        "passage": "8 hours ago. $2.05update. There are 31 Regular gas price reports in the past 5 days in Harrisonburg, VA. The average Regular gas price in Harrisonburg, VA is $2.03, which is $0.73 lower than U.S. national average Regular gas price $2.76. The lowest Regular gas price is $1.94 of Costco located at 1830 Reservoir St, Harrisonburg, VA 22801."
+      },
+      {
+        "query_id": "msmarco_test_000006",
+        "passage_id": "msmarco_test_000006_neg_2",
+        "score": -2.0174102783203125,
+        "label": 0,
+        "logprob_relevant": -2.151803970336914,
+        "logprob_irrelevant": -0.13439369201660156,
+        "passage": "23 hours ago. $2.40update. There are 29 Diesel gas price reports in the past 5 days in Harrisonburg, VA. The average Diesel gas price in Harrisonburg, VA is $3.17, which is $0.37 higher than U.S. national average Diesel gas price $2.8. The lowest Diesel gas price is $2.3 of Chevron-Rolling Hills located at 764 E Market St, Harrisonburg, VA 22801."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000007",
+    "query": "what is the incubation period for chlamydia",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000007",
+        "passage_id": "msmarco_test_000007_neg_2",
+        "score": -1.0166711807250977,
+        "label": 0,
+        "logprob_relevant": -1.3508453369140625,
+        "logprob_irrelevant": -0.33417415618896484,
+        "passage": "Chlamydia Incubation Period. A sexually transmitted illness is one that, more often than not, gets transmitted through sexual contacts between two or more people. And one of the common types of such an illness is what we are discussing here in this article - 'chlamydia'."
+      },
+      {
+        "query_id": "msmarco_test_000007",
+        "passage_id": "msmarco_test_000007_pos_3",
+        "score": -1.2668633460998535,
+        "label": 1,
+        "logprob_relevant": -1.5393476486206055,
+        "logprob_irrelevant": -0.27248430252075195,
+        "passage": "Chlamydia-Symptoms. Most women and men with chlamydia do not have symptoms. The time between exposure to chlamydia and the start of symptoms-the incubation period-may range from days to months. If symptoms appear, it is usually 1 to 3 weeks after sexual contact with an infected person."
+      },
+      {
+        "query_id": "msmarco_test_000007",
+        "passage_id": "msmarco_test_000007_neg_5",
+        "score": -1.2819883823394775,
+        "label": 0,
+        "logprob_relevant": -1.5559043884277344,
+        "logprob_irrelevant": -0.27391600608825684,
+        "passage": "Gonorrhea-Symptoms. It is fairly common for gonorrhea to cause no symptoms, especially in women. The incubation period, the time from exposure to the bacteria until symptoms develop, is usually 2 to 5 days. But sometimes symptoms may not develop for up to 30 days."
+      },
+      {
+        "query_id": "msmarco_test_000007",
+        "passage_id": "msmarco_test_000007_neg_1",
+        "score": -1.3918050527572632,
+        "label": 0,
+        "logprob_relevant": -1.638345718383789,
+        "logprob_irrelevant": -0.24654066562652588,
+        "passage": "Answered by The Community. Making the world better, one answer at a time. The incubation period -- the time between getting infected and having symptoms -- is one to three weeks for chlamydia in those people who get symptoms. But 80-90% of females and half of males get no symptoms."
+      },
+      {
+        "query_id": "msmarco_test_000007",
+        "passage_id": "msmarco_test_000007_neg_4",
+        "score": -1.7669131755828857,
+        "label": 0,
+        "logprob_relevant": -1.9425525665283203,
+        "logprob_irrelevant": -0.17563939094543457,
+        "passage": "Therefore, they do not know they have the disease. The incubation period for chlamydia is quite variable and may range from days to months after the initial exposure. The average time from exposure to the development of symptoms is usually about one to three weeks after sexual contact with an infected person."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000008",
+    "query": "how tall was lebron james parents",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000008",
+        "passage_id": "msmarco_test_000008_neg_2",
+        "score": -1.751150369644165,
+        "label": 0,
+        "logprob_relevant": -1.9270315170288086,
+        "logprob_irrelevant": -0.17588114738464355,
+        "passage": "Lebron James is 6 feet 8 inches tall. For those that use the metric system he is 2.03 meters tall. 2.03 meters is equal to 203 centimeters."
+      },
+      {
+        "query_id": "msmarco_test_000008",
+        "passage_id": "msmarco_test_000008_neg_3",
+        "score": -1.8441064357757568,
+        "label": 0,
+        "logprob_relevant": -2.00685977935791,
+        "logprob_irrelevant": -0.16275334358215332,
+        "passage": "LeBron James is currently in 2010, 6 foot 9 inches. He has grown with his age, when he first came to the NBA he was 6 foot 8 as most people recall and 240 pounds but now he is … 6 foot 9 280 pounds. He is a player with about 6% body fat, and wears a size 16 basketball shoe. + 19 others found this useful."
+      },
+      {
+        "query_id": "msmarco_test_000008",
+        "passage_id": "msmarco_test_000008_neg_1",
+        "score": -2.1264983415603638,
+        "label": 0,
+        "logprob_relevant": -2.2530593872070312,
+        "logprob_irrelevant": -0.12656104564666748,
+        "passage": "How tall was LeBron James at the age of 14? lebron James was 6 feet getting into the 8th grade.i am 13 years old right now, and on my 13th birthday, i was 5'6 1/2'', my 14th birthday is in July this year, and i am a … lready a legit 6 feet. it really depends on growth spurts."
+      },
+      {
+        "query_id": "msmarco_test_000008",
+        "passage_id": "msmarco_test_000008_neg_7",
+        "score": -2.6264272928237915,
+        "label": 0,
+        "logprob_relevant": -2.70242977142334,
+        "logprob_irrelevant": -0.07600247859954834,
+        "passage": "(Click here for a complete listing of today's sports birthdays.) His mother, Gloria James, was only 16 at the time. His biological father, Anthony McClelland, was an ex-con uninterested in being a parent. Gloria raised LeBron on her own, and to this day he goes by her last name."
+      },
+      {
+        "query_id": "msmarco_test_000008",
+        "passage_id": "msmarco_test_000008_pos_4",
+        "score": -2.7046629190444946,
+        "label": 1,
+        "logprob_relevant": -2.776397705078125,
+        "logprob_irrelevant": -0.07173478603363037,
+        "passage": "I'm always interested in the height of really tall people's parents because I'm wondering if their height is genetic. Kobe Bryant's father's height is 6'9 so his height is obviously genetic. I heard that Lebron James' dad is 5'7 and his mom is 5'5 though so I don't know how he got so tall."
+      },
+      {
+        "query_id": "msmarco_test_000008",
+        "passage_id": "msmarco_test_000008_neg_6",
+        "score": -3.31299364566803,
+        "label": 0,
+        "logprob_relevant": -3.352847099304199,
+        "logprob_irrelevant": -0.039853453636169434,
+        "passage": "But Gloria is not the only mother he will be celebrating this Mother's Day. James shares his life with his high school sweetheart, Savannah Brinson, the mother of his two sons, LeBron Jr., 5, and Bryce Maximus, 2. The important thing for me is to be with her and our sons."
+      },
+      {
+        "query_id": "msmarco_test_000008",
+        "passage_id": "msmarco_test_000008_neg_5",
+        "score": -3.6884459257125854,
+        "label": 0,
+        "logprob_relevant": -3.7177658081054688,
+        "logprob_irrelevant": -0.0293198823928833,
+        "passage": "TMZ has learned ... LeBron James and his mother Gloria James are being sued for millions by a man who claims he tried to prove he's the NBA star's biological father -- but LeBron and his mom tampered with the evidence in a diabolical cover-up."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000009",
+    "query": "how much do marketers earn",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000009",
+        "passage_id": "msmarco_test_000009_neg_2",
+        "score": -1.6574392318725586,
+        "label": 0,
+        "logprob_relevant": -1.8427538871765137,
+        "logprob_irrelevant": -0.18531465530395508,
+        "passage": "Marketing managers earned a median annual wage of $123,220 in 2013, according to the BLS. The best-paid 10 percent in the field made more than $187,199 per year, while the bottom 10 percent made less than $64,440. The best-paying jobs are located in the metropolitan areas of San Jose, California; Williamsport, Pennsylvania; and New York City."
+      },
+      {
+        "query_id": "msmarco_test_000009",
+        "passage_id": "msmarco_test_000009_pos_8",
+        "score": -1.7817223072052002,
+        "label": 1,
+        "logprob_relevant": -1.9462881088256836,
+        "logprob_irrelevant": -0.1645658016204834,
+        "passage": "Salary. The Bureau of Labor Statistics reports that marketing managers in the United States earned an average annual wage of $126,190 as of May 2011. The median wage, or midway point between the lowest and highest salary, was $116,010 per year."
+      },
+      {
+        "query_id": "msmarco_test_000009",
+        "passage_id": "msmarco_test_000009_neg_6",
+        "score": -1.7823388576507568,
+        "label": 0,
+        "logprob_relevant": -1.9472999572753906,
+        "logprob_irrelevant": -0.1649610996246338,
+        "passage": "Marketing managers in the New York metropolitan area, for example, averaged $167,590 per year in May 2011, the BLS reports. Those working in the San Francisco metro area averaged $169,520 per year. The highest paying state for marketing managers was New York, at an annual average salary of $163,480."
+      },
+      {
+        "query_id": "msmarco_test_000009",
+        "passage_id": "msmarco_test_000009_neg_3",
+        "score": -1.9224841594696045,
+        "label": 0,
+        "logprob_relevant": -2.0674877166748047,
+        "logprob_irrelevant": -0.1450035572052002,
+        "passage": "Most chief marketers earn between $100,000 and $350,000 per year, according to a recent report from The CMO Council."
+      },
+      {
+        "query_id": "msmarco_test_000009",
+        "passage_id": "msmarco_test_000009_neg_4",
+        "score": -2.000394105911255,
+        "label": 0,
+        "logprob_relevant": -2.137500762939453,
+        "logprob_irrelevant": -0.13710665702819824,
+        "passage": "The BLS reports that the upper 10 percent of marketing managers earned more than $187,200, as did managers in advertising and promotions. Market research analysts in the top ten percent earned more than $113,500."
+      },
+      {
+        "query_id": "msmarco_test_000009",
+        "passage_id": "msmarco_test_000009_neg_1",
+        "score": -2.156665086746216,
+        "label": 0,
+        "logprob_relevant": -2.2750463485717773,
+        "logprob_irrelevant": -0.11838126182556152,
+        "passage": "E-commerce marketing managers who focus on online purchase behaviors earn an average of $76,500 to $103,250 per year. Managers in interactive marketing, where sellers try to anticipate and address the needs of buyers, average $79,000 to $115,00"
+      },
+      {
+        "query_id": "msmarco_test_000009",
+        "passage_id": "msmarco_test_000009_neg_7",
+        "score": -2.4855393171310425,
+        "label": 0,
+        "logprob_relevant": -2.5760412216186523,
+        "logprob_irrelevant": -0.09050190448760986,
+        "passage": "It depends on how good your niche and site is. It all varies some sites can earn nothing and others can earn hundreds a month. ----------------- Internet Marketing and making money online is not a science. You have to have the right knowledge."
+      },
+      {
+        "query_id": "msmarco_test_000009",
+        "passage_id": "msmarco_test_000009_neg_5",
+        "score": -2.563584089279175,
+        "label": 0,
+        "logprob_relevant": -2.6481475830078125,
+        "logprob_irrelevant": -0.0845634937286377,
+        "passage": "If this is your first day of affiliate marketing and you earn $1000, don’t assume that you’ll bank $365,000 in the next year. Your current earnings, in relation to a salary, are $2.73/day."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000010",
+    "query": "does using a proxy server hide from your isp?",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000010",
+        "passage_id": "msmarco_test_000010_neg_7",
+        "score": -0.9077413082122803,
+        "label": 0,
+        "logprob_relevant": -1.2713451385498047,
+        "logprob_irrelevant": -0.3636038303375244,
+        "passage": "1 Paid proxy software programs, such as IP Hider Ever, is often used to hide your IP address so that you can hide your internet traffic and the real location while surfing the web. 2 Software programs like IP Hider Ever makes nobody know what you do on the internet. 4. Configure your browser to surf through a proxy server. Instead of visiting a website and typing URLs into their forms, you can configure most web browsers to automatically hide your IP address through a proxy server. This type of service will require you to download and install a plug-in for your web browser."
+      },
+      {
+        "query_id": "msmarco_test_000010",
+        "passage_id": "msmarco_test_000010_neg_1",
+        "score": -1.2833292484283447,
+        "label": 0,
+        "logprob_relevant": -1.547250747680664,
+        "logprob_irrelevant": -0.26392149925231934,
+        "passage": "A proxy is a server that you connect to that allows you to get “outside” of your network. You connect to a proxy and route your traffic through it, so that your IP is masked and traffic appears to be coming from the proxy server. 3. Know the different types of proxies. 4. Configure your browser to surf through a proxy server. Instead of visiting a website and typing URLs into their forms, you can configure most web browsers to automatically hide your IP address through a proxy server. This type of service will require you to download and install a plug-in for your web browser."
+      },
+      {
+        "query_id": "msmarco_test_000010",
+        "passage_id": "msmarco_test_000010_neg_2",
+        "score": -1.2988511323928833,
+        "label": 0,
+        "logprob_relevant": -1.5617904663085938,
+        "logprob_irrelevant": -0.26293933391571045,
+        "passage": "Use at your own risk. Use your favorite search engine and search for 'proxy server list'. You'll find many sites with lists of proxy servers, their IP address, the port they listen on, and usually what country they are in. Write down a few of them. 1 On the Tools menu in Internet Explorer, click Internet Options, click the Connections tab, and then click LAN Settings. 2 Under Proxy server, click to select the Use a proxy server for your LAN check box. 3 In the Address box, type the IP address of the proxy server."
+      },
+      {
+        "query_id": "msmarco_test_000010",
+        "passage_id": "msmarco_test_000010_neg_3",
+        "score": -1.4394187927246094,
+        "label": 0,
+        "logprob_relevant": -1.6734294891357422,
+        "logprob_irrelevant": -0.2340106964111328,
+        "passage": "1 Under Proxy server, click to select the Use a proxy server for your LAN check box. 2 In the Address box, type the IP address of the proxy server. 3 In the Port box, type the port number that is used by the proxy server for client connections (by default, 8080). 1 On the Tools menu in Internet Explorer, click Internet Options, click the Connections tab, and then click LAN Settings. 2 Under Proxy server, click to select the Use a proxy server for your LAN check box. 3"
+      },
+      {
+        "query_id": "msmarco_test_000010",
+        "passage_id": "msmarco_test_000010_pos_5",
+        "score": -1.533198356628418,
+        "label": 1,
+        "logprob_relevant": -1.7452831268310547,
+        "logprob_irrelevant": -0.21208477020263672,
+        "passage": "ISP versus IP. In your question, you say that you’re “using an ISP-changer program.” I think you mean an IP-hiding service or proxy. It’s your Internet Protocol (IP) address that’s being “changed” (hidden), not your Internet Service Provider (ISP). The IP address is the number that identifies one end of a connection on the internet. Now, what your local ISP can see depends on what you’re doing and which technique you’re using. First, they can always tell that you’re connecting to one of these proxying or anonymization services. If it’s a simple proxy, they may be able to see what you’re transmitting."
+      },
+      {
+        "query_id": "msmarco_test_000010",
+        "passage_id": "msmarco_test_000010_neg_6",
+        "score": -1.9381401538848877,
+        "label": 0,
+        "logprob_relevant": -2.0876684188842773,
+        "logprob_irrelevant": -0.14952826499938965,
+        "passage": "Your ISP assigns the IP address to you. When you use an IP “changing” program, you’re not changing your ISP at all – they still provide your internet connection. In fact, you’re not really changing your IP address either, as you’re still connected to the internet using the IP address that your ISP assigned you. Now, what your local ISP can see depends on what you’re doing and which technique you’re using. First, they can always tell that you’re connecting to one of these proxying or anonymization services. If it’s a simple proxy, they may be able to see what you’re transmitting."
+      },
+      {
+        "query_id": "msmarco_test_000010",
+        "passage_id": "msmarco_test_000010_neg_4",
+        "score": -2.0018965005874634,
+        "label": 0,
+        "logprob_relevant": -2.144449234008789,
+        "logprob_irrelevant": -0.14255273342132568,
+        "passage": "By default all traffic of Whonix-Gateway is routed through Tor! You need to route all that traffic through SSH/VPN. Tunnel all Tor related traffic first through a VPN or SSH. See Tunnel Tor through proxy or VPN or SSH (ignore the proxy related stuff). This will hide the fact that you use Tor from your ISP. If the server is outside a national firewall this is also a way to circumvent Tor censorship. If you do not trust any SSH or VPN providers, then anonymously host your own in a safe place. You cannot do this in the same location were you want to hide Tor."
+      },
+      {
+        "query_id": "msmarco_test_000010",
+        "passage_id": "msmarco_test_000010_neg_8",
+        "score": -2.5179789066314697,
+        "label": 0,
+        "logprob_relevant": -2.6033220291137695,
+        "logprob_irrelevant": -0.0853431224822998,
+        "passage": "Another user mentioned to use proxy servers to hide your tracks, but you cannot hide from your ISP as all internet traffic will go through your ISP no matter if you use a proxy server or not; to connect to a proxy server, you still use your ISP, so all traffic is still monitored."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000011",
+    "query": "what is the structure of vyvanse",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000011",
+        "passage_id": "msmarco_test_000011_pos_1",
+        "score": 4.378532409667969,
+        "label": 1,
+        "logprob_relevant": -19.7900390625,
+        "logprob_irrelevant": -24.16857147216797,
+        "passage": "The chemical structure is: Lisdexamfetamine dimesylate is a white to off-white powder that is soluble in water (792 mg/mL). VYVANSE capsules contain 10 mg, 20 mg, 30 mg, 40 mg, 50 mg, 60 mg, and 70 mg of lisdexamfetamine dimesylate. Inactive ingredients: microcrystalline cellulose, croscarmellose sodium, and magnesium stearate. CNS stimulants (amphetamines and methylphenidate-containing products), including VYVANSE, have a high potential for abuse and dependence. Assess the risk of abuse prior to prescribing and monitor for signs of abuse and dependence while on therapy [see WARNINGS AND PRECAUTIONS, and Drug Abuse and Dependence]."
+      },
+      {
+        "query_id": "msmarco_test_000011",
+        "passage_id": "msmarco_test_000011_neg_9",
+        "score": -1.9233183860778809,
+        "label": 0,
+        "logprob_relevant": -2.0740623474121094,
+        "logprob_irrelevant": -0.15074396133422852,
+        "passage": "3.2.1 Pharmacology. Vyvanse ™ (lisdexamfetamine dimesylate) is a prodrug of d-amphetamine. After oral administration, Vyvanse ™ is converted to d-amphetamine, the compound responsible for the drug's therapeutic activity in the treatment of ADHD; and L-lysine, a naturally occurring essential amino acid. 3.3.1 Pharmacodynamics. Vyvanse ™ (lisdexamfetamine dimesylate), is a prodrug of d-amphetamine. After oral administration, Vyvanse ™ is converted to d-amphetamine, the compound responsible for the drug's therapeutic activity."
+      },
+      {
+        "query_id": "msmarco_test_000011",
+        "passage_id": "msmarco_test_000011_neg_6",
+        "score": -1.9394115209579468,
+        "label": 0,
+        "logprob_relevant": -2.093219757080078,
+        "logprob_irrelevant": -0.15380823612213135,
+        "passage": "30mg Vyvanse capsules. Lisdexamfetamine (contracted from L-lysine-dextroamphetamine) is a central nervous system (CNS) stimulant and dextroamphetamine prodrug of the phenethylamine class and amphetamine class that is used in the treatment of attention deficit hyperactivity disorder (ADHD) and binge eating disorder. Lisdexamfetamine itself is inactive and acts as a prodrug to dextroamphetamine upon cleavage of the lysine portion of the molecule."
+      },
+      {
+        "query_id": "msmarco_test_000011",
+        "passage_id": "msmarco_test_000011_neg_8",
+        "score": -1.969973087310791,
+        "label": 0,
+        "logprob_relevant": -2.1150007247924805,
+        "logprob_irrelevant": -0.14502763748168945,
+        "passage": "Adderall is a brand name of amphetamine salts-based medication used for attention deficit hyperactivity disorder and narcolepsy, legal only in the United States and Canada. Vyvanse is a brand name of Lisdexamfetamine used to treat attention deficit hyperactivity disorder, legal only in the United States and Canada. Both Adderall and Vyvanse increase the amount of dopamine and norepinephrine between synapses in the brain, which is useful for several medical conditions. Adderall, which is used to treat ADHD and narcolepsy, is also sometimes prescribed for depression, obesity, and sleep cycle disorders."
+      },
+      {
+        "query_id": "msmarco_test_000011",
+        "passage_id": "msmarco_test_000011_neg_5",
+        "score": -2.236371397972107,
+        "label": 0,
+        "logprob_relevant": -2.348905563354492,
+        "logprob_irrelevant": -0.11253416538238525,
+        "passage": "The chemical structure is: Lisdexamfetamine dimesylate is a white to off-white powder that is soluble in water (792 mg/mL). Vyvanse capsules contain 10 mg, 20 mg, 30 mg, 40 mg, 50 mg, 60 mg, and 70 mg of lisdexamfetamine dimesylate. Inactive ingredients: microcrystalline cellulose, croscarmellose sodium, and magnesium stearate."
+      },
+      {
+        "query_id": "msmarco_test_000011",
+        "passage_id": "msmarco_test_000011_neg_3",
+        "score": -2.3450125455856323,
+        "label": 0,
+        "logprob_relevant": -2.4505910873413086,
+        "logprob_irrelevant": -0.10557854175567627,
+        "passage": "Lisdexamfetamine is used to treat attention deficit hyperactivity disorder (ADHD) as part of a total treatment plan, including psychological, social, and other treatments. It may help to increase the ability to pay attention, stay focused, and stop fidgeting."
+      },
+      {
+        "query_id": "msmarco_test_000011",
+        "passage_id": "msmarco_test_000011_neg_2",
+        "score": -2.4552923440933228,
+        "label": 0,
+        "logprob_relevant": -2.55026912689209,
+        "logprob_irrelevant": -0.09497678279876709,
+        "passage": "Lisdexamfetamine can be prescribed for the treatment of attention deficit hyperactivity disorder (ADHD) in children aged 6 and up as well as adults – as a part of a treatment program that may include other measures (i.e., psychological, educational, social). Lisdexamfetamine itself is inactive and acts as a prodrug to dextroamphetamine upon cleavage of the lysine portion of the molecule."
+      },
+      {
+        "query_id": "msmarco_test_000011",
+        "passage_id": "msmarco_test_000011_neg_4",
+        "score": -2.470731019973755,
+        "label": 0,
+        "logprob_relevant": -2.5640554428100586,
+        "logprob_irrelevant": -0.09332442283630371,
+        "passage": "Lisdexamfetamine is used primarily as a treatment for attention deficit hyperactivity disorder (ADHD) and binge eating disorder; it has similar off-label uses as those of other pharmaceutical amphetamines. Lisdexamfetamine itself is inactive and acts as a prodrug to dextroamphetamine upon cleavage of the lysine portion of the molecule."
+      },
+      {
+        "query_id": "msmarco_test_000011",
+        "passage_id": "msmarco_test_000011_neg_7",
+        "score": -2.5493695735931396,
+        "label": 0,
+        "logprob_relevant": -2.632746696472168,
+        "logprob_irrelevant": -0.08337712287902832,
+        "passage": "Vyvanse comes in the form of a capsule that is usually taken once a day in the morning. Advertisement. Vyvanse™ (lisdexamfetamine dimesylate) is a prescription medication that is used for the treatment of attention deficit hyperactivity disorder (ADHD) in children age 6 to 12 years old, adolescents, and adults."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000012",
+    "query": "escitalopram dosage for depression",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000012",
+        "passage_id": "msmarco_test_000012_neg_5",
+        "score": 1.6875,
+        "label": 0,
+        "logprob_relevant": -27.1875,
+        "logprob_irrelevant": -28.875,
+        "passage": "The medication is taken once a day, most commonly in the morning, but some prefer to take it in the evening or at noontime. For all patients, 10 mg/day is the recommended starting dose of LEXAPRO. 10 mg/day is also the maintenance dose for many patients. If the dose is increased to 20 mg/day, this should occur after a minimum of 1 week. LEXAPRO can be taken morning or evening once daily, with or without food. Covers uses of Lexapro, difference between Lexapro and other SSRIs, starting dose of Lexapro and related dosage issues. Below are the answers to frequently asked questions about the SSRI antidepressant LEXAPRO (escitalopram oxalate)."
+      },
+      {
+        "query_id": "msmarco_test_000012",
+        "passage_id": "msmarco_test_000012_neg_6",
+        "score": -1.5789756774902344,
+        "label": 0,
+        "logprob_relevant": -1.775862693786621,
+        "logprob_irrelevant": -0.19688701629638672,
+        "passage": "Escitalopram Dosage Recommendations. The recommended starting dosage of escitalopram for adults or adolescents (age 12 to 17 years old) with depression or adults with generalized anxiety disorder is escitalopram 10 mg once a day. For elderly people or people with liver problems, the maximum dose of escitalopram is escitalopram 10 mg once daily."
+      },
+      {
+        "query_id": "msmarco_test_000012",
+        "passage_id": "msmarco_test_000012_pos_7",
+        "score": -1.7512226104736328,
+        "label": 1,
+        "logprob_relevant": -1.9221010208129883,
+        "logprob_irrelevant": -0.17087841033935547,
+        "passage": "Dosing Recommendations for Lexapro. The recommended starting dose of Lexapro for adults or adolescents (age 12 to 17 years old) with depression or adults with generalized anxiety disorder is 10 mg once a day. Your healthcare provider may choose to increase the dose if symptoms continue, or decrease it if side effects occur. Individual doses of Lexapro can range from 10 mg to 20 mg once a day. For elderly people or people with liver problems, the maximum dose is 10 mg once daily."
+      },
+      {
+        "query_id": "msmarco_test_000012",
+        "passage_id": "msmarco_test_000012_neg_1",
+        "score": -1.891734004020691,
+        "label": 0,
+        "logprob_relevant": -2.040517807006836,
+        "logprob_irrelevant": -0.14878380298614502,
+        "passage": "For people who are taking Lexapro for the treatment of depression or generalized anxiety disorder, dosage recommendations typically range from 10 mg to 20 mg once a day. Individual doses of Lexapro can range from 10 mg to 20 mg once a day. For elderly people or people with liver problems, the maximum dose is 10 mg once daily."
+      },
+      {
+        "query_id": "msmarco_test_000012",
+        "passage_id": "msmarco_test_000012_neg_2",
+        "score": -2.0785393714904785,
+        "label": 0,
+        "logprob_relevant": -2.2046146392822266,
+        "logprob_irrelevant": -0.12607526779174805,
+        "passage": "In general, people will take escitalopram for several months or longer. Individual dosages of escitalopram can range from 10 mg to 20 mg once a day. For elderly people or people with liver problems, the maximum dose of escitalopram is escitalopram 10 mg once daily."
+      },
+      {
+        "query_id": "msmarco_test_000012",
+        "passage_id": "msmarco_test_000012_neg_9",
+        "score": -2.1574723720550537,
+        "label": 0,
+        "logprob_relevant": -2.276778221130371,
+        "logprob_irrelevant": -0.11930584907531738,
+        "passage": "The recommended dose of Lexapro is 10 mg once daily. A fixed-dose trial of Lexapro demonstrated the effectiveness of both 10 mg and 20 mg of Lexapro, but failed to demonstrate a greater benefit of 20 mg over 10 mg [see Clinical Studies ]. If the dose is increased to 20 mg, this should occur after a minimum of one week. The recommended dose of Lexapro is 10 mg once daily. A flexible-dose trial of Lexapro (10 to 20 mg/day) demonstrated the effectiveness of Lexapro [see Clinical Studies ]. If the dose is increased to 20 mg, this should occur after a minimum of three weeks. Adults."
+      },
+      {
+        "query_id": "msmarco_test_000012",
+        "passage_id": "msmarco_test_000012_neg_8",
+        "score": -2.2047537565231323,
+        "label": 0,
+        "logprob_relevant": -2.3197145462036133,
+        "logprob_irrelevant": -0.11496078968048096,
+        "passage": "Adolescents. The recommended dose of Lexapro is 10 mg once daily. A flexible-dose trial of Lexapro (10 to 20 mg/day) demonstrated the effectiveness of Lexapro [see Clinical Studies ]. If the dose is increased to 20 mg, this should occur after a minimum of three weeks. Adults."
+      },
+      {
+        "query_id": "msmarco_test_000012",
+        "passage_id": "msmarco_test_000012_neg_4",
+        "score": -2.3928340673446655,
+        "label": 0,
+        "logprob_relevant": -2.4879207611083984,
+        "logprob_irrelevant": -0.09508669376373291,
+        "passage": "The typical starting dose for escitalopram in adolescents or adults is 10 mg taken once daily. It may be taken in the morning or evening, with or without food. In patients who do not respond to the initial regimen, the dose may be increased to 20 mg after at least a week of treatment. Escitalopram has no activity at muscarinic, histaminergic, adrenergic, or GABA receptors. Occupancy of serotonin reuptake transporters by escitalopram occurs in a dose-dependent manner, increasing from 60±6% with 5 mg to 75±5% with 20 mg."
+      },
+      {
+        "query_id": "msmarco_test_000012",
+        "passage_id": "msmarco_test_000012_neg_3",
+        "score": -2.4542853832244873,
+        "label": 0,
+        "logprob_relevant": -2.544487953186035,
+        "logprob_irrelevant": -0.09020256996154785,
+        "passage": "Follow the directions on your prescription label carefully. Your doctor will determine the best dose for you. The recommended dosage of escitalopram is 10-20 mg a day. Exceptions include the elderly and patients with hepatic impairment, who should not take more than 10 mg a day. Both Generalized Anxiety Disorder (GAD) and Depression are considered chronic conditions, treatment is recommended for several months."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000013",
+    "query": "what does the romanian flag colors mean",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000013",
+        "passage_id": "msmarco_test_000013_neg_9",
+        "score": -1.6588256359100342,
+        "label": 0,
+        "logprob_relevant": -1.8427448272705078,
+        "logprob_irrelevant": -0.18391919136047363,
+        "passage": "Rating Newest Oldest. Best Answer: The national flag of Romania is a tricolour of three equal vertical bands of blue (hoist side), yellow, and red. The current form of the flag was officially adopted on December 27, 1989. The three colors are considered to stand for the three historical provinces of Romania, as a symbol of unity: Transilvania, Ţara Romanească românească And. Moldova(source): s://http.en.wikipedia/org/Wiki_flag_Of... rom · soplaw2001 9 years. Ago thumbs. up"
+      },
+      {
+        "query_id": "msmarco_test_000013",
+        "passage_id": "msmarco_test_000013_neg_4",
+        "score": -2.282614231109619,
+        "label": 0,
+        "logprob_relevant": -2.388957977294922,
+        "logprob_irrelevant": -0.10634374618530273,
+        "passage": "The national flag of Romania (Romanian: drapelul Romaniei) româniei is a tricolor with vertical, stripes beginning from the: flagpole, blue yellow and. Red it has a-width length ratio of:2. 3 It has a width-length ratio of 2:3. The Constitution of Romania provides that The flag of Romania is tricolor; the colors are arranged vertically in the following order from the flagpole: blue, yellow, red."
+      },
+      {
+        "query_id": "msmarco_test_000013",
+        "passage_id": "msmarco_test_000013_neg_3",
+        "score": -2.533801794052124,
+        "label": 0,
+        "logprob_relevant": -2.6176719665527344,
+        "logprob_irrelevant": -0.08387017250061035,
+        "passage": "The red, yellow and blue stripes represent Moldova and Walachia, the two principalities that united to form Romania in 1859. The colors are found in the coat of arms of these former states. gUrl · 9 years ago. Thumbs up. The three colors are considered to stand for the three historical provinces of Romania, as a symbol of unity: Transilvania, Ţara Romanească românească And. Moldova(source): s://http.en.wikipedia/org/Wiki_flag_Of... rom · soplaw2001 9 years. Ago thumbs. up"
+      },
+      {
+        "query_id": "msmarco_test_000013",
+        "passage_id": "msmarco_test_000013_neg_1",
+        "score": -2.6725575923919678,
+        "label": 0,
+        "logprob_relevant": -2.747799873352051,
+        "logprob_irrelevant": -0.07524228096008301,
+        "passage": "Buy this flag, or any country flag here. DESCRIPTION. The Moldova flag was officially adopted on May 12, 1990. Once part of Romania, Moldova's flag reflects that association, as the two countries use almost identical shades of red, yellow and blue in their national flags. The centered Moldova shield's main feature is a golden eagle holding an Orthodox Christian cross in its beak. The olive branch is said to symbolize peace"
+      },
+      {
+        "query_id": "msmarco_test_000013",
+        "passage_id": "msmarco_test_000013_pos_5",
+        "score": -2.8613991737365723,
+        "label": 1,
+        "logprob_relevant": -2.924091339111328,
+        "logprob_irrelevant": -0.06269216537475586,
+        "passage": "Romanian Flag Meaning: The red, yellow and blue stripes represent Moldova and Walachia, the two principalities that united to form Romania in 1859. The colors are found in the coat of arms of these former states. Romanian Flag History: The current Romanian flag was adopted on December 27, 1989. There are four countries that use a blue-yellow-red vertical striped flag. They are Moldova, Andorra, Chad and Romania. The Moldovan flag is distinguished by the addition of a coat of arms, but the colors are related to and similarly derived from those of the Romanian flag."
+      },
+      {
+        "query_id": "msmarco_test_000013",
+        "passage_id": "msmarco_test_000013_neg_6",
+        "score": -2.9701974391937256,
+        "label": 0,
+        "logprob_relevant": -3.0270767211914062,
+        "logprob_irrelevant": -0.056879281997680664,
+        "passage": "Because the union of Moldavia and Walachia is the main reason why Romania was established, the colors that are used by the two former states in their coat of arms were also utilized in the creation of its national flag. However, in December 1989, the coat of arms was removed and the flag was left with the three historical colors. This flag is being used up until the present. The flag in Romania is almost similar to that of the Moldovan flag."
+      },
+      {
+        "query_id": "msmarco_test_000013",
+        "passage_id": "msmarco_test_000013_neg_8",
+        "score": -3.018435835838318,
+        "label": 0,
+        "logprob_relevant": -3.0724754333496094,
+        "logprob_irrelevant": -0.054039597511291504,
+        "passage": "The flag of Moldova is related to the Romanian tricolor, except it has a 1:2 ratio, a lighter shade of blue, a slightly different tint of yellow, and the Moldavian coat of arms in the middle. The civil ensign of Belgium uses black rather than blue. It has a width-length ratio of 2:3. The Constitution of Romania provides that The flag of Romania is tricolor; the colors are arranged vertically in the following order from the flagpole: blue, yellow, red."
+      },
+      {
+        "query_id": "msmarco_test_000013",
+        "passage_id": "msmarco_test_000013_neg_7",
+        "score": -3.143297553062439,
+        "label": 0,
+        "logprob_relevant": -3.191896438598633,
+        "logprob_irrelevant": -0.04859888553619385,
+        "passage": "Acquired last December 27, 1989, the flag of Romania boasts of its three colors that are incorporated in the flag in equal sizes of vertical stripes. The three vertical stripes include blue (left), red (right), and yellow (middle). These three colors are of great importance in Romania. However, in December 1989, the coat of arms was removed and the flag was left with the three historical colors. This flag is being used up until the present. The flag in Romania is almost similar to that of the Moldovan flag."
+      },
+      {
+        "query_id": "msmarco_test_000013",
+        "passage_id": "msmarco_test_000013_neg_2",
+        "score": -3.189190149307251,
+        "label": 0,
+        "logprob_relevant": -3.2366714477539062,
+        "logprob_irrelevant": -0.04748129844665527,
+        "passage": "Romania's flag displays colors from its previous associations with the Ottoman Empire, as the red and blue were once part of the former Ottoman province of Moldova's flag, and the red and yellow were similaraly part of the Ottoman province of Wallachia's flag. all Country Flags here! Map of Romania here!"
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000014",
+    "query": "gastroscopy cost",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000014",
+        "passage_id": "msmarco_test_000014_neg_5",
+        "score": -1.532212257385254,
+        "label": 0,
+        "logprob_relevant": -1.7437849044799805,
+        "logprob_irrelevant": -0.21157264709472656,
+        "passage": "1 On average, a dog endoscopy is going to cost anywhere from $800 to as much as $2,000. 2 At Avcnh.com, the cost of an endoscopy costs $850. 1 An initial cost of $70 to $100 for the vet examination fee of your dog will probably be charged. 2 An x-ray and/or ultrasound is also necessary to check out if there is any abnormality. 3 These two things will determine if your dog needs an endoscopy."
+      },
+      {
+        "query_id": "msmarco_test_000014",
+        "passage_id": "msmarco_test_000014_neg_9",
+        "score": -1.5647163391113281,
+        "label": 0,
+        "logprob_relevant": -1.7765617370605469,
+        "logprob_irrelevant": -0.21184539794921875,
+        "passage": "1 At Avcnh.com, the cost of an endoscopy costs $850. 2 On the other hand, a rhinoscopy will cost around $975. 3 According to one veterinarian that answered a question on Justanswer.com, the price of an endoscopy can cost anywhere from $1,000 to $1,800. 1 An initial cost of $70 to $100 for the vet examination fee of your dog will probably be charged. 2 An x-ray and/or ultrasound is also necessary to check out if there is any abnormality. 3 These two things will determine if your dog needs an endoscopy."
+      },
+      {
+        "query_id": "msmarco_test_000014",
+        "passage_id": "msmarco_test_000014_neg_4",
+        "score": -1.5793538093566895,
+        "label": 0,
+        "logprob_relevant": -1.7808504104614258,
+        "logprob_irrelevant": -0.20149660110473633,
+        "passage": "1 The national average cost is $2,700 -- but prices can range from $1,350 to $10,400, according to NewChoiceHealth.com. 2 At the Dartmouth-Hitchcock Medical Center in New Hampshire, a patient without insurance coverage would pay $3,396. 3 At Baptist Memorial Health Care in Memphis, the cost would be about $3,512. 1 For patients covered by health insurance, out-of-pocket costs typically include an office visit copay and coinsurance of 10% to 50% for the procedure. 2 Depending on the insurance, the cost could reach $1,000 or more."
+      },
+      {
+        "query_id": "msmarco_test_000014",
+        "passage_id": "msmarco_test_000014_pos_6",
+        "score": -1.6570184230804443,
+        "label": 1,
+        "logprob_relevant": -1.8428020477294922,
+        "logprob_irrelevant": -0.18578362464904785,
+        "passage": "In U.S. hospitals gastroscopy cost can range from $350 to $1,200, when extra pathology and surgical services are involved, whereas, abroad expenses may be just a fraction of this sum. Get exclusive information about [page_title]. Our professional health care representative will contact you. Percutaneous endoscopic gastrostomy is performed when the oral intake is not adequate, due to dysphagia or sedation. Gastroscopy cost depends on the additional services required (biopsy, tissue repair). Prices can range between $350 and $1,200."
+      },
+      {
+        "query_id": "msmarco_test_000014",
+        "passage_id": "msmarco_test_000014_neg_7",
+        "score": -1.6726083755493164,
+        "label": 0,
+        "logprob_relevant": -1.8617753982543945,
+        "logprob_irrelevant": -0.18916702270507812,
+        "passage": "1 If it is necessary to take a biopsy, that would add a procedure cost and laboratory cost to the final bill. 2 This could add as much as several thousand dollars to the cost. 3 For example, at Good Samaritan Hospital in California, a biopsy adds $1,100-$4,800. 1 For patients covered by health insurance, out-of-pocket costs typically include an office visit copay and coinsurance of 10% to 50% for the procedure. 2 Depending on the insurance, the cost could reach $1,000 or more."
+      },
+      {
+        "query_id": "msmarco_test_000014",
+        "passage_id": "msmarco_test_000014_neg_3",
+        "score": -1.7196135520935059,
+        "label": 0,
+        "logprob_relevant": -1.8978748321533203,
+        "logprob_irrelevant": -0.17826128005981445,
+        "passage": "1 For patients not covered by health insurance, upper gastrointestinal endoscopy typically costs between about $1,500-$10,000 or more, depending on the provider, geographic location, whether sedation is used or not and whether the procedure is done in an imaging center or in a hospital. 1 For patients covered by health insurance, out-of-pocket costs typically include an office visit copay and coinsurance of 10% to 50% for the procedure. 2 Depending on the insurance, the cost could reach $1,000 or more."
+      },
+      {
+        "query_id": "msmarco_test_000014",
+        "passage_id": "msmarco_test_000014_neg_2",
+        "score": -1.9381721019744873,
+        "label": 0,
+        "logprob_relevant": -2.083576202392578,
+        "logprob_irrelevant": -0.14540410041809082,
+        "passage": "Upper GI Endoscopy = Esophago-Gastro-Duodenoscopy (EGD). Upper gastrointestinal (GI) endoscopy is a diagnostic procedure enabling your doctor to see inside your esophagus, stomach and duodenum (the first part of the small intestine), using a flexible viewing tube – gastroscope. The cost of upper endoscopy (without insurance) may range from $800 to $1,800 and depends on country, hospital, procedures performed during investigation and the cost of sedatives and anesthetics. Related Articles: 1 Colonoscopy. 2 Gallbladder Tests."
+      },
+      {
+        "query_id": "msmarco_test_000014",
+        "passage_id": "msmarco_test_000014_neg_1",
+        "score": -2.2522659301757812,
+        "label": 0,
+        "logprob_relevant": -2.361400604248047,
+        "logprob_irrelevant": -0.10913467407226562,
+        "passage": "Cost of Upper Endoscopy. The cost of upper endoscopy (without insurance) may range from $800 to $1,800 and depends on country, hospital, procedures performed during investigation and the cost of sedatives and anesthetics. Related Articles: 1 Colonoscopy. 2 Gallbladder Tests."
+      },
+      {
+        "query_id": "msmarco_test_000014",
+        "passage_id": "msmarco_test_000014_neg_8",
+        "score": -2.547883987426758,
+        "label": 0,
+        "logprob_relevant": -2.6299972534179688,
+        "logprob_irrelevant": -0.08211326599121094,
+        "passage": "Cost-effectiveness analyses in dyspepsia management and the role of gastroscopy are difficult to interpret and impossible to compare due to a lack of uniformity in designing, measuring and reporting costs and health-care related outcome. This review examines the cost-effectiveness of gastroscopy in the management of dyspeptic patients, in particular in relation to the competing strategies of deferred referral guided by the outcome of either empirical antisecretory medication or of a non-invasive Helicobacter pylori test."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000015",
+    "query": "how to get rid of serve burn acne",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000015",
+        "passage_id": "msmarco_test_000015_neg_6",
+        "score": -0.18809497356414795,
+        "label": 0,
+        "logprob_relevant": -0.8245453834533691,
+        "logprob_irrelevant": -0.6364504098892212,
+        "passage": "1.) Get rid of acne scars overnight naturally fast using Baking Soda: Baking soda can be used to get rid of acne scars naturally fast. Mix one teaspoon of baking soda with 3 teaspoons of water to make a paste. Apply this all over your face on the scarred areas."
+      },
+      {
+        "query_id": "msmarco_test_000015",
+        "passage_id": "msmarco_test_000015_neg_7",
+        "score": -0.7817167043685913,
+        "label": 0,
+        "logprob_relevant": -1.1850337982177734,
+        "logprob_irrelevant": -0.40331709384918213,
+        "passage": "Apply the mixture on the face. Wash off with water after 15 minutes. Lemon juice acts as a natural skin bleach. Lemon juice helps in fading of scars, which acts as an effective way to get rid of acne scars naturally fast."
+      },
+      {
+        "query_id": "msmarco_test_000015",
+        "passage_id": "msmarco_test_000015_pos_2",
+        "score": -1.0007376670837402,
+        "label": 1,
+        "logprob_relevant": -1.3346977233886719,
+        "logprob_irrelevant": -0.33396005630493164,
+        "passage": "1 Rose water and sandalwood: Make a paste of rose water and sandalwood and gently apply it on your acne scars. 2 Leave the paste on your skin overnight then wash it with cold water the next morning. 3 Do this regularly together with other natural treatments for acne scars to get rid of the scars as quickly as possible."
+      },
+      {
+        "query_id": "msmarco_test_000015",
+        "passage_id": "msmarco_test_000015_neg_4",
+        "score": -1.0162330865859985,
+        "label": 0,
+        "logprob_relevant": -1.3536176681518555,
+        "logprob_irrelevant": -0.33738458156585693,
+        "passage": "1 Apply Aloe vera gel or juice: Aloe vera gel or juice helps get rid of acne scars and makes your facial skin healthier. 2 There are many brands of aloe vera gel or juice available on the market today."
+      },
+      {
+        "query_id": "msmarco_test_000015",
+        "passage_id": "msmarco_test_000015_neg_1",
+        "score": -1.172775387763977,
+        "label": 0,
+        "logprob_relevant": -1.4637746810913086,
+        "logprob_irrelevant": -0.29099929332733154,
+        "passage": "Drink 3-4 liters of water daily to get rid of acne scars naturally fast. Water helps in ex-foliating the skin and removes all the skin impurities. Additional Tips to get rid of acne scars: 1.) Use single treatment at a time to see results and to check which treatment works fast to get rid of acne scars naturally."
+      },
+      {
+        "query_id": "msmarco_test_000015",
+        "passage_id": "msmarco_test_000015_neg_3",
+        "score": -1.4225666522979736,
+        "label": 0,
+        "logprob_relevant": -1.6568617820739746,
+        "logprob_irrelevant": -0.23429512977600098,
+        "passage": "Scars are the unwanted marks left on the skin after a burn, acne, or surgery. They are a mark of the natural healing of any wound. No one likes distracting spots or signs on the skin. Effective skin treatment including natural as well as surgical or laser treatments can largely treat these marks. Among the best treatments, laser and radiation can get rid of scars caused by acne, burns"
+      },
+      {
+        "query_id": "msmarco_test_000015",
+        "passage_id": "msmarco_test_000015_neg_5",
+        "score": -2.376164436340332,
+        "label": 0,
+        "logprob_relevant": -2.479386806488037,
+        "logprob_irrelevant": -0.10322237014770508,
+        "passage": "A lot of the time, people are so desperate to get rid of acne scars and skin discolorations that they will use all manner of abrasive products and methods which can irritate the skin and make the situation worse."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000016",
+    "query": "what is hypospadia",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000016",
+        "passage_id": "msmarco_test_000016_neg_6",
+        "score": -1.6097828149795532,
+        "label": 0,
+        "logprob_relevant": -1.8067750930786133,
+        "logprob_irrelevant": -0.19699227809906006,
+        "passage": "Hypospadias refers to a urethral meatus (pee-hole) which is located along the underside, rather than at the tip of the penis. In minor, or distal hypospadias, the meatus may be located on the underside of the penis, in the glans. In more pronounced hypospadias, the urethra may be open from mid-shaft out to the glans, or the urethra may even be entirely absent, with the urine exiting the bladder behind the penis. distal hypospadias."
+      },
+      {
+        "query_id": "msmarco_test_000016",
+        "passage_id": "msmarco_test_000016_neg_4",
+        "score": -1.6730146408081055,
+        "label": 0,
+        "logprob_relevant": -1.858154296875,
+        "logprob_irrelevant": -0.18513965606689453,
+        "passage": "(December 2011). Hypospadias /haɪpoʊˈspeɪdɪəs/ refers to a birth defect of the urethra in the male where the urinary opening is not at the usual location on the head of the penis. It is the second most common birth abnormality in boys, affecting approximately 1 of every 250. Hypospadias is thought to result from failure of the urinary channel to completely tubularize to the end of the penis. The cause of hypospadias is not known. Most often, it is the only abnormal finding, although in about 10% of cases hypospadias may be part of a syndrome with multiple abnormalities."
+      },
+      {
+        "query_id": "msmarco_test_000016",
+        "passage_id": "msmarco_test_000016_pos_8",
+        "score": -1.6887508630752563,
+        "label": 1,
+        "logprob_relevant": -1.8695030212402344,
+        "logprob_irrelevant": -0.18075215816497803,
+        "passage": "Hypospadias is a birth defect of the male urethra. The opening of the urethra appears along the undersurface of the penis instead of the tip of the head of the penis. Boys with hypospadias may also have a downward curvature of the penis with erections (a condition called chordee) and a “hooded” foreskin, where the foreskin is present along the top of the penis but not along the bottom."
+      },
+      {
+        "query_id": "msmarco_test_000016",
+        "passage_id": "msmarco_test_000016_neg_1",
+        "score": -2.0486819744110107,
+        "label": 0,
+        "logprob_relevant": -2.1791200637817383,
+        "logprob_irrelevant": -0.13043808937072754,
+        "passage": "Hypospadias is a congenital anomaly in which the urethral opening is located below the glans penis or anywhere along the ventral surface (underside) of the penile shaft."
+      },
+      {
+        "query_id": "msmarco_test_000016",
+        "passage_id": "msmarco_test_000016_neg_9",
+        "score": -2.0796101093292236,
+        "label": 0,
+        "logprob_relevant": -2.206854820251465,
+        "logprob_irrelevant": -0.1272447109222412,
+        "passage": "Hypospadias is a birth defect in boys in which the urethra, the tube through which urine travels from the bladder to outside the body, doesn’t develop properly. The urethra begins as an open channel that gradually closes as the child develops. In babies born with hypospadias, the opening of the urethra forms in another location--on the shaft of the penis or on the scrotum-- instead of on the tip, where it is supposed to be. Other features seen in boys with hypospadias include the following: 1 The penis curves downward (chordee)."
+      },
+      {
+        "query_id": "msmarco_test_000016",
+        "passage_id": "msmarco_test_000016_neg_5",
+        "score": -2.0955170392990112,
+        "label": 0,
+        "logprob_relevant": -2.2200851440429688,
+        "logprob_irrelevant": -0.12456810474395752,
+        "passage": "Hypospadias is a male birth defect in which the opening of the tube that carries urine from the body (urethra) develops abnormally, usually on the underside of the penis. The opening can occur anywhere from just below the end of the penis to the scrotum."
+      },
+      {
+        "query_id": "msmarco_test_000016",
+        "passage_id": "msmarco_test_000016_neg_3",
+        "score": -2.095694422721863,
+        "label": 0,
+        "logprob_relevant": -2.2200794219970703,
+        "logprob_irrelevant": -0.12438499927520752,
+        "passage": "Hypospadias. In hypospadias, the opening of the urethra is located on the underside of the penis instead of at the tip. The severity of the condition varies. In most cases, the opening of the urethra is near the head of the penis."
+      },
+      {
+        "query_id": "msmarco_test_000016",
+        "passage_id": "msmarco_test_000016_neg_2",
+        "score": -2.1265913248062134,
+        "label": 0,
+        "logprob_relevant": -2.2492589950561523,
+        "logprob_irrelevant": -0.12266767024993896,
+        "passage": "Hypospadias is a condition where the meatus isn't at the tip of the penis. Instead, the hole may be any place along the underside of the penis. The meatus is most often found near the end of the penis (distal position)."
+      },
+      {
+        "query_id": "msmarco_test_000016",
+        "passage_id": "msmarco_test_000016_neg_7",
+        "score": -2.2052544355392456,
+        "label": 0,
+        "logprob_relevant": -2.3181591033935547,
+        "logprob_irrelevant": -0.11290466785430908,
+        "passage": "Hypospadias (hi-poe-SPAY-dee-us) is a condition in which the opening of the urethra is on the underside of the penis, instead of at the tip. The urethra is the tube through which urine drains from your bladder and exits your body. You may feel distressed if your son is born with hypospadias."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000017",
+    "query": "difference between alimentary canal and accessory organs",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000017",
+        "passage_id": "msmarco_test_000017_neg_5",
+        "score": 1.9319496154785156,
+        "label": 0,
+        "logprob_relevant": -18.9661865234375,
+        "logprob_irrelevant": -20.898136138916016,
+        "passage": "Answers. Best Answer: The accessory organs of digestion include the salivary glands, pancreas, liver, and gallbladder. As stated earlier, during the digestive process, the accessory organs produce secretions that assist the organs of the alimentary canal. Salivary Glands The salivary glands are located in the mouth. Within the salivary glands are two types of secretory cells, serous cells and mucous cells. The serous cells produce a watery fluid that contains a digestive juice called amylase. Amylase splits starch and glycerol into complex sugars. The digestive portion of the pancreas produces digestive juices (amylase, proteinase, and lipase) that are secreted through the pancreatic duct to the duodenum. These digestive juices break down carbohydrates (amylase), proteins (proteinase), and fats (lipase) into simpler compounds."
+      },
+      {
+        "query_id": "msmarco_test_000017",
+        "passage_id": "msmarco_test_000017_neg_9",
+        "score": 1.7934074401855469,
+        "label": 0,
+        "logprob_relevant": -19.570556640625,
+        "logprob_irrelevant": -21.363964080810547,
+        "passage": "The digestive tract is the tube that extends from the mouth to the anus, and it consists of the (1) mouth, (2) pharynx, (3) esophagus, (4) stomach, (5) small intestine, and (6) large intestine. The accessory organs include the (1) teeth, (2) tongue, (3) salivary glands, (4) liver, (5) gallbladder, and (6) pancreas. Accessory organs The accessory organs include the – (1) teeth, – (2) tongue, – (3) salivary glands, – (4) liver, – (5) gallbladder, and – (6) pancreas. Figure 26.1Illustration showing the design and structures of the digestive system."
+      },
+      {
+        "query_id": "msmarco_test_000017",
+        "passage_id": "msmarco_test_000017_neg_7",
+        "score": -1.2200926542282104,
+        "label": 0,
+        "logprob_relevant": -1.4995737075805664,
+        "logprob_irrelevant": -0.27948105335235596,
+        "passage": "1 Digestive System The process of chemically and physically breaking down foods into simpler forms that can be absorbed is called digestion. Digestive System • The digestive system can be divided into two major parts: – (1) the alimentary canal (gastrointestinal, or digestive tract) and – (2) the accessory organs. Accessory organs The accessory organs include the – (1) teeth, – (2) tongue, – (3) salivary glands, – (4) liver, – (5) gallbladder, and – (6) pancreas. Figure 26.1Illustration showing the design and structures of the digestive system."
+      },
+      {
+        "query_id": "msmarco_test_000017",
+        "passage_id": "msmarco_test_000017_neg_1",
+        "score": -1.2975157499313354,
+        "label": 0,
+        "logprob_relevant": -1.554800033569336,
+        "logprob_irrelevant": -0.2572842836380005,
+        "passage": "oThe alimentary canal, or gastrointestinal (GI) tract, is the continuous muscular digestive tube that winds through the body digesting and absorbing foodstuff; its organs include: the mouth, pharynx, esophagus, stomach, small intestine, and large intestine. •The digestive system takes in food, breaks it down into nutrient molecules, absorbs these molecules into the bloodstream, and then rids the body of the indigestible remains. •Digestive system organs fall into two main groups: the alimentary canal and the accessory organs (pp. 852–853)."
+      },
+      {
+        "query_id": "msmarco_test_000017",
+        "passage_id": "msmarco_test_000017_pos_4",
+        "score": -1.438349962234497,
+        "label": 1,
+        "logprob_relevant": -1.6659188270568848,
+        "logprob_irrelevant": -0.2275688648223877,
+        "passage": "The difference between the alimentary canal and digestive system is that .. The alimentary canal is the passageway for the food we eat: from the mouth to the anus while the d … igestive system is all those organs plus the others like: kidneys, liver etc. 35 people found this useful. Answered by The Community. Making the world better, one answer at a time. The alimentary canal is the tube going from the mouth to the anus. The accessory organs are the organs located along that canal which produce enzymes to aid the digestion process."
+      },
+      {
+        "query_id": "msmarco_test_000017",
+        "passage_id": "msmarco_test_000017_neg_3",
+        "score": -1.5787420272827148,
+        "label": 0,
+        "logprob_relevant": -1.9595146179199219,
+        "logprob_irrelevant": -0.38077259063720703,
+        "passage": "The alimentary canal is the tube going from the mouth to the anus. The accessory organs are the organs located along that canal which produce enzymes to aid the digestio … n process. Answer = Another name for the alimentary Canal is the Gut.. The Alimentary Canal is the tube that runs through the body from the mouth to the anus, in which digestion of foo … d takes place."
+      },
+      {
+        "query_id": "msmarco_test_000017",
+        "passage_id": "msmarco_test_000017_neg_6",
+        "score": -1.8442931175231934,
+        "label": 0,
+        "logprob_relevant": -2.0069007873535156,
+        "logprob_irrelevant": -0.16260766983032227,
+        "passage": "Digestive system: The alimentary canal and accessory digestive organs. Organs of the digestive system are divided into two main groups: organs within the alimentary canal and accessory digestive organs. The alimentary canal, which is also called the gastrointestinal (GI) tract or gut, is the entire length of tube that winds through the body from the mouth to the anus. It digests, breaks down and absorbs food through its lining into the blood."
+      },
+      {
+        "query_id": "msmarco_test_000017",
+        "passage_id": "msmarco_test_000017_neg_8",
+        "score": -2.0320857763290405,
+        "label": 0,
+        "logprob_relevant": -2.1730613708496094,
+        "logprob_irrelevant": -0.14097559452056885,
+        "passage": "Chapter 17. Digestive System. 17.1 Introduction. 1. Functions of the digestive system include: (p. 652). e. all of the above. 2. List the major parts of the alimentary canal; then separately list the accessory organs of the digestive system. (p. 652). a. Mouth. —the oral cavity"
+      },
+      {
+        "query_id": "msmarco_test_000017",
+        "passage_id": "msmarco_test_000017_neg_2",
+        "score": -2.204146385192871,
+        "label": 0,
+        "logprob_relevant": -2.3428354263305664,
+        "logprob_irrelevant": -0.1386890411376953,
+        "passage": "Answers. Best Answer: yes indeed there is a difference :D the Alimentary canal (also called gastrointestinal tract) refers to the passageway through which the food passes when we eat: mouth, esophagus, stomach, intestine, to the anus."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000018",
+    "query": "what did the royal fusiliers do",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000018",
+        "passage_id": "msmarco_test_000018_neg_8",
+        "score": -1.9692243337631226,
+        "label": 0,
+        "logprob_relevant": -2.110661506652832,
+        "logprob_irrelevant": -0.14143717288970947,
+        "passage": "An Ancient Regiment The history of the Royal Fusiliers goes back to the 17th century. After the English Civil War, Charles II combined the Stuart and Cromwellian forces to create the modern British Army (1660). The Royal Fusiliers (City of London Regiment) was formed in 1685 as the Royal Regiment of Fusiliers. Prologue You are about to begin a journey-a journey through the past. It is with great pleasure and humble respect that I bring you the story of the 8th Battalion Royal Fusiliers City of London Regiment. For it is with this unit, Company Z to be exact, that Eric Fletcher Waters fought the fight against fascism."
+      },
+      {
+        "query_id": "msmarco_test_000018",
+        "passage_id": "msmarco_test_000018_neg_10",
+        "score": -2.1728744506835938,
+        "label": 0,
+        "logprob_relevant": -2.29079532623291,
+        "logprob_irrelevant": -0.1179208755493164,
+        "passage": "The original fusiliers in the British Army were The 7th Foot, Royal Regiment of Fuzileers raised in 1685. This subsequently became The Royal Fusiliers (City of London Regiment). The original purpose of this unit was to act as escort to artillery guns, as well as keeping discipline amongst the civilian drivers. From the 18th to the 19th centuries, the term fuzileiros (fusiliers) was used, in the Portuguese Army, to designate the regular line infantry, as opposed to the grenadiers (granadeiros) and the light infantry (cacadores caçadores and). atiradores"
+      },
+      {
+        "query_id": "msmarco_test_000018",
+        "passage_id": "msmarco_test_000018_neg_6",
+        "score": -2.328546404838562,
+        "label": 0,
+        "logprob_relevant": -2.4290781021118164,
+        "logprob_irrelevant": -0.1005316972732544,
+        "passage": "The Stock Exchange Battalion of the Royal Fusiliers was formed in 1914 when 1,600 members of the Exchange joined up: 400 were killed during the war. The 23rd and 24th (Service) Battalion, better known as the Sportsman's Battalions, were among the Pals battalions. Members of the Royal Fusiliers won the first two Victoria Crosses of the war near Mons in August 1914 (Lieutenant Maurice Dease and Private Sidney Godley), and the last two in North Russia."
+      },
+      {
+        "query_id": "msmarco_test_000018",
+        "passage_id": "msmarco_test_000018_pos_3",
+        "score": -2.4699517488479614,
+        "label": 1,
+        "logprob_relevant": -2.5579090118408203,
+        "logprob_irrelevant": -0.08795726299285889,
+        "passage": "The Royal Fusiliers Monument, a memorial dedicated to the Royal Fusiliers who died during World War I, stands on Holborn in the City of London. Members of the Royal Fusiliers won the first two Victoria Crosses of the war near Mons in August 1914 (Lieutenant Maurice Dease and Private Sidney Godley), and the last two in North Russia."
+      },
+      {
+        "query_id": "msmarco_test_000018",
+        "passage_id": "msmarco_test_000018_neg_9",
+        "score": -2.516067624092102,
+        "label": 0,
+        "logprob_relevant": -2.6000566482543945,
+        "logprob_irrelevant": -0.08398902416229248,
+        "passage": "The Royal Regiment of Fusiliers (RRF) is an infantry regiment of the British Army, part of the Queen's Division. As one of the existing large infantry regiments, the Royal Regiment of Fusiliers was largely unaffected by the reforms of the infantry that were announced in December 2004. As a fusilier regiment, the RRF wears a hackle, which in this case is the hackle of the Royal Northumberland Fusiliers, red over white."
+      },
+      {
+        "query_id": "msmarco_test_000018",
+        "passage_id": "msmarco_test_000018_neg_7",
+        "score": -2.5163432359695435,
+        "label": 0,
+        "logprob_relevant": -2.6007003784179688,
+        "logprob_irrelevant": -0.08435714244842529,
+        "passage": "In 1968 the regiment was amalgamated with the other regiments of the Fusilier Brigade – the Royal Northumberland Fusiliers, the Royal Warwickshire Fusiliers and the Lancashire Fusiliers – to form a new large regiment, the Royal Regiment of Fusiliers. Members of the Royal Fusiliers won the first two Victoria Crosses of the war near Mons in August 1914 (Lieutenant Maurice Dease and Private Sidney Godley), and the last two in North Russia."
+      },
+      {
+        "query_id": "msmarco_test_000018",
+        "passage_id": "msmarco_test_000018_neg_4",
+        "score": -2.5623620748519897,
+        "label": 0,
+        "logprob_relevant": -2.6429836750030518,
+        "logprob_irrelevant": -0.08062160015106201,
+        "passage": "The Royal Regiment of Fusiliers is a forward thinking, adaptable and professional infantry regiment. The Fusiliers have a Regular Battalion (1RRF) based in Tidworth, equipped with the WARRIOR Armoured Infantry fighting vehicle and are part of the Reaction Forces A2020. Our Reserve Battalion (5RRF) specialises in light role operations and is currently based in Durham and Newcastle."
+      },
+      {
+        "query_id": "msmarco_test_000018",
+        "passage_id": "msmarco_test_000018_neg_2",
+        "score": -2.6255959272384644,
+        "label": 0,
+        "logprob_relevant": -2.702342987060547,
+        "logprob_irrelevant": -0.07674705982208252,
+        "passage": "The Royal Dublin Fusiliers of the Great War was formed in 1881 by the amalgamation of the 102 nd Regiment of Foot/The Royal Madras Fusiliers and the 103 rd Regiment of Foot/The Royal Bombay Fusilers (known as the 'Old Toughs'). The 102nd becoming the 1st Battalion and the 103rd, the 2nd Battalion."
+      },
+      {
+        "query_id": "msmarco_test_000018",
+        "passage_id": "msmarco_test_000018_neg_5",
+        "score": -2.7037858963012695,
+        "label": 0,
+        "logprob_relevant": -2.7745838165283203,
+        "logprob_irrelevant": -0.07079792022705078,
+        "passage": "The Royal Fusiliers were mentioned in Pink Floyd's film The Wall. It was the regiment that the character Pink's father died in, as well as the writer and producer Roger Waters ' father, Eric Fletcher Waters, to whom the Pink Floyd album The Final Cut was dedicated. Members of the Royal Fusiliers won the first two Victoria Crosses of the war near Mons in August 1914 (Lieutenant Maurice Dease and Private Sidney Godley), and the last two in North Russia."
+      },
+      {
+        "query_id": "msmarco_test_000018",
+        "passage_id": "msmarco_test_000018_neg_1",
+        "score": -3.484615921974182,
+        "label": 0,
+        "logprob_relevant": -3.5184459686279297,
+        "logprob_irrelevant": -0.03383004665374756,
+        "passage": "The Royal Welch Fusiliers is the only regiment in the British Army, with the exception of the Gurkhas, to use a language other than English. During the First World War more than one battalion used Welsh on a regular basis."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000019",
+    "query": "is apple cider vinegar good for kidney function",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000019",
+        "passage_id": "msmarco_test_000019_neg_6",
+        "score": -0.9385025501251221,
+        "label": 0,
+        "logprob_relevant": -1.2910900115966797,
+        "logprob_irrelevant": -0.3525874614715576,
+        "passage": "For kidney failure patients, if their potassium level is elevated seriously, aside from apple cider vinegar, they also need to avoid foods like banana, spinach, white beans, dried apricots, baked potatoes, salmon, yogurt, avocados and mushrooms and so on. 1 Tag: 2 Previous： Is Mushroom Good for Kidney Disease Patient. Apple cider vinegar is rich in potassium and for these whose potassium level is higher than the normal range, they needs to stay away from it. Kidney failure can cause elevation of potassium level, so some kidney failure patients should avoid using apple cider vinegar."
+      },
+      {
+        "query_id": "msmarco_test_000019",
+        "passage_id": "msmarco_test_000019_pos_3",
+        "score": -0.9542551040649414,
+        "label": 1,
+        "logprob_relevant": -1.3009109497070312,
+        "logprob_irrelevant": -0.34665584564208984,
+        "passage": "In fact, apple cider vinegar also has many benefits in improving the kidney function. 1. Prevent high blood pressure. Apple cider vinegar has the function of bating blood-vessels, which can help prevent the high blood pressure for kidney disease patients. As we know, high blood pressure is a common cause of kidney disease, and it is also a symptom in kidneys. 3. Remove the toxins in blood. Apple cider vinegar can also help remove the toxins and wastes in blood and organs, such as kidneys and livers, which can help reduce the kidney burden and protect the kidneys. From above, we can know that drinking apple cider vinegar can be helpful for the kidneys."
+      },
+      {
+        "query_id": "msmarco_test_000019",
+        "passage_id": "msmarco_test_000019_neg_5",
+        "score": -0.984485387802124,
+        "label": 0,
+        "logprob_relevant": -1.3221378326416016,
+        "logprob_irrelevant": -0.33765244483947754,
+        "passage": "Apple cider vinegar plays an important role in preventing kidney infection. It can prevent bacteria adhering to the walls and prevent it entering to the kidney. With a low immunity, you are easily affected by infections. Apple cider vinegar can improve the immunity and lower the risk of further kidney damage. Apple cider vinegar has a good effect on soften blood vessels and promote blood circulation. It can increase the blood flow through kidney and prevent hypoxic-ischemic and sclerosis. It can increase the appetite. Most patients with chronic kidney disease are suffering from poor appetite and weight loss."
+      },
+      {
+        "query_id": "msmarco_test_000019",
+        "passage_id": "msmarco_test_000019_neg_4",
+        "score": -1.281752347946167,
+        "label": 0,
+        "logprob_relevant": -1.5461158752441406,
+        "logprob_irrelevant": -0.26436352729797363,
+        "passage": "The patients with stage 3 kidney disease can use apple cider vinegar as a regular dietary supplement. The vinegar can break down fatty deposits in the body and help urine from being too alkaline.It can be used to balance Ph levels due to this property. Apple cider vinegar is a natural healthy remedy and has curative and anti-bacterial properties.It has the following healthy benefits for people with diabetes and stage 3 kidney disease. Lower blood glucose. Apple cider vinegar has beneficial to people with type 2 diabetes. Just two tablespoons of apple cider vinegar can instantaneously help reduce blood sugar levels and suppress the spike in blood sugar levels that usually takes place after a meal"
+      },
+      {
+        "query_id": "msmarco_test_000019",
+        "passage_id": "msmarco_test_000019_neg_2",
+        "score": -1.8131282329559326,
+        "label": 0,
+        "logprob_relevant": -1.9786138534545898,
+        "logprob_irrelevant": -0.16548562049865723,
+        "passage": "Actually, whether kidney failure patients can use apple cider vinegar depends on their potassium level. Potassium is a very important mineral and plays a crucial role for the properly function of all cells, tissues, and organs in the human body. Apple cider vinegar is rich in potassium and for these whose potassium level is higher than the normal range, they needs to stay away from it. Kidney failure can cause elevation of potassium level, so some kidney failure patients should avoid using apple cider vinegar."
+      },
+      {
+        "query_id": "msmarco_test_000019",
+        "passage_id": "msmarco_test_000019_neg_7",
+        "score": -1.9693964719772339,
+        "label": 0,
+        "logprob_relevant": -2.116183280944824,
+        "logprob_irrelevant": -0.14678680896759033,
+        "passage": "The accumulation of the toxins in the blood will affect the skin complexion. The rich antioxidant in apple cider vinegar can promote metabolism and whiten the skin. However, apple cider vinegar is not good for all the patients with chronic kidney disease. Apple cider vinegar has a good effect on soften blood vessels and promote blood circulation. It can increase the blood flow through kidney and prevent hypoxic-ischemic and sclerosis. It can increase the appetite. Most patients with chronic kidney disease are suffering from poor appetite and weight loss."
+      },
+      {
+        "query_id": "msmarco_test_000019",
+        "passage_id": "msmarco_test_000019_neg_1",
+        "score": -2.204509735107422,
+        "label": 0,
+        "logprob_relevant": -2.323301315307617,
+        "logprob_irrelevant": -0.11879158020019531,
+        "passage": "If you have a kidney infection, you should seek medical help immediately. In addition to the vinegar, there is a other kind of vinegar called apple cider vinegar should drow your attention. Actually, whether this kind of vinegar is good for your kidneys depends on your specific illness condition like potassium level."
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000020",
+    "query": "what is normal peak flow measurement for male is it erv",
+    "candidates": [
+      {
+        "query_id": "msmarco_test_000020",
+        "passage_id": "msmarco_test_000020_neg_8",
+        "score": -1.6880441904067993,
+        "label": 0,
+        "logprob_relevant": -1.8727211952209473,
+        "logprob_irrelevant": -0.18467700481414795,
+        "passage": "A. A peak flow meter is an inexpensive, portable, handheld device for those with asthma that is used to measure how well air moves out of your lungs. Measuring your peak flow using this meter is an important part of managing your asthma symptoms and preventing an asthma attack. The peak flow meter works by measuring how fast air comes out of the lungs when you exhale forcefully after inhaling fully."
+      },
+      {
+        "query_id": "msmarco_test_000020",
+        "passage_id": "msmarco_test_000020_neg_2",
+        "score": -2.047166109085083,
+        "label": 0,
+        "logprob_relevant": -2.182875633239746,
+        "logprob_irrelevant": -0.13570952415466309,
+        "passage": "A peak flow meter is a portable, inexpensive, hand-held device used to measure how air flows from your lungs in one fast blast.. In other words, the meter measures your ability to push air out of your lungs. Peak flow meters com in two ranges to measure the air pushed out of your lungs. A low-range peak flow meter is for small children, and a standard-range peak flow meter is for older children, teenagers and adults. A normal peak flow rate is based on a person's age, height, sex and race. A standardized normal may be obtained from a chart comparing the person with asthma to a population without breathing problems. A patient can figure out what is normal for them, based on their own peak flow rate."
+      },
+      {
+        "query_id": "msmarco_test_000020",
+        "passage_id": "msmarco_test_000020_neg_3",
+        "score": -2.0473588705062866,
+        "label": 0,
+        "logprob_relevant": -2.1841044425964355,
+        "logprob_irrelevant": -0.13674557209014893,
+        "passage": "Peak expiratory flow rate (PEFR) is the maximum flow rate generated during a forceful exhalation, starting from full lung inflation. Peak flow rate primarily reflects large airway flow and depends on the voluntary effort and muscular strength of the patient."
+      },
+      {
+        "query_id": "msmarco_test_000020",
+        "passage_id": "msmarco_test_000020_pos_6",
+        "score": -2.188224673271179,
+        "label": 1,
+        "logprob_relevant": -2.3058061599731445,
+        "logprob_irrelevant": -0.11758148670196533,
+        "passage": "Peak flow measurement is a procedure in which air flowing out of the lungs is measured. The measurement obtained is called the peak expiratory flow rate (PEFR), or peak expiratory flow (PEF). Peak flow measurement may be obtained using a spirometer, an instrument with a mouth piece that measures the amount of air breathed in and/or out and the rate at which the air is inhaled and expelled from the lungs. Peak flow may also be measured with a peak flow meter (PFM), a portable, hand-held device. Both devices take the measurement as an individual forcefully blows into the mouthpiece of the device. Spirometry is usually performed in a doctor’s office, clinic, or a hospital."
+      },
+      {
+        "query_id": "msmarco_test_000020",
+        "passage_id": "msmarco_test_000020_neg_4",
+        "score": -2.2814255952835083,
+        "label": 0,
+        "logprob_relevant": -2.389408588409424,
+        "logprob_irrelevant": -0.10798299312591553,
+        "passage": "Peak flow measurement using a peak flow meter is particularly useful for individuals with asthma. During an asthma flare-up, the large airways in the lungs slowly begin to narrow. This slows the speed of air leaving the lungs. Peak flow may also be measured with a peak flow meter (PFM), a portable, hand-held device. Both devices take the measurement as an individual forcefully blows into the mouthpiece of the device. Spirometry is usually performed in a doctor’s office, clinic, or a hospital."
+      },
+      {
+        "query_id": "msmarco_test_000020",
+        "passage_id": "msmarco_test_000020_neg_1",
+        "score": -2.6419235467910767,
+        "label": 0,
+        "logprob_relevant": -2.7199668884277344,
+        "logprob_irrelevant": -0.07804334163665771,
+        "passage": "Due to the wide range of ‘normal' values and high degree of variability, peak flow is not the recommended test to identify asthma. However, it can be useful in some circumstances. A small portion of people with asthma may benefit from regular peak flow monitoring. From Wikipedia, the free encyclopedia. The peak expiratory flow (PEF), also called peak expiratory flow rate (PEFR) is a person's maximum speed of expiration, as measured with a peak flow meter, a small, hand-held device used to monitor a person's ability to breathe out air."
+      },
+      {
+        "query_id": "msmarco_test_000020",
+        "passage_id": "msmarco_test_000020_neg_7",
+        "score": -2.8287562131881714,
+        "label": 0,
+        "logprob_relevant": -2.899648666381836,
+        "logprob_irrelevant": -0.07089245319366455,
+        "passage": "How will the change affect me as a: Predictive Normal Values (Nomogram, EU scale). The change in scale for peak flow meters will result in PEF readings that are different, depending on whether the individual has used a Wright scale meter, or the new EU scale meter."
+      },
+      {
+        "query_id": "msmarco_test_000020",
+        "passage_id": "msmarco_test_000020_neg_5",
+        "score": -3.0170986652374268,
+        "label": 0,
+        "logprob_relevant": -3.073396682739258,
+        "logprob_irrelevant": -0.056298017501831055,
+        "passage": "Predictive Normal Values have been calculated for women and men of different ages and heights, and have been adapted (with agreement from the original Authors) for use with the new EU Scale / EN 23747 peak flow meters. The change in scale for peak flow meters will result in PEF readings that are different, depending on whether the individual has used a Wright scale meter, or the new EU scale meter."
+      }
+    ]
+  }
+]

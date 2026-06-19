@@ -111,6 +111,22 @@ L25_FILES = {
     ],
 }
 
+LORA_DEBUG_FILES = {
+    "LoRA reranker plan": [
+        "docs/lora_reranker_plan.md",
+        "docs/lora_debug_report.md",
+    ],
+    "LoRA debug data": [
+        "data/processed/lora_debug/train_pairs.jsonl",
+        "data/processed/lora_debug/valid_pairs.jsonl",
+        "data/processed/lora_debug/test_queries.jsonl",
+    ],
+    "LoRA debug evaluation": [
+        "outputs/lora_debug/qwen_0_5b_lora_metrics.json",
+        "outputs/lora_debug/qwen_0_5b_lora_rankings.json",
+    ],
+}
+
 
 def exists(relative_path: str) -> bool:
     return (ROOT / relative_path).exists()
@@ -172,6 +188,12 @@ def main() -> None:
 
     print("\nL2.5 external reranker status summary")
     for name, paths in L25_FILES.items():
+        print(f"{name}: {status_for(paths)}")
+
+    print("\nLoRA debug status summary")
+    lora_ready = all(status_for(paths) == "ready" for paths in LORA_DEBUG_FILES.values())
+    print(f"LoRA reranker debug: {'ready' if lora_ready else 'pending'}")
+    for name, paths in LORA_DEBUG_FILES.items():
         print(f"{name}: {status_for(paths)}")
 
     if missing:

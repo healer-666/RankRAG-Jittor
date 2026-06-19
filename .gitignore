@@ -10,6 +10,7 @@ __pycache__/
 .jittor/
 .cache/
 .huggingface/
+huggingface/
 hf_cache/
 datasets_cache/
 local_previews/
@@ -25,5 +26,9 @@ data/raw/
 outputs/*.pt
 outputs/*.pkl
 outputs/*.pth
+outputs/lora_adapters/
+*.safetensors
+*.bin
+*.ckpt
 
 .DS_Store

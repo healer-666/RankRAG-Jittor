@@ -10,3 +10,7 @@ socksio
 rank_bm25
 sentence-transformers
 transformers
+peft
+accelerate
+sentencepiece
+safetensors

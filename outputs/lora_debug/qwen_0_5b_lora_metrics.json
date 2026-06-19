@@ -1,0 +1,17 @@
+{
+  "recall@1": 0.15,
+  "ndcg@1": 0.15,
+  "recall@3": 0.55,
+  "ndcg@3": 0.36963946303571865,
+  "recall@5": 0.9,
+  "ndcg@5": 0.511611508193636,
+  "recall@10": 1.0,
+  "ndcg@10": 0.5451951113883236,
+  "mrr": 0.40041666666666664,
+  "pairwise_accuracy": 0.6467261904761904,
+  "num_queries": 20,
+  "num_pairs": 158,
+  "device": "cuda",
+  "inference_time_sec": 57.662611961364746,
+  "pairs_per_second": 2.7400770555774265
+}

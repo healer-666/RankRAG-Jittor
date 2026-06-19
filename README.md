@@ -152,6 +152,16 @@ The Cross-Encoder is an external pretrained semantic reranker reference, not the
 
 Training loss decreases normally for the lightweight rerankers. Validation MRR remains much lower than the Cross-Encoder reference, which is expected because the MLP/TextCNN models are trained from scratch without pretrained semantic encoders.
 
+## L3 Preview: LoRA Reranker Debug
+
+This is a RankRAG-mini engineering preview, not a formal result. The current debug run uses Qwen2.5-0.5B-Instruct to verify LoRA training, adapter save/load, and log-probability reranking with:
+
+```text
+score = log P("Relevant") - log P("Irrelevant")
+```
+
+The formal LoRA reranker experiment should be run later on a rented GPU with Qwen2.5-1.5B-Instruct or a larger model. See [docs/lora_reranker_plan.md](docs/lora_reranker_plan.md).
+
 ## Interpretation
 
 - Synthetic scores are near-perfect because the benchmark is template-generated and mainly checks pipeline correctness.
@@ -179,6 +189,7 @@ Training loss decreases normally for the lightweight rerankers. Validation MRR r
 | [docs/result_analysis.md](docs/result_analysis.md) | Result interpretation |
 | [docs/hardware_report.md](docs/hardware_report.md) | Runtime environment |
 | [docs/jittor_setup.md](docs/jittor_setup.md) | Jittor setup notes |
+| [docs/lora_reranker_plan.md](docs/lora_reranker_plan.md) | LoRA reranker debug plan |
 
 ## Citation
 
