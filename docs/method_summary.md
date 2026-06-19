@@ -102,3 +102,13 @@ medium subset 是更稳定的公开 ranking 实验：
 - 引入 BEIR-SciFact 等科学文献相关公开评测集。
 - 尝试更强的 neural reranker，同时保持 Jittor/PyTorch 对齐。
 - 制作方法说明 PPT 和录屏材料。
+
+## Why Add an External Pretrained Reranker?
+
+RankRAG's central motivation is LLM-style context ranking: a model with broad pretrained semantic knowledge is tuned to judge which retrieved contexts are useful before answer generation.
+
+The Jittor reproduction body in this repository remains deliberately resource-limited: MLP and TextCNN rerankers implemented in Jittor, aligned with PyTorch baselines, and evaluated on MS MARCO small/medium subsets. These models are useful for validating the selector pipeline, but they are trained from scratch and do not contain pretrained semantic knowledge.
+
+To analyze the gap between this lightweight reproduction and the original RankRAG idea, we add an external pretrained Cross-Encoder reference using `cross-encoder/ms-marco-MiniLM-L6-v2`. It helps explain the value of semantic pretraining for reranking, especially when lexical overlap and shallow neural features are insufficient.
+
+This Cross-Encoder reference does not replace the Jittor reproduction body. It is not claimed as a Jittor model, and it is not trained by this project. It is only a supplementary reference for interpreting why RankRAG-style LLM reranking matters.

@@ -8,3 +8,5 @@ jittor
 datasets
 socksio
 rank_bm25
+sentence-transformers
+transformers

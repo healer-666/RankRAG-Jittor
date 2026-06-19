@@ -179,3 +179,29 @@ small subset 的候选上限为 5，因此 Recall@5 基本覆盖全部候选；m
 - 未复现 answer generation。
 - 未使用完整 MS MARCO passage ranking leaderboard 设置。
 - Jittor 已在 Ubuntu 22.04 CPU 环境跑通，但尚未验证 GPU 路径。
+
+## L2.5 External Pretrained Semantic Reranker
+
+### Why add Cross-Encoder
+
+L2 compares BM25, MLP, and TextCNN and shows that lexical matching remains strong on the MS MARCO subsets, while from-scratch lightweight neural rerankers do not reliably dominate traditional baselines. To better connect the reproduction to RankRAG's LLM-style reranking motivation, this project adds an external pretrained Cross-Encoder semantic reranker reference.
+
+The model is `cross-encoder/ms-marco-MiniLM-L6-v2`. It is an external pretrained model, not the Jittor reproduction body, and not a model trained by this project.
+
+### Relationship to RankRAG LLM reranking
+
+RankRAG unifies context ranking and answer generation through instruction tuning. The Cross-Encoder reference is not RankRAG and does not generate answers, but it highlights the same broad motivation: pretrained semantic knowledge can improve query-passage relevance judgment beyond lexical overlap or shallow neural features.
+
+### Comparison roles
+
+- BM25 / TF-IDF: lexical matching baselines.
+- MLP Jittor / TextCNN Jittor: lightweight trainable Jittor rerankers and the reproduction body.
+- Cross-Encoder: external pretrained semantic reranker reference.
+
+### Interpretation
+
+If Cross-Encoder is clearly stronger, the result should be interpreted as evidence for pretrained semantic reranking, not as a Jittor model improvement. If Cross-Encoder is not clearly stronger, report it honestly and analyze likely causes such as the medium subset, candidate construction, model size, and MS MARCO matching pattern.
+
+### Conclusion
+
+From-scratch lightweight rerankers are limited. BM25 is strong for lexical matching. Pretrained semantic rerankers better approximate the motivation behind RankRAG-style LLM reranking. Full Llama3-RankRAG remains beyond the resource scope.

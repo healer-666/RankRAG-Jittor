@@ -382,3 +382,61 @@ outputs/   Metrics, figures, and demo ranking results
 - Add stronger non-LLM rerankers before attempting L3.
 - Evaluate larger subsets while keeping storage and runtime manageable.
 - Keep the scope focused on RankRAG-style context ranking unless full LLM instruction tuning is explicitly added.
+
+## L2.5 External Pretrained Reranker Reference
+
+This cross-encoder experiment is an external pretrained semantic reranker reference. It is not the Jittor reproduction body. The Jittor reproduction body remains the MLP/TextCNN rerankers implemented in Jittor. This reference is used to analyze why RankRAG-style LLM reranking matters.
+
+The experiment uses `cross-encoder/ms-marco-MiniLM-L6-v2` through `sentence-transformers` as an external pretrained semantic reranker. It is not trained by this repository and should not be described as a Jittor implementation.
+
+Purpose:
+
+- BM25 / TF-IDF: lexical matching baselines.
+- Jittor MLP/TextCNN: lightweight trainable rerankers and the reproduction body.
+- Cross-Encoder: pretrained semantic reranker reference.
+
+If Cross-Encoder is clearly stronger, the result should be interpreted as the effect of pretrained semantic relevance modeling. If it is not clearly stronger, report that honestly and consider subset size, candidate construction, model size, and MS MARCO matching patterns.
+
+Run on Windows PowerShell:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/run_cross_encoder_msmarco_medium.ps1
+python src/aggregate_l25_results.py
+python src/case_study_cross_encoder.py
+```
+
+Run on bash:
+
+```bash
+bash scripts/run_cross_encoder_msmarco_medium.sh
+python src/aggregate_l25_results.py
+python src/case_study_cross_encoder.py
+```
+
+Expected outputs:
+
+- `outputs/msmarco_medium_cross_encoder_metrics.json`
+- `outputs/msmarco_medium_cross_encoder_metrics.md`
+- `outputs/msmarco_medium_cross_encoder_rankings.json`
+- `outputs/l25_msmarco_medium_results.md`
+- `outputs/l25_msmarco_medium_results.png`
+- `docs/msmarco_medium_cross_encoder_case_study.md`
+
+The L2.5 result table is written to `outputs/l25_msmarco_medium_results.md`.
+
+### L2.5 MS MARCO medium result table
+
+# L2.5 MS MARCO Medium Results
+
+Cross-Encoder is an external pretrained semantic reranker reference, not the Jittor reproduction body.
+
+| Method | Framework | Training | R@1 | R@3 | R@5 | R@10 | MRR | NDCG@3 | NDCG@5 | Time / throughput | Role |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| TF-IDF | sklearn | none | 0.2220 | 0.5700 | 0.7880 | 1.0000 | 0.4465 | 0.4188 | 0.5084 | N/A | lexical baseline |
+| BM25 | rank_bm25 | none | 0.2300 | 0.5540 | 0.7840 | 1.0000 | 0.4476 | 0.4127 | 0.5074 | N/A | lexical baseline |
+| MLP | PyTorch | from scratch | 0.1920 | 0.4780 | 0.7000 | 1.0000 | 0.4079 | 0.3559 | 0.4475 | N/A | PyTorch lightweight reranker |
+| MLP | Jittor | from scratch | 0.2280 | 0.5060 | 0.7120 | 1.0000 | 0.4318 | 0.3853 | 0.4698 | N/A | Jittor lightweight reranker |
+| TextCNN | PyTorch | from scratch | 0.1720 | 0.4960 | 0.7220 | 1.0000 | 0.3953 | 0.3534 | 0.4463 | N/A | PyTorch neural reranker |
+| TextCNN | Jittor | from scratch | 0.1800 | 0.4500 | 0.6780 | 1.0000 | 0.3912 | 0.3341 | 0.4270 | N/A | Jittor neural reranker |
+| Cross-Encoder | sentence-transformers | external pretrained | 0.4340 | 0.8080 | 0.9340 | 1.0000 | 0.6341 | 0.6495 | 0.7019 | 679.06 pairs/s | external pretrained semantic reranker reference |
+

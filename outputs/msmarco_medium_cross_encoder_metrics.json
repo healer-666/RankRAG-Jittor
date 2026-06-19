@@ -1,0 +1,23 @@
+{
+  "recall@1": 0.434,
+  "ndcg@1": 0.434,
+  "recall@3": 0.808,
+  "ndcg@3": 0.6495426862785783,
+  "recall@5": 0.934,
+  "ndcg@5": 0.7018796875589168,
+  "recall@10": 1.0,
+  "ndcg@10": 0.7241765206353594,
+  "mrr": 0.6340539682539681,
+  "pairwise_accuracy": 0.8048626984126984,
+  "model_name": "cross-encoder/ms-marco-MiniLM-L6-v2",
+  "data_path": "E:\\NK cmm\\RankRAG-Jittor\\data\\processed\\msmarco_medium\\test.jsonl",
+  "device": "cuda",
+  "total_time_sec": 5.955293200000597,
+  "num_queries": 500,
+  "num_pairs": 4044,
+  "pairs_per_second": 679.0597648491253,
+  "avg_time_per_query": 0.011910586400001193,
+  "batch_size": 32,
+  "sampled_evaluation": false,
+  "role": "external pretrained semantic reranker reference"
+}

@@ -97,6 +97,20 @@ MSMARCO_MEDIUM_FILES = {
     ],
 }
 
+L25_FILES = {
+    "External Cross-Encoder reference": [
+        "outputs/msmarco_medium_cross_encoder_metrics.json",
+        "outputs/msmarco_medium_cross_encoder_rankings.json",
+    ],
+    "L2.5 aggregate results": [
+        "outputs/l25_msmarco_medium_results.md",
+        "outputs/l25_msmarco_medium_results.png",
+    ],
+    "Cross-Encoder case study": [
+        "docs/msmarco_medium_cross_encoder_case_study.md",
+    ],
+}
+
 
 def exists(relative_path: str) -> bool:
     return (ROOT / relative_path).exists()
@@ -154,6 +168,10 @@ def main() -> None:
 
     print("\nMS MARCO medium status summary")
     for name, paths in MSMARCO_MEDIUM_FILES.items():
+        print(f"{name}: {status_for(paths)}")
+
+    print("\nL2.5 external reranker status summary")
+    for name, paths in L25_FILES.items():
         print(f"{name}: {status_for(paths)}")
 
     if missing:
