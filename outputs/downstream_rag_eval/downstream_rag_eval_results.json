@@ -1,0 +1,82 @@
+{
+  "methods": [
+    {
+      "method": "bm25",
+      "metrics": {
+        "questions": 50,
+        "top_k": 3,
+        "positive_in_context": 0.64,
+        "gold_in_context": 0.68,
+        "answer_hit": 0.22,
+        "exact_match": 0,
+        "token_f1": 0.16464600459747955,
+        "empty_answer_rate": 0.0,
+        "insufficient_information_rate": 0.04,
+        "average_answer_length": 38.4,
+        "generation_failure_rate": 0.6764705882352942,
+        "average_gold_answer_context_rank": 1.5588235294117647,
+        "retrieval_failures": 16,
+        "generation_failures": 23,
+        "successes": 11
+      },
+      "reranking_metrics": {
+        "recall@1": 0.23,
+        "recall@3": 0.554,
+        "recall@5": 0.784,
+        "mrr": 0.44759761904761924
+      }
+    },
+    {
+      "method": "lora_v3",
+      "metrics": {
+        "questions": 50,
+        "top_k": 3,
+        "positive_in_context": 0.62,
+        "gold_in_context": 0.72,
+        "answer_hit": 0.28,
+        "exact_match": 0.04,
+        "token_f1": 0.2107792067763531,
+        "empty_answer_rate": 0.0,
+        "insufficient_information_rate": 0.04,
+        "average_answer_length": 37.94,
+        "generation_failure_rate": 0.6111111111111112,
+        "average_gold_answer_context_rank": 1.5833333333333333,
+        "retrieval_failures": 14,
+        "generation_failures": 22,
+        "successes": 14
+      },
+      "reranking_metrics": {
+        "recall@1": 0.358,
+        "recall@3": 0.698,
+        "recall@5": 0.872,
+        "mrr": 0.5642261904761902
+      }
+    },
+    {
+      "method": "cross_encoder",
+      "metrics": {
+        "questions": 50,
+        "top_k": 3,
+        "positive_in_context": 0.82,
+        "gold_in_context": 0.88,
+        "answer_hit": 0.28,
+        "exact_match": 0,
+        "token_f1": 0.20575087755536586,
+        "empty_answer_rate": 0.0,
+        "insufficient_information_rate": 0.02,
+        "average_answer_length": 38.98,
+        "generation_failure_rate": 0.6818181818181818,
+        "average_gold_answer_context_rank": 1.4090909090909092,
+        "retrieval_failures": 6,
+        "generation_failures": 30,
+        "successes": 14
+      },
+      "reranking_metrics": {
+        "recall@1": 0.434,
+        "recall@3": 0.808,
+        "recall@5": 0.934,
+        "mrr": 0.6340539682539681
+      }
+    }
+  ]
+}

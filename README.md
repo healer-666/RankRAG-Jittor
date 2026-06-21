@@ -19,6 +19,7 @@ It does **not** reproduce full RankRAG LLM instruction tuning or answer generati
 | TF-IDF / BM25 baselines | Done |
 | External Cross-Encoder reference | Done |
 | Qwen2.5-1.5B LoRA reranker | Done |
+| Downstream RAG answer generation | Done |
 | Full LLM generation | Out of scope |
 
 ## Method
@@ -120,6 +121,18 @@ bash scripts/run_lora_qwen_1_5b_v3_eval.sh
 python src/aggregate_lora_results.py
 ```
 
+Downstream RAG answer generation:
+
+```bash
+python src/audit_downstream_rag_data.py --config configs/downstream_rag_50q.yaml
+python src/build_downstream_qa_subset.py --config configs/downstream_rag_50q.yaml
+python scripts/run_downstream_rag_eval.py --config configs/downstream_rag_50q.yaml --methods bm25,lora_v3,cross_encoder --top-k 3
+python src/aggregate_downstream_rag_results.py --config configs/downstream_rag_50q.yaml --input-dir outputs/downstream_rag_eval --top-k 3
+python scripts/validate_downstream_rag_results.py --config configs/downstream_rag_50q.yaml --output-dir outputs/downstream_rag_eval --top-k 3
+```
+
+Set `QWEN_GENERATOR_MODEL_PATH` or pass `--generator-model-path` to use a local Qwen2.5-1.5B-Instruct directory outside the repository. Model weights are not versioned.
+
 Readiness check:
 
 ```bash
@@ -175,6 +188,18 @@ On the same MS MARCO medium test candidate set, the best LoRA run is v3: 10,000 
 
 LoRA v3 clearly improves over the same-size zero-shot reranker and the lightweight Jittor rerankers, but remains below the external pretrained Cross-Encoder reference. Full details are in [docs/lora_qwen2_1_5b_results.md](docs/lora_qwen2_1_5b_results.md), with generated tables in [outputs/lora_qwen2_1_5b_comparison.md](outputs/lora_qwen2_1_5b_comparison.md).
 
+## Stage D: Downstream RAG
+
+Stage D tests whether stronger reranking improves answer generation with a fixed Qwen2.5-1.5B-Instruct generator on 50 MS MARCO questions and top-3 contexts.
+
+| Method | Gold in Context@3 | Answer Hit | EM | Token F1 |
+| --- | ---: | ---: | ---: | ---: |
+| BM25 | 0.6800 | 0.2200 | 0.0000 | 0.1646 |
+| LoRA v3 | 0.7200 | 0.2800 | 0.0400 | 0.2108 |
+| Cross-Encoder | 0.8800 | 0.2800 | 0.0000 | 0.2058 |
+
+Cross-Encoder gives the best evidence availability, while LoRA v3 improves over BM25 on answer hit and token F1. Cross-Encoder and LoRA tie on answer hit in this small setting, showing that the fixed generator and automatic answer matching can bottleneck final answer quality. See [docs/downstream_rag_analysis.md](docs/downstream_rag_analysis.md).
+
 ## Training Behavior
 
 ![Training curves](docs/figures/05_training_curves.png)
@@ -189,6 +214,7 @@ Training loss decreases normally for the lightweight rerankers. Validation MRR r
 - Jittor MLP/TextCNN results are close enough to the PyTorch baselines to support the implementation alignment claim.
 - The Cross-Encoder result shows why pretrained semantic reranking is stronger, but it is not a Jittor model.
 - Qwen2.5-1.5B LoRA v3 shows the gain from task-specific LLM reranker training while remaining below the external Cross-Encoder reference.
+- Downstream answer generation generally follows evidence availability, but improvements in top-k context do not always translate linearly into answer hit because generation can still fail.
 
 ## Limitations
 
@@ -211,6 +237,7 @@ Training loss decreases normally for the lightweight rerankers. Validation MRR r
 | [docs/jittor_setup.md](docs/jittor_setup.md) | Jittor setup notes |
 | [docs/lora_reranker_plan.md](docs/lora_reranker_plan.md) | LoRA reranker debug plan |
 | [docs/lora_qwen2_1_5b_results.md](docs/lora_qwen2_1_5b_results.md) | Formal Qwen2.5-1.5B LoRA reranker results |
+| [docs/downstream_rag_analysis.md](docs/downstream_rag_analysis.md) | Stage D downstream answer-generation results |
 
 ## Citation
 

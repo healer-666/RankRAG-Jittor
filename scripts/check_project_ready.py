@@ -154,6 +154,31 @@ LORA_FORMAL_FILES = {
     ],
 }
 
+DOWNSTREAM_RAG_FILES = {
+    "Downstream RAG config and subset": [
+        "configs/downstream_rag_50q.yaml",
+        "data/processed/msmarco_downstream_qa_50.jsonl",
+        "outputs/downstream_rag_eval/qa_subset_manifest.json",
+    ],
+    "Downstream RAG generated answers": [
+        "outputs/downstream_rag_eval/bm25_top3_answers.jsonl",
+        "outputs/downstream_rag_eval/lora_v3_top3_answers.jsonl",
+        "outputs/downstream_rag_eval/cross_encoder_top3_answers.jsonl",
+    ],
+    "Downstream RAG aggregate results": [
+        "outputs/downstream_rag_eval/downstream_rag_eval_results.json",
+        "outputs/downstream_rag_eval/downstream_rag_eval_results.md",
+        "outputs/downstream_rag_eval/downstream_rag_eval_results.png",
+    ],
+    "Downstream RAG validation and docs": [
+        "outputs/downstream_rag_eval/validation.json",
+        "outputs/downstream_rag_eval/downstream_rag_case_study.json",
+        "docs/downstream_rag_data_audit.md",
+        "docs/downstream_rag_subset_report.md",
+        "docs/downstream_rag_analysis.md",
+    ],
+}
+
 JITTORLLM_ZEROSHOT_FILES = [
     "src/jittorllm_reranker/evaluate_jittorllm_zeroshot.py",
     "src/jittorllm_reranker/prompt_utils.py",
@@ -232,6 +257,10 @@ def lora_formal_status() -> str:
     return "ready" if all(status_for(paths) == "ready" for paths in LORA_FORMAL_FILES.values()) else "pending"
 
 
+def downstream_rag_status() -> str:
+    return "ready" if all(status_for(paths) == "ready" for paths in DOWNSTREAM_RAG_FILES.values()) else "pending"
+
+
 def main() -> None:
     print("Project readiness check")
     print("=" * 24)
@@ -296,6 +325,11 @@ def main() -> None:
     print("\nL3 LoRA formal status summary")
     print(f"Qwen2.5-1.5B LoRA formal: {lora_formal_status()}")
     for name, paths in LORA_FORMAL_FILES.items():
+        print(f"{name}: {status_for(paths)}")
+
+    print("\nStage D downstream RAG status summary")
+    print(f"Downstream RAG answer generation: {downstream_rag_status()}")
+    for name, paths in DOWNSTREAM_RAG_FILES.items():
         print(f"{name}: {status_for(paths)}")
 
     print("\nJittorLLM zero-shot status summary")

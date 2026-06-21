@@ -1,0 +1,883 @@
+[
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000001",
+    "question": "how long does it take to drive from st louis to detroit",
+    "gold_answers": [
+      "8 hours 43 minutes"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_2",
+          "msmarco_test_000001_neg_3"
+        ],
+        "generated_answer": "The total driving time from St. Louis to Detroit is 8 hours, 43 minutes.",
+        "answer_hit": 1,
+        "token_f1": 0.47058823529411764,
+        "failure_type": "success"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_neg_9",
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_7"
+        ],
+        "generated_answer": "10 Hours 20 Minutes",
+        "answer_hit": 0,
+        "token_f1": 0.5,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_7",
+          "msmarco_test_000001_neg_9"
+        ],
+        "generated_answer": "8 hours, 43 minutes or approximately 8 hours 39 minutes.",
+        "answer_hit": 1,
+        "token_f1": 0.5714285714285715,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000001",
+    "question": "how long does it take to drive from st louis to detroit",
+    "gold_answers": [
+      "8 hours 43 minutes"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_2",
+          "msmarco_test_000001_neg_3"
+        ],
+        "generated_answer": "The total driving time from St. Louis to Detroit is 8 hours, 43 minutes.",
+        "answer_hit": 1,
+        "token_f1": 0.47058823529411764,
+        "failure_type": "success"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_neg_9",
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_7"
+        ],
+        "generated_answer": "10 Hours 20 Minutes",
+        "answer_hit": 0,
+        "token_f1": 0.5,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_7",
+          "msmarco_test_000001_neg_9"
+        ],
+        "generated_answer": "8 hours, 43 minutes or approximately 8 hours 39 minutes.",
+        "answer_hit": 1,
+        "token_f1": 0.5714285714285715,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000002",
+    "question": "what is cetirizine hydrochloride",
+    "gold_answers": [
+      "Cetirizine hydrochloride is the generic name for a prescription and over-the-counter antihistamine medication."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_neg_7",
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_2"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is an antihistamine medication used to relieve symptoms associated with allergies. It blocks receptors in the body that are sensitive to histamine, a chemical released during allergic reactions. Available in both regular and combined forms, it can be taken either as a prescription or over-the-counter medication",
+        "answer_hit": 0,
+        "token_f1": 0.2909090909090909,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_neg_6",
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_3"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is a second-generation antihistamine used in the treatment of hay fever, allergies, angioedema, and urticaria. It is a major metabolite of hydroxyzine and a racemic selective H1 receptor antagonist. This medication can be combined with pseudoeph",
+        "answer_hit": 0,
+        "token_f1": 0.26666666666666666,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_3",
+          "msmarco_test_000002_neg_6"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is an antihistamine medication primarily used to treat symptoms associated with allergies, including itching, runny nose, watery eyes, and sneezing. It can be taken either alone or combined with pseudoephedrine for additional relief of nasal congestion. The drug is classified",
+        "answer_hit": 0,
+        "token_f1": 0.27450980392156865,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000002",
+    "question": "what is cetirizine hydrochloride",
+    "gold_answers": [
+      "Cetirizine hydrochloride is the generic name for a prescription and over-the-counter antihistamine medication."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_neg_7",
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_2"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is an antihistamine medication used to relieve symptoms associated with allergies. It blocks receptors in the body that are sensitive to histamine, a chemical released during allergic reactions. Available in both regular and combined forms, it can be taken either as a prescription or over-the-counter medication",
+        "answer_hit": 0,
+        "token_f1": 0.2909090909090909,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_neg_6",
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_3"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is a second-generation antihistamine used in the treatment of hay fever, allergies, angioedema, and urticaria. It is a major metabolite of hydroxyzine and a racemic selective H1 receptor antagonist. This medication can be combined with pseudoeph",
+        "answer_hit": 0,
+        "token_f1": 0.26666666666666666,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_3",
+          "msmarco_test_000002_neg_6"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is an antihistamine medication primarily used to treat symptoms associated with allergies, including itching, runny nose, watery eyes, and sneezing. It can be taken either alone or combined with pseudoephedrine for additional relief of nasal congestion. The drug is classified",
+        "answer_hit": 0,
+        "token_f1": 0.27450980392156865,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000003",
+    "question": "how much does it cost to join the masters golf club",
+    "gold_answers": [
+      "$10,000 and $30,000"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1"
+        ],
+        "generated_answer": "Insufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_3",
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_4"
+        ],
+        "generated_answer": "Insufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1",
+          "msmarco_test_000003_neg_3"
+        ],
+        "generated_answer": "$10,000 to $30,000 annually\nThe cost to join the Masters golf club varies depending on whether you're joining as a member or just attending events like The Masters tournament. As a member, the initiation fee is estimated to be between $10,000 and",
+        "answer_hit": 0,
+        "token_f1": 0.15384615384615385,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000003",
+    "question": "how much does it cost to join the masters golf club",
+    "gold_answers": [
+      "$10,000 and $30,000"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1"
+        ],
+        "generated_answer": "Insufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_3",
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_4"
+        ],
+        "generated_answer": "Insufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1",
+          "msmarco_test_000003_neg_3"
+        ],
+        "generated_answer": "$10,000 to $30,000 annually\nThe cost to join the Masters golf club varies depending on whether you're joining as a member or just attending events like The Masters tournament. As a member, the initiation fee is estimated to be between $10,000 and",
+        "answer_hit": 0,
+        "token_f1": 0.15384615384615385,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000004",
+    "question": "which blood test is for folate",
+    "gold_answers": [
+      "Folic acid test"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000004_pos_5",
+          "msmarco_test_000004_neg_8",
+          "msmarco_test_000004_neg_3"
+        ],
+        "generated_answer": "The blood test mentioned in context [1] is for folate. It's described as a simple blood test that checks for a lack of folate or Vitamin B9. Answer: folate",
+        "answer_hit": 0,
+        "token_f1": 0.06896551724137931,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000004_neg_7",
+          "msmarco_test_000004_neg_9",
+          "msmarco_test_000004_neg_3"
+        ],
+        "generated_answer": "The folate (folic acid) test measures the amount of folate in the blood. Folate and folic acid are forms of B9 vitamin. Folate is found in many foods and folic acid is the synthetic form of the vitamin. [2] mentions that a folic acid test measures the amount",
+        "answer_hit": 1,
+        "token_f1": 0.13636363636363635,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000004_neg_7",
+          "msmarco_test_000004_neg_2",
+          "msmarco_test_000004_neg_3"
+        ],
+        "generated_answer": "The folate (folic acid) test measures the amount of folate in the blood. Folate and folic acid are forms of B9 vitamin. Folate is found in many foods and folic acid is the synthetic form of the vitamin. [3] This test measures the levels of vitamin B12",
+        "answer_hit": 1,
+        "token_f1": 0.13636363636363635,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000004",
+    "question": "which blood test is for folate",
+    "gold_answers": [
+      "Folic acid test"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000004_pos_5",
+          "msmarco_test_000004_neg_8",
+          "msmarco_test_000004_neg_3"
+        ],
+        "generated_answer": "The blood test mentioned in context [1] is for folate. It's described as a simple blood test that checks for a lack of folate or Vitamin B9. Answer: folate",
+        "answer_hit": 0,
+        "token_f1": 0.06896551724137931,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000004_neg_7",
+          "msmarco_test_000004_neg_9",
+          "msmarco_test_000004_neg_3"
+        ],
+        "generated_answer": "The folate (folic acid) test measures the amount of folate in the blood. Folate and folic acid are forms of B9 vitamin. Folate is found in many foods and folic acid is the synthetic form of the vitamin. [2] mentions that a folic acid test measures the amount",
+        "answer_hit": 1,
+        "token_f1": 0.13636363636363635,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000004_neg_7",
+          "msmarco_test_000004_neg_2",
+          "msmarco_test_000004_neg_3"
+        ],
+        "generated_answer": "The folate (folic acid) test measures the amount of folate in the blood. Folate and folic acid are forms of B9 vitamin. Folate is found in many foods and folic acid is the synthetic form of the vitamin. [3] This test measures the levels of vitamin B12",
+        "answer_hit": 1,
+        "token_f1": 0.13636363636363635,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000005",
+    "question": "what is the cause of HPV",
+    "gold_answers": [
+      "Genital warts"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_6",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "The causes of HPV are:\n\n- High-risk HPV types\n- Low-risk HPV types\n- Skin-to-skin contact during sexual activity or other skin-to-skin contact of the genitals. \n\nNote: This response directly answers the question based on the given contexts without adding unsupported information. Insufficient information cannot be used here",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "The primary cause of HPV is its ability to infect the skin or mucous membranes, leading to various health issues including cervical cancer and genital warts. It's important to note that while HPV itself isn't directly harmful, certain strains can lead to serious health problems if left untreated. [Source: Contexts 1 &",
+        "answer_hit": 1,
+        "token_f1": 0.07843137254901959,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_4"
+        ],
+        "generated_answer": "The primary cause of HPV is its association with the development of cervical cancer, along with causing genital warts in some cases. High-risk HPV types specifically increase the likelihood of abnormal cell changes leading to cancer, particularly in the cervix but also potentially affecting other areas like the vulva, anus, and penis. [2",
+        "answer_hit": 1,
+        "token_f1": 0.07999999999999999,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000005",
+    "question": "what is the cause of HPV",
+    "gold_answers": [
+      "Genital warts"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_6",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "The causes of HPV are:\n\n- High-risk HPV types\n- Low-risk HPV types\n- Skin-to-skin contact during sexual activity or other skin-to-skin contact of the genitals. \n\nNote: This response directly answers the question based on the given contexts without adding unsupported information. Insufficient information cannot be used here",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "The primary cause of HPV is its ability to infect the skin or mucous membranes, leading to various health issues including cervical cancer and genital warts. It's important to note that while HPV itself isn't directly harmful, certain strains can lead to serious health problems if left untreated. [Source: Contexts 1 &",
+        "answer_hit": 1,
+        "token_f1": 0.07843137254901959,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_4"
+        ],
+        "generated_answer": "The primary cause of HPV is its association with the development of cervical cancer, along with causing genital warts in some cases. High-risk HPV types specifically increase the likelihood of abnormal cell changes leading to cancer, particularly in the cervix but also potentially affecting other areas like the vulva, anus, and penis. [2",
+        "answer_hit": 1,
+        "token_f1": 0.07999999999999999,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000007",
+    "question": "what is the incubation period for chlamydia",
+    "gold_answers": [
+      "1 to 3 weeks after sexual contact with an infected person."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_2",
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_neg_1"
+        ],
+        "generated_answer": "The incubation period for chlamydia can vary but typically ranges from days to months after exposure. It averages around one to three weeks before symptoms appear. Approximately 80-90% of individuals will experience no symptoms during this period.",
+        "answer_hit": 0,
+        "token_f1": 0.13043478260869565,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_1",
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_pos_3"
+        ],
+        "generated_answer": "The incubation period for chlamydia can vary widely but typically ranges from days to months after exposure, averaging around one to three weeks before symptoms begin. [3]",
+        "answer_hit": 0,
+        "token_f1": 0.2222222222222222,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_neg_1",
+          "msmarco_test_000007_pos_3"
+        ],
+        "generated_answer": "The incubation period for chlamydia can vary widely but typically ranges from days to months after infection. Symptoms often develop within 1 to 3 weeks following exposure. [Source: Contexts 1 & 3]",
+        "answer_hit": 0,
+        "token_f1": 0.25,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000008",
+    "question": "how tall was lebron james parents",
+    "gold_answers": [
+      "Lebron James' dad is 5'7 and his mom is 5'5."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_pos_4",
+          "msmarco_test_000008_neg_1",
+          "msmarco_test_000008_neg_2"
+        ],
+        "generated_answer": "LeBron James' parents were 5'7\" and 5'5\", respectively. The exact heights are not specified in the given contexts. Therefore, the answer is Insufficient information.",
+        "answer_hit": 0,
+        "token_f1": 0.3870967741935483,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_neg_2",
+          "msmarco_test_000008_neg_3",
+          "msmarco_test_000008_neg_1"
+        ],
+        "generated_answer": "LeBron James's father, Eric, was approximately 6 feet tall. His mother, Tamika, was also around 6 feet tall. Both were listed as being 6 feet 8 inches tall together. However, their exact height measurements are not specified in the given contexts. Therefore, based on the available information",
+        "answer_hit": 0,
+        "token_f1": 0.07272727272727272,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_pos_4",
+          "msmarco_test_000008_neg_2",
+          "msmarco_test_000008_neg_1"
+        ],
+        "generated_answer": "LeBron James' parents are 5'7\" and 5'5\", respectively. Therefore, LeBron James is likely taller than both of them due to genetics. His current height is 6'8\". The exact height of LeBron James' parents cannot be determined from the given contexts. Insufficient information.",
+        "answer_hit": 0,
+        "token_f1": 0.32000000000000006,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000009",
+    "question": "how much do marketers earn",
+    "gold_answers": [
+      "$126,190"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000009_neg_3",
+          "msmarco_test_000009_neg_7",
+          "msmarco_test_000009_neg_1"
+        ],
+        "generated_answer": "Based on context [1], most chief marketers earn between $100,000 and $350,000 per year. However, it's important to note that earnings vary depending on factors such as niche and site performance, as mentioned in context [2]. Additionally, e-commerce marketing managers",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000009_neg_2",
+          "msmarco_test_000009_pos_8",
+          "msmarco_test_000009_neg_3"
+        ],
+        "generated_answer": "Based on the given contexts, marketers can earn anywhere from $64,440 to over $350,000 annually depending on their location and job title. However, without specific data for all regions mentioned, we cannot provide exact figures for each city. Therefore, the most accurate answer based on",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000009_neg_3",
+          "msmarco_test_000009_neg_2",
+          "msmarco_test_000009_pos_8"
+        ],
+        "generated_answer": "Based on the given contexts, most marketers earn between $100,000 and $350,000 per year, with marketing managers earning a median annual wage of $123,220 in 2013. The best-paying jobs are located in San Jose,",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000011",
+    "question": "what is the structure of vyvanse",
+    "gold_answers": [
+      "The chemical structure"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000011_neg_5",
+          "msmarco_test_000011_pos_1",
+          "msmarco_test_000011_neg_9"
+        ],
+        "generated_answer": "The chemical structure of Vyvanse consists of Lisdexamfetamine dimesylate, which is a white to off-white powder that is soluble in water. It contains inactive ingredients such as microcrystalline cellulose, croscarmellose sodium, and magnesium stearate. Vyvanse",
+        "answer_hit": 1,
+        "token_f1": 0.1142857142857143,
+        "failure_type": "success"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000011_pos_1",
+          "msmarco_test_000011_neg_5",
+          "msmarco_test_000011_neg_7"
+        ],
+        "generated_answer": "The structure of Vyvanse consists of lisdexamfetamine dimesylate, which is a white to off-white powder that is soluble in water. It contains inactive ingredients such as microcrystalline cellulose, croscarmellose sodium, and magnesium stearate. The drug is available",
+        "answer_hit": 0,
+        "token_f1": 0.05555555555555555,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000011_pos_1",
+          "msmarco_test_000011_neg_5",
+          "msmarco_test_000011_neg_9"
+        ],
+        "generated_answer": "The chemical structure of Vyvanse consists of Lisdexamfetamine dimesylate, which is a white to off-white powder that is soluble in water. It contains inactive ingredients such as microcrystalline cellulose, croscarmellose sodium, and magnesium stearate. The active ingredient",
+        "answer_hit": 1,
+        "token_f1": 0.1111111111111111,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000016",
+    "question": "what is hypospadia",
+    "gold_answers": [
+      "A birth defect of the male urethra."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000016_neg_7",
+          "msmarco_test_000016_neg_1",
+          "msmarco_test_000016_neg_4"
+        ],
+        "generated_answer": "Hypospadias is a congenital anomaly characterized by the urethral opening being located below the glans penis or anywhere along the ventral surface of the penile shaft. It affects approximately 1 out of every 250 males and results from incomplete tubularization of the urinary channel during fetal development",
+        "answer_hit": 0,
+        "token_f1": 0.04347826086956522,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000016_neg_4",
+          "msmarco_test_000016_pos_8",
+          "msmarco_test_000016_neg_7"
+        ],
+        "generated_answer": "Hypospadias is a birth defect of the male urethra characterized by an abnormal opening of the urethra located on the underside of the penis instead of at the tip. This condition affects approximately 1 out of every 250 boys and can lead to distress for parents due to concerns over appearance",
+        "answer_hit": 1,
+        "token_f1": 0.20408163265306123,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000016_neg_7",
+          "msmarco_test_000016_neg_5",
+          "msmarco_test_000016_neg_9"
+        ],
+        "generated_answer": "Hypospadias is a congenital disorder characterized by the abnormal development of the urethral opening, typically located on the underside of the penis rather than at its tip. It affects the urinary tract's proper drainage system, leading to potential distress for affected individuals and their families. This condition occurs when the ureth",
+        "answer_hit": 0,
+        "token_f1": 0.04081632653061225,
+        "failure_type": "retrieval_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000025",
+    "question": "how much does invisalign usually cost",
+    "gold_answers": [
+      "$3,000 to $5,000",
+      "$3500 to $8000."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000025_neg_9",
+          "msmarco_test_000025_neg_6",
+          "msmarco_test_000025_neg_2"
+        ],
+        "generated_answer": "The cost of Invisalign varies widely based on several factors including insurance coverage, location, and specific treatment needs. Generally, the total cost ranges from $3,000 to $8,000 or approximately $5,000. For example, according to context [2], Damon braces,",
+        "answer_hit": 0,
+        "token_f1": 0.15384615384615385,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000025_neg_5",
+          "msmarco_test_000025_neg_1",
+          "msmarco_test_000025_pos_3"
+        ],
+        "generated_answer": "Invisalign costs typically range from $3,000 to $5,000, depending on factors such as complexity and duration of treatment. However, this can vary based on individual circumstances and insurance coverage. For example, dental insurance might cover part of the cost, reducing the overall expense. It's",
+        "answer_hit": 1,
+        "token_f1": 0.13333333333333333,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000025_neg_5",
+          "msmarco_test_000025_pos_3",
+          "msmarco_test_000025_neg_9"
+        ],
+        "generated_answer": "The cost of Invisalign varies depending on several factors such as complexity of the case and duration of treatment. Generally, the cost ranges from $1750 to $4450 per arch, but this can go higher based on individual circumstances. Dental insurance coverage also plays a role in determining the final cost",
+        "answer_hit": 0,
+        "token_f1": 0.04166666666666667,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000037",
+    "question": "what does plateau mean",
+    "gold_answers": [
+      "Mainly level area of elevated land."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000037_pos_7",
+          "msmarco_test_000037_neg_2",
+          "msmarco_test_000037_neg_1"
+        ],
+        "generated_answer": "A plateau is a wide, mostly flat area of elevated land with a relatively stable period of time. It can refer to both physical geography terms like \"plateau\" and \"lateau,\" which describe an elevated landform, and also metaphorically as a period of stability or leveling off in various contexts such as economic growth",
+        "answer_hit": 0,
+        "token_f1": 0.14814814814814814,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000037_neg_8",
+          "msmarco_test_000037_pos_7",
+          "msmarco_test_000037_neg_2"
+        ],
+        "generated_answer": "A plateau is a land area with a relatively flat surface that rises higher than its surroundings on at least one side, often used metaphorically to describe a period of relative stability or lack of significant change. It can also refer to a physical geographical feature characterized by a broad, mostly level elevation. Additionally, \"plateau\"",
+        "answer_hit": 0,
+        "token_f1": 0.14545454545454545,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000037_pos_7",
+          "msmarco_test_000037_neg_2",
+          "msmarco_test_000037_neg_3"
+        ],
+        "generated_answer": "A plateau means a wide mainly level area of elevated land or a relatively long period of stability. In physical geography, it can also refer to a period of time when one's body stops responding to changes in fitness or diet routines.",
+        "answer_hit": 1,
+        "token_f1": 0.2727272727272727,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000041",
+    "question": "how long for tomatoes to grow",
+    "gold_answers": [
+      "59 to 85 days."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000041_neg_4",
+          "msmarco_test_000041_pos_2",
+          "msmarco_test_000041_neg_8"
+        ],
+        "generated_answer": "The contexts provide varying information on the growth period of tomatoes but suggest an approximate range of 59 to 85 days for producing a tomato crop. Therefore, the answer is: approximately 59 to 85 days.",
+        "answer_hit": 1,
+        "token_f1": 0.23529411764705882,
+        "failure_type": "success"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000041_neg_3",
+          "msmarco_test_000041_neg_1",
+          "msmarco_test_000041_neg_9"
+        ],
+        "generated_answer": "The contexts provide varying times for different types of tomatoes to grow. For example, beefsteak tomatoes take approximately 80-85 days to mature, while determinate tomato plants typically produce a glut of tomatoes within 80 days after planting. Indeterminate tomato plants also produce tomatoes over several months, with some",
+        "answer_hit": 0,
+        "token_f1": 0.08,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000041_pos_2",
+          "msmarco_test_000041_neg_3",
+          "msmarco_test_000041_neg_9"
+        ],
+        "generated_answer": "The contexts provide varying times for tomato growth, but generally suggest that it takes between 59 to 85 days for a tomato crop to mature from seed to harvest. The exact duration depends on the variety and environmental conditions. For example, extended and super-sized tomatoes typically take about 80 to 85",
+        "answer_hit": 1,
+        "token_f1": 0.1568627450980392,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000049",
+    "question": "definition lethargy",
+    "gold_answers": [
+      "a lack of energy or a lack of interest in doing things"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000049_neg_2",
+          "msmarco_test_000049_neg_4",
+          "msmarco_test_000049_pos_1"
+        ],
+        "generated_answer": "Lethargy refers to a state characterized by a lack of energy or an indifference towards activities, often resulting from excessive sleepiness or fatigue. It can also be described as a condition where one feels uninterested or unmotivated to engage in tasks. In medical terms, it may manifest with symptoms such as reduced appetite",
+        "answer_hit": 0,
+        "token_f1": 0.1694915254237288,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000049_neg_5",
+          "msmarco_test_000049_pos_1",
+          "msmarco_test_000049_neg_3"
+        ],
+        "generated_answer": "Lethargy is a state of tiredness, weariness, fatigue, or lack of energy, often caused by factors such as inadequate sleep, overexertion, or stress. It can also refer to a lack of interest or enthusiasm for activities. The term \"lethargic\" describes someone who feels",
+        "answer_hit": 0,
+        "token_f1": 0.27999999999999997,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000049_pos_1",
+          "msmarco_test_000049_neg_2",
+          "msmarco_test_000049_neg_4"
+        ],
+        "generated_answer": "Lethargy refers to a lack of energy or a lack of interest in doing things, often described as a state of being drowsy or lazy. It can also be used figuratively to describe a state of indifference or laziness. In medical terms, it may indicate symptoms such as loss of appetite and fatigue",
+        "answer_hit": 1,
+        "token_f1": 0.3389830508474576,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000068",
+    "question": "How long do white tigers live",
+    "gold_answers": [
+      "10 to 15 years."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000068_neg_2",
+          "msmarco_test_000068_neg_6",
+          "msmarco_test_000068_pos_4"
+        ],
+        "generated_answer": "Based on context [2], white tigers in the wild typically live to be about 10-15 years old, whereas those in zoos usually live between 16 and 20 years. Therefore, white tigers in captivity tend to live longer than those in the wild. However, it's",
+        "answer_hit": 0,
+        "token_f1": 0.08695652173913042,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000068_neg_3",
+          "msmarco_test_000068_pos_4",
+          "msmarco_test_000068_neg_2"
+        ],
+        "generated_answer": "Based on context [2], white tigers in zoos typically live between 16 and 20 years. However, it's important to note that they generally live shorter lives in the wild compared to those in captivity. In the wild, they can live up to 10 to 15 years.",
+        "answer_hit": 1,
+        "token_f1": 0.16666666666666669,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000068_pos_4",
+          "msmarco_test_000068_neg_6",
+          "msmarco_test_000068_neg_3"
+        ],
+        "generated_answer": "White tigers in the wild typically live to be around 10-15 years old, whereas those kept in captivity often survive for 16-20 years. This difference can be attributed to factors such as nutrition, healthcare, and living conditions within zoos compared to their natural habitat. However, it",
+        "answer_hit": 0,
+        "token_f1": 0.0816326530612245,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  }
+]

@@ -1,0 +1,123 @@
+{
+  "processed_test": {
+    "path": "data/processed/msmarco_medium/test.jsonl",
+    "queries": 500,
+    "candidates": 4044,
+    "top_level_fields": [
+      "candidates",
+      "query",
+      "query_id"
+    ],
+    "candidate_fields": [
+      "doc_id",
+      "label",
+      "text",
+      "title"
+    ],
+    "has_answer": false,
+    "has_answers": false,
+    "has_well_formed_answers": false
+  },
+  "original_msmarco_validation": {
+    "available": true,
+    "fields": [
+      "answers",
+      "passages",
+      "query",
+      "query_id",
+      "query_type",
+      "wellFormedAnswers"
+    ],
+    "has_answers": true,
+    "has_well_formed_answers": true,
+    "sample_query": "walgreens store sales average",
+    "sample_answers": [
+      "Approximately $15,000 per year."
+    ],
+    "sample_well_formed_answers": []
+  },
+  "rankings": {
+    "bm25": {
+      "path": "outputs/msmarco_medium_retrieval_baseline_rankings.json",
+      "exists": true,
+      "status": "ready",
+      "queries": 500,
+      "missing_queries": 0,
+      "extra_queries": 0,
+      "min_candidates": 2,
+      "max_candidates": 10,
+      "candidate_ids_aligned": true
+    },
+    "lora_v3": {
+      "path": "outputs/lora_qwen_1_5b_10k_lr1e4_s800/qwen_1_5b_lora_rankings.json",
+      "exists": true,
+      "status": "ready",
+      "queries": 500,
+      "missing_queries": 0,
+      "extra_queries": 0,
+      "min_candidates": 2,
+      "max_candidates": 10,
+      "candidate_ids_aligned": true
+    },
+    "cross_encoder": {
+      "path": "outputs/msmarco_medium_cross_encoder_rankings.json",
+      "exists": true,
+      "status": "ready",
+      "queries": 500,
+      "missing_queries": 0,
+      "extra_queries": 0,
+      "min_candidates": 2,
+      "max_candidates": 10,
+      "candidate_ids_aligned": true
+    },
+    "jittor_qwen2_1_5b_zero_shot": {
+      "path": "outputs/jittorllm_qwen2_1_5b_full/rankings.json",
+      "exists": true,
+      "status": "ready",
+      "queries": 500,
+      "missing_queries": 0,
+      "extra_queries": 0,
+      "min_candidates": 2,
+      "max_candidates": 10,
+      "candidate_ids_aligned": true
+    },
+    "jittor_qwen2_0_5b_zero_shot": {
+      "path": "outputs/jittorllm_qwen2_0_5b_full/rankings.json",
+      "exists": true,
+      "status": "ready",
+      "queries": 500,
+      "missing_queries": 0,
+      "extra_queries": 0,
+      "min_candidates": 2,
+      "max_candidates": 10,
+      "candidate_ids_aligned": true
+    },
+    "jittor_mlp": {
+      "path": "outputs/msmarco_medium_jittor_test_rankings.json",
+      "exists": true,
+      "status": "ready",
+      "queries": 500,
+      "missing_queries": 0,
+      "extra_queries": 0,
+      "min_candidates": 2,
+      "max_candidates": 10,
+      "candidate_ids_aligned": true
+    },
+    "jittor_textcnn": {
+      "path": "outputs/msmarco_medium_textcnn_jittor_test_rankings.json",
+      "exists": true,
+      "status": "ready",
+      "queries": 500,
+      "missing_queries": 0,
+      "extra_queries": 0,
+      "min_candidates": 2,
+      "max_candidates": 10,
+      "candidate_ids_aligned": true
+    }
+  },
+  "first_pass_methods": [
+    "bm25",
+    "lora_v3",
+    "cross_encoder"
+  ]
+}

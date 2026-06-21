@@ -1,0 +1,18 @@
+{
+  "dataset_path": "data/processed/msmarco_downstream_qa_50.jsonl",
+  "source_test_path": "data/processed/msmarco_medium/test.jsonl",
+  "num_requested": 50,
+  "num_kept": 50,
+  "source_rows_scanned": 10000,
+  "excluded": {
+    "fewer_than_top_k_candidates": 1,
+    "no_usable_gold_answer": 25,
+    "gold_not_in_candidate_pool": 9
+  },
+  "requirements": {
+    "gold_answer_non_empty": true,
+    "short_answer": true,
+    "gold_answer_in_candidate_pool": true,
+    "candidate_pool_reused_from_msmarco_medium_test": true
+  }
+}
