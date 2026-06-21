@@ -205,3 +205,39 @@ If Cross-Encoder is clearly stronger, the result should be interpreted as eviden
 ### Conclusion
 
 From-scratch lightweight rerankers are limited. BM25 is strong for lexical matching. Pretrained semantic rerankers better approximate the motivation behind RankRAG-style LLM reranking. Full Llama3-RankRAG remains beyond the resource scope.
+
+## JittorLLM Qwen2.5 Zero-shot Reranking
+
+### 设置
+
+JittorLLM zero-shot reranking 使用 MS MARCO medium test subset，规模为 500 queries 和 4044 query-passage pairs。Qwen2.5-0.5B-Instruct 与 Qwen2.5-1.5B-Instruct 均使用数字标签 prompt，并用首 token logit margin 作为排序分数：
+
+```text
+score = logit("1") - logit("0")
+```
+
+Qwen2.5-1.5B 的当前环境中，原始 JittorLLMs FP16 attention path 会产生 NaN logits。实验只在 attention 的 query/key/value 上临时提升到 FP32 计算，输出后转回原 dtype，模型其余部分仍为 FP16。该兼容性处理恢复了有限 logits，并完成全量独立验证。这个现象只描述为当前环境和实现下观察到的问题，不泛化为官方 Jittor 或 Qwen 的普遍缺陷。
+
+### Zero-shot 结果
+
+| Method | Recall@1 | Recall@3 | Recall@5 | Recall@10 | NDCG@5 | MRR | Pairwise Accuracy |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Qwen2.5-0.5B Jittor zero-shot | 0.1660 | 0.4540 | 0.6760 | 1.0000 | 0.4189 | 0.3804 | 0.5367 |
+| Qwen2.5-1.5B Jittor zero-shot | 0.2360 | 0.5520 | 0.8120 | 1.0000 | 0.5210 | 0.4525 | 0.6342 |
+
+1.5B 相比 0.5B 在 Recall@1/3/5、NDCG 和 MRR 上都有明显改善，说明扩大模型规模对 zero-shot reranking 有帮助。
+
+### 与其他 medium 结果对比
+
+| Method | Recall@1 | Recall@3 | Recall@5 | NDCG@5 | MRR | Pairwise Accuracy |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| BM25 | 0.2300 | 0.5540 | 0.7840 | 0.5074 | 0.4476 | 0.6253 |
+| Qwen2.5-1.5B Jittor zero-shot | 0.2360 | 0.5520 | 0.8120 | 0.5210 | 0.4525 | 0.6342 |
+| Qwen2.5-1.5B LoRA v3 | 0.3580 | 0.6980 | 0.8720 | 0.6266 | 0.5642 | 0.7345 |
+| Cross-Encoder | 0.4340 | 0.8080 | 0.9340 | 0.7019 | 0.6341 | not reported |
+
+1.5B zero-shot 与 BM25 整体相当：部分指标略高，Recall@3 基本持平且略低，因此不应写成显著超越。与同为 1.5B 的 LoRA v3 相比，zero-shot 明显落后，说明任务特定训练仍然关键。Cross-Encoder 仍是当前表中最强的 pretrained semantic reranker 参考。
+
+### 案例观察
+
+`docs/jittorllm_qwen2_full_case_study.md` 显示，1.5B 能修复部分 0.5B 的排序失败，例如 driving-time 和 cetirizine definition 查询。失败案例常见于高重合 hard negatives，或标记为 negative 但实际能够直接回答查询的 passage。这些应描述为潜在假负例或标注不完备，不直接断言数据集标注错误。

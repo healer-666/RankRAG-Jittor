@@ -1,0 +1,154 @@
+{
+  "status": "passed",
+  "num_queries": 500,
+  "expected_num_queries": 500,
+  "num_pairs": 4044,
+  "expected_num_pairs": 4044,
+  "cache_rows": 4044,
+  "cache_unique_pairs": 4044,
+  "duplicate_pairs": 0,
+  "duplicate_pair_keys_sample": [],
+  "missing_pairs": 0,
+  "missing_pair_keys_sample": [],
+  "extra_pairs": 0,
+  "extra_pair_keys_sample": [],
+  "parse_fail": 0,
+  "rankings_consistent": true,
+  "ranking_consistent": true,
+  "ranking_mismatches_sample": [],
+  "metrics_consistent": true,
+  "max_metric_abs_diff": 0.0,
+  "recomputed_metrics": {
+    "recall@1": 0.166,
+    "recall@3": 0.454,
+    "recall@5": 0.676,
+    "recall@10": 1.0,
+    "ndcg@1": 0.166,
+    "ndcg@3": 0.3280683059928606,
+    "ndcg@5": 0.4189455367945577,
+    "ndcg@10": 0.5258458053356794,
+    "mrr": 0.38042063492063455,
+    "pairwise_accuracy": 0.5366841269841267
+  },
+  "independent_metrics": {
+    "recall@1": 0.166,
+    "recall@3": 0.454,
+    "recall@5": 0.676,
+    "recall@10": 1.0,
+    "ndcg@1": 0.166,
+    "ndcg@3": 0.3280683059928606,
+    "ndcg@5": 0.4189455367945577,
+    "ndcg@10": 0.5258458053356794,
+    "mrr": 0.38042063492063455,
+    "pairwise_accuracy": 0.5366841269841267
+  },
+  "metric_differences": {
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "ndcg@1": 0.0,
+    "ndcg@3": 0.0,
+    "ndcg@5": 0.0,
+    "ndcg@10": 0.0,
+    "mrr": 0.0,
+    "pairwise_accuracy": 0.0
+  },
+  "score_statistics": {
+    "min": -3.796875,
+    "max": 6.46875,
+    "mean": 0.008098417408506428,
+    "std": 0.7787374457966787,
+    "positive_mean": 0.10003125,
+    "negative_mean": -0.004871790349887133,
+    "tie_groups": 236,
+    "tied_items": 3991,
+    "tied_pairs": 49358
+  },
+  "top1_cases": {
+    "correct": [
+      {
+        "query_id": "msmarco_test_000006",
+        "query": "average gas in harrisonburg, va",
+        "candidate_id": "msmarco_test_000006_pos_1",
+        "passage": "8 hours ago. $2.05update. There are 31 Regular gas price reports in the past 5 days in Harrisonburg, VA. The average Regular gas price in Harrisonburg, VA is $2.03, which is $0.73 lower than U.S. national average Regular gas price $2.76. The lowest Regular gas price is $1.94 of Costco located at 1830 Reservoir St, Harrisonburg, VA 22801.",
+        "label": 1,
+        "score": 0.046875
+      },
+      {
+        "query_id": "msmarco_test_000007",
+        "query": "what is the incubation period for chlamydia",
+        "candidate_id": "msmarco_test_000007_pos_3",
+        "passage": "Chlamydia-Symptoms. Most women and men with chlamydia do not have symptoms. The time between exposure to chlamydia and the start of symptoms-the incubation period-may range from days to months. If symptoms appear, it is usually 1 to 3 weeks after sexual contact with an infected person.",
+        "label": 1,
+        "score": 1.703125
+      },
+      {
+        "query_id": "msmarco_test_000009",
+        "query": "how much do marketers earn",
+        "candidate_id": "msmarco_test_000009_pos_8",
+        "passage": "Salary. The Bureau of Labor Statistics reports that marketing managers in the United States earned an average annual wage of $126,190 as of May 2011. The median wage, or midway point between the lowest and highest salary, was $116,010 per year.",
+        "label": 1,
+        "score": 0.765625
+      },
+      {
+        "query_id": "msmarco_test_000012",
+        "query": "escitalopram dosage for depression",
+        "candidate_id": "msmarco_test_000012_pos_7",
+        "passage": "Dosing Recommendations for Lexapro. The recommended starting dose of Lexapro for adults or adolescents (age 12 to 17 years old) with depression or adults with generalized anxiety disorder is 10 mg once a day. Your healthcare provider may choose to increase the dose if symptoms continue, or decrease it if side effects occur. Individual doses of Lexapro can range from 10 mg to 20 mg once a day. For elderly people or people with liver problems, the maximum dose is 10 mg once daily.",
+        "label": 1,
+        "score": 0.578125
+      },
+      {
+        "query_id": "msmarco_test_000014",
+        "query": "gastroscopy cost",
+        "candidate_id": "msmarco_test_000014_pos_6",
+        "passage": "In U.S. hospitals gastroscopy cost can range from $350 to $1,200, when extra pathology and surgical services are involved, whereas, abroad expenses may be just a fraction of this sum. Get exclusive information about [page_title]. Our professional health care representative will contact you. Percutaneous endoscopic gastrostomy is performed when the oral intake is not adequate, due to dysphagia or sedation. Gastroscopy cost depends on the additional services required (biopsy, tissue repair). Prices can range between $350 and $1,200.",
+        "label": 1,
+        "score": 1.4375
+      }
+    ],
+    "incorrect": [
+      {
+        "query_id": "msmarco_test_000001",
+        "query": "how long does it take to drive from st louis to detroit",
+        "candidate_id": "msmarco_test_000001_neg_7",
+        "passage": "552 mi (888km) - about 8 hours 39 mins Saint Louis, MO, USA to Detroit, MI, USA.",
+        "label": 0,
+        "score": 1.03125
+      },
+      {
+        "query_id": "msmarco_test_000002",
+        "query": "what is cetirizine hydrochloride",
+        "candidate_id": "msmarco_test_000002_neg_7",
+        "passage": "Prior to taking cetirizine, it is a good idea to review the drug's safety information. For example, side effects such as fatigue, drowsiness, and dry mouth may occur. In addition, this medicine is not right for certain people, such as those with liver or kidney disease. (Click Cetirizine for more information on this drug, including how it works, whether you can buy the medication without a prescription, and what to do in cases of overdose.). Cetirizine Hydrochloride.",
+        "label": 0,
+        "score": 1.953125
+      },
+      {
+        "query_id": "msmarco_test_000003",
+        "query": "how much does it cost to join the masters golf club",
+        "candidate_id": "msmarco_test_000003_neg_8",
+        "passage": "The Bridge in Bridgehampton, N.Y., charged a whopping $750,000 to join, according to a 2007 Wall Street Journal article. Another Hamptons club, Sebonack Golf Club, billed new members for $650,000 when it opened in 2006, Bloomberg reported. On the other coast, Shady Canyon Country Club in Irvine, Calif., was getting $300,000 in membership and $1,195 in monthly dues in 2007, according to Southland Golf Magazine. That's a relative bargain, but we'll just wait for our invitation from Augusta. Augusta wasn't talking either, according to Businessweek. The club also refused to comment on how much it costs to join. A woman in membership services said simply, That's confidential.. But HuffPost has pieced together a pretty good idea of the amount.",
+        "label": 0,
+        "score": 0.53125
+      },
+      {
+        "query_id": "msmarco_test_000004",
+        "query": "which blood test is for folate",
+        "candidate_id": "msmarco_test_000004_neg_7",
+        "passage": "The folate (folic acid) test measures the amount of folate in the blood. Folate and folic acid are forms of B9 vitamin. Quantity: * Whole number only. The folate (folic acid) test measures the amount of folate in the blood. Folate and folic acid are forms of B9 vitamin. Folate is found in many foods and folic acid is the synthetic form of the vitamin.",
+        "label": 0,
+        "score": 0.375
+      },
+      {
+        "query_id": "msmarco_test_000005",
+        "query": "what is the cause of HPV",
+        "candidate_id": "msmarco_test_000005_neg_7",
+        "passage": "HPV stands for human papillomavirus. These viruses are the direct causes of HPV and infect the skin or mucous membranes (mucous membranes are the moist, inner lining of some organs and body cavities, such as the nose, mouth, lungs, and stomach).",
+        "label": 0,
+        "score": 0.921875
+      }
+    ]
+  }
+}

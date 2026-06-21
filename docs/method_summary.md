@@ -112,3 +112,19 @@ The Jittor reproduction body in this repository remains deliberately resource-li
 To analyze the gap between this lightweight reproduction and the original RankRAG idea, we add an external pretrained Cross-Encoder reference using `cross-encoder/ms-marco-MiniLM-L6-v2`. It helps explain the value of semantic pretraining for reranking, especially when lexical overlap and shallow neural features are insufficient.
 
 This Cross-Encoder reference does not replace the Jittor reproduction body. It is not claimed as a Jittor model, and it is not trained by this project. It is only a supplementary reference for interpreting why RankRAG-style LLM reranking matters.
+
+## JittorLLM Qwen2.5 Zero-shot Reranking
+
+To further connect the lightweight Jittor reproduction to RankRAG-style LLM reranking, the project adds a JittorLLMs Qwen2 inference path. The model receives a query and candidate passage and scores relevance without task-specific training.
+
+The formal prompt asks the model to choose a numeric label, and ranking uses the first-token logit margin:
+
+```text
+score = logit("1") - logit("0")
+```
+
+This avoids the early free-generation failure mode where `Relevant/Irrelevant` generation collapsed to a single label. The implementation uses Jittor CUDA through JittorLLMs Qwen2; Hugging Face safetensors are converted to a Jittor-loadable `.pth` checkpoint before inference.
+
+Qwen2.5-1.5B required a narrow compatibility patch in the tested JittorLLMs attention path: query/key/value are computed in FP32 for attention and the output is cast back to the original dtype. Other model components remain FP16. The patch is documented in `docs/qwen2_1_5b_fp32_attention.patch` and can be applied with `scripts/patch_jittorllms_qwen2_fp32_attention.py`.
+
+The 1.5B zero-shot result improves over the 0.5B zero-shot result and is broadly comparable to BM25 on the MS MARCO medium subset, but it remains below LoRA and Cross-Encoder references. The conclusion is therefore conservative: model scale helps zero-shot ranking, but task-specific training and pretrained semantic rerankers still matter.

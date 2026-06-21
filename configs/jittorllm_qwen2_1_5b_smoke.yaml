@@ -1,0 +1,23 @@
+backend: qwen2_jittorllms
+model_name: Qwen2.5-1.5B-Instruct
+model_path: external/hf_models/Qwen2.5-1.5B-Instruct
+jittorllms_root: external/JittorLLMs
+test_path: data/processed/msmarco_medium/test.jsonl
+output_dir: outputs/jittorllm_qwen2_1_5b_smoke
+max_queries: 5
+max_input_length: 384
+max_new_tokens: 2
+temperature: 0.0
+seed: 42
+cache_path: outputs/jittorllm_qwen2_1_5b_smoke/score_cache.jsonl
+metrics_path: outputs/jittorllm_qwen2_1_5b_smoke/metrics.json
+rankings_path: outputs/jittorllm_qwen2_1_5b_smoke/rankings.json
+prompt_template: |
+  Decide whether the passage directly answers the search query.
+  Return only one digit:
+  1 = relevant and directly answers the query
+  0 = irrelevant or does not directly answer the query
+
+  Query: {query}
+  Passage: {passage}
+  Label:

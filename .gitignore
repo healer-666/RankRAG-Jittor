@@ -14,6 +14,10 @@ huggingface/
 hf_cache/
 datasets_cache/
 local_previews/
+external/JittorLLMs/
+external/hf_models/
+external/hf_cache/
+*.incomplete
 
 *.zip
 *.tar
@@ -30,5 +34,9 @@ outputs/lora_adapters/
 *.safetensors
 *.bin
 *.ckpt
+outputs/jittorllm_zeroshot_*/score_cache.jsonl
+outputs/jittorllm_zeroshot_*/smoke_score_cache.jsonl
+outputs/jittorllm_qwen2_*/score_cache.jsonl
+outputs/jittorllm_qwen2_*/**/score_cache*.jsonl
 
 .DS_Store

@@ -1,0 +1,20 @@
+test_path: data/processed/msmarco_medium/test.jsonl
+output_metrics: outputs/jittorllm_zeroshot_medium/metrics.json
+output_rankings: outputs/jittorllm_zeroshot_medium/rankings.json
+cache_path: outputs/jittorllm_zeroshot_medium/score_cache.jsonl
+run_summary: outputs/jittorllm_zeroshot_medium/run_summary.md
+max_queries: 100
+max_length: 512
+model_name: jittorllm-unconfigured
+seed: 42
+prompt_template: |
+  Given a search query and a candidate passage, determine whether the passage is relevant to the query.
+
+  Query:
+  {query}
+
+  Passage:
+  {passage}
+
+  Answer with exactly one label:
+  Relevant or Irrelevant.

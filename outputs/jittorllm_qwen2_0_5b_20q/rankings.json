@@ -1,0 +1,2376 @@
+[
+  {
+    "query_id": "msmarco_test_000001",
+    "query": "how long does it take to drive from st louis to detroit",
+    "candidate_ids": [
+      "msmarco_test_000001_neg_1",
+      "msmarco_test_000001_neg_2",
+      "msmarco_test_000001_neg_3",
+      "msmarco_test_000001_neg_4",
+      "msmarco_test_000001_neg_5",
+      "msmarco_test_000001_neg_6",
+      "msmarco_test_000001_neg_7",
+      "msmarco_test_000001_pos_8",
+      "msmarco_test_000001_neg_9",
+      "msmarco_test_000001_neg_10"
+    ],
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.34375,
+      0.390625,
+      0.046875,
+      -0.09375,
+      -0.640625,
+      0.125,
+      1.03125,
+      1.03125,
+      0.953125,
+      0.0625
+    ],
+    "raw_outputs": [
+      "1",
+      "1",
+      "1",
+      "0",
+      "0",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000001_neg_7",
+      "msmarco_test_000001_pos_8",
+      "msmarco_test_000001_neg_9",
+      "msmarco_test_000001_neg_2",
+      "msmarco_test_000001_neg_1",
+      "msmarco_test_000001_neg_6",
+      "msmarco_test_000001_neg_10",
+      "msmarco_test_000001_neg_3",
+      "msmarco_test_000001_neg_4",
+      "msmarco_test_000001_neg_5"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000001_neg_7",
+        "label": 0,
+        "score": 1.03125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000001_pos_8",
+        "label": 1,
+        "score": 1.03125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000001_neg_9",
+        "label": 0,
+        "score": 0.953125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000001_neg_2",
+        "label": 0,
+        "score": 0.390625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000001_neg_1",
+        "label": 0,
+        "score": 0.34375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000001_neg_6",
+        "label": 0,
+        "score": 0.125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000001_neg_10",
+        "label": 0,
+        "score": 0.0625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000001_neg_3",
+        "label": 0,
+        "score": 0.046875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 9,
+        "candidate_id": "msmarco_test_000001_neg_4",
+        "label": 0,
+        "score": -0.09375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 10,
+        "candidate_id": "msmarco_test_000001_neg_5",
+        "label": 0,
+        "score": -0.640625,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000002",
+    "query": "what is cetirizine hydrochloride",
+    "candidate_ids": [
+      "msmarco_test_000002_pos_1",
+      "msmarco_test_000002_neg_2",
+      "msmarco_test_000002_neg_3",
+      "msmarco_test_000002_neg_4",
+      "msmarco_test_000002_neg_5",
+      "msmarco_test_000002_neg_6",
+      "msmarco_test_000002_neg_7",
+      "msmarco_test_000002_neg_8"
+    ],
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      1.078125,
+      0.578125,
+      0.8125,
+      0.59375,
+      0.359375,
+      0.59375,
+      1.953125,
+      1.3125
+    ],
+    "raw_outputs": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000002_neg_7",
+      "msmarco_test_000002_neg_8",
+      "msmarco_test_000002_pos_1",
+      "msmarco_test_000002_neg_3",
+      "msmarco_test_000002_neg_4",
+      "msmarco_test_000002_neg_6",
+      "msmarco_test_000002_neg_2",
+      "msmarco_test_000002_neg_5"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000002_neg_7",
+        "label": 0,
+        "score": 1.953125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000002_neg_8",
+        "label": 0,
+        "score": 1.3125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000002_pos_1",
+        "label": 1,
+        "score": 1.078125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000002_neg_3",
+        "label": 0,
+        "score": 0.8125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000002_neg_4",
+        "label": 0,
+        "score": 0.59375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000002_neg_6",
+        "label": 0,
+        "score": 0.59375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000002_neg_2",
+        "label": 0,
+        "score": 0.578125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000002_neg_5",
+        "label": 0,
+        "score": 0.359375,
+        "raw_output": "1",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000003",
+    "query": "how much does it cost to join the masters golf club",
+    "candidate_ids": [
+      "msmarco_test_000003_pos_1",
+      "msmarco_test_000003_neg_2",
+      "msmarco_test_000003_neg_3",
+      "msmarco_test_000003_neg_4",
+      "msmarco_test_000003_neg_5",
+      "msmarco_test_000003_neg_6",
+      "msmarco_test_000003_neg_7",
+      "msmarco_test_000003_neg_8"
+    ],
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      -0.671875,
+      0.140625,
+      -0.359375,
+      -0.765625,
+      -0.984375,
+      -0.640625,
+      -0.4375,
+      0.53125
+    ],
+    "raw_outputs": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000003_neg_8",
+      "msmarco_test_000003_neg_2",
+      "msmarco_test_000003_neg_3",
+      "msmarco_test_000003_neg_7",
+      "msmarco_test_000003_neg_6",
+      "msmarco_test_000003_pos_1",
+      "msmarco_test_000003_neg_4",
+      "msmarco_test_000003_neg_5"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000003_neg_8",
+        "label": 0,
+        "score": 0.53125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000003_neg_2",
+        "label": 0,
+        "score": 0.140625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000003_neg_3",
+        "label": 0,
+        "score": -0.359375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000003_neg_7",
+        "label": 0,
+        "score": -0.4375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000003_neg_6",
+        "label": 0,
+        "score": -0.640625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000003_pos_1",
+        "label": 1,
+        "score": -0.671875,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000003_neg_4",
+        "label": 0,
+        "score": -0.765625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000003_neg_5",
+        "label": 0,
+        "score": -0.984375,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000004",
+    "query": "which blood test is for folate",
+    "candidate_ids": [
+      "msmarco_test_000004_neg_1",
+      "msmarco_test_000004_neg_2",
+      "msmarco_test_000004_neg_3",
+      "msmarco_test_000004_neg_4",
+      "msmarco_test_000004_pos_5",
+      "msmarco_test_000004_neg_6",
+      "msmarco_test_000004_neg_7",
+      "msmarco_test_000004_neg_8",
+      "msmarco_test_000004_neg_9"
+    ],
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      -0.6875,
+      -1.0,
+      -0.359375,
+      -0.640625,
+      0.078125,
+      -0.28125,
+      0.375,
+      -0.734375,
+      -0.265625
+    ],
+    "raw_outputs": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000004_neg_7",
+      "msmarco_test_000004_pos_5",
+      "msmarco_test_000004_neg_9",
+      "msmarco_test_000004_neg_6",
+      "msmarco_test_000004_neg_3",
+      "msmarco_test_000004_neg_4",
+      "msmarco_test_000004_neg_1",
+      "msmarco_test_000004_neg_8",
+      "msmarco_test_000004_neg_2"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000004_neg_7",
+        "label": 0,
+        "score": 0.375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000004_pos_5",
+        "label": 1,
+        "score": 0.078125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000004_neg_9",
+        "label": 0,
+        "score": -0.265625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000004_neg_6",
+        "label": 0,
+        "score": -0.28125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000004_neg_3",
+        "label": 0,
+        "score": -0.359375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000004_neg_4",
+        "label": 0,
+        "score": -0.640625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000004_neg_1",
+        "label": 0,
+        "score": -0.6875,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000004_neg_8",
+        "label": 0,
+        "score": -0.734375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 9,
+        "candidate_id": "msmarco_test_000004_neg_2",
+        "label": 0,
+        "score": -1.0,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000005",
+    "query": "what is the cause of HPV",
+    "candidate_ids": [
+      "msmarco_test_000005_pos_1",
+      "msmarco_test_000005_neg_2",
+      "msmarco_test_000005_neg_3",
+      "msmarco_test_000005_neg_4",
+      "msmarco_test_000005_neg_5",
+      "msmarco_test_000005_neg_6",
+      "msmarco_test_000005_neg_7"
+    ],
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.46875,
+      0.59375,
+      0.828125,
+      0.625,
+      0.234375,
+      -0.671875,
+      0.921875
+    ],
+    "raw_outputs": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "0",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000005_neg_7",
+      "msmarco_test_000005_neg_3",
+      "msmarco_test_000005_neg_4",
+      "msmarco_test_000005_neg_2",
+      "msmarco_test_000005_pos_1",
+      "msmarco_test_000005_neg_5",
+      "msmarco_test_000005_neg_6"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000005_neg_7",
+        "label": 0,
+        "score": 0.921875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000005_neg_3",
+        "label": 0,
+        "score": 0.828125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000005_neg_4",
+        "label": 0,
+        "score": 0.625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000005_neg_2",
+        "label": 0,
+        "score": 0.59375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000005_pos_1",
+        "label": 1,
+        "score": 0.46875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000005_neg_5",
+        "label": 0,
+        "score": 0.234375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000005_neg_6",
+        "label": 0,
+        "score": -0.671875,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000006",
+    "query": "average gas in harrisonburg, va",
+    "candidate_ids": [
+      "msmarco_test_000006_pos_1",
+      "msmarco_test_000006_neg_2"
+    ],
+    "labels": [
+      1,
+      0
+    ],
+    "scores": [
+      0.046875,
+      -0.15625
+    ],
+    "raw_outputs": [
+      "1",
+      "0"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000006_pos_1",
+      "msmarco_test_000006_neg_2"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000006_pos_1",
+        "label": 1,
+        "score": 0.046875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000006_neg_2",
+        "label": 0,
+        "score": -0.15625,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000007",
+    "query": "what is the incubation period for chlamydia",
+    "candidate_ids": [
+      "msmarco_test_000007_neg_1",
+      "msmarco_test_000007_neg_2",
+      "msmarco_test_000007_pos_3",
+      "msmarco_test_000007_neg_4",
+      "msmarco_test_000007_neg_5"
+    ],
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      1.125,
+      0.828125,
+      1.703125,
+      0.875,
+      0.703125
+    ],
+    "raw_outputs": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000007_pos_3",
+      "msmarco_test_000007_neg_1",
+      "msmarco_test_000007_neg_4",
+      "msmarco_test_000007_neg_2",
+      "msmarco_test_000007_neg_5"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000007_pos_3",
+        "label": 1,
+        "score": 1.703125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000007_neg_1",
+        "label": 0,
+        "score": 1.125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000007_neg_4",
+        "label": 0,
+        "score": 0.875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000007_neg_2",
+        "label": 0,
+        "score": 0.828125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000007_neg_5",
+        "label": 0,
+        "score": 0.703125,
+        "raw_output": "1",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000008",
+    "query": "how tall was lebron james parents",
+    "candidate_ids": [
+      "msmarco_test_000008_neg_1",
+      "msmarco_test_000008_neg_2",
+      "msmarco_test_000008_neg_3",
+      "msmarco_test_000008_pos_4",
+      "msmarco_test_000008_neg_5",
+      "msmarco_test_000008_neg_6",
+      "msmarco_test_000008_neg_7"
+    ],
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      -1.0,
+      -0.609375,
+      -1.109375,
+      0.0625,
+      -0.5625,
+      -0.3125,
+      0.15625
+    ],
+    "raw_outputs": [
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000008_neg_7",
+      "msmarco_test_000008_pos_4",
+      "msmarco_test_000008_neg_6",
+      "msmarco_test_000008_neg_5",
+      "msmarco_test_000008_neg_2",
+      "msmarco_test_000008_neg_1",
+      "msmarco_test_000008_neg_3"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000008_neg_7",
+        "label": 0,
+        "score": 0.15625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000008_pos_4",
+        "label": 1,
+        "score": 0.0625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000008_neg_6",
+        "label": 0,
+        "score": -0.3125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000008_neg_5",
+        "label": 0,
+        "score": -0.5625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000008_neg_2",
+        "label": 0,
+        "score": -0.609375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000008_neg_1",
+        "label": 0,
+        "score": -1.0,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000008_neg_3",
+        "label": 0,
+        "score": -1.109375,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000009",
+    "query": "how much do marketers earn",
+    "candidate_ids": [
+      "msmarco_test_000009_neg_1",
+      "msmarco_test_000009_neg_2",
+      "msmarco_test_000009_neg_3",
+      "msmarco_test_000009_neg_4",
+      "msmarco_test_000009_neg_5",
+      "msmarco_test_000009_neg_6",
+      "msmarco_test_000009_neg_7",
+      "msmarco_test_000009_pos_8"
+    ],
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "scores": [
+      -0.0625,
+      0.0625,
+      0.390625,
+      -0.546875,
+      -0.4375,
+      0.296875,
+      -0.0625,
+      0.765625
+    ],
+    "raw_outputs": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "1",
+      "0",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000009_pos_8",
+      "msmarco_test_000009_neg_3",
+      "msmarco_test_000009_neg_6",
+      "msmarco_test_000009_neg_2",
+      "msmarco_test_000009_neg_1",
+      "msmarco_test_000009_neg_7",
+      "msmarco_test_000009_neg_5",
+      "msmarco_test_000009_neg_4"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000009_pos_8",
+        "label": 1,
+        "score": 0.765625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000009_neg_3",
+        "label": 0,
+        "score": 0.390625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000009_neg_6",
+        "label": 0,
+        "score": 0.296875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000009_neg_2",
+        "label": 0,
+        "score": 0.0625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000009_neg_1",
+        "label": 0,
+        "score": -0.0625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000009_neg_7",
+        "label": 0,
+        "score": -0.0625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000009_neg_5",
+        "label": 0,
+        "score": -0.4375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000009_neg_4",
+        "label": 0,
+        "score": -0.546875,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000010",
+    "query": "does using a proxy server hide from your isp?",
+    "candidate_ids": [
+      "msmarco_test_000010_neg_1",
+      "msmarco_test_000010_neg_2",
+      "msmarco_test_000010_neg_3",
+      "msmarco_test_000010_neg_4",
+      "msmarco_test_000010_pos_5",
+      "msmarco_test_000010_neg_6",
+      "msmarco_test_000010_neg_7",
+      "msmarco_test_000010_neg_8"
+    ],
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      -0.796875,
+      -0.09375,
+      0.09375,
+      -0.671875,
+      -0.296875,
+      -0.296875,
+      0.078125,
+      0.8125
+    ],
+    "raw_outputs": [
+      "0",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "1",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000010_neg_8",
+      "msmarco_test_000010_neg_3",
+      "msmarco_test_000010_neg_7",
+      "msmarco_test_000010_neg_2",
+      "msmarco_test_000010_pos_5",
+      "msmarco_test_000010_neg_6",
+      "msmarco_test_000010_neg_4",
+      "msmarco_test_000010_neg_1"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000010_neg_8",
+        "label": 0,
+        "score": 0.8125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000010_neg_3",
+        "label": 0,
+        "score": 0.09375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000010_neg_7",
+        "label": 0,
+        "score": 0.078125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000010_neg_2",
+        "label": 0,
+        "score": -0.09375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000010_pos_5",
+        "label": 1,
+        "score": -0.296875,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000010_neg_6",
+        "label": 0,
+        "score": -0.296875,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000010_neg_4",
+        "label": 0,
+        "score": -0.671875,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000010_neg_1",
+        "label": 0,
+        "score": -0.796875,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000011",
+    "query": "what is the structure of vyvanse",
+    "candidate_ids": [
+      "msmarco_test_000011_pos_1",
+      "msmarco_test_000011_neg_2",
+      "msmarco_test_000011_neg_3",
+      "msmarco_test_000011_neg_4",
+      "msmarco_test_000011_neg_5",
+      "msmarco_test_000011_neg_6",
+      "msmarco_test_000011_neg_7",
+      "msmarco_test_000011_neg_8",
+      "msmarco_test_000011_neg_9"
+    ],
+    "labels": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      -1.75,
+      -0.53125,
+      -0.3125,
+      -0.90625,
+      -1.0,
+      -0.953125,
+      -0.515625,
+      -0.59375,
+      -0.625
+    ],
+    "raw_outputs": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000011_neg_3",
+      "msmarco_test_000011_neg_7",
+      "msmarco_test_000011_neg_2",
+      "msmarco_test_000011_neg_8",
+      "msmarco_test_000011_neg_9",
+      "msmarco_test_000011_neg_4",
+      "msmarco_test_000011_neg_6",
+      "msmarco_test_000011_neg_5",
+      "msmarco_test_000011_pos_1"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000011_neg_3",
+        "label": 0,
+        "score": -0.3125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000011_neg_7",
+        "label": 0,
+        "score": -0.515625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000011_neg_2",
+        "label": 0,
+        "score": -0.53125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000011_neg_8",
+        "label": 0,
+        "score": -0.59375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000011_neg_9",
+        "label": 0,
+        "score": -0.625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000011_neg_4",
+        "label": 0,
+        "score": -0.90625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000011_neg_6",
+        "label": 0,
+        "score": -0.953125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000011_neg_5",
+        "label": 0,
+        "score": -1.0,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 9,
+        "candidate_id": "msmarco_test_000011_pos_1",
+        "label": 1,
+        "score": -1.75,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000012",
+    "query": "escitalopram dosage for depression",
+    "candidate_ids": [
+      "msmarco_test_000012_neg_1",
+      "msmarco_test_000012_neg_2",
+      "msmarco_test_000012_neg_3",
+      "msmarco_test_000012_neg_4",
+      "msmarco_test_000012_neg_5",
+      "msmarco_test_000012_neg_6",
+      "msmarco_test_000012_pos_7",
+      "msmarco_test_000012_neg_8",
+      "msmarco_test_000012_neg_9"
+    ],
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      0.140625,
+      -0.125,
+      -0.28125,
+      -0.59375,
+      -0.828125,
+      0.046875,
+      0.578125,
+      -0.203125,
+      0.09375
+    ],
+    "raw_outputs": [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "1",
+      "0",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000012_pos_7",
+      "msmarco_test_000012_neg_1",
+      "msmarco_test_000012_neg_9",
+      "msmarco_test_000012_neg_6",
+      "msmarco_test_000012_neg_2",
+      "msmarco_test_000012_neg_8",
+      "msmarco_test_000012_neg_3",
+      "msmarco_test_000012_neg_4",
+      "msmarco_test_000012_neg_5"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000012_pos_7",
+        "label": 1,
+        "score": 0.578125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000012_neg_1",
+        "label": 0,
+        "score": 0.140625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000012_neg_9",
+        "label": 0,
+        "score": 0.09375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000012_neg_6",
+        "label": 0,
+        "score": 0.046875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000012_neg_2",
+        "label": 0,
+        "score": -0.125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000012_neg_8",
+        "label": 0,
+        "score": -0.203125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000012_neg_3",
+        "label": 0,
+        "score": -0.28125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000012_neg_4",
+        "label": 0,
+        "score": -0.59375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 9,
+        "candidate_id": "msmarco_test_000012_neg_5",
+        "label": 0,
+        "score": -0.828125,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000013",
+    "query": "what does the romanian flag colors mean",
+    "candidate_ids": [
+      "msmarco_test_000013_neg_1",
+      "msmarco_test_000013_neg_2",
+      "msmarco_test_000013_neg_3",
+      "msmarco_test_000013_neg_4",
+      "msmarco_test_000013_pos_5",
+      "msmarco_test_000013_neg_6",
+      "msmarco_test_000013_neg_7",
+      "msmarco_test_000013_neg_8",
+      "msmarco_test_000013_neg_9"
+    ],
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.171875,
+      -0.6875,
+      0.890625,
+      0.859375,
+      -0.265625,
+      -0.203125,
+      -0.359375,
+      -0.25,
+      0.4375
+    ],
+    "raw_outputs": [
+      "1",
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000013_neg_3",
+      "msmarco_test_000013_neg_4",
+      "msmarco_test_000013_neg_9",
+      "msmarco_test_000013_neg_1",
+      "msmarco_test_000013_neg_6",
+      "msmarco_test_000013_neg_8",
+      "msmarco_test_000013_pos_5",
+      "msmarco_test_000013_neg_7",
+      "msmarco_test_000013_neg_2"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000013_neg_3",
+        "label": 0,
+        "score": 0.890625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000013_neg_4",
+        "label": 0,
+        "score": 0.859375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000013_neg_9",
+        "label": 0,
+        "score": 0.4375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000013_neg_1",
+        "label": 0,
+        "score": 0.171875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000013_neg_6",
+        "label": 0,
+        "score": -0.203125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000013_neg_8",
+        "label": 0,
+        "score": -0.25,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000013_pos_5",
+        "label": 1,
+        "score": -0.265625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000013_neg_7",
+        "label": 0,
+        "score": -0.359375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 9,
+        "candidate_id": "msmarco_test_000013_neg_2",
+        "label": 0,
+        "score": -0.6875,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000014",
+    "query": "gastroscopy cost",
+    "candidate_ids": [
+      "msmarco_test_000014_neg_1",
+      "msmarco_test_000014_neg_2",
+      "msmarco_test_000014_neg_3",
+      "msmarco_test_000014_neg_4",
+      "msmarco_test_000014_neg_5",
+      "msmarco_test_000014_pos_6",
+      "msmarco_test_000014_neg_7",
+      "msmarco_test_000014_neg_8",
+      "msmarco_test_000014_neg_9"
+    ],
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      -0.6875,
+      -0.34375,
+      0.53125,
+      1.34375,
+      1.171875,
+      1.4375,
+      0.0625,
+      0.203125,
+      0.484375
+    ],
+    "raw_outputs": [
+      "0",
+      "0",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000014_pos_6",
+      "msmarco_test_000014_neg_4",
+      "msmarco_test_000014_neg_5",
+      "msmarco_test_000014_neg_3",
+      "msmarco_test_000014_neg_9",
+      "msmarco_test_000014_neg_8",
+      "msmarco_test_000014_neg_7",
+      "msmarco_test_000014_neg_2",
+      "msmarco_test_000014_neg_1"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000014_pos_6",
+        "label": 1,
+        "score": 1.4375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000014_neg_4",
+        "label": 0,
+        "score": 1.34375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000014_neg_5",
+        "label": 0,
+        "score": 1.171875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000014_neg_3",
+        "label": 0,
+        "score": 0.53125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000014_neg_9",
+        "label": 0,
+        "score": 0.484375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000014_neg_8",
+        "label": 0,
+        "score": 0.203125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000014_neg_7",
+        "label": 0,
+        "score": 0.0625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000014_neg_2",
+        "label": 0,
+        "score": -0.34375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 9,
+        "candidate_id": "msmarco_test_000014_neg_1",
+        "label": 0,
+        "score": -0.6875,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000015",
+    "query": "how to get rid of serve burn acne",
+    "candidate_ids": [
+      "msmarco_test_000015_neg_1",
+      "msmarco_test_000015_pos_2",
+      "msmarco_test_000015_neg_3",
+      "msmarco_test_000015_neg_4",
+      "msmarco_test_000015_neg_5",
+      "msmarco_test_000015_neg_6",
+      "msmarco_test_000015_neg_7"
+    ],
+    "labels": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.296875,
+      0.671875,
+      1.46875,
+      0.015625,
+      -0.1875,
+      0.546875,
+      0.484375
+    ],
+    "raw_outputs": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "0",
+      "1",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000015_neg_3",
+      "msmarco_test_000015_pos_2",
+      "msmarco_test_000015_neg_6",
+      "msmarco_test_000015_neg_7",
+      "msmarco_test_000015_neg_1",
+      "msmarco_test_000015_neg_4",
+      "msmarco_test_000015_neg_5"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000015_neg_3",
+        "label": 0,
+        "score": 1.46875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000015_pos_2",
+        "label": 1,
+        "score": 0.671875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000015_neg_6",
+        "label": 0,
+        "score": 0.546875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000015_neg_7",
+        "label": 0,
+        "score": 0.484375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000015_neg_1",
+        "label": 0,
+        "score": 0.296875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000015_neg_4",
+        "label": 0,
+        "score": 0.015625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000015_neg_5",
+        "label": 0,
+        "score": -0.1875,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000016",
+    "query": "what is hypospadia",
+    "candidate_ids": [
+      "msmarco_test_000016_neg_1",
+      "msmarco_test_000016_neg_2",
+      "msmarco_test_000016_neg_3",
+      "msmarco_test_000016_neg_4",
+      "msmarco_test_000016_neg_5",
+      "msmarco_test_000016_neg_6",
+      "msmarco_test_000016_neg_7",
+      "msmarco_test_000016_pos_8",
+      "msmarco_test_000016_neg_9"
+    ],
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "scores": [
+      1.140625,
+      0.5625,
+      0.96875,
+      0.0,
+      1.3125,
+      1.140625,
+      0.5,
+      0.421875,
+      0.125
+    ],
+    "raw_outputs": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000016_neg_5",
+      "msmarco_test_000016_neg_1",
+      "msmarco_test_000016_neg_6",
+      "msmarco_test_000016_neg_3",
+      "msmarco_test_000016_neg_2",
+      "msmarco_test_000016_neg_7",
+      "msmarco_test_000016_pos_8",
+      "msmarco_test_000016_neg_9",
+      "msmarco_test_000016_neg_4"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000016_neg_5",
+        "label": 0,
+        "score": 1.3125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000016_neg_1",
+        "label": 0,
+        "score": 1.140625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000016_neg_6",
+        "label": 0,
+        "score": 1.140625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000016_neg_3",
+        "label": 0,
+        "score": 0.96875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000016_neg_2",
+        "label": 0,
+        "score": 0.5625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000016_neg_7",
+        "label": 0,
+        "score": 0.5,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000016_pos_8",
+        "label": 1,
+        "score": 0.421875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000016_neg_9",
+        "label": 0,
+        "score": 0.125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 9,
+        "candidate_id": "msmarco_test_000016_neg_4",
+        "label": 0,
+        "score": 0.0,
+        "raw_output": "1",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000017",
+    "query": "difference between alimentary canal and accessory organs",
+    "candidate_ids": [
+      "msmarco_test_000017_neg_1",
+      "msmarco_test_000017_neg_2",
+      "msmarco_test_000017_neg_3",
+      "msmarco_test_000017_pos_4",
+      "msmarco_test_000017_neg_5",
+      "msmarco_test_000017_neg_6",
+      "msmarco_test_000017_neg_7",
+      "msmarco_test_000017_neg_8",
+      "msmarco_test_000017_neg_9"
+    ],
+    "labels": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.9375,
+      3.015625,
+      0.78125,
+      2.859375,
+      0.28125,
+      0.78125,
+      0.09375,
+      0.453125,
+      -0.03125
+    ],
+    "raw_outputs": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "0"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000017_neg_2",
+      "msmarco_test_000017_pos_4",
+      "msmarco_test_000017_neg_1",
+      "msmarco_test_000017_neg_3",
+      "msmarco_test_000017_neg_6",
+      "msmarco_test_000017_neg_8",
+      "msmarco_test_000017_neg_5",
+      "msmarco_test_000017_neg_7",
+      "msmarco_test_000017_neg_9"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000017_neg_2",
+        "label": 0,
+        "score": 3.015625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000017_pos_4",
+        "label": 1,
+        "score": 2.859375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000017_neg_1",
+        "label": 0,
+        "score": 0.9375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000017_neg_3",
+        "label": 0,
+        "score": 0.78125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000017_neg_6",
+        "label": 0,
+        "score": 0.78125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000017_neg_8",
+        "label": 0,
+        "score": 0.453125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000017_neg_5",
+        "label": 0,
+        "score": 0.28125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000017_neg_7",
+        "label": 0,
+        "score": 0.09375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 9,
+        "candidate_id": "msmarco_test_000017_neg_9",
+        "label": 0,
+        "score": -0.03125,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000018",
+    "query": "what did the royal fusiliers do",
+    "candidate_ids": [
+      "msmarco_test_000018_neg_1",
+      "msmarco_test_000018_neg_2",
+      "msmarco_test_000018_pos_3",
+      "msmarco_test_000018_neg_4",
+      "msmarco_test_000018_neg_5",
+      "msmarco_test_000018_neg_6",
+      "msmarco_test_000018_neg_7",
+      "msmarco_test_000018_neg_8",
+      "msmarco_test_000018_neg_9",
+      "msmarco_test_000018_neg_10"
+    ],
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      -1.03125,
+      -0.96875,
+      -1.296875,
+      -1.21875,
+      -0.109375,
+      -1.515625,
+      -0.953125,
+      -0.703125,
+      -0.84375,
+      -1.390625
+    ],
+    "raw_outputs": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000018_neg_5",
+      "msmarco_test_000018_neg_8",
+      "msmarco_test_000018_neg_9",
+      "msmarco_test_000018_neg_7",
+      "msmarco_test_000018_neg_2",
+      "msmarco_test_000018_neg_1",
+      "msmarco_test_000018_neg_4",
+      "msmarco_test_000018_pos_3",
+      "msmarco_test_000018_neg_10",
+      "msmarco_test_000018_neg_6"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000018_neg_5",
+        "label": 0,
+        "score": -0.109375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000018_neg_8",
+        "label": 0,
+        "score": -0.703125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000018_neg_9",
+        "label": 0,
+        "score": -0.84375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000018_neg_7",
+        "label": 0,
+        "score": -0.953125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000018_neg_2",
+        "label": 0,
+        "score": -0.96875,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000018_neg_1",
+        "label": 0,
+        "score": -1.03125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000018_neg_4",
+        "label": 0,
+        "score": -1.21875,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000018_pos_3",
+        "label": 1,
+        "score": -1.296875,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 9,
+        "candidate_id": "msmarco_test_000018_neg_10",
+        "label": 0,
+        "score": -1.390625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 10,
+        "candidate_id": "msmarco_test_000018_neg_6",
+        "label": 0,
+        "score": -1.515625,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000019",
+    "query": "is apple cider vinegar good for kidney function",
+    "candidate_ids": [
+      "msmarco_test_000019_neg_1",
+      "msmarco_test_000019_neg_2",
+      "msmarco_test_000019_pos_3",
+      "msmarco_test_000019_neg_4",
+      "msmarco_test_000019_neg_5",
+      "msmarco_test_000019_neg_6",
+      "msmarco_test_000019_neg_7"
+    ],
+    "labels": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scores": [
+      0.5625,
+      0.625,
+      1.96875,
+      0.578125,
+      0.3125,
+      -0.265625,
+      0.4375
+    ],
+    "raw_outputs": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "0",
+      "1"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000019_pos_3",
+      "msmarco_test_000019_neg_2",
+      "msmarco_test_000019_neg_4",
+      "msmarco_test_000019_neg_1",
+      "msmarco_test_000019_neg_7",
+      "msmarco_test_000019_neg_5",
+      "msmarco_test_000019_neg_6"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000019_pos_3",
+        "label": 1,
+        "score": 1.96875,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000019_neg_2",
+        "label": 0,
+        "score": 0.625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000019_neg_4",
+        "label": 0,
+        "score": 0.578125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000019_neg_1",
+        "label": 0,
+        "score": 0.5625,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000019_neg_7",
+        "label": 0,
+        "score": 0.4375,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000019_neg_5",
+        "label": 0,
+        "score": 0.3125,
+        "raw_output": "1",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000019_neg_6",
+        "label": 0,
+        "score": -0.265625,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  },
+  {
+    "query_id": "msmarco_test_000020",
+    "query": "what is normal peak flow measurement for male is it erv",
+    "candidate_ids": [
+      "msmarco_test_000020_neg_1",
+      "msmarco_test_000020_neg_2",
+      "msmarco_test_000020_neg_3",
+      "msmarco_test_000020_neg_4",
+      "msmarco_test_000020_neg_5",
+      "msmarco_test_000020_pos_6",
+      "msmarco_test_000020_neg_7",
+      "msmarco_test_000020_neg_8"
+    ],
+    "labels": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    "scores": [
+      -0.65625,
+      -0.484375,
+      -0.484375,
+      -0.921875,
+      -1.28125,
+      -1.203125,
+      -0.265625,
+      -0.609375
+    ],
+    "raw_outputs": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "sorted_candidate_ids": [
+      "msmarco_test_000020_neg_7",
+      "msmarco_test_000020_neg_2",
+      "msmarco_test_000020_neg_3",
+      "msmarco_test_000020_neg_8",
+      "msmarco_test_000020_neg_1",
+      "msmarco_test_000020_neg_4",
+      "msmarco_test_000020_pos_6",
+      "msmarco_test_000020_neg_5"
+    ],
+    "ranking": [
+      {
+        "rank": 1,
+        "candidate_id": "msmarco_test_000020_neg_7",
+        "label": 0,
+        "score": -0.265625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 2,
+        "candidate_id": "msmarco_test_000020_neg_2",
+        "label": 0,
+        "score": -0.484375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 3,
+        "candidate_id": "msmarco_test_000020_neg_3",
+        "label": 0,
+        "score": -0.484375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 4,
+        "candidate_id": "msmarco_test_000020_neg_8",
+        "label": 0,
+        "score": -0.609375,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 5,
+        "candidate_id": "msmarco_test_000020_neg_1",
+        "label": 0,
+        "score": -0.65625,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 6,
+        "candidate_id": "msmarco_test_000020_neg_4",
+        "label": 0,
+        "score": -0.921875,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 7,
+        "candidate_id": "msmarco_test_000020_pos_6",
+        "label": 1,
+        "score": -1.203125,
+        "raw_output": "0",
+        "parse_fail": false
+      },
+      {
+        "rank": 8,
+        "candidate_id": "msmarco_test_000020_neg_5",
+        "label": 0,
+        "score": -1.28125,
+        "raw_output": "0",
+        "parse_fail": false
+      }
+    ]
+  }
+]

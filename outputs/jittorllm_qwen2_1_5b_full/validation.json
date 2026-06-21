@@ -1,0 +1,154 @@
+{
+  "status": "passed",
+  "num_queries": 500,
+  "expected_num_queries": 500,
+  "num_pairs": 4044,
+  "expected_num_pairs": 4044,
+  "cache_rows": 4044,
+  "cache_unique_pairs": 4044,
+  "duplicate_pairs": 0,
+  "duplicate_pair_keys_sample": [],
+  "missing_pairs": 0,
+  "missing_pair_keys_sample": [],
+  "extra_pairs": 0,
+  "extra_pair_keys_sample": [],
+  "parse_fail": 0,
+  "rankings_consistent": true,
+  "ranking_consistent": true,
+  "ranking_mismatches_sample": [],
+  "metrics_consistent": true,
+  "max_metric_abs_diff": 0.0,
+  "recomputed_metrics": {
+    "recall@1": 0.236,
+    "recall@3": 0.552,
+    "recall@5": 0.812,
+    "recall@10": 1.0,
+    "ndcg@1": 0.236,
+    "ndcg@3": 0.4139013225428609,
+    "ndcg@5": 0.520968967547992,
+    "ndcg@10": 0.5831669360722843,
+    "mrr": 0.45254999999999995,
+    "pairwise_accuracy": 0.634153968253968
+  },
+  "independent_metrics": {
+    "recall@1": 0.236,
+    "recall@3": 0.552,
+    "recall@5": 0.812,
+    "recall@10": 1.0,
+    "ndcg@1": 0.236,
+    "ndcg@3": 0.4139013225428609,
+    "ndcg@5": 0.520968967547992,
+    "ndcg@10": 0.5831669360722843,
+    "mrr": 0.45254999999999995,
+    "pairwise_accuracy": 0.634153968253968
+  },
+  "metric_differences": {
+    "recall@1": 0.0,
+    "recall@3": 0.0,
+    "recall@5": 0.0,
+    "recall@10": 0.0,
+    "ndcg@1": 0.0,
+    "ndcg@3": 0.0,
+    "ndcg@5": 0.0,
+    "ndcg@10": 0.0,
+    "mrr": 0.0,
+    "pairwise_accuracy": 0.0
+  },
+  "score_statistics": {
+    "min": -8.15625,
+    "max": 10.0625,
+    "mean": 1.4101601137487636,
+    "std": 2.8973945349844747,
+    "positive_mean": 2.38171875,
+    "negative_mean": 1.2730892000564333,
+    "tie_groups": 683,
+    "tied_items": 3896,
+    "tied_pairs": 12094
+  },
+  "top1_cases": {
+    "correct": [
+      {
+        "query_id": "msmarco_test_000001",
+        "query": "how long does it take to drive from st louis to detroit",
+        "candidate_id": "msmarco_test_000001_pos_8",
+        "passage": "How long is the drive from Detroit, MI to Saint Louis, MO? The total driving time is 8 hours, 43 minutes.",
+        "label": 1,
+        "score": 9.703125
+      },
+      {
+        "query_id": "msmarco_test_000002",
+        "query": "what is cetirizine hydrochloride",
+        "candidate_id": "msmarco_test_000002_pos_1",
+        "passage": "Cetirizine hydrochloride is the generic name for a prescription and over-the-counter antihistamine medication. Doctors recommend cetirizine hydrochloride for the relief of symptoms associated with allergies. Cetirizine hydrochloride is available in its regular form and also in a combination therapy that includes pseudoephedrine, which is used to relieve nasal congestion in addition to allergy symptoms.",
+        "label": 1,
+        "score": 5.125
+      },
+      {
+        "query_id": "msmarco_test_000004",
+        "query": "which blood test is for folate",
+        "candidate_id": "msmarco_test_000004_pos_5",
+        "passage": "Overview. Folic acid is the synthetic form of folate or vitamin B9, which is essential for healthy red blood cells. A folic acid test is usually ordered to check for a lack of folate or Vitamin B9. The procedure consists of a simple blood test. Your doctor interprets the results relayed by a lab technician.",
+        "label": 1,
+        "score": 6.71875
+      },
+      {
+        "query_id": "msmarco_test_000006",
+        "query": "average gas in harrisonburg, va",
+        "candidate_id": "msmarco_test_000006_pos_1",
+        "passage": "8 hours ago. $2.05update. There are 31 Regular gas price reports in the past 5 days in Harrisonburg, VA. The average Regular gas price in Harrisonburg, VA is $2.03, which is $0.73 lower than U.S. national average Regular gas price $2.76. The lowest Regular gas price is $1.94 of Costco located at 1830 Reservoir St, Harrisonburg, VA 22801.",
+        "label": 1,
+        "score": 1.703125
+      },
+      {
+        "query_id": "msmarco_test_000008",
+        "query": "how tall was lebron james parents",
+        "candidate_id": "msmarco_test_000008_pos_4",
+        "passage": "I'm always interested in the height of really tall people's parents because I'm wondering if their height is genetic. Kobe Bryant's father's height is 6'9 so his height is obviously genetic. I heard that Lebron James' dad is 5'7 and his mom is 5'5 though so I don't know how he got so tall.",
+        "label": 1,
+        "score": 1.15625
+      }
+    ],
+    "incorrect": [
+      {
+        "query_id": "msmarco_test_000003",
+        "query": "how much does it cost to join the masters golf club",
+        "candidate_id": "msmarco_test_000003_neg_7",
+        "passage": "In 2009, Golf World magazine published an article titled  Inside Augusta National Golf Club .. A club member (speaking anonymously) told the magazine that the initiation fee is in the low five-figures.. So definitely less than $50,000, and we can probably interpret that to mean less than $25,000. A lot of money, to be sure, but much less than many, many other exclusive golf clubs charge. As for monthly dues, another source told Golf World they amount to a few thousand dollars per year. So probably in the neighborhood of $250 a month/$3,000 a year. Applying for Augusta National Membership",
+        "label": 0,
+        "score": 4.1875
+      },
+      {
+        "query_id": "msmarco_test_000005",
+        "query": "what is the cause of HPV",
+        "candidate_id": "msmarco_test_000005_neg_4",
+        "passage": "Certain HPV types are classified as high-risk because they lead to abnormal cell changes and can cause genital cancers: cervical cancer as well as cancer of the vulva, anus, and penis. In fact, researchers say that virtually all cervical cancers -- more than 99% -- are caused by these high-risk HPV viruses.",
+        "label": 0,
+        "score": 8.421875
+      },
+      {
+        "query_id": "msmarco_test_000007",
+        "query": "what is the incubation period for chlamydia",
+        "candidate_id": "msmarco_test_000007_neg_4",
+        "passage": "Therefore, they do not know they have the disease. The incubation period for chlamydia is quite variable and may range from days to months after the initial exposure. The average time from exposure to the development of symptoms is usually about one to three weeks after sexual contact with an infected person.",
+        "label": 0,
+        "score": 8.109375
+      },
+      {
+        "query_id": "msmarco_test_000009",
+        "query": "how much do marketers earn",
+        "candidate_id": "msmarco_test_000009_neg_3",
+        "passage": "Most chief marketers earn between $100,000 and $350,000 per year, according to a recent report from The CMO Council.",
+        "label": 0,
+        "score": 8.390625
+      },
+      {
+        "query_id": "msmarco_test_000010",
+        "query": "does using a proxy server hide from your isp?",
+        "candidate_id": "msmarco_test_000010_neg_8",
+        "passage": "Another user mentioned to use proxy servers to hide your tracks, but you cannot hide from your ISP as all internet traffic will go through your ISP no matter if you use a proxy server or not; to connect to a proxy server, you still use your ISP, so all traffic is still monitored.",
+        "label": 0,
+        "score": 7.921875
+      }
+    ]
+  }
+}

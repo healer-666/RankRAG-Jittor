@@ -127,6 +127,31 @@ LORA_DEBUG_FILES = {
     ],
 }
 
+JITTORLLM_ZEROSHOT_FILES = [
+    "src/jittorllm_reranker/evaluate_jittorllm_zeroshot.py",
+    "src/jittorllm_reranker/prompt_utils.py",
+    "configs/jittorllm_zeroshot_medium.yaml",
+    "scripts/run_jittorllm_zeroshot_smoke.sh",
+    "scripts/run_jittorllm_zeroshot_medium.sh",
+    "docs/jittorllm_zeroshot_report.md",
+]
+
+JITTORLLM_QWEN2_FILES = [
+    "src/jittorllm_reranker/backend_qwen2_jittor.py",
+    "src/jittorllm_reranker/evaluate_qwen2_jittor.py",
+    "scripts/smoke_jittorllms_qwen2.py",
+    "scripts/patch_jittorllms_qwen2_fp32_attention.py",
+    "scripts/run_jittorllm_qwen2_0_5b_smoke.sh",
+    "scripts/run_jittorllm_qwen2_0_5b_20q.sh",
+    "configs/jittorllm_qwen2_0_5b_smoke.yaml",
+    "configs/jittorllm_qwen2_0_5b_20q.yaml",
+    "configs/jittorllm_qwen2_1_5b_smoke.yaml",
+    "configs/jittorllm_qwen2_1_5b_full.yaml",
+    "docs/qwen2_1_5b_fp32_attention.patch",
+    "outputs/jittorllm_qwen2_1_5b_full/metrics.json",
+    "outputs/jittorllm_qwen2_1_5b_full/validation.json",
+]
+
 
 def exists(relative_path: str) -> bool:
     return (ROOT / relative_path).exists()
@@ -141,6 +166,39 @@ def load_torch_metrics() -> dict:
 
 def status_for(paths: list[str]) -> str:
     return "ready" if all(exists(path) for path in paths) else "pending"
+
+
+def jittorllm_status() -> str:
+    if not all(exists(path) for path in JITTORLLM_ZEROSHOT_FILES):
+        return "missing"
+    if all(exists(path) for path in JITTORLLM_QWEN2_FILES):
+        qwen_metrics = [
+            ROOT / "outputs" / "jittorllm_qwen2_0_5b_smoke" / "metrics.json",
+            ROOT / "outputs" / "jittorllm_qwen2_0_5b_20q" / "metrics.json",
+        ]
+        if all(path.exists() for path in qwen_metrics):
+            try:
+                statuses = [
+                    json.loads(path.read_text(encoding="utf-8")).get("status")
+                    for path in qwen_metrics
+                ]
+            except Exception:
+                return "partial"
+            if all(status == "ready" for status in statuses):
+                return "ready"
+    metrics_path = ROOT / "outputs" / "jittorllm_zeroshot_medium" / "smoke_metrics.json"
+    if not metrics_path.exists():
+        return "partial"
+    try:
+        payload = json.loads(metrics_path.read_text(encoding="utf-8"))
+    except Exception:
+        return "partial"
+    status = payload.get("status")
+    if status == "ready":
+        return "ready"
+    if status == "blocked":
+        return "blocked"
+    return "partial"
 
 
 def main() -> None:
@@ -195,6 +253,9 @@ def main() -> None:
     print(f"LoRA reranker debug: {'ready' if lora_ready else 'pending'}")
     for name, paths in LORA_DEBUG_FILES.items():
         print(f"{name}: {status_for(paths)}")
+
+    print("\nJittorLLM zero-shot status summary")
+    print(f"JittorLLM zero-shot: {jittorllm_status()}")
 
     if missing:
         print("\nMissing required files:")

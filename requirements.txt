@@ -13,4 +13,6 @@ transformers
 peft
 accelerate
 sentencepiece
+huggingface_hub
+tokenizers
 safetensors

@@ -1,0 +1,5 @@
+{
+  "status": "blocked",
+  "blocked_reason": "No JittorLLM Python package was found. Checked modules: jittorllm, jittor_llm, jittorllms, jittor_llms, jtllm. Install/configure JittorLLM and a local model before running real zero-shot inference.",
+  "rankings": []
+}
