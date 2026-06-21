@@ -1,0 +1,60 @@
+{
+  "qwen2_1_5b": {
+    "bm25": {
+      "questions": 50,
+      "contains_count": 6,
+      "contains_rate": 0.12,
+      "starts_with_count": 2,
+      "starts_with_rate": 0.04,
+      "exact_count": 2,
+      "exact_rate": 0.04
+    },
+    "cross_encoder": {
+      "questions": 50,
+      "contains_count": 3,
+      "contains_rate": 0.06,
+      "starts_with_count": 1,
+      "starts_with_rate": 0.02,
+      "exact_count": 1,
+      "exact_rate": 0.02
+    },
+    "lora_v3": {
+      "questions": 50,
+      "contains_count": 2,
+      "contains_rate": 0.04,
+      "starts_with_count": 2,
+      "starts_with_rate": 0.04,
+      "exact_count": 2,
+      "exact_rate": 0.04
+    }
+  },
+  "qwen2_7b": {
+    "bm25": {
+      "questions": 50,
+      "contains_count": 43,
+      "contains_rate": 0.86,
+      "starts_with_count": 16,
+      "starts_with_rate": 0.32,
+      "exact_count": 0,
+      "exact_rate": 0.0
+    },
+    "cross_encoder": {
+      "questions": 50,
+      "contains_count": 48,
+      "contains_rate": 0.96,
+      "starts_with_count": 18,
+      "starts_with_rate": 0.36,
+      "exact_count": 0,
+      "exact_rate": 0.0
+    },
+    "lora_v3": {
+      "questions": 50,
+      "contains_count": 41,
+      "contains_rate": 0.82,
+      "starts_with_count": 16,
+      "starts_with_rate": 0.32,
+      "exact_count": 0,
+      "exact_rate": 0.0
+    }
+  }
+}

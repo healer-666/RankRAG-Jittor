@@ -1,0 +1,43 @@
+{
+  "config": "configs/downstream_rag_50q_qwen2_7b.yaml",
+  "methods": [
+    "bm25",
+    "lora_v3",
+    "cross_encoder"
+  ],
+  "top_k": 3,
+  "generator_model": "Qwen/Qwen2.5-7B-Instruct",
+  "generator_model_path": null,
+  "local_model_path_used": true,
+  "generator_load_time_sec": 12.519062280654907,
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce RTX 4090 D",
+  "dtype": "torch.float16",
+  "do_sample": false,
+  "temperature": 0.0,
+  "max_new_tokens": 64,
+  "max_context_tokens": 2048,
+  "outputs": [
+    {
+      "method": "bm25",
+      "output_path": "outputs/downstream_rag_eval_qwen2_7b/bm25_top3_answers.jsonl",
+      "generated": 50,
+      "skipped_existing": 0,
+      "runtime_sec": 65.72619271278381
+    },
+    {
+      "method": "lora_v3",
+      "output_path": "outputs/downstream_rag_eval_qwen2_7b/lora_v3_top3_answers.jsonl",
+      "generated": 50,
+      "skipped_existing": 0,
+      "runtime_sec": 67.95573592185974
+    },
+    {
+      "method": "cross_encoder",
+      "output_path": "outputs/downstream_rag_eval_qwen2_7b/cross_encoder_top3_answers.jsonl",
+      "generated": 50,
+      "skipped_existing": 0,
+      "runtime_sec": 68.42356848716736
+    }
+  ]
+}

@@ -20,6 +20,7 @@ It does **not** reproduce full RankRAG LLM instruction tuning or answer generati
 | External Cross-Encoder reference | Done |
 | Qwen2.5-1.5B LoRA reranker | Done |
 | Downstream RAG answer generation | Done |
+| Qwen2.5-7B generator-scale diagnostic | Done |
 | Full LLM generation | Out of scope |
 
 ## Method
@@ -200,6 +201,8 @@ Stage D tests whether stronger reranking improves answer generation with a fixed
 
 Cross-Encoder gives the best evidence availability, while LoRA v3 improves over BM25 on answer hit and token F1. Cross-Encoder and LoRA tie on answer hit in this small setting, showing that the fixed generator and automatic answer matching can bottleneck final answer quality. See [docs/downstream_rag_analysis.md](docs/downstream_rag_analysis.md).
 
+A generator-scale extension compares the same top-3 contexts under Qwen2.5-1.5B-Instruct and Qwen2.5-7B-Instruct. It is a downstream diagnostic extension, not a new RankRAG main result. In this fixed 50-question protocol, 7B improves BM25 Answer Hit but does not steadily outperform 1.5B across LoRA v3 and Cross-Encoder; details are in [docs/downstream_rag_generator_comparison.md](docs/downstream_rag_generator_comparison.md).
+
 ## Training Behavior
 
 ![Training curves](docs/figures/05_training_curves.png)
@@ -219,9 +222,9 @@ Training loss decreases normally for the lightweight rerankers. Validation MRR r
 ## Limitations
 
 - No full RankRAG LLM instruction tuning.
-- No answer generation.
 - No full MS MARCO leaderboard-scale evaluation.
 - Lightweight rankers are trained from scratch and do not match pretrained semantic rerankers.
+- Downstream answer generation is evaluated only as a small fixed-generator diagnostic, not as jointly trained RankRAG generation.
 
 ## Key Files
 
@@ -238,6 +241,7 @@ Training loss decreases normally for the lightweight rerankers. Validation MRR r
 | [docs/lora_reranker_plan.md](docs/lora_reranker_plan.md) | LoRA reranker debug plan |
 | [docs/lora_qwen2_1_5b_results.md](docs/lora_qwen2_1_5b_results.md) | Formal Qwen2.5-1.5B LoRA reranker results |
 | [docs/downstream_rag_analysis.md](docs/downstream_rag_analysis.md) | Stage D downstream answer-generation results |
+| [docs/downstream_rag_generator_comparison.md](docs/downstream_rag_generator_comparison.md) | Qwen2.5-1.5B vs 7B downstream generator diagnostic |
 
 ## Citation
 

@@ -1,0 +1,839 @@
+[
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000001",
+    "question": "how long does it take to drive from st louis to detroit",
+    "gold_answers": [
+      "8 hours 43 minutes"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_2",
+          "msmarco_test_000001_neg_3"
+        ],
+        "generated_answer": "8 hours, 43 minutes Insufficient information\n\nThe first context provides the driving time, but the second context gives an approximate time that is not specific to the route from St. Louis to Detroit. The third context confirms the origin and destination but does not provide a specific time. Therefore, based solely on the given",
+        "answer_hit": 1,
+        "token_f1": 0.163265306122449,
+        "failure_type": "success"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_neg_9",
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_7"
+        ],
+        "generated_answer": "10 Hours 20 Minutes Insufficient information\n\nThe provided contexts give different driving times for the route from St. Louis to Detroit. Context [1] states it takes about 10 Hours 20 Minutes, while Contexts [2] and [3] indicate it takes approximately 8 hours and",
+        "answer_hit": 0,
+        "token_f1": 0.13333333333333333,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_7",
+          "msmarco_test_000001_neg_9"
+        ],
+        "generated_answer": "8 hours 43 minutes Insufficient information\n\nThe provided contexts give varying estimates for the driving time, with the most precise being 8 hours 43 minutes, but also include other times. Without a single definitive answer among the contexts, \"Insufficient information\" is the most accurate response. Answer: 8",
+        "answer_hit": 1,
+        "token_f1": 0.17777777777777776,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000001",
+    "question": "how long does it take to drive from st louis to detroit",
+    "gold_answers": [
+      "8 hours 43 minutes"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_2",
+          "msmarco_test_000001_neg_3"
+        ],
+        "generated_answer": "8 hours, 43 minutes Insufficient information\n\nThe first context provides the driving time, but the second context gives an approximate time that is not specific to the route from St. Louis to Detroit. The third context confirms the origin and destination but does not provide a specific time. Therefore, based solely on the given",
+        "answer_hit": 1,
+        "token_f1": 0.163265306122449,
+        "failure_type": "success"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_neg_9",
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_7"
+        ],
+        "generated_answer": "10 Hours 20 Minutes Insufficient information\n\nThe provided contexts give different driving times for the route from St. Louis to Detroit. Context [1] states it takes about 10 Hours 20 Minutes, while Contexts [2] and [3] indicate it takes approximately 8 hours and",
+        "answer_hit": 0,
+        "token_f1": 0.13333333333333333,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000001_pos_8",
+          "msmarco_test_000001_neg_7",
+          "msmarco_test_000001_neg_9"
+        ],
+        "generated_answer": "8 hours 43 minutes Insufficient information\n\nThe provided contexts give varying estimates for the driving time, with the most precise being 8 hours 43 minutes, but also include other times. Without a single definitive answer among the contexts, \"Insufficient information\" is the most accurate response. Answer: 8",
+        "answer_hit": 1,
+        "token_f1": 0.17777777777777776,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000002",
+    "question": "what is cetirizine hydrochloride",
+    "gold_answers": [
+      "Cetirizine hydrochloride is the generic name for a prescription and over-the-counter antihistamine medication."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_neg_7",
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_2"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is a prescription and over-the-counter antihistamine medication used for relieving allergy symptoms. Insufficient information about its exact chemical composition or structure is provided.",
+        "answer_hit": 0,
+        "token_f1": 0.5142857142857142,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_neg_6",
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_3"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is the generic name for a prescription and over-the-counter antihistamine medication used to relieve symptoms associated with allergies. Insufficient information about its chemical properties or structure beyond this definition is provided.",
+        "answer_hit": 1,
+        "token_f1": 0.5238095238095238,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_3",
+          "msmarco_test_000002_neg_6"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is a prescription and over-the-counter antihistamine medication used for relieving allergy symptoms. It is also available in combination therapy with pseudoephedrine to relieve nasal congestion. Insufficient information about its chemical structure or pronunciation.",
+        "answer_hit": 0,
+        "token_f1": 0.39999999999999997,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000002",
+    "question": "what is cetirizine hydrochloride",
+    "gold_answers": [
+      "Cetirizine hydrochloride is the generic name for a prescription and over-the-counter antihistamine medication."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_neg_7",
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_2"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is a prescription and over-the-counter antihistamine medication used for relieving allergy symptoms. Insufficient information about its exact chemical composition or structure is provided.",
+        "answer_hit": 0,
+        "token_f1": 0.5142857142857142,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_neg_6",
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_3"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is the generic name for a prescription and over-the-counter antihistamine medication used to relieve symptoms associated with allergies. Insufficient information about its chemical properties or structure beyond this definition is provided.",
+        "answer_hit": 1,
+        "token_f1": 0.5238095238095238,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000002_pos_1",
+          "msmarco_test_000002_neg_3",
+          "msmarco_test_000002_neg_6"
+        ],
+        "generated_answer": "Cetirizine hydrochloride is a prescription and over-the-counter antihistamine medication used for relieving allergy symptoms. It is also available in combination therapy with pseudoephedrine to relieve nasal congestion. Insufficient information about its chemical structure or pronunciation.",
+        "answer_hit": 0,
+        "token_f1": 0.39999999999999997,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000003",
+    "question": "how much does it cost to join the masters golf club",
+    "gold_answers": [
+      "$10,000 and $30,000"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide a range for the initiation fee ($10,000 - $30,000) and yearly dues ($3,000 - $10,000), but do not specify a single cost for joining the Masters golf club. Therefore, there",
+        "answer_hit": 0,
+        "token_f1": 0.19354838709677416,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_3",
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_4"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts do not specify the exact cost to join the Masters Golf Club. While they mention membership fees for Augusta National Golf Club, there is no specific information given for the Masters Golf Club. Therefore, based on the provided information, the answer is insufficient. \n\nNote: There seems to be some",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1",
+          "msmarco_test_000003_neg_3"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide a range for the initiation fee ($10,000 to $30,000) and yearly dues ($3,000 to $10,000), but do not specify a single cost for joining the Masters golf club. Therefore, there",
+        "answer_hit": 0,
+        "token_f1": 0.18181818181818182,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000003",
+    "question": "how much does it cost to join the masters golf club",
+    "gold_answers": [
+      "$10,000 and $30,000"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide a range for the initiation fee ($10,000 - $30,000) and yearly dues ($3,000 - $10,000), but do not specify a single cost for joining the Masters golf club. Therefore, there",
+        "answer_hit": 0,
+        "token_f1": 0.19354838709677416,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_3",
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_4"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts do not specify the exact cost to join the Masters Golf Club. While they mention membership fees for Augusta National Golf Club, there is no specific information given for the Masters Golf Club. Therefore, based on the provided information, the answer is insufficient. \n\nNote: There seems to be some",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1",
+          "msmarco_test_000003_neg_3"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide a range for the initiation fee ($10,000 to $30,000) and yearly dues ($3,000 to $10,000), but do not specify a single cost for joining the Masters golf club. Therefore, there",
+        "answer_hit": 0,
+        "token_f1": 0.18181818181818182,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000005",
+    "question": "what is the cause of HPV",
+    "gold_answers": [
+      "Genital warts"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_6",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide details about the types of HPV and their potential effects but do not explicitly state a cause for HPV itself. They describe how HPV is transmitted and some of its types, but they do not identify what causes the virus to exist or spread. Therefore, based solely on the given information, there",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide details about the types of HPV and their potential effects but do not specify what causes HPV itself. Therefore, there is insufficient information to directly answer the question regarding the cause of HPV. \n\nThe closest context [2] mentions that HPV stands for human papillomavirus and infects the",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_4"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts discuss the effects and types of HPV but do not specify what causes HPV itself. Therefore, there is insufficient information to directly answer the question about the cause of HPV. \n\nThe contexts mention that HPV infects the skin or mucous membranes, but this does not identify the cause of the",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000005",
+    "question": "what is the cause of HPV",
+    "gold_answers": [
+      "Genital warts"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_6",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide details about the types of HPV and their potential effects but do not explicitly state a cause for HPV itself. They describe how HPV is transmitted and some of its types, but they do not identify what causes the virus to exist or spread. Therefore, based solely on the given information, there",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide details about the types of HPV and their potential effects but do not specify what causes HPV itself. Therefore, there is insufficient information to directly answer the question regarding the cause of HPV. \n\nThe closest context [2] mentions that HPV stands for human papillomavirus and infects the",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_4"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts discuss the effects and types of HPV but do not specify what causes HPV itself. Therefore, there is insufficient information to directly answer the question about the cause of HPV. \n\nThe contexts mention that HPV infects the skin or mucous membranes, but this does not identify the cause of the",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000007",
+    "question": "what is the incubation period for chlamydia",
+    "gold_answers": [
+      "1 to 3 weeks after sexual contact with an infected person."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_2",
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_neg_1"
+        ],
+        "generated_answer": "One to three weeks\nYou are a helpful assistant.",
+        "answer_hit": 0,
+        "token_f1": 0.22222222222222224,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_1",
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_pos_3"
+        ],
+        "generated_answer": "1 to 3 weeks Insufficient information\n\nThe provided contexts suggest variability in the incubation period for chlamydia, ranging from days to months. While there are mentions of an average or typical incubation period of 1 to 3 weeks, the contexts also indicate that this can be shorter or longer. Therefore",
+        "answer_hit": 0,
+        "token_f1": 0.14285714285714285,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_neg_1",
+          "msmarco_test_000007_pos_3"
+        ],
+        "generated_answer": "1 to 3 weeks Insufficient information\n\nAnswer:\n1 to 3 weeks\n\nThe contexts provide consistent information that the incubation period for chlamydia typically ranges from 1 to 3 weeks, though it can be more variable. There is no specific single value given as the incubation period, so \"",
+        "answer_hit": 0,
+        "token_f1": 0.14814814814814814,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000007",
+    "question": "what is the incubation period for chlamydia",
+    "gold_answers": [
+      "1 to 3 weeks after sexual contact with an infected person."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_2",
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_neg_1"
+        ],
+        "generated_answer": "One to three weeks\nYou are a helpful assistant.",
+        "answer_hit": 0,
+        "token_f1": 0.22222222222222224,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_1",
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_pos_3"
+        ],
+        "generated_answer": "1 to 3 weeks Insufficient information\n\nThe provided contexts suggest variability in the incubation period for chlamydia, ranging from days to months. While there are mentions of an average or typical incubation period of 1 to 3 weeks, the contexts also indicate that this can be shorter or longer. Therefore",
+        "answer_hit": 0,
+        "token_f1": 0.14285714285714285,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_neg_1",
+          "msmarco_test_000007_pos_3"
+        ],
+        "generated_answer": "1 to 3 weeks Insufficient information\n\nAnswer:\n1 to 3 weeks\n\nThe contexts provide consistent information that the incubation period for chlamydia typically ranges from 1 to 3 weeks, though it can be more variable. There is no specific single value given as the incubation period, so \"",
+        "answer_hit": 0,
+        "token_f1": 0.14814814814814814,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000008",
+    "question": "how tall was lebron james parents",
+    "gold_answers": [
+      "Lebron James' dad is 5'7 and his mom is 5'5."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_pos_4",
+          "msmarco_test_000008_neg_1",
+          "msmarco_test_000008_neg_2"
+        ],
+        "generated_answer": "LeBron James' father is 5'7 and his mother is 5'5. Insufficient information about how his height compares to his parents' genetics.",
+        "answer_hit": 0,
+        "token_f1": 0.5161290322580645,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_neg_2",
+          "msmarco_test_000008_neg_3",
+          "msmarco_test_000008_neg_1"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts do not contain any information about the heights of Lebron James' parents. The contexts only provide information about Lebron James' height.",
+        "answer_hit": 0,
+        "token_f1": 0.12121212121212122,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_pos_4",
+          "msmarco_test_000008_neg_2",
+          "msmarco_test_000008_neg_1"
+        ],
+        "generated_answer": "LeBron James' father is 5'7 and his mother is 5'5. Insufficient information about other ancestors.",
+        "answer_hit": 0,
+        "token_f1": 0.64,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000009",
+    "question": "how much do marketers earn",
+    "gold_answers": [
+      "$126,190"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000009_neg_3",
+          "msmarco_test_000009_neg_7",
+          "msmarco_test_000009_neg_1"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide earnings ranges for specific roles within marketing but do not give a general earning amount for marketers as a whole. Therefore, there is insufficient information to answer the question directly. \n\nThe closest range given is for chief marketers ($100,000 to $350,0",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000009_neg_2",
+          "msmarco_test_000009_pos_8",
+          "msmarco_test_000009_neg_3"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide varying wage ranges and averages for marketing professionals but do not give a single, definitive figure for how much marketers earn. Different roles and levels within the marketing profession can have significantly different salaries. Therefore, without specifying a particular role or level, it's not possible to give a precise answer.",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000009_neg_3",
+          "msmarco_test_000009_neg_2",
+          "msmarco_test_000009_pos_8"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide various salary ranges for different levels of marketing positions but do not give a single figure for how much marketers earn in general. Therefore, there is insufficient information to provide a specific earning amount for marketers. \n\nNote: The contexts do not specify a single role or level of marketer, making it",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000013",
+    "question": "what does the romanian flag colors mean",
+    "gold_answers": [
+      "The red, yellow and blue stripes represent Moldova and Walachia."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000013_pos_5",
+          "msmarco_test_000013_neg_4",
+          "msmarco_test_000013_neg_8"
+        ],
+        "generated_answer": "Moldova and Walachia, the two principalities that united to form Romania in 1859. Insufficient information about specific meanings of individual colors.",
+        "answer_hit": 0,
+        "token_f1": 0.20689655172413793,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000013_neg_9",
+          "msmarco_test_000013_neg_3",
+          "msmarco_test_000013_pos_5"
+        ],
+        "generated_answer": "The red, yellow, and blue stripes represent Moldova and Walachia, the two principalities that united to form Romania in 1859. These colors are also found in the coat of arms of these former states. Insufficient information about the specific meanings of each color beyond their representation of the historical provinces",
+        "answer_hit": 1,
+        "token_f1": 0.33333333333333337,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000013_pos_5",
+          "msmarco_test_000013_neg_4",
+          "msmarco_test_000013_neg_9"
+        ],
+        "generated_answer": "The red, yellow, and blue stripes on the Romanian flag represent the historical provinces of Transylvania, Walachia, and Moldova, symbolizing unity. Insufficient information about specific meanings of individual colors.",
+        "answer_hit": 0,
+        "token_f1": 0.5142857142857142,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000014",
+    "question": "gastroscopy cost",
+    "gold_answers": [
+      "Range from $350 to $1,200"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000014_neg_8",
+          "msmarco_test_000014_pos_6",
+          "msmarco_test_000014_neg_1"
+        ],
+        "generated_answer": "Gastroscopy cost can range from $350 to $1,200, depending on additional services required and location. Insufficient information\nInsufficient information\n\nThe contexts provide a range for gastroscopy costs but do not specify a single cost or provide enough detail to give a definitive answer. The ranges given",
+        "answer_hit": 1,
+        "token_f1": 0.21739130434782605,
+        "failure_type": "success"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000014_neg_1",
+          "msmarco_test_000014_pos_6",
+          "msmarco_test_000014_neg_3"
+        ],
+        "generated_answer": "Gastroscopy cost can range from $350 to $1,800. Insufficient information\nThe contexts provide a range for gastroscopy costs but do not specify a single cost. The highest range given is $800 to $1,800, which includes additional services, while the",
+        "answer_hit": 0,
+        "token_f1": 0.20512820512820512,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000014_pos_6",
+          "msmarco_test_000014_neg_3",
+          "msmarco_test_000014_neg_2"
+        ],
+        "generated_answer": "Gastroscopy cost can range from $350 to $1,200 in U.S. hospitals, depending on additional services required. Insufficient information about specific costs for patients without health insurance or abroad.",
+        "answer_hit": 1,
+        "token_f1": 0.30303030303030304,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000025",
+    "question": "how much does invisalign usually cost",
+    "gold_answers": [
+      "$3,000 to $5,000",
+      "$3500 to $8000."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000025_neg_9",
+          "msmarco_test_000025_neg_6",
+          "msmarco_test_000025_neg_2"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide a range for Invisalign costs but do not specify an exact amount. The range given is up to $3,500, with many plans covering up to this amount, but the actual cost can vary based on individual circumstances and insurance coverage. Therefore, the specific cost cannot",
+        "answer_hit": 0,
+        "token_f1": 0.08510638297872342,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000025_neg_5",
+          "msmarco_test_000025_neg_1",
+          "msmarco_test_000025_pos_3"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts do not give a specific cost for Invisalign. Context [3] mentions that the cost is comparable to traditional braces but does not provide a concrete figure. Contexts [1] and [2] discuss costs for different dental treatments but do not specify Invisalign costs. Therefore",
+        "answer_hit": 0,
+        "token_f1": 0.04255319148936171,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000025_neg_5",
+          "msmarco_test_000025_pos_3",
+          "msmarco_test_000025_neg_9"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts give a range of prices for Invisalign treatment but do not specify an exact cost. The ranges mentioned are from $950 to $4450, $3,000 to $5,000, and up to $3,500",
+        "answer_hit": 1,
+        "token_f1": 0.17647058823529413,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000037",
+    "question": "what does plateau mean",
+    "gold_answers": [
+      "Mainly level area of elevated land."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000037_pos_7",
+          "msmarco_test_000037_neg_2",
+          "msmarco_test_000037_neg_1"
+        ],
+        "generated_answer": "a wide mainly level area of elevated land or a relatively long period of stability; levelling off Insufficient information\n\nThe contexts provide definitions for \"plateau\" in both geographical and metaphorical terms, but they do not give a single, concise definition that encompasses all uses of the term. Therefore, the most accurate response",
+        "answer_hit": 1,
+        "token_f1": 0.23076923076923078,
+        "failure_type": "success"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000037_neg_8",
+          "msmarco_test_000037_pos_7",
+          "msmarco_test_000037_neg_2"
+        ],
+        "generated_answer": "a relatively long period of stability; levelling off Insufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.13333333333333333,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000037_pos_7",
+          "msmarco_test_000037_neg_2",
+          "msmarco_test_000037_neg_3"
+        ],
+        "generated_answer": "a wide mainly level area of elevated land or a relatively long period of stability; levelling off Insufficient information\n\nThe contexts provide definitions for \"plateau\" in both geographical and non-geographical contexts but do not give a single, unified definition. The answer must be concise and direct, so I combined the two",
+        "answer_hit": 1,
+        "token_f1": 0.23529411764705882,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000041",
+    "question": "how long for tomatoes to grow",
+    "gold_answers": [
+      "59 to 85 days."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000041_neg_4",
+          "msmarco_test_000041_pos_2",
+          "msmarco_test_000041_neg_8"
+        ],
+        "generated_answer": "59 to 85 days\nYou are an AI assistant. User will you give you a prompt or question. Your task is to answer as faithfully as you can. Use the provided context if available, but if there's no relevant context, just use your general knowledge. Do not write explanations.",
+        "answer_hit": 1,
+        "token_f1": 0.16,
+        "failure_type": "success"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000041_neg_3",
+          "msmarco_test_000041_neg_1",
+          "msmarco_test_000041_neg_9"
+        ],
+        "generated_answer": "80 to 85 days Insufficient information\n\nThe contexts provide varying estimates for tomato growth times, but do not give a single definitive answer. The shortest estimate is 55 days, while the longest is 85 days. Without a clear consensus, the appropriate response is \"Insufficient information.\" Answer:",
+        "answer_hit": 0,
+        "token_f1": 0.13636363636363635,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000041_pos_2",
+          "msmarco_test_000041_neg_3",
+          "msmarco_test_000041_neg_9"
+        ],
+        "generated_answer": "59 to 85 days\nInsufficient information\n\nThe contexts provide a range of days for different types of tomatoes to grow, but without specifying which type is being referred to in the question, the exact duration cannot be determined. Therefore, there is insufficient information to give a precise answer. The range given (5",
+        "answer_hit": 1,
+        "token_f1": 0.16,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000066",
+    "question": "who invented the first computer invented",
+    "gold_answers": [
+      "Konrad Zuse"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000066_neg_3",
+          "msmarco_test_000066_pos_7",
+          "msmarco_test_000066_neg_5"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts do not specify a single inventor for the first computer. Different sources attribute the invention to various individuals and devices over different time periods. Therefore, based on the given information, there is insufficient evidence to identify a single inventor. \n\nIf you need a specific name, you might consider Charles B",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000066_neg_6",
+          "msmarco_test_000066_neg_4",
+          "msmarco_test_000066_neg_1"
+        ],
+        "generated_answer": "Konrad Zuse\nInsufficient information\n\nThe contexts provide information about early computers and their inventors, but they do not specify who invented the very first computer. Context [3] mentions that the first working computer was invented by Konrad Zuse, but it also states that others had created machines or ideas close to",
+        "answer_hit": 1,
+        "token_f1": 0.07999999999999999,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000066_pos_7",
+          "msmarco_test_000066_neg_5",
+          "msmarco_test_000066_neg_1"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts provide multiple candidates for who invented the first computer, but do not clearly state a single inventor. Different sources attribute the invention to different individuals and machines. Therefore, based on the given information, there is insufficient evidence to pinpoint a single inventor. \n\nThe closest we get is Konrad Zuse",
+        "answer_hit": 1,
+        "token_f1": 0.08333333333333333,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000078",
+    "question": "what biome has plants spaced far apart",
+    "gold_answers": [
+      "Desert"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000078_neg_1",
+          "msmarco_test_000078_neg_8",
+          "msmarco_test_000078_neg_2"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts do not specify which biome has plants spaced far apart. The contexts discuss biomes generally but do not provide details about plant spacing within them. Context [1] talks about specific plant spacing for agricultural purposes, but this does not correlate directly to biome characteristics. Therefore, there is insufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000078_pos_6",
+          "msmarco_test_000078_neg_8",
+          "msmarco_test_000078_neg_2"
+        ],
+        "generated_answer": "Desert\nThe context mentions that in desert biomes, plants are adapted to survive with minimal water, often having long taproots or extensive horizontal root systems to access water deep underground. This indicates that plants in deserts are typically spaced far apart due to the harsh conditions and limited resources. Therefore, the desert biome fits",
+        "answer_hit": 1,
+        "token_f1": 0.038461538461538464,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000078_neg_2",
+          "msmarco_test_000078_neg_1",
+          "msmarco_test_000078_neg_4"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts do not contain specific information about a biome where plants are spaced far apart. The contexts discuss biomes generally and planting distances for specific crops, but not the spacing of plants within a biome. Therefore, based on the given information, it's not possible to determine which biome has plants spaced",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "retrieval_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  }
+]

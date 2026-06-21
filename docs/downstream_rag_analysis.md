@@ -56,6 +56,8 @@ All three methods use the same 50 questions, the same candidate pool, and top-k 
 
 The model is loaded from a local directory outside the Git repository through `QWEN_GENERATOR_MODEL_PATH` or the `--generator-model-path` CLI option. The repository does not store model weights or the local model path.
 
+A stronger-generator sensitivity check with Qwen2.5-7B-Instruct is reported separately in [downstream_rag_generator_comparison.md](downstream_rag_generator_comparison.md). It uses the same 50 questions, rankings, top-3 contexts, prompt, and generation settings, and only changes the generator scale.
+
 ## Prompt
 
 ```text
@@ -157,6 +159,7 @@ One representative case is `msmarco_test_000001`: the gold answer is `8 hours 43
 - Automatic answer hit is strict; valid paraphrases may be undercounted.
 - Some MS MARCO negatives can contain answer-like evidence, so label-based context availability and gold-answer-in-context are both reported.
 - Results should not be interpreted as full RankRAG answer generation reproduction.
+- The 7B generator comparison is a downstream diagnostic extension, not a new RankRAG main-result protocol.
 
 ## Reproduction Commands
 

@@ -31,6 +31,15 @@ METRIC_COLUMNS = [
 ]
 
 
+def insufficient_information_flags(generated_answer: Any) -> dict[str, bool]:
+    normalized = str(generated_answer or "").strip().lower()
+    return {
+        "exact": normalized.strip(" .:\n\t") == "insufficient information",
+        "starts_with": normalized.startswith("insufficient information"),
+        "contains": "insufficient information" in normalized,
+    }
+
+
 def load_method_rows(output_dir: Path, method: str, top_k: int) -> list[dict[str, Any]]:
     path = output_dir / f"{method}_top{top_k}_answers.jsonl"
     if not path.exists():
@@ -47,11 +56,13 @@ def aggregate_rows(rows: list[dict[str, Any]]) -> dict[str, Any]:
         for row in rows
         if row["gold_answer_in_context"] and row["failure_type"] == "generation_failure"
     ]
-    insufficient = [
-        row
+    insufficient_flags = [
+        insufficient_information_flags(row.get("generated_answer", ""))
         for row in rows
-        if str(row.get("generated_answer", "")).strip().lower() == "insufficient information"
     ]
+    exact_insufficient = sum(int(flags["exact"]) for flags in insufficient_flags)
+    starts_with_insufficient = sum(int(flags["starts_with"]) for flags in insufficient_flags)
+    contains_insufficient = sum(int(flags["contains"]) for flags in insufficient_flags)
     empty = [row for row in rows if not str(row.get("generated_answer", "")).strip()]
     return {
         "questions": questions,
@@ -62,7 +73,13 @@ def aggregate_rows(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "exact_match": mean(int(row["exact_match"]) for row in rows),
         "token_f1": mean(float(row["token_f1"]) for row in rows),
         "empty_answer_rate": len(empty) / questions,
-        "insufficient_information_rate": len(insufficient) / questions,
+        "insufficient_information_rate": exact_insufficient / questions,
+        "exact_insufficient_information_rate": exact_insufficient / questions,
+        "starts_with_insufficient_information_rate": starts_with_insufficient / questions,
+        "contains_insufficient_information_rate": contains_insufficient / questions,
+        "exact_insufficient_information_count": exact_insufficient,
+        "starts_with_insufficient_information_count": starts_with_insufficient,
+        "contains_insufficient_information_count": contains_insufficient,
         "average_answer_length": mean(len(str(row.get("generated_answer", "")).split()) for row in rows),
         "generation_failure_rate": len(generation_failures) / max(
             sum(int(row["gold_answer_in_context"]) for row in rows),

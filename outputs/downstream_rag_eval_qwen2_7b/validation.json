@@ -1,0 +1,14 @@
+{
+  "status": "ready",
+  "methods": [
+    "bm25",
+    "lora_v3",
+    "cross_encoder"
+  ],
+  "method_counts": {
+    "bm25": 50,
+    "lora_v3": 50,
+    "cross_encoder": 50
+  },
+  "errors": []
+}

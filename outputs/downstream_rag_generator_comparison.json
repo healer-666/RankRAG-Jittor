@@ -1,0 +1,127 @@
+{
+  "protocol": {
+    "questions": 50,
+    "top_k": 3,
+    "same_rankings": true,
+    "same_prompt": true,
+    "same_generation_settings": true,
+    "generators": [
+      "Qwen2.5-1.5B-Instruct",
+      "Qwen2.5-7B-Instruct"
+    ]
+  },
+  "results": {
+    "qwen2_5_1_5b": {
+      "bm25": {
+        "generator": "Qwen2.5-1.5B-Instruct",
+        "gold@3": 0.68,
+        "answer_hit": 0.22,
+        "exact_match": 0,
+        "token_f1": 0.16464600459747955,
+        "retrieval_failures": 16,
+        "generation_failures": 23,
+        "successes": 11,
+        "refusal_diagnostics": {
+          "contains_count": 6,
+          "contains_rate": 0.12,
+          "starts_with_count": 2,
+          "starts_with_rate": 0.04,
+          "exact_count": 2,
+          "exact_rate": 0.04
+        }
+      },
+      "lora_v3": {
+        "generator": "Qwen2.5-1.5B-Instruct",
+        "gold@3": 0.72,
+        "answer_hit": 0.28,
+        "exact_match": 0.04,
+        "token_f1": 0.2107792067763531,
+        "retrieval_failures": 14,
+        "generation_failures": 22,
+        "successes": 14,
+        "refusal_diagnostics": {
+          "contains_count": 2,
+          "contains_rate": 0.04,
+          "starts_with_count": 2,
+          "starts_with_rate": 0.04,
+          "exact_count": 2,
+          "exact_rate": 0.04
+        }
+      },
+      "cross_encoder": {
+        "generator": "Qwen2.5-1.5B-Instruct",
+        "gold@3": 0.88,
+        "answer_hit": 0.28,
+        "exact_match": 0,
+        "token_f1": 0.20575087755536586,
+        "retrieval_failures": 6,
+        "generation_failures": 30,
+        "successes": 14,
+        "refusal_diagnostics": {
+          "contains_count": 3,
+          "contains_rate": 0.06,
+          "starts_with_count": 1,
+          "starts_with_rate": 0.02,
+          "exact_count": 1,
+          "exact_rate": 0.02
+        }
+      }
+    },
+    "qwen2_5_7b": {
+      "bm25": {
+        "generator": "Qwen2.5-7B-Instruct",
+        "gold@3": 0.68,
+        "answer_hit": 0.32,
+        "exact_match": 0,
+        "token_f1": 0.16407237306957814,
+        "retrieval_failures": 16,
+        "generation_failures": 18,
+        "successes": 16,
+        "refusal_diagnostics": {
+          "contains_count": 43,
+          "contains_rate": 0.86,
+          "starts_with_count": 16,
+          "starts_with_rate": 0.32,
+          "exact_count": 0,
+          "exact_rate": 0.0
+        }
+      },
+      "lora_v3": {
+        "generator": "Qwen2.5-7B-Instruct",
+        "gold@3": 0.72,
+        "answer_hit": 0.24,
+        "exact_match": 0,
+        "token_f1": 0.15693173677781153,
+        "retrieval_failures": 14,
+        "generation_failures": 24,
+        "successes": 12,
+        "refusal_diagnostics": {
+          "contains_count": 41,
+          "contains_rate": 0.82,
+          "starts_with_count": 16,
+          "starts_with_rate": 0.32,
+          "exact_count": 0,
+          "exact_rate": 0.0
+        }
+      },
+      "cross_encoder": {
+        "generator": "Qwen2.5-7B-Instruct",
+        "gold@3": 0.88,
+        "answer_hit": 0.3,
+        "exact_match": 0,
+        "token_f1": 0.16348580723511946,
+        "retrieval_failures": 6,
+        "generation_failures": 29,
+        "successes": 15,
+        "refusal_diagnostics": {
+          "contains_count": 48,
+          "contains_rate": 0.96,
+          "starts_with_count": 18,
+          "starts_with_rate": 0.36,
+          "exact_count": 0,
+          "exact_rate": 0.0
+        }
+      }
+    }
+  }
+}

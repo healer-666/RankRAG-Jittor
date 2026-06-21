@@ -1,0 +1,33 @@
+dataset_path: data/processed/msmarco_downstream_qa_50.jsonl
+source_test_path: data/processed/msmarco_medium/test.jsonl
+output_dir: outputs/downstream_rag_eval_qwen2_7b
+qa_manifest_path: outputs/downstream_rag_eval_qwen2_7b/qa_subset_manifest.json
+
+generator_model: Qwen/Qwen2.5-7B-Instruct
+generator_model_path: null
+top_k: 3
+num_questions: 50
+temperature: 0.0
+do_sample: false
+max_new_tokens: 64
+max_context_tokens: 2048
+seed: 42
+
+methods:
+  - bm25
+  - lora_v3
+  - cross_encoder
+
+rankings:
+  bm25:
+    path: outputs/msmarco_medium_retrieval_baseline_rankings.json
+    nested_key: bm25
+  lora_v3:
+    path: outputs/lora_qwen_1_5b_10k_lr1e4_s800/qwen_1_5b_lora_rankings.json
+  cross_encoder:
+    path: outputs/msmarco_medium_cross_encoder_rankings.json
+
+reranking_metrics:
+  bm25: outputs/msmarco_medium_retrieval_baseline_metrics.json
+  lora_v3: outputs/lora_qwen_1_5b_10k_lr1e4_s800/qwen_1_5b_lora_metrics.json
+  cross_encoder: outputs/msmarco_medium_cross_encoder_metrics.json
