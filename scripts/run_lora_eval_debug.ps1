@@ -1,5 +1,5 @@
 $ErrorActionPreference = "Stop"
-$PY = "D:\anaconda\envs\pytorch\python.exe"
+$PY = if ($env:PYTHON) { $env:PYTHON } else { "python" }
 
 & $PY src/lora_reranker/evaluate_lora_reranker.py `
   --model_name Qwen/Qwen2.5-0.5B-Instruct `

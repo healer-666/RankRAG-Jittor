@@ -1,5 +1,5 @@
 $ErrorActionPreference = "Stop"
-$PY = "D:\anaconda\envs\pytorch\python.exe"
+$PY = if ($env:PYTHON) { $env:PYTHON } else { "python" }
 
 & $PY src/lora_reranker/build_lora_data.py `
   --train_in data/processed/msmarco_medium/train.jsonl `

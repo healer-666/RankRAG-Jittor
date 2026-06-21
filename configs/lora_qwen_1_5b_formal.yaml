@@ -1,0 +1,29 @@
+model_name: Qwen/Qwen2.5-1.5B-Instruct
+train_path: data/processed/lora_qwen_1_5b_formal/train_pairs.jsonl
+valid_path: data/processed/lora_qwen_1_5b_formal/valid_pairs.jsonl
+output_dir: outputs/lora_adapters/qwen_1_5b_formal
+debug_output_dir: outputs/lora_qwen_1_5b_formal
+
+max_length: 256
+num_train_epochs: 1
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 0.0001
+warmup_ratio: 0.03
+weight_decay: 0.0
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  - gate_proj
+  - up_proj
+  - down_proj
+logging_steps: 10
+eval_steps: 100
+save_steps: 200
+max_train_steps: 600
+seed: 42

@@ -34,6 +34,15 @@ outputs/lora_adapters/
 *.safetensors
 *.bin
 *.ckpt
+checkpoint-*/
+**/checkpoint-*/
+score_cache.jsonl
+**/score_cache.jsonl
+trainer_state.json
+optimizer.pt
+scheduler.pt
+rng_state.pth
+models/
 outputs/jittorllm_zeroshot_*/score_cache.jsonl
 outputs/jittorllm_zeroshot_*/smoke_score_cache.jsonl
 outputs/jittorllm_qwen2_*/score_cache.jsonl

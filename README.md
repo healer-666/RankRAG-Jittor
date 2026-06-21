@@ -18,6 +18,7 @@ It does **not** reproduce full RankRAG LLM instruction tuning or answer generati
 | PyTorch/Jittor TextCNN reranker | Done |
 | TF-IDF / BM25 baselines | Done |
 | External Cross-Encoder reference | Done |
+| Qwen2.5-1.5B LoRA reranker | Done |
 | Full LLM generation | Out of scope |
 
 ## Method
@@ -110,6 +111,15 @@ python src/aggregate_l25_results.py
 python src/case_study_cross_encoder.py
 ```
 
+Qwen2.5-1.5B LoRA reranker summary:
+
+```bash
+bash scripts/run_lora_qwen_1_5b_v3_data.sh
+bash scripts/run_lora_qwen_1_5b_v3_train.sh
+bash scripts/run_lora_qwen_1_5b_v3_eval.sh
+python src/aggregate_lora_results.py
+```
+
 Readiness check:
 
 ```bash
@@ -146,21 +156,30 @@ MS MARCO data is derived from `microsoft/ms_marco`, config `v1.1`. The medium su
 
 The Cross-Encoder is an external pretrained semantic reranker reference, not the Jittor reproduction body. The Jittor reproduction body is the MLP/TextCNN reranker implementation.
 
-## Training Behavior
+## L3 LoRA Reranker
 
-![Training curves](docs/figures/05_training_curves.png)
-
-Training loss decreases normally for the lightweight rerankers. Validation MRR remains much lower than the Cross-Encoder reference, which is expected because the MLP/TextCNN models are trained from scratch without pretrained semantic encoders.
-
-## L3 Preview: LoRA Reranker Debug
-
-This is a RankRAG-mini engineering preview, not a formal result. The current debug run uses Qwen2.5-0.5B-Instruct to verify LoRA training, adapter save/load, and log-probability reranking with:
+The formal rented-GPU LoRA run uses Qwen/Qwen2.5-1.5B-Instruct as a relevance reranker with:
 
 ```text
 score = log P("Relevant") - log P("Irrelevant")
 ```
 
-The formal LoRA reranker experiment should be run later on a rented GPU with Qwen2.5-1.5B-Instruct or a larger model. See [docs/lora_reranker_plan.md](docs/lora_reranker_plan.md).
+On the same MS MARCO medium test candidate set, the best LoRA run is v3: 10,000 train pairs, 1,000 valid pairs, 800 steps, max length 256, LoRA rank 8, learning rate 1e-4.
+
+| Method | R@1 | R@3 | R@5 | R@10 | NDCG@5 | MRR | Pairwise Acc. |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| BM25 | 0.2300 | 0.5540 | 0.7840 | 1.0000 | 0.5074 | 0.4476 | 0.6253 |
+| Qwen2.5-1.5B Jittor zero-shot | 0.2360 | 0.5520 | 0.8120 | 1.0000 | 0.5210 | 0.4525 | 0.6342 |
+| Qwen2.5-1.5B LoRA v3 | 0.3580 | 0.6980 | 0.8720 | 1.0000 | 0.6266 | 0.5642 | 0.7345 |
+| Cross-Encoder reference | 0.4340 | 0.8080 | 0.9340 | 1.0000 | 0.7019 | 0.6341 | 0.8049 |
+
+LoRA v3 clearly improves over the same-size zero-shot reranker and the lightweight Jittor rerankers, but remains below the external pretrained Cross-Encoder reference. Full details are in [docs/lora_qwen2_1_5b_results.md](docs/lora_qwen2_1_5b_results.md), with generated tables in [outputs/lora_qwen2_1_5b_comparison.md](outputs/lora_qwen2_1_5b_comparison.md).
+
+## Training Behavior
+
+![Training curves](docs/figures/05_training_curves.png)
+
+Training loss decreases normally for the lightweight rerankers. Validation MRR remains much lower than the Cross-Encoder reference, which is expected because the MLP/TextCNN models are trained from scratch without pretrained semantic encoders.
 
 ## Interpretation
 
@@ -169,6 +188,7 @@ The formal LoRA reranker experiment should be run later on a rented GPU with Qwe
 - BM25 and TF-IDF remain strong lexical baselines.
 - Jittor MLP/TextCNN results are close enough to the PyTorch baselines to support the implementation alignment claim.
 - The Cross-Encoder result shows why pretrained semantic reranking is stronger, but it is not a Jittor model.
+- Qwen2.5-1.5B LoRA v3 shows the gain from task-specific LLM reranker training while remaining below the external Cross-Encoder reference.
 
 ## Limitations
 
@@ -190,6 +210,7 @@ The formal LoRA reranker experiment should be run later on a rented GPU with Qwe
 | [docs/hardware_report.md](docs/hardware_report.md) | Runtime environment |
 | [docs/jittor_setup.md](docs/jittor_setup.md) | Jittor setup notes |
 | [docs/lora_reranker_plan.md](docs/lora_reranker_plan.md) | LoRA reranker debug plan |
+| [docs/lora_qwen2_1_5b_results.md](docs/lora_qwen2_1_5b_results.md) | Formal Qwen2.5-1.5B LoRA reranker results |
 
 ## Citation
 

@@ -127,6 +127,33 @@ LORA_DEBUG_FILES = {
     ],
 }
 
+LORA_FORMAL_FILES = {
+    "LoRA 1.5B configs": [
+        "configs/lora_qwen_1_5b_formal.yaml",
+        "configs/lora_qwen_1_5b_lr5e5_s500.yaml",
+        "configs/lora_qwen_1_5b_10k_lr1e4_s800.yaml",
+    ],
+    "LoRA 1.5B data cards": [
+        "data/processed/lora_qwen_1_5b_formal/data_card.md",
+        "data/processed/lora_qwen_1_5b_10k/data_card.md",
+    ],
+    "LoRA 1.5B formal v3 result": [
+        "outputs/lora_qwen_1_5b_10k_lr1e4_s800/qwen_1_5b_lora_metrics.json",
+        "outputs/lora_qwen_1_5b_10k_lr1e4_s800/train_summary.json",
+        "outputs/lora_qwen_1_5b_10k_lr1e4_s800/loss_curve.png",
+    ],
+    "LoRA 1.5B tuning summaries": [
+        "outputs/lora_qwen_1_5b_formal/qwen_1_5b_lora_metrics.json",
+        "outputs/lora_qwen_1_5b_lr5e5_s500/qwen_1_5b_lora_metrics.json",
+        "outputs/lora_qwen2_1_5b_tuning_summary.md",
+    ],
+    "LoRA 1.5B comparison": [
+        "outputs/lora_qwen2_1_5b_comparison.json",
+        "outputs/lora_qwen2_1_5b_comparison.md",
+        "docs/lora_qwen2_1_5b_results.md",
+    ],
+}
+
 JITTORLLM_ZEROSHOT_FILES = [
     "src/jittorllm_reranker/evaluate_jittorllm_zeroshot.py",
     "src/jittorllm_reranker/prompt_utils.py",
@@ -201,6 +228,10 @@ def jittorllm_status() -> str:
     return "partial"
 
 
+def lora_formal_status() -> str:
+    return "ready" if all(status_for(paths) == "ready" for paths in LORA_FORMAL_FILES.values()) else "pending"
+
+
 def main() -> None:
     print("Project readiness check")
     print("=" * 24)
@@ -226,7 +257,15 @@ def main() -> None:
                 print(f"- {name}: {metrics[name]:.4f}")
 
     print("\nProject status summary")
-    print(f"PyTorch baseline: {'ready' if exists('outputs/torch_metrics.json') and exists('outputs/torch_model.pt') else 'missing'}")
+    torch_ready = all(
+        exists(path)
+        for path in [
+            "outputs/torch_metrics.json",
+            "outputs/demo_ranking_result_torch.json",
+            "logs/torch_train.log",
+        ]
+    )
+    print(f"PyTorch baseline: {'ready' if torch_ready else 'missing'}")
     print("Jittor skeleton: ready")
     print(f"Jittor training: {'ready' if jittor_metrics_ready else 'pending'}")
     print(f"Visualization: {'ready' if exists('outputs/loss_curve.png') and exists('outputs/metrics_compare.png') else 'missing'}")
@@ -252,6 +291,11 @@ def main() -> None:
     lora_ready = all(status_for(paths) == "ready" for paths in LORA_DEBUG_FILES.values())
     print(f"LoRA reranker debug: {'ready' if lora_ready else 'pending'}")
     for name, paths in LORA_DEBUG_FILES.items():
+        print(f"{name}: {status_for(paths)}")
+
+    print("\nL3 LoRA formal status summary")
+    print(f"Qwen2.5-1.5B LoRA formal: {lora_formal_status()}")
+    for name, paths in LORA_FORMAL_FILES.items():
         print(f"{name}: {status_for(paths)}")
 
     print("\nJittorLLM zero-shot status summary")
