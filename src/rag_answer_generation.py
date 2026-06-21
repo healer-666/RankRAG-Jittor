@@ -39,6 +39,33 @@ Contexts:
 Answer:
 """
 
+STRICT_SHORT_ANSWER_PROMPT_TEMPLATE = """You are a short-answer question answering system.
+
+Answer the question using only the provided contexts.
+
+Rules:
+1. Output only the final answer on one line.
+2. Do not provide explanations, reasoning, notes, or citations.
+3. Use the shortest answer span that directly answers the question.
+4. If at least one context directly answers the question, use that answer even if other contexts are irrelevant, incomplete, or approximate.
+5. If contexts conflict, choose the most specific context that directly matches the entities and intent of the question.
+6. Output exactly "Insufficient information" only when none of the contexts contains enough information to answer.
+7. Never append "Insufficient information" after giving an answer.
+
+Question:
+{question}
+
+Contexts:
+{contexts}
+
+Answer:
+"""
+
+PROMPT_VERSIONS = {
+    "original": "original_v1",
+    "strict_short_answer": "strict_short_answer_v1",
+}
+
 
 def read_jsonl(path: str | Path) -> list[dict[str, Any]]:
     rows = []
@@ -65,9 +92,29 @@ def prompt_hash(prompt: str) -> str:
     return hashlib.sha256(prompt.encode("utf-8")).hexdigest()
 
 
-def build_prompt(question: str, contexts: list[str]) -> str:
-    context_text = "\n".join(f"[{idx}] {text}" for idx, text in enumerate(contexts, start=1))
-    return PROMPT_TEMPLATE.format(question=question, contexts=context_text)
+def format_contexts(contexts: list[str]) -> str:
+    return "\n".join(f"[{idx}] {text}" for idx, text in enumerate(contexts, start=1))
+
+
+def prompt_version(prompt_style: str) -> str:
+    if prompt_style not in PROMPT_VERSIONS:
+        supported = ", ".join(sorted(PROMPT_VERSIONS))
+        raise ValueError(f"Unknown prompt_style '{prompt_style}'. Supported values: {supported}")
+    return PROMPT_VERSIONS[prompt_style]
+
+
+def build_prompt(question: str, contexts: list[str], prompt_style: str = "original") -> str:
+    context_text = format_contexts(contexts)
+    if prompt_style == "original":
+        return PROMPT_TEMPLATE.format(question=question, contexts=context_text)
+    if prompt_style == "strict_short_answer":
+        return STRICT_SHORT_ANSWER_PROMPT_TEMPLATE.format(question=question, contexts=context_text)
+    supported = ", ".join(sorted(PROMPT_VERSIONS))
+    raise ValueError(f"Unknown prompt_style '{prompt_style}'. Supported values: {supported}")
+
+
+def build_qa_prompt(question: str, contexts: list[str], prompt_style: str = "original") -> str:
+    return build_prompt(question, contexts, prompt_style)
 
 
 def truncate_contexts_by_words(contexts: list[str], max_words: int) -> list[str]:
@@ -141,10 +188,18 @@ class RankingsLoader:
 
 
 class ContextBuilder:
-    def __init__(self, qa_rows: list[dict[str, Any]], top_k: int, max_context_tokens: int = 2048):
+    def __init__(
+        self,
+        qa_rows: list[dict[str, Any]],
+        top_k: int,
+        max_context_tokens: int = 2048,
+        prompt_style: str = "original",
+    ):
         self.qa_rows = qa_rows
         self.top_k = top_k
         self.max_context_tokens = max_context_tokens
+        self.prompt_style = prompt_style
+        self.prompt_version = prompt_version(prompt_style)
         self.candidate_pool = {
             row["query_id"]: {candidate["candidate_id"]: candidate for candidate in row["candidates"]}
             for row in qa_rows
@@ -179,7 +234,7 @@ class ContextBuilder:
                 ),
                 None,
             )
-            prompt = build_prompt(row["question"], context_texts)
+            prompt = build_prompt(row["question"], context_texts, self.prompt_style)
             contexts.append(
                 {
                     "method": method,
@@ -193,6 +248,8 @@ class ContextBuilder:
                     "gold_answer_in_context": gold_context,
                     "labeled_positive_context_rank": labeled_positive_rank,
                     "gold_answer_context_rank": gold_answer_context_rank,
+                    "prompt_style": self.prompt_style,
+                    "prompt_version": self.prompt_version,
                     "prompt_hash": prompt_hash(prompt),
                     "prompt": prompt,
                 }

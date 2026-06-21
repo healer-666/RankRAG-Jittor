@@ -1,0 +1,45 @@
+{
+  "config": "configs\\downstream_rag_50q_qwen2_1_5b_strict_prompt.yaml",
+  "methods": [
+    "bm25",
+    "lora_v3",
+    "cross_encoder"
+  ],
+  "top_k": 3,
+  "generator_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "generator_model_path": null,
+  "local_model_path_used": true,
+  "prompt_style": "strict_short_answer",
+  "prompt_version": "strict_short_answer_v1",
+  "generator_load_time_sec": 12.598538875579834,
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "dtype": "torch.float16",
+  "do_sample": false,
+  "temperature": 0.0,
+  "max_new_tokens": 64,
+  "max_context_tokens": 2048,
+  "outputs": [
+    {
+      "method": "bm25",
+      "output_path": "outputs\\downstream_rag_eval_qwen2_1_5b_strict_prompt\\bm25_top3_answers.jsonl",
+      "generated": 50,
+      "skipped_existing": 0,
+      "runtime_sec": 368.85249757766724
+    },
+    {
+      "method": "lora_v3",
+      "output_path": "outputs\\downstream_rag_eval_qwen2_1_5b_strict_prompt\\lora_v3_top3_answers.jsonl",
+      "generated": 50,
+      "skipped_existing": 0,
+      "runtime_sec": 253.70554280281067
+    },
+    {
+      "method": "cross_encoder",
+      "output_path": "outputs\\downstream_rag_eval_qwen2_1_5b_strict_prompt\\cross_encoder_top3_answers.jsonl",
+      "generated": 50,
+      "skipped_existing": 0,
+      "runtime_sec": 281.6585304737091
+    }
+  ]
+}

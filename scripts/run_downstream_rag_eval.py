@@ -105,7 +105,13 @@ def main() -> None:
     qa_rows = read_jsonl(config["dataset_path"])
     if args.max_questions is not None:
         qa_rows = qa_rows[: args.max_questions]
-    builder = ContextBuilder(qa_rows, top_k, int(config.get("max_context_tokens", 2048)))
+    prompt_style = config.get("prompt_style", "original")
+    builder = ContextBuilder(
+        qa_rows,
+        top_k,
+        int(config.get("max_context_tokens", 2048)),
+        prompt_style,
+    )
     loader = RankingsLoader(builder.candidate_pool)
     method_contexts = {}
     for method in methods:
@@ -121,6 +127,8 @@ def main() -> None:
         "generator_model": config["generator_model"],
         "generator_model_path": None,
         "local_model_path_used": bool(generator.used_local_path),
+        "prompt_style": builder.prompt_style,
+        "prompt_version": config.get("prompt_version", builder.prompt_version),
         "generator_load_time_sec": generator.load_time_sec,
         "device": str(generator.device),
         "device_name": generator.device_name,

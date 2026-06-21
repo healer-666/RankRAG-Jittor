@@ -4,6 +4,8 @@
 
 This diagnostic checks whether scaling the fixed answer generator from Qwen2.5-1.5B-Instruct to Qwen2.5-7B-Instruct can more reliably convert stronger reranking into better final short answers.
 
+The Qwen2.5-1.5B strict-prompt ablation is reported separately in [downstream_rag_prompt_ablation_1_5b.md](downstream_rag_prompt_ablation_1_5b.md). That is a downstream prompt ablation / generation-format sensitivity check and does not include a Qwen2.5-7B strict-prompt run.
+
 The protocol keeps the following factors fixed:
 
 - the same 50 MS MARCO questions;

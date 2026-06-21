@@ -1,0 +1,137 @@
+{
+  "protocol": {
+    "generator": "Qwen2.5-1.5B-Instruct",
+    "questions": 50,
+    "top_k": 3,
+    "same_rankings": true,
+    "same_contexts": true,
+    "same_generation_settings_except_prompt": true,
+    "original_prompt": "original",
+    "strict_prompt": "strict_short_answer_v1"
+  },
+  "results": {
+    "bm25": {
+      "original": {
+        "gold_in_context": 0.68,
+        "answer_hit": 0.22,
+        "exact_match": 0,
+        "token_f1": 0.16464600459747955,
+        "average_answer_length": 38.4,
+        "retrieval_failures": 16,
+        "generation_failures": 23,
+        "successes": 11,
+        "exact_insufficient_information_rate": 0.04,
+        "starts_with_insufficient_information_rate": 0.04,
+        "contains_insufficient_information_rate": 0.12
+      },
+      "strict": {
+        "gold_in_context": 0.68,
+        "answer_hit": 0.32,
+        "exact_match": 0.06,
+        "token_f1": 0.26836678695973026,
+        "average_answer_length": 32.08,
+        "retrieval_failures": 16,
+        "generation_failures": 18,
+        "successes": 16,
+        "exact_insufficient_information_rate": 0.0,
+        "starts_with_insufficient_information_rate": 0.0,
+        "contains_insufficient_information_rate": 0.0
+      },
+      "delta": {
+        "gold_in_context": 0.0,
+        "answer_hit": 0.1,
+        "exact_match": 0.06,
+        "token_f1": 0.10372078236225071,
+        "average_answer_length": -6.32,
+        "retrieval_failures": 0,
+        "generation_failures": -5,
+        "successes": 5,
+        "exact_insufficient_information_rate": -0.04,
+        "starts_with_insufficient_information_rate": -0.04,
+        "contains_insufficient_information_rate": -0.12
+      }
+    },
+    "lora_v3": {
+      "original": {
+        "gold_in_context": 0.72,
+        "answer_hit": 0.28,
+        "exact_match": 0.04,
+        "token_f1": 0.2107792067763531,
+        "average_answer_length": 37.94,
+        "retrieval_failures": 14,
+        "generation_failures": 22,
+        "successes": 14,
+        "exact_insufficient_information_rate": 0.04,
+        "starts_with_insufficient_information_rate": 0.04,
+        "contains_insufficient_information_rate": 0.04
+      },
+      "strict": {
+        "gold_in_context": 0.72,
+        "answer_hit": 0.24,
+        "exact_match": 0.1,
+        "token_f1": 0.33346674629941275,
+        "average_answer_length": 24.72,
+        "retrieval_failures": 14,
+        "generation_failures": 24,
+        "successes": 12,
+        "exact_insufficient_information_rate": 0.0,
+        "starts_with_insufficient_information_rate": 0.0,
+        "contains_insufficient_information_rate": 0.02
+      },
+      "delta": {
+        "gold_in_context": 0.0,
+        "answer_hit": -0.040000000000000036,
+        "exact_match": 0.060000000000000005,
+        "token_f1": 0.12268753952305966,
+        "average_answer_length": -13.219999999999999,
+        "retrieval_failures": 0,
+        "generation_failures": 2,
+        "successes": -2,
+        "exact_insufficient_information_rate": -0.04,
+        "starts_with_insufficient_information_rate": -0.04,
+        "contains_insufficient_information_rate": -0.02
+      }
+    },
+    "cross_encoder": {
+      "original": {
+        "gold_in_context": 0.88,
+        "answer_hit": 0.28,
+        "exact_match": 0,
+        "token_f1": 0.20575087755536586,
+        "average_answer_length": 38.98,
+        "retrieval_failures": 6,
+        "generation_failures": 30,
+        "successes": 14,
+        "exact_insufficient_information_rate": 0.02,
+        "starts_with_insufficient_information_rate": 0.02,
+        "contains_insufficient_information_rate": 0.06
+      },
+      "strict": {
+        "gold_in_context": 0.88,
+        "answer_hit": 0.32,
+        "exact_match": 0.1,
+        "token_f1": 0.3248705916810924,
+        "average_answer_length": 28.98,
+        "retrieval_failures": 6,
+        "generation_failures": 28,
+        "successes": 16,
+        "exact_insufficient_information_rate": 0.0,
+        "starts_with_insufficient_information_rate": 0.0,
+        "contains_insufficient_information_rate": 0.0
+      },
+      "delta": {
+        "gold_in_context": 0.0,
+        "answer_hit": 0.03999999999999998,
+        "exact_match": 0.1,
+        "token_f1": 0.11911971412572653,
+        "average_answer_length": -9.999999999999996,
+        "retrieval_failures": 0,
+        "generation_failures": -2,
+        "successes": 2,
+        "exact_insufficient_information_rate": -0.02,
+        "starts_with_insufficient_information_rate": -0.02,
+        "contains_insufficient_information_rate": -0.06
+      }
+    }
+  }
+}

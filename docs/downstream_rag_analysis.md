@@ -58,6 +58,8 @@ The model is loaded from a local directory outside the Git repository through `Q
 
 A stronger-generator sensitivity check with Qwen2.5-7B-Instruct is reported separately in [downstream_rag_generator_comparison.md](downstream_rag_generator_comparison.md). It uses the same 50 questions, rankings, top-3 contexts, prompt, and generation settings, and only changes the generator scale.
 
+A downstream prompt ablation / generation-format sensitivity check for Qwen2.5-1.5B-Instruct is reported in [downstream_rag_prompt_ablation_1_5b.md](downstream_rag_prompt_ablation_1_5b.md). It keeps the generator, rankings, top-3 contexts, question set, context order, and decoding settings fixed, and only changes the prompt style. The Qwen2.5-7B strict-prompt ablation has not been run.
+
 ## Prompt
 
 ```text
@@ -160,6 +162,7 @@ One representative case is `msmarco_test_000001`: the gold answer is `8 hours 43
 - Some MS MARCO negatives can contain answer-like evidence, so label-based context availability and gold-answer-in-context are both reported.
 - Results should not be interpreted as full RankRAG answer generation reproduction.
 - The 7B generator comparison is a downstream diagnostic extension, not a new RankRAG main-result protocol.
+- The 1.5B strict-prompt ablation is also a downstream extension experiment, not a reranking main result.
 
 ## Reproduction Commands
 

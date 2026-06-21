@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "same_questions": true,
+  "same_rankings": true,
+  "same_top3_contexts": true,
+  "same_context_order": true,
+  "same_gold_answers": true,
+  "same_gold_at_3": true,
+  "same_reranking_metrics": true,
+  "same_generation_settings_except_prompt": true,
+  "differences": {
+    "prompt_style": [
+      "original",
+      "strict_short_answer"
+    ],
+    "prompt_version": [
+      "original_v1",
+      "strict_short_answer_v1"
+    ]
+  },
+  "errors": []
+}
