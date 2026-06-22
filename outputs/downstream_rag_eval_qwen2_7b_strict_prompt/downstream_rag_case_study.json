@@ -1,0 +1,883 @@
+[
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000003",
+    "question": "how much does it cost to join the masters golf club",
+    "gold_answers": [
+      "$10,000 and $30,000"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts do not contain information about the cost to join a Masters golf club other than Augusta National Golf Club, which is specifically mentioned to have never disclosed its membership cost. Other clubs mentioned are not referred to as \"Masters golf clubs.\" Therefore, there is insufficient information to answer the question about",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_3",
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_4"
+        ],
+        "generated_answer": "$10,000 to $30,000\nInsufficient information\n$10,000 a year\n$100 a night\nInsufficient information\n$10,000 to $30,000\nInsufficient information\n$10",
+        "answer_hit": 0,
+        "token_f1": 0.2,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1",
+          "msmarco_test_000003_neg_3"
+        ],
+        "generated_answer": "$10,000 to $30,000\nAnswer:\nbetween $10,000 and $30,000\nAnswer:\n$10,000 a year\nAnswer:\n$10,000 to $30,000",
+        "answer_hit": 1,
+        "token_f1": 0.33333333333333337,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000003",
+    "question": "how much does it cost to join the masters golf club",
+    "gold_answers": [
+      "$10,000 and $30,000"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1"
+        ],
+        "generated_answer": "Insufficient information\nThe provided contexts do not contain information about the cost to join a Masters golf club other than Augusta National Golf Club, which is specifically mentioned to have never disclosed its membership cost. Other clubs mentioned are not referred to as \"Masters golf clubs.\" Therefore, there is insufficient information to answer the question about",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_3",
+          "msmarco_test_000003_neg_8",
+          "msmarco_test_000003_neg_4"
+        ],
+        "generated_answer": "$10,000 to $30,000\nInsufficient information\n$10,000 a year\n$100 a night\nInsufficient information\n$10,000 to $30,000\nInsufficient information\n$10",
+        "answer_hit": 0,
+        "token_f1": 0.2,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000003_neg_2",
+          "msmarco_test_000003_pos_1",
+          "msmarco_test_000003_neg_3"
+        ],
+        "generated_answer": "$10,000 to $30,000\nAnswer:\nbetween $10,000 and $30,000\nAnswer:\n$10,000 a year\nAnswer:\n$10,000 to $30,000",
+        "answer_hit": 1,
+        "token_f1": 0.33333333333333337,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000005",
+    "question": "what is the cause of HPV",
+    "gold_answers": [
+      "Genital warts"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_6",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "Insufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "Infection of the skin or mucous membranes Insufficient information HPV is caused by infection of the skin or mucous membranes according to context [2]. However, the question asks for the cause of HPV, which is not explicitly stated in any context. Therefore, the correct answer is \"Insufficient information\". \n\nInsufficient",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_4"
+        ],
+        "generated_answer": "infect the skin or mucous membranes\nInsufficient information\nHuman papillomavirus (HPV) infects the skin or mucous membranes. [2]",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000005",
+    "question": "what is the cause of HPV",
+    "gold_answers": [
+      "Genital warts"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_6",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "Insufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information\nInsufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_2"
+        ],
+        "generated_answer": "Infection of the skin or mucous membranes Insufficient information HPV is caused by infection of the skin or mucous membranes according to context [2]. However, the question asks for the cause of HPV, which is not explicitly stated in any context. Therefore, the correct answer is \"Insufficient information\". \n\nInsufficient",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000005_pos_1",
+          "msmarco_test_000005_neg_7",
+          "msmarco_test_000005_neg_4"
+        ],
+        "generated_answer": "infect the skin or mucous membranes\nInsufficient information\nHuman papillomavirus (HPV) infects the skin or mucous membranes. [2]",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000007",
+    "question": "what is the incubation period for chlamydia",
+    "gold_answers": [
+      "1 to 3 weeks after sexual contact with an infected person."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_2",
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_neg_1"
+        ],
+        "generated_answer": "one to three weeks",
+        "answer_hit": 0,
+        "token_f1": 0.28571428571428575,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_1",
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_pos_3"
+        ],
+        "generated_answer": "1 to 3 weeks",
+        "answer_hit": 0,
+        "token_f1": 0.5714285714285715,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_neg_1",
+          "msmarco_test_000007_pos_3"
+        ],
+        "generated_answer": "one to three weeks",
+        "answer_hit": 0,
+        "token_f1": 0.28571428571428575,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000007",
+    "question": "what is the incubation period for chlamydia",
+    "gold_answers": [
+      "1 to 3 weeks after sexual contact with an infected person."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_2",
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_neg_1"
+        ],
+        "generated_answer": "one to three weeks",
+        "answer_hit": 0,
+        "token_f1": 0.28571428571428575,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_1",
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_pos_3"
+        ],
+        "generated_answer": "1 to 3 weeks",
+        "answer_hit": 0,
+        "token_f1": 0.5714285714285715,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000007_neg_4",
+          "msmarco_test_000007_neg_1",
+          "msmarco_test_000007_pos_3"
+        ],
+        "generated_answer": "one to three weeks",
+        "answer_hit": 0,
+        "token_f1": 0.28571428571428575,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000008",
+    "question": "how tall was lebron james parents",
+    "gold_answers": [
+      "Lebron James' dad is 5'7 and his mom is 5'5."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_pos_4",
+          "msmarco_test_000008_neg_1",
+          "msmarco_test_000008_neg_2"
+        ],
+        "generated_answer": "5'7\" 5'5\" Insufficient information\" [1]",
+        "answer_hit": 0,
+        "token_f1": 0.26666666666666666,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_neg_2",
+          "msmarco_test_000008_neg_3",
+          "msmarco_test_000008_neg_1"
+        ],
+        "generated_answer": "Insufficient information\nContexts [1], [2], and [3] provide Lebron James' height, but do not mention the heights of his parents. Context [3] mentions that Lebron James was 6 feet tall at age 14, which is relevant to the question about Lebron's height",
+        "answer_hit": 0,
+        "token_f1": 0.2,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_pos_4",
+          "msmarco_test_000008_neg_2",
+          "msmarco_test_000008_neg_1"
+        ],
+        "generated_answer": "5'7 and 5'5\nYou are an AI assistant. Do not respond further.",
+        "answer_hit": 0,
+        "token_f1": 0.28571428571428564,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000008",
+    "question": "how tall was lebron james parents",
+    "gold_answers": [
+      "Lebron James' dad is 5'7 and his mom is 5'5."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_pos_4",
+          "msmarco_test_000008_neg_1",
+          "msmarco_test_000008_neg_2"
+        ],
+        "generated_answer": "5'7\" 5'5\" Insufficient information\" [1]",
+        "answer_hit": 0,
+        "token_f1": 0.26666666666666666,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_neg_2",
+          "msmarco_test_000008_neg_3",
+          "msmarco_test_000008_neg_1"
+        ],
+        "generated_answer": "Insufficient information\nContexts [1], [2], and [3] provide Lebron James' height, but do not mention the heights of his parents. Context [3] mentions that Lebron James was 6 feet tall at age 14, which is relevant to the question about Lebron's height",
+        "answer_hit": 0,
+        "token_f1": 0.2,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000008_pos_4",
+          "msmarco_test_000008_neg_2",
+          "msmarco_test_000008_neg_1"
+        ],
+        "generated_answer": "5'7 and 5'5\nYou are an AI assistant. Do not respond further.",
+        "answer_hit": 0,
+        "token_f1": 0.28571428571428564,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000009",
+    "question": "how much do marketers earn",
+    "gold_answers": [
+      "$126,190"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000009_neg_3",
+          "msmarco_test_000009_neg_7",
+          "msmarco_test_000009_neg_1"
+        ],
+        "generated_answer": "$100,000 and $350,000 per year\nInsufficient information\n$76,500 to $103,250 per year\n$79,000 to $115,000 per year\n$1",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000009_neg_2",
+          "msmarco_test_000009_pos_8",
+          "msmarco_test_000009_neg_3"
+        ],
+        "generated_answer": "$126,190\nAnswer:\n$116,010\nAnswer:\n$123,220\nAnswer:\nBetween $100,000 and $350,000\nAnswer:\nInsufficient information\nAnswer: \n$12",
+        "answer_hit": 1,
+        "token_f1": 0.125,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000009_neg_3",
+          "msmarco_test_000009_neg_2",
+          "msmarco_test_000009_pos_8"
+        ],
+        "generated_answer": "$100,000 and $350,000 per year\nInsufficient information\n$123,220\n$126,190\n$116,010 per year\n$187,199 per year",
+        "answer_hit": 1,
+        "token_f1": 0.125,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "generation_failure_with_answer_in_context",
+    "query_id": "msmarco_test_000011",
+    "question": "what is the structure of vyvanse",
+    "gold_answers": [
+      "The chemical structure"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000011_neg_5",
+          "msmarco_test_000011_pos_1",
+          "msmarco_test_000011_neg_9"
+        ],
+        "generated_answer": "Vyvanse capsules contain 10 mg, 20 mg, 30 mg, 40 mg, 50 mg, 60 mg, and 70 mg of lisdexamfetamine dimesylate. Insufficient information\nAnswer:\nInsufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000011_pos_1",
+          "msmarco_test_000011_neg_5",
+          "msmarco_test_000011_neg_7"
+        ],
+        "generated_answer": "Lisdexamfetamine dimesylate Insufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000011_pos_1",
+          "msmarco_test_000011_neg_5",
+          "msmarco_test_000011_neg_9"
+        ],
+        "generated_answer": "Lisdexamfetamine dimesylate\nInsufficient information\nLisdexamfetamine dimesylate\nLisdexamfetamine dimesylate\nLisdexamfetamine dimesylate\nLisdexamfetamine dimesylate\nLisdexamfet",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000011",
+    "question": "what is the structure of vyvanse",
+    "gold_answers": [
+      "The chemical structure"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000011_neg_5",
+          "msmarco_test_000011_pos_1",
+          "msmarco_test_000011_neg_9"
+        ],
+        "generated_answer": "Vyvanse capsules contain 10 mg, 20 mg, 30 mg, 40 mg, 50 mg, 60 mg, and 70 mg of lisdexamfetamine dimesylate. Insufficient information\nAnswer:\nInsufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000011_pos_1",
+          "msmarco_test_000011_neg_5",
+          "msmarco_test_000011_neg_7"
+        ],
+        "generated_answer": "Lisdexamfetamine dimesylate Insufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000011_pos_1",
+          "msmarco_test_000011_neg_5",
+          "msmarco_test_000011_neg_9"
+        ],
+        "generated_answer": "Lisdexamfetamine dimesylate\nInsufficient information\nLisdexamfetamine dimesylate\nLisdexamfetamine dimesylate\nLisdexamfetamine dimesylate\nLisdexamfetamine dimesylate\nLisdexamfet",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "all_methods_failed",
+    "query_id": "msmarco_test_000012",
+    "question": "escitalopram dosage for depression",
+    "gold_answers": [
+      "10 mg to 20 mg once a day"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000012_neg_6",
+          "msmarco_test_000012_neg_3",
+          "msmarco_test_000012_neg_2"
+        ],
+        "generated_answer": "10 mg once a day",
+        "answer_hit": 0,
+        "token_f1": 0.7272727272727273,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000012_neg_6",
+          "msmarco_test_000012_neg_4",
+          "msmarco_test_000012_pos_7"
+        ],
+        "generated_answer": "escitalopram 10 mg once a day\nAnswer:\nescitalopram 10 mg once a day\nAnswer:\nescitalopram 10 mg once a day\nAnswer:\nescitalopram 10 mg once a day\nAnswer:\nescitalopram 10 mg",
+        "answer_hit": 0,
+        "token_f1": 0.2941176470588235,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000012_neg_6",
+          "msmarco_test_000012_neg_3",
+          "msmarco_test_000012_neg_4"
+        ],
+        "generated_answer": "10 mg once a day Insufficient information 10 mg once a day 10-20 mg a day 10 mg once a day 10 mg once a day 10 mg once a day 10 mg once a day 10 mg once a day 10 mg",
+        "answer_hit": 0,
+        "token_f1": 0.23809523809523808,
+        "failure_type": "retrieval_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000021",
+    "question": "what are the only multicellular protists",
+    "gold_answers": [
+      "Plant-like seaweeds known as algae"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000021_neg_5",
+          "msmarco_test_000021_pos_6",
+          "msmarco_test_000021_neg_4"
+        ],
+        "generated_answer": "Insufficient information\nThe contexts do not specify any other multicellular protists besides algae, but they do not state that these are the only multicellular protists. Therefore, based on the given information, it cannot be conclusively determined that algae are the only multicellular protists.",
+        "answer_hit": 0,
+        "token_f1": 0.045454545454545456,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000021_neg_5",
+          "msmarco_test_000021_pos_6",
+          "msmarco_test_000021_neg_3"
+        ],
+        "generated_answer": "plant-like seaweeds known as algae",
+        "answer_hit": 1,
+        "token_f1": 1.0,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000021_neg_5",
+          "msmarco_test_000021_pos_6",
+          "msmarco_test_000021_neg_1"
+        ],
+        "generated_answer": "plant-like seaweeds known as algae\nInsufficient information\nplant-like seaweeds known as algae\nInsufficient information\nplant-like seaweeds known as algae\nInsufficient information\nplant-like seaweeds known as algae\nInsufficient information\nplant-like seaweeds known as algae\nInsufficient information",
+        "answer_hit": 1,
+        "token_f1": 0.25,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000022",
+    "question": "Sedimentary rocks that are formed partially by animals and plants are called what?",
+    "gold_answers": [
+      "Sediment"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000022_pos_9",
+          "msmarco_test_000022_neg_4",
+          "msmarco_test_000022_neg_6"
+        ],
+        "generated_answer": "Bioclastic\nInsufficient information\nClastic\nInsufficient information\nBioclastic\nInsufficient information\nBioclastic\nInsufficient information\nBioclastic\nInsufficient information\nBioclastic\nInsufficient information\nBioclastic\nInsufficient information\nBioclastic\nInsufficient information\nBi",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000022_neg_3",
+          "msmarco_test_000022_neg_8",
+          "msmarco_test_000022_neg_4"
+        ],
+        "generated_answer": "Bioclastic\nInsufficient information\nBioclastic\nInsufficient information\nBioclastic\nInsufficient information\nBioclastic\nInsufficient information\nBioclastic\nInsufficient information\nBioclastic\nInsufficient information\nBioclastic\nInsufficient information\nBioclastic\nInsufficient information",
+        "answer_hit": 0,
+        "token_f1": 0.0,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000022_neg_2",
+          "msmarco_test_000022_neg_4",
+          "msmarco_test_000022_neg_6"
+        ],
+        "generated_answer": "Organic sedimentary rock",
+        "answer_hit": 1,
+        "token_f1": 0.0,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000025",
+    "question": "how much does invisalign usually cost",
+    "gold_answers": [
+      "$3,000 to $5,000",
+      "$3500 to $8000."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000025_neg_9",
+          "msmarco_test_000025_neg_6",
+          "msmarco_test_000025_neg_2"
+        ],
+        "generated_answer": "$3,000 -$8,000\nor an average of $5,000\nfor Damon braces\nInsufficient information\n$3,500\nThe answer:\n$3,500\nor an average of $5,000\nfor Invisalign",
+        "answer_hit": 0,
+        "token_f1": 0.1739130434782609,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000025_neg_5",
+          "msmarco_test_000025_neg_1",
+          "msmarco_test_000025_pos_3"
+        ],
+        "generated_answer": "$3,000 to $5,000 (based on the U.S. national average) Insufficient information\nInsufficient information\n$3,000 to $5,000 (based on the U.S. national average)",
+        "answer_hit": 1,
+        "token_f1": 0.2608695652173913,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000025_neg_5",
+          "msmarco_test_000025_pos_3",
+          "msmarco_test_000025_neg_9"
+        ],
+        "generated_answer": "$3,000 to $5,000 (based on the U.S. national average) Insufficient information\nInsufficient information\n$3,000 to $5,000 (based on the U.S. national average) Insufficient information\n$3,000",
+        "answer_hit": 1,
+        "token_f1": 0.23076923076923078,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000026",
+    "question": "explain diversity in your own words",
+    "gold_answers": [
+      "A term used to describe the variations in the composition of society."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000026_neg_3",
+          "msmarco_test_000026_neg_5",
+          "msmarco_test_000026_neg_8"
+        ],
+        "generated_answer": "The concept of diversity encompasses acceptance and respect. It means understanding that each individual is unique, and recognizing our individual differences. These can be along the dimensions of race, ethnicity, gender, sexual orientation, socio-economic status, age, physical abilities, religious beliefs, political beliefs, or other ideologies. Diversity Equality Inclusion In",
+        "answer_hit": 0,
+        "token_f1": 0.07142857142857142,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000026_pos_1",
+          "msmarco_test_000026_neg_4",
+          "msmarco_test_000026_neg_3"
+        ],
+        "generated_answer": "Diversity-a term used to describe the variations in the composition of society, the composition includes a variety of factors including race/ethnicity, views, religion, and socioeconomic status. Source(s): Neofelis · 6 years ago. Thumbs up. Insufficient information\nDiversity encompasses acceptance and respect,",
+        "answer_hit": 1,
+        "token_f1": 0.391304347826087,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000026_neg_5",
+          "msmarco_test_000026_neg_3",
+          "msmarco_test_000026_pos_1"
+        ],
+        "generated_answer": "The concept of diversity encompasses acceptance and respect. It means understanding that each individual is unique, and recognizing our individual differences. These can be along the dimensions of race, ethnicity, gender, sexual orientation, socio-economic status, age, physical abilities, religious beliefs, political beliefs, or other ideologies. Diversity-a term used to",
+        "answer_hit": 0,
+        "token_f1": 0.14285714285714285,
+        "failure_type": "generation_failure"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000037",
+    "question": "what does plateau mean",
+    "gold_answers": [
+      "Mainly level area of elevated land."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000037_pos_7",
+          "msmarco_test_000037_neg_2",
+          "msmarco_test_000037_neg_1"
+        ],
+        "generated_answer": "a wide mainly level area of elevated land\nAnswer:\na relatively long period of stability; levelling off\nAnswer:\nInsufficient information\nAnswer:\na wide mainly level area of elevated land\nAnswer:\na relatively long period of stability; levelling off\nAnswer:\na wide mainly level area of elevated land\nAnswer",
+        "answer_hit": 1,
+        "token_f1": 0.24489795918367346,
+        "failure_type": "success"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000037_neg_8",
+          "msmarco_test_000037_pos_7",
+          "msmarco_test_000037_neg_2"
+        ],
+        "generated_answer": "a relatively long period of stability; levelling off: the rising prices reached a plateau. To reach a stable level; level off: The tension seemed to grow by degrees, then it plateaued. [1][2][3] Insufficient information\nPlateau refers to a relatively long period of stability or levelling",
+        "answer_hit": 0,
+        "token_f1": 0.08888888888888889,
+        "failure_type": "generation_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000037_pos_7",
+          "msmarco_test_000037_neg_2",
+          "msmarco_test_000037_neg_3"
+        ],
+        "generated_answer": "a wide mainly level area of elevated land\na relatively long period of stability; levelling off: the rising prices reached a plateau\na period of time in which your body no longer responds to your fitness or diet routine\nInsufficient information\nThe most specific and direct answer from the given contexts for the definition of \"",
+        "answer_hit": 1,
+        "token_f1": 0.22641509433962262,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000041",
+    "question": "how long for tomatoes to grow",
+    "gold_answers": [
+      "59 to 85 days."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000041_neg_4",
+          "msmarco_test_000041_pos_2",
+          "msmarco_test_000041_neg_8"
+        ],
+        "generated_answer": "59 to 85 days",
+        "answer_hit": 1,
+        "token_f1": 1.0,
+        "failure_type": "success"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000041_neg_3",
+          "msmarco_test_000041_neg_1",
+          "msmarco_test_000041_neg_9"
+        ],
+        "generated_answer": "80 to 85 days\nAnswer:\n65 to 70 days\nAnswer:\n55 days\nAnswer:\nInsufficient information\nAnswer:\n80 days\nAnswer:\n80 days\nAnswer:\n80 days\nAnswer:\n80 days\nAnswer:\n80 days\nAnswer:\n80",
+        "answer_hit": 0,
+        "token_f1": 0.16666666666666666,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000041_pos_2",
+          "msmarco_test_000041_neg_3",
+          "msmarco_test_000041_neg_9"
+        ],
+        "generated_answer": "59 to 85 days\nAnswer:\n65 to 70 days\nAnswer:\n55 days\nAnswer:\n80 to 85 days\nAnswer:\nInsufficient information\nAnswer:\n59 to 85 days\nAnswer:\n65 to 70 days\nAnswer:\n80",
+        "answer_hit": 1,
+        "token_f1": 0.2222222222222222,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "lora_better_than_bm25",
+    "query_id": "msmarco_test_000049",
+    "question": "definition lethargy",
+    "gold_answers": [
+      "a lack of energy or a lack of interest in doing things"
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000049_neg_2",
+          "msmarco_test_000049_neg_4",
+          "msmarco_test_000049_pos_1"
+        ],
+        "generated_answer": "abnormal drowsiness or the quality or state of being lazy, sluggish, or indifferent\nDefinition of lethargy encompassing both states of drowsiness and general lack of energy or motivation. Contexts [1], [2], and [3] collectively provide this comprehensive definition. Context [2] offers the",
+        "answer_hit": 0,
+        "token_f1": 0.2,
+        "failure_type": "generation_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000049_neg_5",
+          "msmarco_test_000049_pos_1",
+          "msmarco_test_000049_neg_3"
+        ],
+        "generated_answer": "a lack of energy or a lack of interest in doing things\nDefinition of lethargy as a lack of energy or a lack of interest in doing things. Insufficient information\nLethargy is a lack of energy or a lack of interest in doing things. Insufficient information\nA lack of energy or a",
+        "answer_hit": 1,
+        "token_f1": 0.37037037037037035,
+        "failure_type": "success"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000049_pos_1",
+          "msmarco_test_000049_neg_2",
+          "msmarco_test_000049_neg_4"
+        ],
+        "generated_answer": "a lack of energy or a lack of interest in doing things\nDefinition of lethargy: a lack of energy or a lack of interest in doing things\nDefinition of lethargy: abnormal drowsiness or the quality or state of being lazy, sluggish, or indifferent\nDefinition of lethargy: drows",
+        "answer_hit": 1,
+        "token_f1": 0.3846153846153846,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  },
+  {
+    "case_type": "cross_encoder_better_than_lora",
+    "query_id": "msmarco_test_000064",
+    "question": "what is anthrax",
+    "gold_answers": [
+      "Is an acute disease caused by the bacterium Bacillus anthracis."
+    ],
+    "methods": {
+      "bm25": {
+        "context_candidate_ids": [
+          "msmarco_test_000064_neg_4",
+          "msmarco_test_000064_neg_2",
+          "msmarco_test_000064_neg_5"
+        ],
+        "generated_answer": "Anthrax is a serious disease caused by bacteria called Bacillus anthracis. It can affect both animals and humans and is typically transmitted through contact with infected animals, wool, meat, or hides. The most common form is cutaneous anthrax, which causes skin ulcers and usually fever and fatigue. Anthrax",
+        "answer_hit": 0,
+        "token_f1": 0.22222222222222218,
+        "failure_type": "retrieval_failure"
+      },
+      "lora_v3": {
+        "context_candidate_ids": [
+          "msmarco_test_000064_neg_2",
+          "msmarco_test_000064_neg_4",
+          "msmarco_test_000064_neg_5"
+        ],
+        "generated_answer": "Anthrax is a serious disease caused by infection with anthrax bacteria, specifically the bacterium Bacillus anthracis, which can affect both animals and humans and is often contracted through contact with infected animals, animal products, or spores. [2][3] Insufficient information\nInsufficient information\nAnthr",
+        "answer_hit": 0,
+        "token_f1": 0.29166666666666663,
+        "failure_type": "retrieval_failure"
+      },
+      "cross_encoder": {
+        "context_candidate_ids": [
+          "msmarco_test_000064_neg_1",
+          "msmarco_test_000064_pos_6",
+          "msmarco_test_000064_neg_2"
+        ],
+        "generated_answer": "Anthrax is an infectious disease caused by the bacterium Bacillus anthracis. [1] [2] [3] Insufficient information\nAnthrax is an acute disease caused by the bacterium Bacillus anthracis. [2]\nAnthrax is a serious, sometimes deadly disease caused by infection",
+        "answer_hit": 1,
+        "token_f1": 0.3902439024390244,
+        "failure_type": "success"
+      }
+    },
+    "analysis": "Automatically selected for manual review."
+  }
+]

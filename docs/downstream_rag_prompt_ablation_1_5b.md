@@ -47,4 +47,4 @@ Within this fixed 50-question protocol, the strict short-answer prompt has a mea
 
 This is a downstream prompt ablation and generation-format sensitivity check. It is an extension experiment, not a reranking main result and not a same-protocol reproduction of RankRAG answer generation.
 
-The run only evaluates Qwen2.5-1.5B-Instruct. It does not establish a Qwen2.5-7B strict-prompt conclusion.
+This run only evaluates Qwen2.5-1.5B-Instruct. The final generator-prompt 2x2 conclusion, including Qwen2.5-7B-Instruct under the same strict prompt, is in [downstream_rag_prompt_ablation_2x2.md](downstream_rag_prompt_ablation_2x2.md).

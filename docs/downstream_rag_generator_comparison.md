@@ -4,7 +4,7 @@
 
 This diagnostic checks whether scaling the fixed answer generator from Qwen2.5-1.5B-Instruct to Qwen2.5-7B-Instruct can more reliably convert stronger reranking into better final short answers.
 
-The Qwen2.5-1.5B strict-prompt ablation is reported separately in [downstream_rag_prompt_ablation_1_5b.md](downstream_rag_prompt_ablation_1_5b.md). That is a downstream prompt ablation / generation-format sensitivity check and does not include a Qwen2.5-7B strict-prompt run.
+The final generator-prompt 2x2 ablation is reported separately in [downstream_rag_prompt_ablation_2x2.md](downstream_rag_prompt_ablation_2x2.md). That downstream prompt ablation / generation-format sensitivity check adds the Qwen2.5-7B strict-prompt run and should be used when interpreting whether the original-prompt 7B behavior reflects model scale or prompt-format sensitivity.
 
 The protocol keeps the following factors fixed:
 
@@ -55,6 +55,8 @@ Cross-Encoder still provides the strongest evidence availability: Gold@3 is 0.88
 The 7B outputs include the phrase `Insufficient information` in 82%-96% of samples, much more often than the 1.5B outputs. A common pattern is to give an answer, append `Insufficient information`, and then provide a longer explanation. This conservative and verbose behavior hurts short-answer metrics such as Exact Match and Token F1.
 
 The result should not be interpreted as "7B is worse" in general. A more precise interpretation is that the current prompt and open-form generation format are not fully aligned with short-answer MS MARCO automatic evaluation. Model scale, prompt constraints, conflicting evidence handling, output formatting, and post-processing jointly determine final answer quality.
+
+The strict-prompt 2x2 ablation confirms that these original-prompt conclusions are prompt-sensitive: Qwen2.5-7B-Instruct improves Answer Hit under the strict prompt, but still often includes repeated answers or appended refusal text. See [downstream_rag_prompt_ablation_2x2.md](downstream_rag_prompt_ablation_2x2.md).
 
 ## Conclusion Boundary
 

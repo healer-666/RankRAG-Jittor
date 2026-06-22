@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "generator": "Qwen/Qwen2.5-1.5B-Instruct",
+  "generator": "Qwen/Qwen2.5-7B-Instruct",
   "same_questions": true,
   "same_rankings": true,
   "same_top3_contexts": true,

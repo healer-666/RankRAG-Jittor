@@ -22,7 +22,7 @@ It does **not** reproduce full RankRAG LLM instruction tuning or answer generati
 | Downstream RAG answer generation | Done |
 | Qwen2.5-7B generator-scale diagnostic | Done |
 | Qwen2.5-1.5B strict-prompt ablation | Done |
-| Qwen2.5-7B strict-prompt ablation | Not run |
+| Qwen2.5-7B strict-prompt ablation | Done |
 | Full LLM generation | Out of scope |
 
 ## Method
@@ -205,7 +205,7 @@ Cross-Encoder gives the best evidence availability, while LoRA v3 improves over 
 
 A generator-scale extension compares the same top-3 contexts under Qwen2.5-1.5B-Instruct and Qwen2.5-7B-Instruct. It is a downstream diagnostic extension, not a new RankRAG main result. In this fixed 50-question protocol, 7B improves BM25 Answer Hit but does not steadily outperform 1.5B across LoRA v3 and Cross-Encoder; details are in [docs/downstream_rag_generator_comparison.md](docs/downstream_rag_generator_comparison.md).
 
-A downstream prompt ablation / generation-format sensitivity check is also complete for Qwen2.5-1.5B-Instruct. It keeps the same 50 questions, rankings, top-3 contexts, context order, and decoding settings, and only switches to a strict short-answer prompt. Details are in [docs/downstream_rag_prompt_ablation_1_5b.md](docs/downstream_rag_prompt_ablation_1_5b.md). The Qwen2.5-7B strict-prompt ablation has not been run.
+A downstream prompt ablation / generation-format sensitivity check is complete for both Qwen2.5-1.5B-Instruct and Qwen2.5-7B-Instruct. It keeps the same 50 questions, rankings, top-3 contexts, context order, and decoding settings, and only switches to a strict short-answer prompt. The final 2x2 generator-prompt ablation is in [docs/downstream_rag_prompt_ablation_2x2.md](docs/downstream_rag_prompt_ablation_2x2.md); the earlier 1.5B-only view remains in [docs/downstream_rag_prompt_ablation_1_5b.md](docs/downstream_rag_prompt_ablation_1_5b.md).
 
 ## Training Behavior
 
@@ -247,6 +247,7 @@ Training loss decreases normally for the lightweight rerankers. Validation MRR r
 | [docs/downstream_rag_analysis.md](docs/downstream_rag_analysis.md) | Stage D downstream answer-generation results |
 | [docs/downstream_rag_generator_comparison.md](docs/downstream_rag_generator_comparison.md) | Qwen2.5-1.5B vs 7B downstream generator diagnostic |
 | [docs/downstream_rag_prompt_ablation_1_5b.md](docs/downstream_rag_prompt_ablation_1_5b.md) | Qwen2.5-1.5B downstream prompt ablation |
+| [docs/downstream_rag_prompt_ablation_2x2.md](docs/downstream_rag_prompt_ablation_2x2.md) | Final downstream generator-prompt 2x2 ablation |
 
 ## Citation
 

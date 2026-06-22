@@ -118,6 +118,7 @@ def main() -> None:
 
     payload = {
         "status": "passed" if not errors else "failed",
+        "generator": strict_config.get("generator_model"),
         "same_questions": row_flags["same_questions"],
         "same_rankings": same_rankings,
         "same_top3_contexts": row_flags["same_top3_contexts"],
