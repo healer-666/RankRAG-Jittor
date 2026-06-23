@@ -82,17 +82,22 @@ LLM 轨道使用 Qwen2.5-1.5B 对 query-passage relevance 打分。项目先做 
 
 ## 不止主指标
 
-| 数据量消融 | 错误类型 | 资源画像 |
-| --- | --- | --- |
-| <img src="outputs/lora_ablation_results.png" alt="LoRA data-size ablation" width="300"> | <img src="docs/figures/error_taxonomy.png" alt="Error taxonomy" width="300"> | <img src="docs/figures/cost_effectiveness_tradeoff.png" alt="Resource-effectiveness profile" width="300"> |
+<img src="docs/figures/readme_lora_ablation.svg" alt="LoRA data-size ablation" width="900">
+
+数据量消融比较嵌套的 1k、3k、10k LoRA training pairs，统一 800-step 预算。
+
+<img src="docs/figures/readme_error_taxonomy.svg" alt="Error taxonomy" width="900">
+
+错误分析区分 lexical trap、semantic limit、evidence utilization failure、label issue 和 ambiguous query。
+
+<img src="docs/figures/readme_resource_profile.svg" alt="Resource-effectiveness profile" width="900">
+
+资源画像记录效果、运行时间和硬件元数据，但不把异构硬件结果包装成严格速度 benchmark。
 
 主结果表只压缩呈现最核心指标，详细分析回答不同问题：
 
-- 数据量消融比较嵌套的 1k、3k、10k LoRA training pairs，统一 800-step 预算。
 - Scoring 消融区分模型本身和“怎样把 LLM 输出转成排序分数”这两个因素。
 - 下游 RAG 检查 top-k evidence 变强后，生成答案是否真的变好。
-- 错误分析区分 lexical trap、semantic limit、evidence utilization failure、label issue 和 ambiguous query。
-- 资源画像记录效果、运行时间和硬件元数据，但不把异构硬件结果包装成严格速度 benchmark。
 
 ## 关键发现
 

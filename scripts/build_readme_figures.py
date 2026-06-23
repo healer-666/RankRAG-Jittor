@@ -146,6 +146,10 @@ def add_elbow_arrow(ax: plt.Axes, points: list[tuple[float, float]], color: str 
     add_arrow(ax, points[-2], points[-1], color)
 
 
+def add_line_arrow(ax: plt.Axes, start: tuple[float, float], end: tuple[float, float], color: str = "#64748b") -> None:
+    add_arrow(ax, start, end, color)
+
+
 def build_overview_figure(root: Path) -> list[str]:
     out_dir = ensure_dir(root)
     svg_path = out_dir / "rankrag_jittor_overview.svg"
@@ -194,17 +198,20 @@ def build_overview_figure(root: Path) -> list[str]:
     add_box(ax, 7.65, 2.95, 2.35, 0.62, "Cross-Encoder\nreference", "#fff7ed", "#f97316", fontsize=9.2, linestyle="--")
     add_box(ax, 6.02, 2.0, 2.1, 0.68, "Reranking", "#f8fafc", "#64748b", fontsize=11)
 
-    add_arrow(ax, (3.15, 5.28), (4.35, 5.42), "#2563eb")
-    add_arrow(ax, (3.15, 4.98), (7.65, 6.22), "#7c3aed", rad=-0.18)
-    add_arrow(ax, (7.30, 5.39), (7.00, 2.68), "#2563eb", rad=0.16)
-    add_arrow(ax, (8.82, 4.10), (7.92, 2.68), "#a855f7")
-    add_arrow(ax, (8.82, 2.95), (8.12, 2.42), "#f97316")
+    add_elbow_arrow(ax, [(3.15, 5.05), (3.72, 5.05), (3.72, 1.55), (6.75, 1.55), (6.75, 2.0)], "#64748b")
+    add_line_arrow(ax, (5.70, 5.39), (5.95, 5.39), "#2563eb")
+    add_line_arrow(ax, (5.70, 4.55), (5.95, 4.55), "#2563eb")
+    add_elbow_arrow(ax, [(6.62, 4.28), (6.62, 3.05), (6.82, 2.68)], "#2563eb")
+    add_line_arrow(ax, (8.82, 5.95), (8.82, 5.64), "#a855f7")
+    add_line_arrow(ax, (8.82, 5.02), (8.82, 4.72), "#a855f7")
+    add_elbow_arrow(ax, [(10.00, 4.41), (10.45, 4.41), (10.45, 2.86), (8.02, 2.68)], "#a855f7")
+    add_elbow_arrow(ax, [(7.65, 3.26), (7.18, 3.26), (7.18, 2.68)], "#f97316")
 
     add_box(ax, 12.25, 6.18, 2.8, 0.58, "Ranked passages", "#f8fafc", "#64748b", fontsize=10)
     add_box(ax, 12.25, 5.28, 2.8, 0.58, "Top-3 evidence", "#f8fafc", "#64748b", fontsize=10)
     add_box(ax, 12.25, 4.38, 2.8, 0.58, "Qwen generator", "#f3e8ff", "#7c3aed", fontsize=10)
     add_box(ax, 12.25, 3.48, 2.8, 0.58, "Answer", "#ecfdf5", "#10b981", fontsize=10)
-    add_elbow_arrow(ax, [(8.12, 2.34), (11.55, 2.34), (11.55, 6.47), (12.25, 6.47)], "#64748b")
+    add_elbow_arrow(ax, [(8.12, 2.12), (11.55, 2.12), (11.55, 6.47), (12.25, 6.47)], "#64748b")
     add_arrow(ax, (13.65, 6.18), (13.65, 5.86), "#64748b")
     add_arrow(ax, (13.65, 5.28), (13.65, 4.96), "#64748b")
     add_arrow(ax, (13.65, 4.38), (13.65, 4.06), "#64748b")
@@ -357,12 +364,15 @@ def write_excalidraw_overview(path: Path) -> None:
         elements.append(text_element(label, x + 8, y + 10, 15 if "\n" not in label else 13, "#0f172a"))
     for x1, y1, x2, y2, color in [
         (150, 185, 150, 245, "#2563eb"),
-        (245, 275, 350, 247, "#2563eb"),
-        (245, 305, 635, 150, "#7c3aed"),
-        (595, 247, 585, 485, "#2563eb"),
-        (730, 337, 660, 485, "#a855f7"),
-        (730, 385, 670, 510, "#f97316"),
-        (670, 510, 990, 155, "#64748b"),
+        (245, 310, 500, 512, "#64748b"),
+        (460, 247, 485, 247, "#2563eb"),
+        (460, 326, 485, 326, "#2563eb"),
+        (555, 352, 575, 485, "#2563eb"),
+        (730, 175, 730, 205, "#a855f7"),
+        (730, 255, 730, 285, "#a855f7"),
+        (825, 311, 665, 485, "#a855f7"),
+        (635, 411, 585, 485, "#f97316"),
+        (670, 532, 990, 155, "#64748b"),
         (1105, 178, 1105, 215, "#64748b"),
         (1105, 261, 1105, 298, "#64748b"),
         (1105, 344, 1105, 381, "#64748b"),
@@ -416,7 +426,7 @@ def build_main_results(root: Path) -> list[str]:
     ax.set_xlim(0.0, 0.78)
     ax.set_xlabel("Metric value", fontsize=11, color="#334155")
     ax.set_title("Reranking Effectiveness on MS MARCO Medium", loc="left", fontsize=16, fontweight="bold", color="#0f172a", pad=20)
-    ax.text(0, len(rows) - 0.15, "500 queries · 4,044 query-passage pairs", fontsize=10, color="#64748b")
+    ax.text(0, len(rows) - 0.15, "500 queries - 4,044 query-passage pairs", fontsize=10, color="#64748b")
     ax.legend(
         handles=[
             Line2D([0], [0], marker="o", color="#475569", label="Recall@1", markerfacecolor="#ffffff", markeredgewidth=2, linewidth=0),
@@ -490,6 +500,97 @@ def build_alignment(root: Path) -> list[str]:
     return [svg_path.as_posix(), png_path.as_posix()]
 
 
+def build_readme_analysis_figures(root: Path) -> list[str]:
+    out_dir = ensure_dir(root)
+    lora_runs = read_json(root, LORA_ABLATION)["runs"]
+    error_counts = read_json(root, ERROR_SUMMARY)["cases_by_primary_error_type"]
+    cost_rows = read_json(root, COST_PROFILE)["methods"]
+    generated: list[str] = []
+
+    labels = [row["experiment_name"].replace("10k-rerun", "10k") for row in lora_runs]
+    x_pos = list(range(len(labels)))
+    width = 0.34
+    fig, ax = plt.subplots(figsize=(9.8, 5.6), dpi=220)
+    fig.patch.set_facecolor("#ffffff")
+    ax.bar([x - width / 2 for x in x_pos], [row["recall_at_1"] for row in lora_runs], width, label="Recall@1", color="#7c3aed")
+    ax.bar([x + width / 2 for x in x_pos], [row["ndcg_at_5"] for row in lora_runs], width, label="NDCG@5", color="#10b981")
+    for idx, row in enumerate(lora_runs):
+        ax.text(idx - width / 2, row["recall_at_1"] + 0.018, f"{row['recall_at_1']:.3f}", ha="center", fontsize=11, color="#334155")
+        ax.text(idx + width / 2, row["ndcg_at_5"] + 0.018, f"{row['ndcg_at_5']:.3f}", ha="center", fontsize=11, color="#334155")
+    ax.set_xticks(x_pos)
+    ax.set_xticklabels(labels, fontsize=13)
+    ax.set_ylim(0, 0.75)
+    ax.set_ylabel("Metric value", fontsize=12, color="#334155")
+    ax.set_title("LoRA Data-Size Ablation", loc="left", fontsize=18, fontweight="bold", color="#0f172a", pad=24)
+    ax.text(
+        0.0,
+        1.01,
+        "Nested 1k / 3k / 10k pairs, fixed 800 training steps",
+        transform=ax.transAxes,
+        fontsize=11,
+        color="#64748b",
+    )
+    ax.legend(frameon=False, fontsize=12, loc="lower right", bbox_to_anchor=(1.0, 1.01), ncol=2)
+    style_axis(ax)
+    fig.tight_layout()
+    svg_path = out_dir / "readme_lora_ablation.svg"
+    png_path = out_dir / "readme_lora_ablation.png"
+    fig.savefig(svg_path, bbox_inches="tight")
+    fig.savefig(png_path, bbox_inches="tight", dpi=220)
+    plt.close(fig)
+    strip_trailing_whitespace(svg_path)
+    generated.extend([svg_path.as_posix(), png_path.as_posix()])
+
+    ordered_errors = sorted(error_counts.items(), key=lambda item: item[1])
+    names = [name.replace("_", " ") for name, _ in ordered_errors]
+    values = [value for _, value in ordered_errors]
+    fig, ax = plt.subplots(figsize=(9.8, 5.9), dpi=220)
+    fig.patch.set_facecolor("#ffffff")
+    colors = ["#60a5fa" if value < max(values) else "#7c3aed" for value in values]
+    ax.barh(names, values, color=colors)
+    for idx, value in enumerate(values):
+        ax.text(value + 0.08, idx, str(value), va="center", fontsize=12, color="#334155")
+    ax.set_xlim(0, max(values) + 1.2)
+    ax.set_xlabel("Diagnostic cases", fontsize=12, color="#334155")
+    ax.set_title("Error Taxonomy", loc="left", fontsize=18, fontweight="bold", color="#0f172a", pad=18)
+    ax.text(0, len(values) - 0.28, "30 stratified diagnostic queries; counts are not dataset frequencies", fontsize=11, color="#64748b")
+    ax.tick_params(axis="y", labelsize=11)
+    style_axis(ax)
+    fig.tight_layout()
+    svg_path = out_dir / "readme_error_taxonomy.svg"
+    png_path = out_dir / "readme_error_taxonomy.png"
+    fig.savefig(svg_path, bbox_inches="tight")
+    fig.savefig(png_path, bbox_inches="tight", dpi=220)
+    plt.close(fig)
+    strip_trailing_whitespace(svg_path)
+    generated.extend([svg_path.as_posix(), png_path.as_posix()])
+
+    resource_rows = [row for row in cost_rows if row["method"] in PUBLIC_LABELS]
+    resource_rows.sort(key=lambda row: row["ndcg_at_5"])
+    fig, ax = plt.subplots(figsize=(9.8, 5.6), dpi=220)
+    fig.patch.set_facecolor("#ffffff")
+    colors = [ROLE_COLORS.get(row["method"], "#64748b") for row in resource_rows]
+    bars = ax.barh([PUBLIC_LABELS[row["method"]] for row in resource_rows], [row["ndcg_at_5"] for row in resource_rows], color=colors, alpha=0.86)
+    for bar, row in zip(bars, resource_rows):
+        training = row["training_type"].replace("_", " ")
+        ax.text(row["ndcg_at_5"] + 0.012, bar.get_y() + bar.get_height() / 2, f"{row['ndcg_at_5']:.3f}  {training}", va="center", fontsize=10.5, color="#334155")
+    ax.set_xlim(0, 0.78)
+    ax.set_xlabel("NDCG@5", fontsize=12, color="#334155")
+    ax.set_title("Resource and Effectiveness Profile", loc="left", fontsize=18, fontweight="bold", color="#0f172a", pad=18)
+    ax.text(0, len(resource_rows) - 0.28, "Effectiveness is comparable; runtime metadata is heterogeneous", fontsize=11, color="#64748b")
+    ax.tick_params(axis="y", labelsize=11)
+    style_axis(ax)
+    fig.tight_layout()
+    svg_path = out_dir / "readme_resource_profile.svg"
+    png_path = out_dir / "readme_resource_profile.png"
+    fig.savefig(svg_path, bbox_inches="tight")
+    fig.savefig(png_path, bbox_inches="tight", dpi=220)
+    plt.close(fig)
+    strip_trailing_whitespace(svg_path)
+    generated.extend([svg_path.as_posix(), png_path.as_posix()])
+    return generated
+
+
 def main() -> None:
     args = parse_args()
     root = Path(args.repo_root).resolve()
@@ -497,6 +598,7 @@ def main() -> None:
     generated.extend(build_overview_figure(root))
     generated.extend(build_main_results(root))
     generated.extend(build_alignment(root))
+    generated.extend(build_readme_analysis_figures(root))
     print(json.dumps({"status": "ready", "generated": generated}, indent=2))
 
 

@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "checked_commit": "6d8087cd982dc07e56f274042edf4332e8ec4e57",
+  "checked_commit": "5856aefaafc68de400f78dae0106cddf348e9a8b",
   "tracked_file_count": 473,
   "large_file_warnings": [],
   "large_file_failures": [],
@@ -363,7 +363,7 @@
     },
     {
       "path": "scripts/check_final_repository.py",
-      "line": 57,
+      "line": 63,
       "type": "autodl_tmp",
       "severity": "warning"
     },
@@ -398,6 +398,7 @@
       "overview_figure": true,
       "main_result_figure": true,
       "alignment_figure": true,
+      "readme_analysis_figures": true,
       "mentions_formal_lora_rerun": true,
       "mentions_500_4044": true,
       "cross_encoder_reference": true,

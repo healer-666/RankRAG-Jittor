@@ -25,6 +25,12 @@ REQUIRED_FILES = [
     "docs/figures/main_reranking_results.png",
     "docs/figures/pytorch_jittor_alignment.svg",
     "docs/figures/pytorch_jittor_alignment.png",
+    "docs/figures/readme_lora_ablation.svg",
+    "docs/figures/readme_lora_ablation.png",
+    "docs/figures/readme_error_taxonomy.svg",
+    "docs/figures/readme_error_taxonomy.png",
+    "docs/figures/readme_resource_profile.svg",
+    "docs/figures/readme_resource_profile.png",
     "outputs/final_results_summary.json",
     "outputs/final_results_summary.csv",
     "scripts/build_final_project_summary.py",
@@ -227,6 +233,12 @@ def check_readme_consistency(root: Path) -> dict[str, Any]:
         and "docs/figures/main_reranking_results.svg" in zh,
         "alignment_figure": "docs/figures/pytorch_jittor_alignment.svg" in en
         and "docs/figures/pytorch_jittor_alignment.svg" in zh,
+        "readme_analysis_figures": "docs/figures/readme_lora_ablation.svg" in en
+        and "docs/figures/readme_error_taxonomy.svg" in en
+        and "docs/figures/readme_resource_profile.svg" in en
+        and "docs/figures/readme_lora_ablation.svg" in zh
+        and "docs/figures/readme_error_taxonomy.svg" in zh
+        and "docs/figures/readme_resource_profile.svg" in zh,
         "mentions_formal_lora_rerun": "formal same-environment 10k LoRA rerun" in en
         and "同一租卡环境下完成的正式 10k LoRA 复跑结果" in zh,
         "mentions_500_4044": "500 queries" in en and "4,044" in en and "500 个 query" in zh and "4,044" in zh,

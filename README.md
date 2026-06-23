@@ -82,17 +82,22 @@ The alignment figure is not a leaderboard. It confirms that the lightweight Jitt
 
 ## Beyond Headline Metrics
 
-| Data-size ablation | Error taxonomy | Resource profile |
-| --- | --- | --- |
-| <img src="outputs/lora_ablation_results.png" alt="LoRA data-size ablation" width="300"> | <img src="docs/figures/error_taxonomy.png" alt="Error taxonomy" width="300"> | <img src="docs/figures/cost_effectiveness_tradeoff.png" alt="Resource-effectiveness profile" width="300"> |
+<img src="docs/figures/readme_lora_ablation.svg" alt="LoRA data-size ablation" width="900">
+
+Data-size ablation compares nested 1k, 3k, and 10k LoRA training pairs under a fixed 800-step budget.
+
+<img src="docs/figures/readme_error_taxonomy.svg" alt="Error taxonomy" width="900">
+
+Error analysis separates lexical traps, semantic limits, evidence-use failures, label issues, and ambiguous queries.
+
+<img src="docs/figures/readme_resource_profile.svg" alt="Resource-effectiveness profile" width="900">
+
+Resource profiling records effectiveness and runtime metadata without treating heterogeneous hardware as a strict speed benchmark.
 
 The deeper analyses show where the main ranking table is too compressed:
 
-- Data-size ablation compares nested 1k, 3k, and 10k LoRA training pairs under a fixed 800-step budget.
 - Scoring ablation separates model quality from the rule used to turn LLM outputs into ranking scores.
 - Downstream RAG checks whether stronger top-k evidence actually improves generated answers.
-- Error analysis separates lexical traps, semantic limits, evidence-use failures, label issues, and ambiguous queries.
-- Resource profiling records effectiveness and runtime metadata without pretending heterogeneous hardware is a strict benchmark.
 
 ## Key Findings
 
