@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import subprocess
 import time
 from pathlib import Path
 
@@ -124,6 +125,19 @@ def resolve_model_name(config_model_name: str) -> tuple[str, bool]:
     return (local_path, True) if local_path else (config_model_name, False)
 
 
+def resolve_git_commit() -> str | None:
+    env_commit = os.environ.get("RANKRAG_GIT_COMMIT")
+    if env_commit:
+        return env_commit
+    commit_file = Path("GIT_COMMIT.txt")
+    if commit_file.exists():
+        return commit_file.read_text(encoding="utf-8").strip()
+    try:
+        return subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+    except Exception:
+        return None
+
+
 def main() -> None:
     args = parse_args()
     config = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
@@ -240,7 +254,9 @@ def main() -> None:
 
     summary = {
         "model_name": config["model_name"],
+        "model_load_name": model_load_name,
         "local_model_path_used": local_model_path_used,
+        "git_commit": resolve_git_commit(),
         "output_dir": str(output_dir),
         "device": str(device),
         "device_name": torch.cuda.get_device_name(0) if device.type == "cuda" else None,
