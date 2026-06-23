@@ -1,0 +1,105 @@
+{
+  "status": "ready",
+  "runs": [
+    {
+      "scoring_method": "generate_parse",
+      "recall_at_1": 0.128,
+      "recall_at_3": 0.424,
+      "recall_at_5": 0.646,
+      "ndcg_at_5": 0.3847713247890926,
+      "mrr": 0.3490412698412696,
+      "pairwise_accuracy": 0.0011547619047619047,
+      "inference_runtime_sec": 904.7538783550262,
+      "parse_failure_count": 4,
+      "parse_failure_rate": 0.0009891196834817012,
+      "query_tie_rate": 1.0,
+      "average_candidate_tie_rate": 0.9989920634920636,
+      "max_tie_group_size": 10,
+      "num_queries": 500,
+      "num_pairs": 4044,
+      "git_commit": "fd98e372e54e5b7308a4117c4eafca217ac8a63c",
+      "hardware": "NVIDIA GeForce RTX 4090 D",
+      "adapter_dir": "outputs/lora_adapters/qwen_1_5b_10k_lr1e4_s800_rerun",
+      "test_path": "data/processed/lora_qwen_1_5b_10k/test_queries.jsonl",
+      "output_dir": "outputs/lora_scoring_ablation/generate_parse",
+      "status": "ready"
+    },
+    {
+      "scoring_method": "relevant_logprob",
+      "recall_at_1": 0.356,
+      "recall_at_3": 0.698,
+      "recall_at_5": 0.87,
+      "ndcg_at_5": 0.6254163061782327,
+      "mrr": 0.5637134920634916,
+      "pairwise_accuracy": 0.7357896825396827,
+      "inference_runtime_sec": 227.46955943107605,
+      "parse_failure_count": 0,
+      "parse_failure_rate": 0.0,
+      "query_tie_rate": 0.008,
+      "average_candidate_tie_rate": 0.0023158730158730156,
+      "max_tie_group_size": 2,
+      "num_queries": 500,
+      "num_pairs": 4044,
+      "git_commit": "fd98e372e54e5b7308a4117c4eafca217ac8a63c",
+      "hardware": "NVIDIA GeForce RTX 4090 D",
+      "adapter_dir": "outputs/lora_adapters/qwen_1_5b_10k_lr1e4_s800_rerun",
+      "test_path": "data/processed/lora_qwen_1_5b_10k/test_queries.jsonl",
+      "output_dir": "outputs/lora_scoring_ablation/relevant_logprob",
+      "status": "ready"
+    },
+    {
+      "scoring_method": "logprob_margin",
+      "recall_at_1": 0.356,
+      "recall_at_3": 0.696,
+      "recall_at_5": 0.866,
+      "ndcg_at_5": 0.6236426005637636,
+      "mrr": 0.5632658730158726,
+      "pairwise_accuracy": 0.7343301587301588,
+      "inference_runtime_sec": 454.04974126815796,
+      "parse_failure_count": 0,
+      "parse_failure_rate": 0.0,
+      "query_tie_rate": 0.01,
+      "average_candidate_tie_rate": 0.0029825396825396825,
+      "max_tie_group_size": 2,
+      "num_queries": 500,
+      "num_pairs": 4044,
+      "git_commit": "fd98e372e54e5b7308a4117c4eafca217ac8a63c",
+      "hardware": "NVIDIA GeForce RTX 4090 D",
+      "adapter_dir": "outputs/lora_adapters/qwen_1_5b_10k_lr1e4_s800_rerun",
+      "test_path": "data/processed/lora_qwen_1_5b_10k/test_queries.jsonl",
+      "output_dir": "outputs/lora_scoring_ablation/logprob_margin",
+      "status": "ready"
+    }
+  ],
+  "validation_errors": [],
+  "label_tokenization": {
+    "Relevant": {
+      "exact_label_string": "Relevant",
+      "token_ids": [
+        693,
+        8367
+      ],
+      "token_count": 2,
+      "decoded_tokens": [
+        "Re",
+        "levant"
+      ],
+      "contains_special_token": false,
+      "uses_full_label_token_sequence": true
+    },
+    "Irrelevant": {
+      "exact_label_string": "Irrelevant",
+      "token_ids": [
+        48113,
+        97573
+      ],
+      "token_count": 2,
+      "decoded_tokens": [
+        "Ir",
+        "relevant"
+      ],
+      "contains_special_token": false,
+      "uses_full_label_token_sequence": true
+    }
+  }
+}

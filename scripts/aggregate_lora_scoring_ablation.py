@@ -20,6 +20,10 @@ def read_json(path: Path) -> dict[str, Any] | list[Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def path_text(path: Path) -> str:
+    return path.as_posix()
+
+
 def normalize(metrics: dict[str, Any], method: str, output_dir: Path) -> dict[str, Any]:
     return {
         "scoring_method": method,
@@ -41,7 +45,7 @@ def normalize(metrics: dict[str, Any], method: str, output_dir: Path) -> dict[st
         "hardware": metrics.get("device_name"),
         "adapter_dir": metrics.get("adapter_dir"),
         "test_path": metrics.get("test_path"),
-        "output_dir": str(output_dir),
+        "output_dir": path_text(output_dir),
         "status": "ready",
     }
 

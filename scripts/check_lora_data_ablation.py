@@ -30,6 +30,8 @@ ALLOWED_DIFFERENCES = {
     "reference_training_pairs",
     "fixed_max_steps",
     "subset_manifest_path",
+    "per_device_train_batch_size",
+    "gradient_accumulation_steps",
 }
 
 
@@ -100,6 +102,18 @@ def build_config_report(reference_config: Path, run_configs: list[Path], output_
         errors.append("ablation adapter output directories overlap")
     if reference.get("output_dir") in adapter_output_dirs:
         errors.append("ablation adapter output directory overlaps 10k adapter output")
+    global_batch_sizes = {
+        row["effective_epochs"]["global_batch_size"]
+        for row in runs.values()
+    }
+    samples_seen = {
+        row["effective_epochs"]["samples_seen_at_fixed_steps"]
+        for row in runs.values()
+    }
+    if len(global_batch_sizes) != 1:
+        errors.append(f"global batch size differs unexpectedly: {sorted(global_batch_sizes)}")
+    if len(samples_seen) != 1:
+        errors.append(f"samples seen at fixed steps differs unexpectedly: {sorted(samples_seen)}")
 
     payload = {
         "status": "passed" if not errors else "failed",
@@ -108,6 +122,8 @@ def build_config_report(reference_config: Path, run_configs: list[Path], output_
         "same_learning_rate": all(load_yaml(path).get("learning_rate") == reference.get("learning_rate") for path in run_configs),
         "same_max_steps": all(load_yaml(path).get("max_train_steps") == reference.get("max_train_steps") for path in run_configs),
         "same_max_length": all(load_yaml(path).get("max_length") == reference.get("max_length") for path in run_configs),
+        "same_global_batch_size": len(global_batch_sizes) == 1,
+        "same_samples_seen_at_fixed_steps": len(samples_seen) == 1,
         "same_seed": all(load_yaml(path).get("seed") == reference.get("seed") for path in run_configs),
         "same_validation_set": all(load_yaml(path).get("valid_path") == reference.get("valid_path") for path in run_configs),
         "same_test_set": True,

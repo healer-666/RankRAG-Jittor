@@ -1,0 +1,67 @@
+{
+  "recall@1": 0.288,
+  "ndcg@1": 0.288,
+  "recall@3": 0.668,
+  "ndcg@3": 0.5054952482500051,
+  "recall@5": 0.852,
+  "ndcg@5": 0.5807955973600142,
+  "recall@10": 1.0,
+  "ndcg@10": 0.630259574218227,
+  "mrr": 0.5125095238095239,
+  "pairwise_accuracy": 0.6933769841269843,
+  "num_queries": 500,
+  "num_pairs": 4044,
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce RTX 4090 D",
+  "torch_dtype": "torch.float16",
+  "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_load_name": "/root/autodl-tmp/hf_cache/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "local_model_path_used": true,
+  "git_commit": "fd98e372e54e5b7308a4117c4eafca217ac8a63c",
+  "adapter_dir": "outputs/lora_adapters/qwen_1_5b_1k_lr1e4_s800",
+  "test_path": "data/processed/lora_qwen_1_5b_10k/test_queries.jsonl",
+  "max_queries": 500,
+  "max_length": 256,
+  "scoring_method": "logprob_margin",
+  "max_new_tokens": null,
+  "label_tokenization": {
+    "Relevant": {
+      "exact_label_string": "Relevant",
+      "token_ids": [
+        693,
+        8367
+      ],
+      "token_count": 2,
+      "decoded_tokens": [
+        "Re",
+        "levant"
+      ],
+      "contains_special_token": false,
+      "uses_full_label_token_sequence": true
+    },
+    "Irrelevant": {
+      "exact_label_string": "Irrelevant",
+      "token_ids": [
+        48113,
+        97573
+      ],
+      "token_count": 2,
+      "decoded_tokens": [
+        "Ir",
+        "relevant"
+      ],
+      "contains_special_token": false,
+      "uses_full_label_token_sequence": true
+    }
+  },
+  "inference_time_sec": 460.5405297279358,
+  "pairs_per_second": 8.780986121653598,
+  "peak_gpu_memory_gib": 3.069456100463867,
+  "parse_failure_count": 0,
+  "parse_failure_rate": 0.0,
+  "generated_label_distribution": {},
+  "queries_with_ties": 4,
+  "query_tie_rate": 0.008,
+  "average_candidate_tie_rate": 0.0023158730158730156,
+  "max_tie_group_size": 2
+}

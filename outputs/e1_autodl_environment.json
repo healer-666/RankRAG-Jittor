@@ -1,0 +1,52 @@
+{
+  "stage": "E1/E2 formal LoRA ablations",
+  "git_commit": "fd98e372e54e5b7308a4117c4eafca217ac8a63c",
+  "hostname": "autodl-container-dqwhyz02ne-7336208d",
+  "python_executable": "/root/miniconda3/bin/python",
+  "python_version": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA GeForce RTX 4090 D",
+  "torch_cuda": "12.4",
+  "nvidia_smi": "Tue Jun 23 17:04:56 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 4090 D      On  |   00000000:36:00.0 Off |                  Off |\n| 30%   28C    P8             19W /  425W |       3MiB /  24564MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+",
+  "torch_version": "2.5.1+cu124",
+  "transformers_version": "5.12.1",
+  "peft_version": "0.19.1",
+  "accelerate_version": "1.14.0",
+  "matplotlib_version": "3.11.0",
+  "model_path": "/root/autodl-tmp/hf_cache/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "model_path_exists": true,
+  "model_files": [
+    {
+      "name": "config.json",
+      "size_bytes": 660
+    },
+    {
+      "name": "generation_config.json",
+      "size_bytes": 242
+    },
+    {
+      "name": "merges.txt",
+      "size_bytes": 1671839
+    },
+    {
+      "name": "model.fp16.pth",
+      "size_bytes": 3087536592
+    },
+    {
+      "name": "model.safetensors",
+      "size_bytes": 3087467144
+    },
+    {
+      "name": "tokenizer.json",
+      "size_bytes": 7031645
+    },
+    {
+      "name": "tokenizer_config.json",
+      "size_bytes": 7305
+    },
+    {
+      "name": "vocab.json",
+      "size_bytes": 2776833
+    }
+  ]
+}

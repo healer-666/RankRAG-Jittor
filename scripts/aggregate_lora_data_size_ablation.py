@@ -53,6 +53,10 @@ def read_train_log_last_step(path: Path) -> int | None:
     return None if last is None else int(last.get("step", 0))
 
 
+def path_text(path: Path) -> str:
+    return path.as_posix()
+
+
 def gpu_stats(path: Path) -> dict[str, float | None]:
     if not path.exists():
         return {"avg_gpu_utilization": None, "max_gpu_temperature": None, "avg_power_draw": None, "max_power_draw": None}
@@ -108,6 +112,8 @@ def build_row(run: dict[str, Any], env: dict[str, Any]) -> dict[str, Any]:
         "training_pairs": run["training_pairs"],
         "effective_epochs": run["effective_epochs"],
         "max_steps": 800,
+        "per_device_train_batch_size": summary.get("per_device_train_batch_size"),
+        "gradient_accumulation_steps": summary.get("gradient_accumulation_steps"),
         "global_batch_size": summary.get("global_batch_size"),
         "seed": 42,
         "git_commit": summary.get("git_commit") or metrics.get("git_commit") or env.get("git_commit"),
@@ -119,8 +125,8 @@ def build_row(run: dict[str, Any], env: dict[str, Any]) -> dict[str, Any]:
         "train_runtime_sec": summary.get("runtime_sec"),
         "eval_runtime_sec": metrics.get("inference_time_sec"),
         "peak_gpu_memory_mib": (summary.get("peak_gpu_memory_gib") or 0) * 1024 if summary.get("peak_gpu_memory_gib") is not None else None,
-        "output_dir": str(output_dir),
-        "adapter_dir": str(run["adapter_dir"]),
+        "output_dir": path_text(output_dir),
+        "adapter_dir": path_text(run["adapter_dir"]),
         "last_step": last_step,
         "status": "ready" if complete else "failed",
         **gpu_stats(run["gpu_csv"]),
@@ -169,12 +175,14 @@ def write_markdown(rows: list[dict[str, Any]], errors: list[str], historical: di
         "",
         "Status: " + ("ready" if not errors else "failed"),
         "",
-        "| Run | Pairs | Eff. epochs | R@1 | R@3 | R@5 | NDCG@5 | MRR | Pairwise Acc. | Train s | Eval s |",
-        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+        "| Run | Pairs | Micro batch | Grad accum | Global batch | Eff. epochs | R@1 | R@3 | R@5 | NDCG@5 | MRR | Pairwise Acc. | Train s | Eval s |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for row in rows:
         lines.append(
-            f"| {row['experiment_name']} | {row['training_pairs']} | {fmt(row.get('effective_epochs'))} | "
+            f"| {row['experiment_name']} | {row['training_pairs']} | "
+            f"{fmt(row.get('per_device_train_batch_size'))} | {fmt(row.get('gradient_accumulation_steps'))} | "
+            f"{fmt(row.get('global_batch_size'))} | {fmt(row.get('effective_epochs'))} | "
             f"{fmt(row.get('recall_at_1'))} | {fmt(row.get('recall_at_3'))} | {fmt(row.get('recall_at_5'))} | "
             f"{fmt(row.get('ndcg_at_5'))} | {fmt(row.get('mrr'))} | {fmt(row.get('pairwise_accuracy'))} | "
             f"{fmt(row.get('train_runtime_sec'))} | {fmt(row.get('eval_runtime_sec'))} |"
@@ -230,6 +238,8 @@ def write_analysis(rows: list[dict[str, Any]], historical: dict[str, Any] | None
         "# Stage E1: LoRA Training Data-Size Ablation",
         "",
         "E1 fixes the optimizer-step budget at 800 steps. Smaller datasets are revisited more often, while larger datasets expose the model to more distinct training pairs.",
+        "",
+        "All runs keep the same global batch size and the same 6400 training samples seen at 800 optimizer steps. The 10k-rerun uses a larger micro-batch on the AutoDL RTX 4090 D (`per_device_train_batch_size=8`, `gradient_accumulation_steps=1`) to reduce rented-GPU time; 1k and 3k use the original `1 x 8` accumulation schedule.",
         "",
         "## Marginal Changes",
         "",

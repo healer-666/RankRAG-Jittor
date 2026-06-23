@@ -1,0 +1,30 @@
+{
+  "Relevant": {
+    "exact_label_string": "Relevant",
+    "token_ids": [
+      693,
+      8367
+    ],
+    "token_count": 2,
+    "decoded_tokens": [
+      "Re",
+      "levant"
+    ],
+    "contains_special_token": false,
+    "uses_full_label_token_sequence": true
+  },
+  "Irrelevant": {
+    "exact_label_string": "Irrelevant",
+    "token_ids": [
+      48113,
+      97573
+    ],
+    "token_count": 2,
+    "decoded_tokens": [
+      "Ir",
+      "relevant"
+    ],
+    "contains_special_token": false,
+    "uses_full_label_token_sequence": true
+  }
+}
