@@ -1,0 +1,64 @@
+{
+  "total_unique_queries": 30,
+  "case_count": 30,
+  "selection_note": "Stratified diagnostic sample, not an unbiased distribution over all 500 queries.",
+  "method_failure_definitions": {
+    "top1_failure": "gold rank != 1 or gold missing",
+    "top3_failure": "gold rank > 3 or gold missing"
+  },
+  "cases_by_selection_bucket": {
+    "A": 6,
+    "B": 6,
+    "C": 6,
+    "D": 6,
+    "E": 6
+  },
+  "cases_by_primary_error_type": {
+    "ambiguous_query": 3,
+    "background_only": 2,
+    "candidate_or_label_issue": 3,
+    "evidence_utilization_failure": 6,
+    "lexical_trap": 4,
+    "llm_overjudgment": 4,
+    "multi_evidence_confusion": 2,
+    "small_model_semantic_limit": 6
+  },
+  "cases_by_secondary_subtype": {
+    "none": 24,
+    "used_wrong_evidence": 3,
+    "verbose_or_repetitive_output": 3
+  },
+  "cases_by_confidence": {
+    "high": 16,
+    "medium": 14
+  },
+  "self_consistency_sample_size": 10,
+  "primary_label_agreement": 0.7,
+  "secondary_label_agreement": 1.0,
+  "changed_case_ids": [
+    "G008",
+    "G021",
+    "G024"
+  ],
+  "top1_failure_counts": {
+    "bm25": 21,
+    "jittor_mlp": 26,
+    "jittor_textcnn": 27,
+    "lora": 20,
+    "cross_encoder": 16
+  },
+  "top3_failure_counts": {
+    "bm25": 16,
+    "jittor_mlp": 19,
+    "jittor_textcnn": 22,
+    "lora": 17,
+    "cross_encoder": 10
+  },
+  "all_methods_failed_count": 6,
+  "evidence_utilization_failure_count": 6,
+  "bm25_failure_count": 16,
+  "jittor_mlp_failure_count": 19,
+  "jittor_textcnn_failure_count": 22,
+  "lora_failure_count": 17,
+  "cross_encoder_failure_count": 10
+}

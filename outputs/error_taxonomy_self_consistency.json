@@ -1,0 +1,34 @@
+{
+  "sample_size": 10,
+  "primary_label_agreement": 0.7,
+  "secondary_subtype_agreement": 1.0,
+  "changed_case_ids": [
+    "G008",
+    "G021",
+    "G024"
+  ],
+  "changed_cases": [
+    {
+      "case_id": "G008",
+      "query_id": "msmarco_test_000422",
+      "round1_label": "candidate_or_label_issue",
+      "round2_label": "ambiguous_query",
+      "change_reason": "Different primary explanation was more direct after rereading."
+    },
+    {
+      "case_id": "G021",
+      "query_id": "msmarco_test_000028",
+      "round1_label": "lexical_trap",
+      "round2_label": "background_only",
+      "change_reason": "Different primary explanation was more direct after rereading."
+    },
+    {
+      "case_id": "G024",
+      "query_id": "msmarco_test_000170",
+      "round1_label": "lexical_trap",
+      "round2_label": "background_only",
+      "change_reason": "Different primary explanation was more direct after rereading."
+    }
+  ],
+  "terminology_note": "Single-annotator repeated annotation self-consistency; not inter-annotator agreement."
+}

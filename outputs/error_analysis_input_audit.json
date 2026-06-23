@@ -1,0 +1,117 @@
+{
+  "test_queries": {
+    "path": "data/processed/lora_qwen_1_5b_10k/test_queries.jsonl",
+    "rows": 500,
+    "sha256": "6b15fca71faf6722a921cc4474e988058991ca786fb7bb99142b274cee7ff303"
+  },
+  "rankings": {
+    "bm25": {
+      "path": "outputs/msmarco_medium_retrieval_baseline_rankings.json",
+      "exists": true,
+      "sha256": "402a5ecaeea58d45bb89b86115bb49979e2d48ac9a04b99b79372cd7bb3c5efd",
+      "query_count": 500,
+      "has_passage_id": true,
+      "has_passage_text": true,
+      "has_gold_rank": true,
+      "can_lookup_passage_by_id": true,
+      "missing_gold_queries": 0
+    },
+    "jittor_mlp": {
+      "path": "outputs/msmarco_medium_jittor_test_rankings.json",
+      "exists": true,
+      "sha256": "4c2f8b3d6657ba266fb7d8b3c541c47133667f6d45388936ee6adb703c90d431",
+      "query_count": 500,
+      "has_passage_id": true,
+      "has_passage_text": true,
+      "has_gold_rank": true,
+      "can_lookup_passage_by_id": true,
+      "missing_gold_queries": 0
+    },
+    "jittor_textcnn": {
+      "path": "outputs/msmarco_medium_textcnn_jittor_test_rankings.json",
+      "exists": true,
+      "sha256": "248b5f3df327738c6a876fcbd6260175c381762b42691d379420b8aee4a91a8b",
+      "query_count": 500,
+      "has_passage_id": true,
+      "has_passage_text": true,
+      "has_gold_rank": true,
+      "can_lookup_passage_by_id": true,
+      "missing_gold_queries": 0
+    },
+    "zero_shot_qwen_1_5b": {
+      "path": "outputs/jittorllm_qwen2_1_5b_full/rankings.json",
+      "exists": true,
+      "sha256": "76c5c99dccd1ccac1f0628f6a6bfdac50959b1c265dbf055d09066ac70d5e713",
+      "query_count": 500,
+      "has_passage_id": true,
+      "has_passage_text": true,
+      "has_gold_rank": true,
+      "can_lookup_passage_by_id": true,
+      "missing_gold_queries": 0
+    },
+    "lora_10k_rerun": {
+      "path": "outputs/lora_ablation_data_10k_rerun/qwen_1_5b_lora_rankings.json",
+      "exists": true,
+      "sha256": "34dfd42b7bea1c0df290750ddf6aee1d2a8837a7af607e0f2c5fe791f22a1abb",
+      "query_count": 500,
+      "has_passage_id": true,
+      "has_passage_text": true,
+      "has_gold_rank": true,
+      "can_lookup_passage_by_id": true,
+      "missing_gold_queries": 0
+    },
+    "lora_historical_10k": {
+      "path": "outputs/lora_qwen_1_5b_10k_lr1e4_s800/qwen_1_5b_lora_rankings.json",
+      "exists": true,
+      "sha256": "6f559605f7b0acb2e58185cae1c715873335ec64b7062200c88b28ee4b11ddb0",
+      "query_count": 500,
+      "has_passage_id": true,
+      "has_passage_text": true,
+      "has_gold_rank": true,
+      "can_lookup_passage_by_id": true,
+      "missing_gold_queries": 0
+    },
+    "cross_encoder": {
+      "path": "outputs/msmarco_medium_cross_encoder_rankings.json",
+      "exists": true,
+      "sha256": "0b9cd93b125c2462bb94f3ae541a7a6523abf053d8c17ffeb92e91a5f17b19fe",
+      "query_count": 500,
+      "has_passage_id": true,
+      "has_passage_text": true,
+      "has_gold_rank": true,
+      "can_lookup_passage_by_id": true,
+      "missing_gold_queries": 0
+    }
+  },
+  "downstream": {
+    "bm25": {
+      "path": "outputs/downstream_rag_eval_qwen2_1_5b_strict_prompt/bm25_top3_answers.jsonl",
+      "exists": true,
+      "rows": 50,
+      "sha256": "2dce45e11d931222d4ebdf3be9164d41af74354d00bc90c8de1cb683acaf7b23"
+    },
+    "lora_10k_rerun": {
+      "path": "outputs/downstream_rag_eval_qwen2_1_5b_strict_prompt/lora_v3_top3_answers.jsonl",
+      "exists": true,
+      "rows": 50,
+      "sha256": "82aab57497120d21c3f1c59c5fcdf892c2278b24414ab716fc068bfbf3bea9b4"
+    },
+    "cross_encoder": {
+      "path": "outputs/downstream_rag_eval_qwen2_1_5b_strict_prompt/cross_encoder_top3_answers.jsonl",
+      "exists": true,
+      "rows": 50,
+      "sha256": "1de863fcce709b5c0fe8118c07a59c3ad8a0a68a301f2e5dc37a700322c8a22d"
+    }
+  },
+  "downstream_slice": {
+    "generator": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "strict_short_answer_v1",
+    "methods": [
+      "bm25",
+      "lora_10k_rerun",
+      "cross_encoder"
+    ],
+    "result_dir": "outputs/downstream_rag_eval_qwen2_1_5b_strict_prompt",
+    "note": "Existing lora_v3 downstream file is used as the available LoRA downstream slice; ranking-stage LoRA case fields use Stage E 10k-rerun rankings."
+  }
+}

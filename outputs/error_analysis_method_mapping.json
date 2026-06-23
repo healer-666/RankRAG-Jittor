@@ -1,0 +1,7 @@
+{
+  "Method A": "bm25",
+  "Method B": "jittor_mlp",
+  "Method C": "jittor_textcnn",
+  "Method D": "lora_10k_rerun",
+  "Method E": "cross_encoder"
+}
