@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import time
 from pathlib import Path
 
@@ -106,7 +107,21 @@ def evaluate_loss(model, loader, device: torch.device, max_batches: int = 10) ->
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True)
+    parser.add_argument("--overwrite", action="store_true", help="Allow writing into non-empty output directories.")
     return parser.parse_args()
+
+
+def ensure_output_dir_safe(path: Path, *, label: str, overwrite: bool) -> None:
+    if path.exists() and any(path.iterdir()) and not overwrite:
+        raise RuntimeError(
+            f"{label} already exists and is not empty: {path}. "
+            "Use a fresh config output path or pass --overwrite intentionally."
+        )
+
+
+def resolve_model_name(config_model_name: str) -> tuple[str, bool]:
+    local_path = os.environ.get("QWEN_LORA_MODEL_PATH") or os.environ.get("QWEN_GENERATOR_MODEL_PATH")
+    return (local_path, True) if local_path else (config_model_name, False)
 
 
 def main() -> None:
@@ -116,6 +131,8 @@ def main() -> None:
 
     output_dir = Path(config["output_dir"])
     debug_dir = Path(config.get("debug_output_dir", "outputs/lora_debug"))
+    ensure_output_dir_safe(output_dir, label="Adapter output directory", overwrite=args.overwrite)
+    ensure_output_dir_safe(debug_dir, label="Debug output directory", overwrite=args.overwrite)
     output_dir.mkdir(parents=True, exist_ok=True)
     debug_dir.mkdir(parents=True, exist_ok=True)
 
@@ -124,12 +141,13 @@ def main() -> None:
         print("CUDA is not available. CPU LoRA debug training will be slow.")
     dtype = torch.float16 if device.type == "cuda" else torch.float32
 
-    tokenizer = AutoTokenizer.from_pretrained(config["model_name"], trust_remote_code=True)
+    model_load_name, local_model_path_used = resolve_model_name(config["model_name"])
+    tokenizer = AutoTokenizer.from_pretrained(model_load_name, trust_remote_code=True)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
     model = AutoModelForCausalLM.from_pretrained(
-        config["model_name"],
+        model_load_name,
         torch_dtype=dtype,
         trust_remote_code=True,
     )
@@ -163,7 +181,7 @@ def main() -> None:
     epochs = int(config.get("num_train_epochs", 1))
     max_train_steps = int(config.get("max_train_steps", 0))
     estimated_steps = (len(train_loader) * epochs + grad_accum - 1) // grad_accum
-    total_steps = min(max_train_steps, estimated_steps) if max_train_steps else estimated_steps
+    total_steps = max_train_steps if max_train_steps else estimated_steps
     total_steps = max(total_steps, 1)
 
     optimizer = torch.optim.AdamW(
@@ -176,14 +194,19 @@ def main() -> None:
 
     log_rows = []
     global_step = 0
+    samples_processed = 0
     start_time = time.time()
+    if device.type == "cuda":
+        torch.cuda.reset_peak_memory_stats(device)
     model.train()
     optimizer.zero_grad(set_to_none=True)
     progress = tqdm(total=total_steps, desc="LoRA debug training")
-    stop = False
-    for _epoch in range(epochs):
+    epoch_index = 0
+    while global_step < total_steps:
+        epoch_index += 1
         for batch_index, batch in enumerate(train_loader):
             batch = {key: value.to(device) for key, value in batch.items()}
+            samples_processed += int(batch["input_ids"].shape[0])
             outputs = model(**batch)
             loss = outputs.loss / grad_accum
             loss.backward()
@@ -203,10 +226,7 @@ def main() -> None:
             if global_step % int(config.get("logging_steps", 10)) == 0 or global_step == 1:
                 print(json.dumps(row, ensure_ascii=False))
             if global_step >= total_steps:
-                stop = True
                 break
-        if stop:
-            break
     progress.close()
 
     model.save_pretrained(output_dir)
@@ -220,18 +240,32 @@ def main() -> None:
 
     summary = {
         "model_name": config["model_name"],
+        "local_model_path_used": local_model_path_used,
         "output_dir": str(output_dir),
         "device": str(device),
+        "device_name": torch.cuda.get_device_name(0) if device.type == "cuda" else None,
         "torch_dtype": str(dtype),
         "train_pairs": len(train_rows),
         "valid_pairs": len(valid_rows),
         "steps": global_step,
+        "configured_epochs": epochs,
+        "completed_dataset_passes": epoch_index,
+        "per_device_train_batch_size": int(config.get("per_device_train_batch_size", 1)),
+        "gradient_accumulation_steps": grad_accum,
+        "global_batch_size": int(config.get("per_device_train_batch_size", 1)) * grad_accum,
+        "samples_processed": samples_processed,
+        "effective_epochs": samples_processed / max(len(train_rows), 1),
         "max_length": int(config.get("max_length", 256)),
         "lora_r": int(config.get("lora_r", 8)),
         "target_modules": target_modules,
         "loss_start": log_rows[0]["loss"] if log_rows else None,
         "loss_end": log_rows[-1]["loss"] if log_rows else None,
         "loss_decreased": bool(log_rows and log_rows[-1]["loss"] < log_rows[0]["loss"]),
+        "valid_loss_start": next((row.get("valid_loss") for row in log_rows if "valid_loss" in row), None),
+        "valid_loss_end": next((row.get("valid_loss") for row in reversed(log_rows) if "valid_loss" in row), None),
+        "peak_gpu_memory_gib": (
+            torch.cuda.max_memory_allocated(device) / 1024**3 if device.type == "cuda" else None
+        ),
         "runtime_sec": time.time() - start_time,
     }
     (debug_dir / "train_summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")

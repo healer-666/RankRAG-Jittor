@@ -1,0 +1,14 @@
+{
+  "source_train_path": "data/processed/lora_qwen_1_5b_10k/train_pairs.jsonl",
+  "train_in": "data/processed/msmarco_medium/train.jsonl",
+  "seed": 42,
+  "source_pairs": 10000,
+  "negatives_per_query": 4,
+  "stats": {
+    "relevant": 2011,
+    "irrelevant": 7989,
+    "queries": 2011,
+    "pairs": 10000
+  },
+  "note": "Rebuilt from the committed data-generation script parameters used by the 10k v3 data card."
+}

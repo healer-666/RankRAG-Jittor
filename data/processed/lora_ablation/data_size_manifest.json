@@ -1,0 +1,63 @@
+{
+  "source_path": "data/processed/lora_qwen_1_5b_10k/train_pairs.jsonl",
+  "source_sha256": "b6cb063364fcb0078f0c771efb6bd7ab0e11b524dd22e8673999e308a5602ae9",
+  "generated_at": "2026-06-22T07:31:01Z",
+  "seed": 42,
+  "selection_strategy": "nested subsets selected from one deterministic permutation",
+  "selection_note": "1k and 3k are prefixes of the deterministic permutation. The committed 10k source file keeps its original row order, so 3k is a subset of 10k but not a prefix of that file.",
+  "source_rebuild": {
+    "used_existing_source": true,
+    "rebuilt_source": false,
+    "train_in": "data/processed/msmarco_medium/train.jsonl",
+    "source_pairs": 10000,
+    "negatives_per_query": 4
+  },
+  "subsets": {
+    "1k": {
+      "path": "data/processed/lora_ablation/train_1k.jsonl",
+      "pairs": 1000,
+      "sha256": "438b146e3fe600c0add1988043ecb0c71b0e093ebb9528819d35c25c43f7af6a",
+      "unique_queries": 815,
+      "avg_pairs_per_query": 1.2269938650306749,
+      "min_pairs_per_query": 1,
+      "max_pairs_per_query": 4,
+      "label_distribution": {
+        "Irrelevant": 798,
+        "Relevant": 202
+      }
+    },
+    "3k": {
+      "path": "data/processed/lora_ablation/train_3k.jsonl",
+      "pairs": 3000,
+      "sha256": "4f23a115dfebfd2c3444a66f5fbdf2bcdcb57cab9df997ee8680de2138d81db6",
+      "unique_queries": 1668,
+      "avg_pairs_per_query": 1.7985611510791366,
+      "min_pairs_per_query": 1,
+      "max_pairs_per_query": 5,
+      "label_distribution": {
+        "Irrelevant": 2381,
+        "Relevant": 619
+      }
+    },
+    "10k": {
+      "path": "data/processed/lora_qwen_1_5b_10k/train_pairs.jsonl",
+      "pairs": 10000,
+      "sha256": "b6cb063364fcb0078f0c771efb6bd7ab0e11b524dd22e8673999e308a5602ae9",
+      "unique_queries": 2011,
+      "avg_pairs_per_query": 4.972650422675286,
+      "min_pairs_per_query": 2,
+      "max_pairs_per_query": 5,
+      "label_distribution": {
+        "Irrelevant": 7989,
+        "Relevant": 2011
+      }
+    }
+  },
+  "checks": {
+    "subset_1k_in_3k": true,
+    "subset_3k_in_10k": true,
+    "subset_3k_is_prefix_of_permutation": true,
+    "source_has_no_duplicate_keys": true,
+    "validation_or_test_rows_used": false
+  }
+}

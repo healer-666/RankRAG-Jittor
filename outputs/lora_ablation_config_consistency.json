@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "same_base_model": true,
+  "same_lora_rank": true,
+  "same_learning_rate": true,
+  "same_max_steps": true,
+  "same_max_length": true,
+  "same_seed": true,
+  "same_validation_set": true,
+  "same_test_set": true,
+  "same_scoring_method": true,
+  "effective_epoch_note": "With max_train_steps fixed, E1 measures the effect of adding training-data diversity under a fixed optimizer-step budget, not a fixed-epoch comparison.",
+  "allowed_differences": [
+    "ablation_factor",
+    "debug_output_dir",
+    "experiment_name",
+    "fixed_max_steps",
+    "output_dir",
+    "reference_training_pairs",
+    "subset_manifest_path",
+    "train_path",
+    "training_pairs"
+  ],
+  "runs": {
+    "lora_qwen_1_5b_1k_lr1e4_s800": {
+      "train_path": "data/processed/lora_ablation/train_1k.jsonl",
+      "training_pairs": 1000,
+      "row_count": 1000,
+      "output_dir": "outputs/lora_ablation_data_1k",
+      "adapter_output_dir": "outputs/lora_adapters/qwen_1_5b_1k_lr1e4_s800",
+      "effective_epochs": {
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 8,
+        "gpu_count_assumption": 1,
+        "global_batch_size": 8,
+        "max_train_steps": 800,
+        "drop_last": false,
+        "samples_seen_at_fixed_steps": 6400,
+        "effective_epochs_at_fixed_steps": 6.4,
+        "interpretation": "fixed optimizer-step budget; smaller datasets are revisited more often"
+      }
+    },
+    "lora_qwen_1_5b_3k_lr1e4_s800": {
+      "train_path": "data/processed/lora_ablation/train_3k.jsonl",
+      "training_pairs": 3000,
+      "row_count": 3000,
+      "output_dir": "outputs/lora_ablation_data_3k",
+      "adapter_output_dir": "outputs/lora_adapters/qwen_1_5b_3k_lr1e4_s800",
+      "effective_epochs": {
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 8,
+        "gpu_count_assumption": 1,
+        "global_batch_size": 8,
+        "max_train_steps": 800,
+        "drop_last": false,
+        "samples_seen_at_fixed_steps": 6400,
+        "effective_epochs_at_fixed_steps": 2.1333333333333333,
+        "interpretation": "fixed optimizer-step budget; smaller datasets are revisited more often"
+      }
+    },
+    "lora_qwen_1_5b_10k_lr1e4_s800_rerun": {
+      "train_path": "data/processed/lora_qwen_1_5b_10k/train_pairs.jsonl",
+      "training_pairs": 10000,
+      "row_count": 10000,
+      "output_dir": "outputs/lora_ablation_data_10k_rerun",
+      "adapter_output_dir": "outputs/lora_adapters/qwen_1_5b_10k_lr1e4_s800_rerun",
+      "effective_epochs": {
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 8,
+        "gpu_count_assumption": 1,
+        "global_batch_size": 8,
+        "max_train_steps": 800,
+        "drop_last": false,
+        "samples_seen_at_fixed_steps": 6400,
+        "effective_epochs_at_fixed_steps": 0.64,
+        "interpretation": "fixed optimizer-step budget; smaller datasets are revisited more often"
+      }
+    }
+  },
+  "errors": []
+}

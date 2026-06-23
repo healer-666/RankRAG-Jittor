@@ -1,0 +1,35 @@
+model_name: Qwen/Qwen2.5-1.5B-Instruct
+train_path: data/processed/lora_qwen_1_5b_10k/train_pairs.jsonl
+valid_path: data/processed/lora_qwen_1_5b_10k/valid_pairs.jsonl
+output_dir: outputs/lora_adapters/qwen_1_5b_10k_lr1e4_s800_rerun
+debug_output_dir: outputs/lora_ablation_data_10k_rerun
+experiment_name: lora_qwen_1_5b_10k_lr1e4_s800_rerun
+ablation_factor: training_data_size
+training_pairs: 10000
+reference_training_pairs: 10000
+fixed_max_steps: 800
+subset_manifest_path: data/processed/lora_ablation/data_size_manifest.json
+
+max_length: 256
+num_train_epochs: 1
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 0.0001
+warmup_ratio: 0.03
+weight_decay: 0.0
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+  - gate_proj
+  - up_proj
+  - down_proj
+logging_steps: 10
+eval_steps: 100
+save_steps: 200
+max_train_steps: 800
+seed: 42
