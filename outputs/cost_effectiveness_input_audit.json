@@ -1,0 +1,513 @@
+{
+  "status": "ready",
+  "methods": [
+    {
+      "method_name": "BM25",
+      "effectiveness_metrics_path": "outputs/msmarco_medium_retrieval_baseline_metrics.json",
+      "rankings_path": "outputs/msmarco_medium_retrieval_baseline_rankings.json",
+      "train_summary_path": "not recorded",
+      "eval_summary_path": "not recorded",
+      "environment_path": "not recorded",
+      "gpu_monitor_path": "not recorded",
+      "config_path": "not recorded",
+      "query_count": 500,
+      "pair_count": 4044,
+      "available_fields": [
+        "base_model",
+        "category",
+        "effectiveness_comparable",
+        "evidence_paths",
+        "framework",
+        "implementation_role",
+        "local_task_training",
+        "measurement_status",
+        "method",
+        "mrr",
+        "ndcg_at_5",
+        "notes",
+        "pair_count",
+        "pairwise_accuracy",
+        "parameter_count",
+        "parameter_scale",
+        "pretrained_semantic_ability",
+        "query_count",
+        "recall_at_1",
+        "recall_at_3",
+        "recall_at_5",
+        "resource_comparability_group",
+        "resource_strictly_comparable",
+        "runtime_scope",
+        "trainable_parameter_count",
+        "trainable_parameter_ratio",
+        "training_type"
+      ],
+      "missing_fields": [
+        "cuda_version",
+        "evaluation_hardware",
+        "evaluation_runtime_sec",
+        "framework_version",
+        "milliseconds_per_pair",
+        "pairs_per_second",
+        "peak_cpu_memory_mib",
+        "peak_gpu_memory_mib",
+        "python_version",
+        "training_hardware",
+        "training_runtime_sec"
+      ],
+      "file_sha256": {
+        "metrics": {
+          "path": "outputs/msmarco_medium_retrieval_baseline_metrics.json",
+          "exists": true,
+          "sha256": "1a047366c2efb531c3c685c2127c95fd8eb83a702cd328facdcba6979c1c7717",
+          "size_bytes": 852
+        },
+        "rankings": {
+          "path": "outputs/msmarco_medium_retrieval_baseline_rankings.json",
+          "exists": true,
+          "sha256": "402a5ecaeea58d45bb89b86115bb49979e2d48ac9a04b99b79372cd7bb3c5efd",
+          "size_bytes": 5193835
+        },
+        "config": {
+          "path": "not recorded",
+          "exists": false,
+          "sha256": "not recorded"
+        }
+      },
+      "is_formal_result": true,
+      "is_debug_result": false
+    },
+    {
+      "method_name": "Jittor MLP",
+      "effectiveness_metrics_path": "outputs/msmarco_medium_jittor_metrics.json",
+      "rankings_path": "outputs/msmarco_medium_jittor_test_rankings.json",
+      "train_summary_path": "not recorded",
+      "eval_summary_path": "not recorded",
+      "environment_path": "not recorded",
+      "gpu_monitor_path": "not recorded",
+      "config_path": "configs/msmarco_medium.yaml",
+      "query_count": 500,
+      "pair_count": 4044,
+      "available_fields": [
+        "base_model",
+        "category",
+        "effectiveness_comparable",
+        "evidence_paths",
+        "framework",
+        "implementation_role",
+        "local_task_training",
+        "measurement_status",
+        "method",
+        "mrr",
+        "ndcg_at_5",
+        "notes",
+        "pair_count",
+        "pairwise_accuracy",
+        "parameter_count",
+        "parameter_scale",
+        "pretrained_semantic_ability",
+        "query_count",
+        "recall_at_1",
+        "recall_at_3",
+        "recall_at_5",
+        "resource_comparability_group",
+        "resource_strictly_comparable",
+        "runtime_scope",
+        "trainable_parameter_count",
+        "trainable_parameter_ratio",
+        "training_type"
+      ],
+      "missing_fields": [
+        "cuda_version",
+        "evaluation_hardware",
+        "evaluation_runtime_sec",
+        "framework_version",
+        "milliseconds_per_pair",
+        "pairs_per_second",
+        "peak_cpu_memory_mib",
+        "peak_gpu_memory_mib",
+        "python_version",
+        "training_hardware",
+        "training_runtime_sec"
+      ],
+      "file_sha256": {
+        "metrics": {
+          "path": "outputs/msmarco_medium_jittor_metrics.json",
+          "exists": true,
+          "sha256": "cb198af4ee1a78b8966d68508b0ae04c01da2db5c67c0876d9fc065d69a4ca07",
+          "size_bytes": 286
+        },
+        "rankings": {
+          "path": "outputs/msmarco_medium_jittor_test_rankings.json",
+          "exists": true,
+          "sha256": "4c2f8b3d6657ba266fb7d8b3c541c47133667f6d45388936ee6adb703c90d431",
+          "size_bytes": 2526811
+        },
+        "config": {
+          "path": "configs/msmarco_medium.yaml",
+          "exists": true,
+          "sha256": "472fc05ef33f65f842b4e81feb831b6a16237b120af0e6186795ee1c41c55cd7",
+          "size_bytes": 1030
+        },
+        "train_log": {
+          "path": "logs/msmarco_medium_jittor_train.log",
+          "exists": true,
+          "sha256": "23f7881728f96790969510708d742a8efc92a581e4eaa0b26adb179b72fa9e31",
+          "size_bytes": 1173
+        }
+      },
+      "is_formal_result": true,
+      "is_debug_result": false
+    },
+    {
+      "method_name": "Jittor TextCNN",
+      "effectiveness_metrics_path": "outputs/msmarco_medium_textcnn_jittor_metrics.json",
+      "rankings_path": "outputs/msmarco_medium_textcnn_jittor_test_rankings.json",
+      "train_summary_path": "not recorded",
+      "eval_summary_path": "not recorded",
+      "environment_path": "not recorded",
+      "gpu_monitor_path": "not recorded",
+      "config_path": "configs/msmarco_medium_textcnn.yaml",
+      "query_count": 500,
+      "pair_count": 4044,
+      "available_fields": [
+        "base_model",
+        "category",
+        "effectiveness_comparable",
+        "evidence_paths",
+        "framework",
+        "implementation_role",
+        "local_task_training",
+        "measurement_status",
+        "method",
+        "mrr",
+        "ndcg_at_5",
+        "notes",
+        "pair_count",
+        "pairwise_accuracy",
+        "parameter_count",
+        "parameter_scale",
+        "pretrained_semantic_ability",
+        "query_count",
+        "recall_at_1",
+        "recall_at_3",
+        "recall_at_5",
+        "resource_comparability_group",
+        "resource_strictly_comparable",
+        "runtime_scope",
+        "trainable_parameter_count",
+        "trainable_parameter_ratio",
+        "training_type"
+      ],
+      "missing_fields": [
+        "cuda_version",
+        "evaluation_hardware",
+        "evaluation_runtime_sec",
+        "framework_version",
+        "milliseconds_per_pair",
+        "pairs_per_second",
+        "peak_cpu_memory_mib",
+        "peak_gpu_memory_mib",
+        "python_version",
+        "training_hardware",
+        "training_runtime_sec"
+      ],
+      "file_sha256": {
+        "metrics": {
+          "path": "outputs/msmarco_medium_textcnn_jittor_metrics.json",
+          "exists": true,
+          "sha256": "e4d748015ab2442627e048ac696c153166eb45d488ffe9a156d09af82bbffba3",
+          "size_bytes": 285
+        },
+        "rankings": {
+          "path": "outputs/msmarco_medium_textcnn_jittor_test_rankings.json",
+          "exists": true,
+          "sha256": "248b5f3df327738c6a876fcbd6260175c381762b42691d379420b8aee4a91a8b",
+          "size_bytes": 2522488
+        },
+        "config": {
+          "path": "configs/msmarco_medium_textcnn.yaml",
+          "exists": true,
+          "sha256": "ca36278b6dd30dad35fae036e7e1953183f14f23c3aefc51c6be09b1b5132610",
+          "size_bytes": 1235
+        },
+        "train_log": {
+          "path": "logs/msmarco_medium_textcnn_jittor_train.log",
+          "exists": true,
+          "sha256": "9e3e6f60f050265d0693cb1c8d7c7d0a9882df5d81c897380f8c34a6ec8bff48",
+          "size_bytes": 1395
+        }
+      },
+      "is_formal_result": true,
+      "is_debug_result": false
+    },
+    {
+      "method_name": "Qwen2.5-1.5B zero-shot reranker",
+      "effectiveness_metrics_path": "outputs/jittorllm_qwen2_1_5b_full/metrics.json",
+      "rankings_path": "outputs/jittorllm_qwen2_1_5b_full/rankings.json",
+      "train_summary_path": "not recorded",
+      "eval_summary_path": "not recorded",
+      "environment_path": "not recorded",
+      "gpu_monitor_path": "not recorded",
+      "config_path": "configs/jittorllm_qwen2_1_5b_full.yaml",
+      "query_count": 500,
+      "pair_count": 4044,
+      "available_fields": [
+        "base_model",
+        "category",
+        "effectiveness_comparable",
+        "evaluation_runtime_sec",
+        "evidence_paths",
+        "framework",
+        "implementation_role",
+        "local_task_training",
+        "measurement_status",
+        "method",
+        "milliseconds_per_pair",
+        "mrr",
+        "ndcg_at_5",
+        "notes",
+        "pair_count",
+        "pairs_per_second",
+        "pairwise_accuracy",
+        "parameter_scale",
+        "peak_gpu_memory_mib",
+        "pretrained_semantic_ability",
+        "query_count",
+        "recall_at_1",
+        "recall_at_3",
+        "recall_at_5",
+        "resource_comparability_group",
+        "resource_strictly_comparable",
+        "runtime_scope",
+        "trainable_parameter_count",
+        "trainable_parameter_ratio",
+        "training_hardware",
+        "training_type"
+      ],
+      "missing_fields": [
+        "cuda_version",
+        "evaluation_hardware",
+        "framework_version",
+        "parameter_count",
+        "peak_cpu_memory_mib",
+        "python_version",
+        "training_runtime_sec"
+      ],
+      "file_sha256": {
+        "metrics": {
+          "path": "outputs/jittorllm_qwen2_1_5b_full/metrics.json",
+          "exists": true,
+          "sha256": "0c8313c16cd3e48b21e56d045e251884bf8c6c855755bd15c731a7e9a0852e72",
+          "size_bytes": 1154
+        },
+        "rankings": {
+          "path": "outputs/jittorllm_qwen2_1_5b_full/rankings.json",
+          "exists": true,
+          "sha256": "76c5c99dccd1ccac1f0628f6a6bfdac50959b1c265dbf055d09066ac70d5e713",
+          "size_bytes": 1385232
+        },
+        "config": {
+          "path": "configs/jittorllm_qwen2_1_5b_full.yaml",
+          "exists": true,
+          "sha256": "e6445b15c9c5bf8d9faf0edb4e373f6181f35ac01d7d03fcf904349cf873bbaf",
+          "size_bytes": 799
+        }
+      },
+      "is_formal_result": true,
+      "is_debug_result": false
+    },
+    {
+      "method_name": "Qwen2.5-1.5B LoRA 10k-rerun",
+      "effectiveness_metrics_path": "outputs/lora_ablation_data_10k_rerun/qwen_1_5b_lora_metrics.json",
+      "rankings_path": "outputs/lora_ablation_data_10k_rerun/qwen_1_5b_lora_rankings.json",
+      "train_summary_path": "outputs/lora_ablation_data_10k_rerun/train_summary.json",
+      "eval_summary_path": "not recorded",
+      "environment_path": "outputs/e1_autodl_environment.json",
+      "gpu_monitor_path": "logs/e1_autodl_4090d/10k_rerun_gpu.csv",
+      "config_path": "configs/lora_qwen_1_5b_10k_lr1e4_s800_rerun.yaml",
+      "query_count": 500,
+      "pair_count": 4044,
+      "available_fields": [
+        "base_model",
+        "category",
+        "cuda_version",
+        "effectiveness_comparable",
+        "evaluation_hardware",
+        "evaluation_runtime_sec",
+        "evidence_paths",
+        "framework",
+        "framework_version",
+        "implementation_role",
+        "local_task_training",
+        "measurement_status",
+        "method",
+        "milliseconds_per_pair",
+        "mrr",
+        "ndcg_at_5",
+        "notes",
+        "pair_count",
+        "pairs_per_second",
+        "pairwise_accuracy",
+        "parameter_count",
+        "parameter_scale",
+        "peak_gpu_memory_mib",
+        "pretrained_semantic_ability",
+        "python_version",
+        "query_count",
+        "recall_at_1",
+        "recall_at_3",
+        "recall_at_5",
+        "resource_comparability_group",
+        "resource_strictly_comparable",
+        "runtime_scope",
+        "trainable_parameter_count",
+        "trainable_parameter_ratio",
+        "training_hardware",
+        "training_runtime_sec",
+        "training_type"
+      ],
+      "missing_fields": [
+        "peak_cpu_memory_mib"
+      ],
+      "file_sha256": {
+        "metrics": {
+          "path": "outputs/lora_ablation_data_10k_rerun/qwen_1_5b_lora_metrics.json",
+          "exists": true,
+          "sha256": "6bf2cdde29710a4443d62d49f3e6b9499c5a9845c35d920ca38794b0050edc81",
+          "size_bytes": 1933
+        },
+        "rankings": {
+          "path": "outputs/lora_ablation_data_10k_rerun/qwen_1_5b_lora_rankings.json",
+          "exists": true,
+          "sha256": "34dfd42b7bea1c0df290750ddf6aee1d2a8837a7af607e0f2c5fe791f22a1abb",
+          "size_bytes": 3189993
+        },
+        "train_summary": {
+          "path": "outputs/lora_ablation_data_10k_rerun/train_summary.json",
+          "exists": true,
+          "sha256": "4157a7f97e40dd5ff8c27c823cdcbbffd1f60125c800ac6f07f0753702cb2160",
+          "size_bytes": 1159
+        },
+        "environment": {
+          "path": "outputs/e1_autodl_environment.json",
+          "exists": true,
+          "sha256": "1f45dbb3b2f9de219d97cd4dc651d9746defbfa70e8a708be08da242d28daf9c",
+          "size_bytes": 3076
+        },
+        "gpu_monitor": {
+          "path": "logs/e1_autodl_4090d/10k_rerun_gpu.csv",
+          "exists": true,
+          "sha256": "83d2e5a9cdd11928dc881e4a2c783a419455ac0cdbe32732c10aac45dcb0e3a3",
+          "size_bytes": 2153
+        },
+        "eval_gpu_monitor": {
+          "path": "logs/e1_autodl_4090d/10k_rerun_eval_gpu.csv",
+          "exists": true,
+          "sha256": "c63fbd742124f12c0da51e5ce5ba95765c85c428040e050ac739579f179d4e89",
+          "size_bytes": 4765
+        },
+        "config": {
+          "path": "configs/lora_qwen_1_5b_10k_lr1e4_s800_rerun.yaml",
+          "exists": true,
+          "sha256": "fd2e7d0281709ffc2302b51f61444440640128e043df24175304992287856c9c",
+          "size_bytes": 908
+        },
+        "train_log": {
+          "path": "logs/e1_autodl_4090d/10k_rerun_train.log",
+          "exists": true,
+          "sha256": "625859965058815aa84a2c0641a5225f180d57c0c6701e47eaac2eedd76da9d3",
+          "size_bytes": 73671
+        },
+        "eval_log": {
+          "path": "logs/e1_autodl_4090d/10k_rerun_eval.log",
+          "exists": true,
+          "sha256": "1afe7d25daab49acfb1290bcc86d001dd52e96e5728beed5382e3f53c03c2dcf",
+          "size_bytes": 43631
+        }
+      },
+      "is_formal_result": true,
+      "is_debug_result": false
+    },
+    {
+      "method_name": "Cross-Encoder",
+      "effectiveness_metrics_path": "outputs/msmarco_medium_cross_encoder_metrics.json",
+      "rankings_path": "outputs/msmarco_medium_cross_encoder_rankings.json",
+      "train_summary_path": "not recorded",
+      "eval_summary_path": "not recorded",
+      "environment_path": "not recorded",
+      "gpu_monitor_path": "not recorded",
+      "config_path": "not recorded",
+      "query_count": 500,
+      "pair_count": 4044,
+      "available_fields": [
+        "base_model",
+        "category",
+        "effectiveness_comparable",
+        "evaluation_hardware",
+        "evaluation_runtime_sec",
+        "evidence_paths",
+        "framework",
+        "implementation_role",
+        "local_task_training",
+        "measurement_status",
+        "method",
+        "milliseconds_per_pair",
+        "mrr",
+        "ndcg_at_5",
+        "notes",
+        "pair_count",
+        "pairs_per_second",
+        "pairwise_accuracy",
+        "parameter_scale",
+        "pretrained_semantic_ability",
+        "query_count",
+        "recall_at_1",
+        "recall_at_3",
+        "recall_at_5",
+        "resource_comparability_group",
+        "resource_strictly_comparable",
+        "runtime_scope",
+        "trainable_parameter_count",
+        "trainable_parameter_ratio",
+        "training_hardware",
+        "training_type"
+      ],
+      "missing_fields": [
+        "cuda_version",
+        "framework_version",
+        "parameter_count",
+        "peak_cpu_memory_mib",
+        "peak_gpu_memory_mib",
+        "python_version",
+        "training_runtime_sec"
+      ],
+      "file_sha256": {
+        "metrics": {
+          "path": "outputs/msmarco_medium_cross_encoder_metrics.json",
+          "exists": true,
+          "sha256": "d97a99a44926138fcb73bb20d1997ae76d99974d38b1156f0e447b4a0104d484",
+          "size_bytes": 743
+        },
+        "rankings": {
+          "path": "outputs/msmarco_medium_cross_encoder_rankings.json",
+          "exists": true,
+          "sha256": "0b9cd93b125c2462bb94f3ae541a7a6523abf053d8c17ffeb92e91a5f17b19fe",
+          "size_bytes": 2522991
+        },
+        "config": {
+          "path": "not recorded",
+          "exists": false,
+          "sha256": "not recorded"
+        },
+        "script": {
+          "path": "src/pretrained_cross_encoder_reference.py",
+          "exists": true,
+          "sha256": "dac4cf45d000b634c2829aea8459dee5aca88285abde380d0c709d25facd8762",
+          "size_bytes": 6466
+        }
+      },
+      "is_formal_result": true,
+      "is_debug_result": false
+    }
+  ]
+}

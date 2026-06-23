@@ -1,0 +1,20 @@
+{
+  "status": "ready",
+  "test_query_file": "data/processed/msmarco_medium/test.jsonl",
+  "test_query_sha256": "497e99a2acd46c1336bcdc0ab755100d0fb43f2124f88029c1a0dbc3bf4d7504",
+  "lora_test_query_file": "data/processed/lora_qwen_1_5b_10k/test_queries.jsonl",
+  "lora_test_query_sha256": "6b15fca71faf6722a921cc4474e988058991ca786fb7bb99142b274cee7ff303",
+  "method_count": 6,
+  "effectiveness_comparable_methods": [
+    "BM25",
+    "Jittor MLP",
+    "Jittor TextCNN",
+    "Qwen2.5-1.5B zero-shot reranker",
+    "Qwen2.5-1.5B LoRA 10k-rerun",
+    "Cross-Encoder"
+  ],
+  "strictly_resource_comparable_methods": [],
+  "strictly_comparable_method_count": 0,
+  "figure_type": "non_strict_resource_profile",
+  "reason": "Effectiveness is comparable on the same candidate pool; resource fields use heterogeneous hardware/software/runtime scopes."
+}
