@@ -1,0 +1,539 @@
+{
+  "status": "passed",
+  "checked_commit": "bcca77d0eef1130a88e822178a417003b751078e",
+  "tracked_file_count": 455,
+  "large_file_warnings": [],
+  "large_file_failures": [],
+  "forbidden_weight_files": [],
+  "suspected_secrets": [],
+  "hardcoded_path_findings": [
+    {
+      "path": "outputs/downstream_rag_eval/downstream_rag_case_study.json",
+      "line": 368,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval/downstream_rag_case_study.json",
+      "line": 412,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b/downstream_rag_case_study.json",
+      "line": 390,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b/downstream_rag_case_study.json",
+      "line": 434,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 38,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 38,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 82,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 82,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 379,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 379,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 379,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 379,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 511,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 511,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 511,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 633,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 721,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 721,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 721,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 721,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 721,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 776,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 776,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 776,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 776,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 776,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 776,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 776,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 776,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 787,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 787,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 787,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 787,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 787,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/downstream_rag_eval_qwen2_7b_strict_prompt/downstream_rag_case_study.json",
+      "line": 787,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/e1_autodl_environment.json",
+      "line": 16,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/e1_autodl_environment.md",
+      "line": 11,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_ablation_data_10k_rerun/qwen_1_5b_lora_metrics.json",
+      "line": 18,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_ablation_data_10k_rerun/train_summary.json",
+      "line": 3,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_ablation_data_1k/qwen_1_5b_lora_metrics.json",
+      "line": 18,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_ablation_data_1k/train_summary.json",
+      "line": 3,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_ablation_data_3k/qwen_1_5b_lora_metrics.json",
+      "line": 18,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_ablation_data_3k/train_summary.json",
+      "line": 3,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_ablation_results.json",
+      "line": 15,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_ablation_results.json",
+      "line": 49,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_ablation_results.json",
+      "line": 83,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_scoring_ablation/generate_parse/qwen_1_5b_lora_metrics.json",
+      "line": 18,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_scoring_ablation/logprob_margin/qwen_1_5b_lora_metrics.json",
+      "line": 18,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/lora_scoring_ablation/relevant_logprob/qwen_1_5b_lora_metrics.json",
+      "line": 18,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "scripts/run_stage_e_autodl.sh",
+      "line": 3,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "scripts/run_stage_e_autodl.sh",
+      "line": 5,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
+      "path": "tests/test_rag_answer_prompt.py",
+      "line": 47,
+      "type": "windows_drive",
+      "severity": "warning"
+    }
+  ],
+  "broken_links": [],
+  "readme_consistency": {
+    "status": "passed",
+    "checks": {
+      "english_links_chinese": true,
+      "chinese_links_english": true,
+      "english_positioning": true,
+      "chinese_positioning": true,
+      "no_forbidden_claims": true,
+      "uses_10k_rerun": true,
+      "mentions_historical_boundary": true,
+      "mentions_500_4044": true,
+      "cross_encoder_reference": true,
+      "mlp_textcnn_alignment": true
+    }
+  },
+  "result_consistency": {
+    "status": "passed",
+    "failures": []
+  },
+  "command_validation": {
+    "status": "passed",
+    "script_paths": [
+      "scripts/aggregate_error_taxonomy.py",
+      "scripts/aggregate_lora_data_size_ablation.py",
+      "scripts/aggregate_lora_scoring_ablation.py",
+      "scripts/build_cost_effectiveness_profile.py",
+      "scripts/build_final_project_summary.py",
+      "scripts/build_lora_data_size_ablation.py",
+      "scripts/check_cost_effectiveness_outputs.py",
+      "scripts/check_final_repository.py",
+      "scripts/check_lora_data_ablation.py",
+      "scripts/prepare_data.py",
+      "scripts/prepare_msmarco_subset.py",
+      "scripts/run_downstream_rag_eval.py",
+      "scripts/validate_downstream_rag_results.py",
+      "src/aggregate_downstream_rag_results.py",
+      "src/aggregate_l2_results.py",
+      "src/audit_downstream_rag_data.py",
+      "src/baseline_retrieval.py",
+      "src/build_downstream_qa_subset.py",
+      "src/eval_jittor.py",
+      "src/eval_textcnn_jittor.py",
+      "src/eval_textcnn_torch.py",
+      "src/eval_torch.py",
+      "src/jittorllm_reranker/evaluate_qwen2_jittor.py",
+      "src/lora_reranker/evaluate_lora_reranker.py",
+      "src/lora_reranker/train_lora_reranker.py",
+      "src/pretrained_cross_encoder_reference.py",
+      "src/train_jittor.py",
+      "src/train_textcnn_jittor.py",
+      "src/train_textcnn_torch.py",
+      "src/train_torch.py"
+    ],
+    "config_paths": [
+      "configs/downstream_rag_50q.yaml",
+      "configs/downstream_rag_50q_qwen2_1_5b_strict_prompt.yaml",
+      "configs/downstream_rag_50q_qwen2_7b.yaml",
+      "configs/downstream_rag_50q_qwen2_7b_strict_prompt.yaml",
+      "configs/jittorllm_qwen2_1_5b_full.yaml",
+      "configs/lora_qwen_1_5b_10k_lr1e4_s800_rerun.yaml",
+      "configs/lora_qwen_1_5b_1k_lr1e4_s800.yaml",
+      "configs/lora_qwen_1_5b_3k_lr1e4_s800.yaml",
+      "configs/msmarco_medium.yaml",
+      "configs/msmarco_medium_textcnn.yaml"
+    ],
+    "missing_paths": [],
+    "output_warnings": [],
+    "help_results": {
+      "scripts/prepare_msmarco_subset.py": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "scripts/prepare_msmarco_subset.py",
+          "--help"
+        ],
+        "returncode": 0,
+        "stdout_tail": "usage: prepare_msmarco_subset.py [-h] [--max_train_queries MAX_TRAIN_QUERIES]\n                                 [--max_valid_queries MAX_VALID_QUERIES]\n                                 [--max_test_queries MAX_TEST_QUERIES]\n                                 [--candidates_per_query CANDIDATES_PER_QUERY]\n                                 [--output_dir OUTPUT_DIR]\n                                 [--run_name RUN_NAME] [--seed SEED]\n\noptions:\n  -h, --help            show this help message and exit\n  --max_train_queries MAX_TRAIN_QUERIES\n  --max_valid_queries MAX_VALID_QUERIES\n  --max_test_queries MAX_TEST_QUERIES\n  --candidates_per_query CANDIDATES_PER_QUERY\n  --output_dir OUTPUT_DIR\n  --run_name RUN_NAME\n  --seed SEED\n",
+        "stderr_tail": ""
+      },
+      "scripts/run_downstream_rag_eval.py": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "scripts/run_downstream_rag_eval.py",
+          "--help"
+        ],
+        "returncode": 0,
+        "stdout_tail": "usage: run_downstream_rag_eval.py [-h] --config CONFIG [--methods METHODS]\n                                  [--top-k TOP_K]\n                                  [--max-questions MAX_QUESTIONS]\n                                  [--output-dir OUTPUT_DIR]\n                                  [--generator-model-path GENERATOR_MODEL_PATH]\n\noptions:\n  -h, --help            show this help message and exit\n  --config CONFIG\n  --methods METHODS\n  --top-k TOP_K\n  --max-questions MAX_QUESTIONS\n  --output-dir OUTPUT_DIR\n  --generator-model-path GENERATOR_MODEL_PATH\n",
+        "stderr_tail": ""
+      },
+      "scripts/validate_downstream_rag_results.py": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "scripts/validate_downstream_rag_results.py",
+          "--help"
+        ],
+        "returncode": 0,
+        "stdout_tail": "usage: validate_downstream_rag_results.py [-h] [--config CONFIG]\n                                          [--output-dir OUTPUT_DIR]\n                                          [--top-k TOP_K]\n                                          [--max-questions MAX_QUESTIONS]\n\noptions:\n  -h, --help            show this help message and exit\n  --config CONFIG\n  --output-dir OUTPUT_DIR\n  --top-k TOP_K\n  --max-questions MAX_QUESTIONS\n",
+        "stderr_tail": ""
+      },
+      "src/baseline_retrieval.py": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "src/baseline_retrieval.py",
+          "--help"
+        ],
+        "returncode": 0,
+        "stdout_tail": "usage: baseline_retrieval.py [-h] [--data_path DATA_PATH]\n                             [--output_path OUTPUT_PATH]\n                             [--rankings_path RANKINGS_PATH]\n                             [--run_name RUN_NAME]\n\noptions:\n  -h, --help            show this help message and exit\n  --data_path DATA_PATH\n  --output_path OUTPUT_PATH\n  --rankings_path RANKINGS_PATH\n  --run_name RUN_NAME\n",
+        "stderr_tail": ""
+      },
+      "src/pretrained_cross_encoder_reference.py": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "src/pretrained_cross_encoder_reference.py",
+          "--help"
+        ],
+        "returncode": 0,
+        "stdout_tail": "usage: pretrained_cross_encoder_reference.py [-h] [--data_path DATA_PATH]\n                                             [--model_name MODEL_NAME]\n                                             [--output_metrics OUTPUT_METRICS]\n                                             [--output_rankings OUTPUT_RANKINGS]\n                                             [--batch_size BATCH_SIZE]\n                                             [--max_queries MAX_QUERIES]\n                                             [--device {None,cpu,cuda}]\n\noptions:\n  -h, --help            show this help message and exit\n  --data_path DATA_PATH\n  --model_name MODEL_NAME\n  --output_metrics OUTPUT_METRICS\n  --output_rankings OUTPUT_RANKINGS\n  --batch_size BATCH_SIZE\n  --max_queries MAX_QUERIES\n  --device {None,cpu,cuda}\n",
+        "stderr_tail": ""
+      },
+      "src/aggregate_l2_results.py": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "src/aggregate_l2_results.py",
+          "--help"
+        ],
+        "returncode": 0,
+        "stdout_tail": "usage: aggregate_l2_results.py [-h] [--run_name {msmarco,msmarco_medium}]\n\noptions:\n  -h, --help            show this help message and exit\n  --run_name {msmarco,msmarco_medium}\n",
+        "stderr_tail": ""
+      },
+      "src/audit_downstream_rag_data.py": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "src/audit_downstream_rag_data.py",
+          "--help"
+        ],
+        "returncode": 0,
+        "stdout_tail": "usage: audit_downstream_rag_data.py [-h] --config CONFIG\n\noptions:\n  -h, --help       show this help message and exit\n  --config CONFIG\n",
+        "stderr_tail": ""
+      },
+      "src/build_downstream_qa_subset.py": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "src/build_downstream_qa_subset.py",
+          "--help"
+        ],
+        "returncode": 0,
+        "stdout_tail": "usage: build_downstream_qa_subset.py [-h] --config CONFIG\n\noptions:\n  -h, --help       show this help message and exit\n  --config CONFIG\n",
+        "stderr_tail": ""
+      },
+      "src/aggregate_downstream_rag_results.py": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "src/aggregate_downstream_rag_results.py",
+          "--help"
+        ],
+        "returncode": 0,
+        "stdout_tail": "usage: aggregate_downstream_rag_results.py [-h] [--config CONFIG]\n                                           [--input-dir INPUT_DIR]\n                                           [--top-k TOP_K]\n\noptions:\n  -h, --help            show this help message and exit\n  --config CONFIG\n  --input-dir INPUT_DIR\n  --top-k TOP_K\n",
+        "stderr_tail": ""
+      }
+    },
+    "help_failures": []
+  },
+  "stage_checks": {
+    "status": "passed",
+    "results": {
+      "lora_data_config": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "scripts/check_lora_data_ablation.py",
+          "--mode",
+          "config",
+          "--output",
+          "nul"
+        ],
+        "returncode": 0,
+        "stdout_tail": "mples_seen_at_fixed_steps\": 6400,\n        \"effective_epochs_at_fixed_steps\": 2.1333333333333333,\n        \"interpretation\": \"fixed optimizer-step budget; smaller datasets are revisited more often\"\n      }\n    },\n    \"lora_qwen_1_5b_10k_lr1e4_s800_rerun\": {\n      \"train_path\": \"data/processed/lora_qwen_1_5b_10k/train_pairs.jsonl\",\n      \"training_pairs\": 10000,\n      \"row_count\": 10000,\n      \"output_dir\": \"outputs/lora_ablation_data_10k_rerun\",\n      \"adapter_output_dir\": \"outputs/lora_adapters/qwen_1_5b_10k_lr1e4_s800_rerun\",\n      \"effective_epochs\": {\n        \"per_device_train_batch_size\": 8,\n        \"gradient_accumulation_steps\": 1,\n        \"gpu_count_assumption\": 1,\n        \"global_batch_size\": 8,\n        \"max_train_steps\": 800,\n        \"drop_last\": false,\n        \"samples_seen_at_fixed_steps\": 6400,\n        \"effective_epochs_at_fixed_steps\": 0.64,\n        \"interpretation\": \"fixed optimizer-step budget; smaller datasets are revisited more often\"\n      }\n    }\n  },\n  \"errors\": []\n}\n",
+        "stderr_tail": ""
+      },
+      "lora_data_validation": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "scripts/check_lora_data_ablation.py",
+          "--mode",
+          "validation",
+          "--output",
+          "nul"
+        ],
+        "returncode": 0,
+        "stdout_tail": "{\n  \"status\": \"ready\",\n  \"runs\": {\n    \"1k\": {\n      \"training_pairs\": 1000,\n      \"metrics_present\": true,\n      \"rankings_present\": true,\n      \"validation_passed\": true,\n      \"retrained\": null\n    },\n    \"3k\": {\n      \"training_pairs\": 3000,\n      \"metrics_present\": true,\n      \"rankings_present\": true,\n      \"validation_passed\": true,\n      \"retrained\": null\n    },\n    \"10k\": {\n      \"training_pairs\": 10000,\n      \"metrics_present\": true,\n      \"rankings_present\": true,\n      \"validation_passed\": true,\n      \"retrained\": false\n    }\n  },\n  \"config_consistency\": \"passed\",\n  \"nested_subset_check\": \"passed\",\n  \"errors\": []\n}\n",
+        "stderr_tail": ""
+      },
+      "cost_effectiveness": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "scripts/check_cost_effectiveness_outputs.py"
+        ],
+        "returncode": 0,
+        "stdout_tail": "Stage F output check passed.\n",
+        "stderr_tail": ""
+      },
+      "error_taxonomy": {
+        "command": [
+          "D:\\anaconda\\envs\\pytorch\\python.exe",
+          "scripts/check_error_taxonomy_outputs.py"
+        ],
+        "returncode": 0,
+        "stdout_tail": "{\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"case_count\": 30\n}\n",
+        "stderr_tail": ""
+      }
+    }
+  },
+  "missing_files": [],
+  "warnings": [
+    "historical or documented local paths are present as non-fatal findings"
+  ],
+  "failures": []
+}

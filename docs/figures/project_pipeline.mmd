@@ -1,0 +1,31 @@
+flowchart LR
+  A["MS MARCO data"] --> B["Candidate passages"]
+  B --> C["Initial retrieval"]
+  C --> D["Reranking"]
+  D --> E["Top-k evidence"]
+  E --> F["Qwen generator"]
+  F --> G["Ranking and downstream evaluation"]
+
+  subgraph L1["Layer 1: PyTorch/Jittor alignment"]
+    L1A["MLP"]
+    L1B["TextCNN"]
+  end
+
+  subgraph L2["Layer 2: RankRAG-style reranking"]
+    L2A["BM25 baseline"]
+    L2B["Qwen zero-shot"]
+    L2C["Qwen LoRA"]
+    L2D["Cross-Encoder reference"]
+  end
+
+  subgraph L3["Layer 3: Evaluation and analysis"]
+    L3A["Ranking metrics"]
+    L3B["Downstream RAG"]
+    L3C["E1/E2 ablations"]
+    L3D["Error taxonomy"]
+    L3E["Resource profile"]
+  end
+
+  D -. "lightweight alignment" .-> L1
+  D -. "reranker comparison" .-> L2
+  G -. "analysis outputs" .-> L3

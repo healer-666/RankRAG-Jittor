@@ -1,90 +1,147 @@
-# RankRAG-style Context Ranking in Jittor
+# RankRAG-Jittor
 
-This repository is a lightweight reproduction of the **context ranking / evidence selector** idea from RankRAG. It implements compact rerankers in PyTorch and Jittor, evaluates them on synthetic smoke data and MS MARCO subsets, and compares them with lexical baselines plus an external pretrained Cross-Encoder reference.
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-It does **not** reproduce full RankRAG LLM instruction tuning or answer generation.
+A Jittor-based lightweight reproduction and empirical analysis of RankRAG-style LLM reranking.
 
-![Reproduction scope](docs/figures/01_reproduction_scope.png)
+## Overview
 
-## Scope
+RankRAG-style systems first retrieve candidate passages, rerank them by relevance to the user query, and pass the best evidence to a generator. This repository studies that reranking chain on a controlled MS MARCO medium subset. It aligns lightweight PyTorch and Jittor rerankers, compares lexical, neural, LLM, LoRA, and Cross-Encoder rerankers, checks downstream RAG behavior, and analyzes ablations, error types, and resource records.
 
-| Component | Status |
+The goal is not to reproduce the full RankRAG paper. The project focuses on the empirical chain: judge passage relevance, rerank candidate passages, validate downstream answers, and inspect where errors and costs appear.
+
+## Scope and Reproduction Boundary
+
+| Included | Not included |
 | --- | --- |
-| Synthetic hard-negative smoke test | Done |
-| MS MARCO small subset | Done |
-| MS MARCO medium subset | Done |
-| PyTorch MLP reranker | Done |
-| Jittor MLP reranker | Done |
-| PyTorch/Jittor TextCNN reranker | Done |
-| TF-IDF / BM25 baselines | Done |
-| External Cross-Encoder reference | Done |
-| Qwen2.5-1.5B LoRA reranker | Done |
-| Downstream RAG answer generation | Done |
-| Qwen2.5-7B generator-scale diagnostic | Done |
-| Qwen2.5-1.5B strict-prompt ablation | Done |
-| Qwen2.5-7B strict-prompt ablation | Done |
-| Full LLM generation | Out of scope |
+| PyTorch/Jittor MLP and TextCNN alignment baselines | Full reproduction of the original RankRAG paper |
+| TF-IDF, BM25, Qwen zero-shot, Qwen LoRA, and Cross-Encoder reranking comparisons | Llama 3 8B/70B experiments from the original paper |
+| Qwen2.5-1.5B LoRA reranker data-size and scoring-method ablations | Original-paper full data mixture and all benchmarks |
+| Downstream RAG checks with Qwen2.5-1.5B and Qwen2.5-7B generators | Joint large-scale instruction tuning of ranking and generation |
+| Error taxonomy over 30 stratified diagnostic cases | Claiming MLP/TextCNN as RankRAG core models |
+| Resource and effectiveness profile from recorded artifacts | A strict hardware-normalized speed benchmark |
 
-## Method
+Cross-Encoder is used as an external pretrained effectiveness reference. MLP and TextCNN are lightweight alignment baselines, not original RankRAG core models.
 
-The main reproduction target is the ranking module:
+## Project Pipeline
 
-```text
-query + candidate context
--> feature encoder or token encoder
--> MLP / TextCNN scorer
--> pairwise ranking loss
--> ranked candidate contexts
+```mermaid
+flowchart LR
+  A["MS MARCO data"] --> B["Candidate passages"]
+  B --> C["Initial retrieval"]
+  C --> D["Reranking"]
+  D --> E["Top-k evidence"]
+  E --> F["Qwen generator"]
+  F --> G["Ranking and downstream evaluation"]
+
+  subgraph L1["Layer 1: PyTorch/Jittor alignment"]
+    L1A["MLP"]
+    L1B["TextCNN"]
+  end
+
+  subgraph L2["Layer 2: RankRAG-style reranking"]
+    L2A["BM25 baseline"]
+    L2B["Qwen zero-shot"]
+    L2C["Qwen LoRA"]
+    L2D["Cross-Encoder reference"]
+  end
+
+  subgraph L3["Layer 3: Evaluation and analysis"]
+    L3A["Ranking metrics"]
+    L3B["Downstream RAG"]
+    L3C["E1/E2 ablations"]
+    L3D["Error taxonomy"]
+    L3E["Resource profile"]
+  end
+
+  D -. "lightweight alignment" .-> L1
+  D -. "reranker comparison" .-> L2
+  G -. "analysis outputs" .-> L3
 ```
 
-The MLP scorer uses fixed text features:
+Mermaid source: [docs/figures/project_pipeline.mmd](docs/figures/project_pipeline.mmd)
+
+## Main Results
+
+The main reranking results use the same MS MARCO medium candidate pool: 500 queries and 4044 query-passage pairs. The LoRA row is the Stage E `10k-rerun`, not the historical 10k run.
+
+| Method | R@1 | R@3 | R@5 | NDCG@5 | MRR | Pairwise Acc |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| BM25 | 0.230 | 0.554 | 0.784 | 0.5074 | 0.4476 | 0.6253 |
+| Jittor MLP | 0.228 | 0.506 | 0.712 | 0.4698 | 0.4318 | 0.5901 |
+| Jittor TextCNN | 0.180 | 0.450 | 0.678 | 0.4270 | 0.3912 | 0.5484 |
+| Qwen2.5-1.5B zero-shot | 0.236 | 0.552 | 0.812 | 0.5210 | 0.4525 | 0.6342 |
+| Qwen2.5-1.5B LoRA 10k-rerun | 0.356 | 0.696 | 0.866 | 0.6236 | 0.5633 | 0.7343 |
+| Cross-Encoder | 0.434 | 0.808 | 0.934 | 0.7019 | 0.6341 | 0.8049 |
+
+Key observations:
+
+- BM25 remains strong on this subset, which has clear lexical matching signals.
+- From-scratch MLP/TextCNN models are useful for PyTorch/Jittor alignment, but they lack pretrained semantic ability.
+- Qwen2.5-1.5B zero-shot has some semantic judgment ability, but the gain is limited.
+- The 10k LoRA reranker improves R@1 from 0.236 to 0.356 over the same-size zero-shot Qwen reranker.
+- Cross-Encoder is the strongest effectiveness reference here. LoRA's value is the RankRAG-style LLM reranking reproduction path, not beating every specialized reranker.
+
+Full results: [docs/final_results.md](docs/final_results.md)
+
+## PyTorch/Jittor Alignment
+
+The repository includes PyTorch and Jittor implementations for MLP and TextCNN rerankers. Their purpose is to check framework migration and trend alignment on the same data split. The alignment experiments do not claim that Jittor always outperforms PyTorch, and they do not model the full RankRAG architecture.
+
+Detailed table: [docs/final_results.md#2-pytorchjittor-alignment](docs/final_results.md#2-pytorchjittor-alignment)
+
+## Ablation and Analysis
+
+- LoRA data-size ablation: 1k / 3k / 10k-rerun nested training subsets with fixed 800 optimizer steps. See [docs/ablation_analysis.md](docs/ablation_analysis.md).
+- LoRA scoring-method ablation: `generate_parse`, `relevant_logprob`, and `logprob_margin` on the same 10k-rerun adapter. See [docs/scoring_ablation_analysis.md](docs/scoring_ablation_analysis.md).
+- Downstream RAG: BM25 / LoRA / Cross-Encoder evidence passed to Qwen generators under original and strict prompts. See [docs/downstream_rag_prompt_ablation_2x2.md](docs/downstream_rag_prompt_ablation_2x2.md).
+- Error taxonomy: 30 stratified diagnostic queries and nine error types. See [docs/error_taxonomy.md](docs/error_taxonomy.md).
+- Resource profile: effectiveness plus recorded training/runtime/memory metadata. See [docs/cost_effectiveness_analysis.md](docs/cost_effectiveness_analysis.md).
+
+## Repository Structure
 
 ```text
-q_emb, c_emb, abs(q-c), q*c, cosine
+configs/      Experiment and evaluation configs
+data/         Small demo data and processed metadata
+docs/         Reports, reproducibility guide, and figures
+outputs/      Metrics, rankings, summaries, and generated tables
+scripts/      Data, aggregation, validation, and orchestration scripts
+src/          Core models, evaluators, aggregation, and RAG utilities
 ```
 
-The TextCNN reranker scores `query <sep> candidate passage` with token embeddings, Conv1d kernels, max pooling, and a linear scorer.
+## Installation
 
-## Environment
+The repository provides [requirements.txt](requirements.txt). There is no `environment.yml`, `pyproject.toml`, `setup.py`, `requirements-jittor.txt`, or `requirements-lora.txt`.
 
-Verified on Ubuntu 22.04 CPU mode:
-
-```text
-Python: 3.10.20
-PyTorch: 2.12.1+cpu
-Jittor: 1.3.11.0
-Jittor mode: CPU, use_cuda=0
-g++: 11.4.0
-```
-
-Install:
+### PyTorch / analysis environment
 
 ```bash
-conda create -p .venv-jittor python=3.10 -y
-conda activate ./.venv-jittor
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-python -c "import jittor as jt; print(jt.__version__)"
 ```
 
-If Jittor is not available on the current machine, use WSL / Linux / server environment. See [docs/jittor_setup.md](docs/jittor_setup.md).
+On Windows PowerShell:
 
-## Run
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
 
-Synthetic smoke test:
+### Jittor environment
+
+The Jittor baselines were designed for CPU mode and are usually easier to run on Ubuntu or WSL than native Windows. See [docs/jittor_setup.md](docs/jittor_setup.md).
+
+### LoRA / Qwen environment
+
+Qwen zero-shot, LoRA training, LoRA evaluation, and downstream generation require local model weights outside this repository. Use environment variables such as `QWEN_LORA_MODEL_PATH` and `QWEN_GENERATOR_MODEL_PATH`; do not store model files in Git.
+
+## Data Preparation
 
 ```bash
 python scripts/prepare_data.py
-bash scripts/run_train_torch.sh
-bash scripts/run_eval_torch.sh
-bash scripts/run_train_jittor.sh
-bash scripts/run_eval_jittor.sh
-python src/compare_results.py
-python src/plot_results.py
-```
 
-MS MARCO medium experiment:
-
-```bash
 python scripts/prepare_msmarco_subset.py \
   --max_train_queries 5000 \
   --max_valid_queries 500 \
@@ -94,166 +151,63 @@ python scripts/prepare_msmarco_subset.py \
   --run_name msmarco_medium \
   --seed 42
 
-bash scripts/run_retrieval_baselines_msmarco_medium.sh
-bash scripts/run_train_torch_msmarco_medium.sh
-bash scripts/run_eval_torch_msmarco_medium.sh
-bash scripts/run_train_jittor_msmarco_medium.sh
-bash scripts/run_eval_jittor_msmarco_medium.sh
-bash scripts/run_train_textcnn_torch_msmarco_medium.sh
-bash scripts/run_eval_textcnn_torch_msmarco_medium.sh
-bash scripts/run_train_textcnn_jittor_msmarco_medium.sh
-bash scripts/run_eval_textcnn_jittor_msmarco_medium.sh
-python src/aggregate_l2_results.py --run_name msmarco_medium
-python src/case_study_msmarco.py --run_name msmarco_medium
+python scripts/build_lora_data_size_ablation.py
+python scripts/check_lora_data_ablation.py
 ```
 
-External Cross-Encoder reference:
+## Reproduction Commands
+
+### Quick Verification
+
+These commands are CPU-only and do not train or run model inference:
 
 ```bash
-bash scripts/run_cross_encoder_msmarco_medium.sh
-python src/aggregate_l25_results.py
-python src/case_study_cross_encoder.py
+python -m py_compile scripts/build_final_project_summary.py
+python -m py_compile scripts/check_final_repository.py
+python scripts/check_lora_data_ablation.py
+python scripts/check_cost_effectiveness_outputs.py
+python scripts/build_final_project_summary.py
+python scripts/check_final_repository.py
 ```
 
-Qwen2.5-1.5B LoRA reranker summary:
+### Full Reproduction
 
-```bash
-bash scripts/run_lora_qwen_1_5b_v3_data.sh
-bash scripts/run_lora_qwen_1_5b_v3_train.sh
-bash scripts/run_lora_qwen_1_5b_v3_eval.sh
-python src/aggregate_lora_results.py
-```
+The full path includes data preparation, BM25/TF-IDF, PyTorch/Jittor MLP and TextCNN baselines, Qwen zero-shot reranking, Qwen LoRA training/evaluation, Cross-Encoder reference, downstream RAG, E1/E2 aggregation, Stage G error analysis, Stage F resource profile, and final summary generation.
 
-Downstream RAG answer generation:
+The command list and environment notes are in [docs/reproduction.md](docs/reproduction.md).
 
-```bash
-python src/audit_downstream_rag_data.py --config configs/downstream_rag_50q.yaml
-python src/build_downstream_qa_subset.py --config configs/downstream_rag_50q.yaml
-python scripts/run_downstream_rag_eval.py --config configs/downstream_rag_50q.yaml --methods bm25,lora_v3,cross_encoder --top-k 3
-python src/aggregate_downstream_rag_results.py --config configs/downstream_rag_50q.yaml --input-dir outputs/downstream_rag_eval --top-k 3
-python scripts/validate_downstream_rag_results.py --config configs/downstream_rag_50q.yaml --output-dir outputs/downstream_rag_eval --top-k 3
-```
-
-Set `QWEN_GENERATOR_MODEL_PATH` or pass `--generator-model-path` to use a local Qwen2.5-1.5B-Instruct directory outside the repository. Model weights are not versioned.
-
-Readiness check:
-
-```bash
-python scripts/check_project_ready.py
-```
-
-## Data
-
-| Dataset | Train queries | Valid queries | Test queries | Avg candidates |
-| --- | ---: | ---: | ---: | ---: |
-| Synthetic hard-negative | small smoke test | small smoke test | small smoke test | fixed template set |
-| MS MARCO small | 1000 | 200 | 200 | about 5 |
-| MS MARCO medium | 5000 | 500 | 500 | about 8.1 |
-
-MS MARCO data is derived from `microsoft/ms_marco`, config `v1.1`. The medium subset is the main public-data result because Recall@5 is less saturated than in the small subset.
-
-![Small vs medium subset](docs/figures/04_small_vs_medium.png)
-
-## Main Results
-
-![MS MARCO medium metrics](docs/figures/02_msmarco_medium_metrics.png)
-
-![MS MARCO medium MRR ranking](docs/figures/03_msmarco_medium_mrr_ranking.png)
-
-| Method | Framework | Training | R@1 | R@3 | R@5 | R@10 | MRR | NDCG@5 |
-| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| TF-IDF | sklearn | none | 0.2220 | 0.5700 | 0.7880 | 1.0000 | 0.4465 | 0.5084 |
-| BM25 | rank_bm25 | none | 0.2300 | 0.5540 | 0.7840 | 1.0000 | 0.4476 | 0.5074 |
-| MLP | PyTorch | from scratch | 0.1920 | 0.4780 | 0.7000 | 1.0000 | 0.4079 | 0.4475 |
-| MLP | Jittor | from scratch | 0.2280 | 0.5060 | 0.7120 | 1.0000 | 0.4318 | 0.4698 |
-| TextCNN | PyTorch | from scratch | 0.1720 | 0.4960 | 0.7220 | 1.0000 | 0.3953 | 0.4463 |
-| TextCNN | Jittor | from scratch | 0.1800 | 0.4500 | 0.6780 | 1.0000 | 0.3912 | 0.4270 |
-| Cross-Encoder | sentence-transformers | external pretrained | 0.4340 | 0.8080 | 0.9340 | 1.0000 | 0.6341 | 0.7019 |
-
-The Cross-Encoder is an external pretrained semantic reranker reference, not the Jittor reproduction body. The Jittor reproduction body is the MLP/TextCNN reranker implementation.
-
-## L3 LoRA Reranker
-
-The formal rented-GPU LoRA run uses Qwen/Qwen2.5-1.5B-Instruct as a relevance reranker with:
-
-```text
-score = log P("Relevant") - log P("Irrelevant")
-```
-
-On the same MS MARCO medium test candidate set, the best LoRA run is v3: 10,000 train pairs, 1,000 valid pairs, 800 steps, max length 256, LoRA rank 8, learning rate 1e-4.
-
-| Method | R@1 | R@3 | R@5 | R@10 | NDCG@5 | MRR | Pairwise Acc. |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| BM25 | 0.2300 | 0.5540 | 0.7840 | 1.0000 | 0.5074 | 0.4476 | 0.6253 |
-| Qwen2.5-1.5B Jittor zero-shot | 0.2360 | 0.5520 | 0.8120 | 1.0000 | 0.5210 | 0.4525 | 0.6342 |
-| Qwen2.5-1.5B LoRA v3 | 0.3580 | 0.6980 | 0.8720 | 1.0000 | 0.6266 | 0.5642 | 0.7345 |
-| Cross-Encoder reference | 0.4340 | 0.8080 | 0.9340 | 1.0000 | 0.7019 | 0.6341 | 0.8049 |
-
-LoRA v3 clearly improves over the same-size zero-shot reranker and the lightweight Jittor rerankers, but remains below the external pretrained Cross-Encoder reference. Full details are in [docs/lora_qwen2_1_5b_results.md](docs/lora_qwen2_1_5b_results.md), with generated tables in [outputs/lora_qwen2_1_5b_comparison.md](outputs/lora_qwen2_1_5b_comparison.md).
-
-## Stage D: Downstream RAG
-
-Stage D tests whether stronger reranking improves answer generation with a fixed Qwen2.5-1.5B-Instruct generator on 50 MS MARCO questions and top-3 contexts.
-
-| Method | Gold in Context@3 | Answer Hit | EM | Token F1 |
-| --- | ---: | ---: | ---: | ---: |
-| BM25 | 0.6800 | 0.2200 | 0.0000 | 0.1646 |
-| LoRA v3 | 0.7200 | 0.2800 | 0.0400 | 0.2108 |
-| Cross-Encoder | 0.8800 | 0.2800 | 0.0000 | 0.2058 |
-
-Cross-Encoder gives the best evidence availability, while LoRA v3 improves over BM25 on answer hit and token F1. Cross-Encoder and LoRA tie on answer hit in this small setting, showing that the fixed generator and automatic answer matching can bottleneck final answer quality. See [docs/downstream_rag_analysis.md](docs/downstream_rag_analysis.md).
-
-A generator-scale extension compares the same top-3 contexts under Qwen2.5-1.5B-Instruct and Qwen2.5-7B-Instruct. It is a downstream diagnostic extension, not a new RankRAG main result. In this fixed 50-question protocol, 7B improves BM25 Answer Hit but does not steadily outperform 1.5B across LoRA v3 and Cross-Encoder; details are in [docs/downstream_rag_generator_comparison.md](docs/downstream_rag_generator_comparison.md).
-
-A downstream prompt ablation / generation-format sensitivity check is complete for both Qwen2.5-1.5B-Instruct and Qwen2.5-7B-Instruct. It keeps the same 50 questions, rankings, top-3 contexts, context order, and decoding settings, and only switches to a strict short-answer prompt. The final 2x2 generator-prompt ablation is in [docs/downstream_rag_prompt_ablation_2x2.md](docs/downstream_rag_prompt_ablation_2x2.md); the earlier 1.5B-only view remains in [docs/downstream_rag_prompt_ablation_1_5b.md](docs/downstream_rag_prompt_ablation_1_5b.md).
-
-## Training Behavior
-
-![Training curves](docs/figures/05_training_curves.png)
-
-Training loss decreases normally for the lightweight rerankers. Validation MRR remains much lower than the Cross-Encoder reference, which is expected because the MLP/TextCNN models are trained from scratch without pretrained semantic encoders.
-
-## Interpretation
-
-- Synthetic scores are near-perfect because the benchmark is template-generated and mainly checks pipeline correctness.
-- MS MARCO medium is the main result because it uses real query-passage data and more candidates per query.
-- BM25 and TF-IDF remain strong lexical baselines.
-- Jittor MLP/TextCNN results are close enough to the PyTorch baselines to support the implementation alignment claim.
-- The Cross-Encoder result shows why pretrained semantic reranking is stronger, but it is not a Jittor model.
-- Qwen2.5-1.5B LoRA v3 shows the gain from task-specific LLM reranker training while remaining below the external Cross-Encoder reference.
-- Downstream answer generation generally follows evidence availability, but improvements in top-k context do not always translate linearly into answer hit because generation can still fail.
-
-## Limitations
-
-- No full RankRAG LLM instruction tuning.
-- No full MS MARCO leaderboard-scale evaluation.
-- Lightweight rankers are trained from scratch and do not match pretrained semantic rerankers.
-- Downstream answer generation is evaluated only as a small fixed-generator diagnostic, not as jointly trained RankRAG generation.
-
-## Key Files
+## Key Output Files
 
 | Path | Description |
 | --- | --- |
-| [src/model_torch.py](src/model_torch.py) | PyTorch MLP ranker |
-| [src/model_jittor.py](src/model_jittor.py) | Jittor MLP ranker |
-| [src/model_textcnn_torch.py](src/model_textcnn_torch.py) | PyTorch TextCNN ranker |
-| [src/model_textcnn_jittor.py](src/model_textcnn_jittor.py) | Jittor TextCNN ranker |
-| [scripts/prepare_msmarco_subset.py](scripts/prepare_msmarco_subset.py) | MS MARCO subset builder |
-| [docs/result_analysis.md](docs/result_analysis.md) | Result interpretation |
-| [docs/hardware_report.md](docs/hardware_report.md) | Runtime environment |
-| [docs/jittor_setup.md](docs/jittor_setup.md) | Jittor setup notes |
-| [docs/lora_reranker_plan.md](docs/lora_reranker_plan.md) | LoRA reranker debug plan |
-| [docs/lora_qwen2_1_5b_results.md](docs/lora_qwen2_1_5b_results.md) | Formal Qwen2.5-1.5B LoRA reranker results |
-| [docs/downstream_rag_analysis.md](docs/downstream_rag_analysis.md) | Stage D downstream answer-generation results |
-| [docs/downstream_rag_generator_comparison.md](docs/downstream_rag_generator_comparison.md) | Qwen2.5-1.5B vs 7B downstream generator diagnostic |
-| [docs/downstream_rag_prompt_ablation_1_5b.md](docs/downstream_rag_prompt_ablation_1_5b.md) | Qwen2.5-1.5B downstream prompt ablation |
-| [docs/downstream_rag_prompt_ablation_2x2.md](docs/downstream_rag_prompt_ablation_2x2.md) | Final downstream generator-prompt 2x2 ablation |
+| [outputs/final_results_summary.json](outputs/final_results_summary.json) | Machine-readable final summary |
+| [docs/final_results.md](docs/final_results.md) | Final results tables |
+| [outputs/cost_effectiveness_table.json](outputs/cost_effectiveness_table.json) | Resource-effectiveness table |
+| [outputs/lora_ablation_results.json](outputs/lora_ablation_results.json) | E1 LoRA data-size ablation |
+| [outputs/lora_scoring_ablation_results.json](outputs/lora_scoring_ablation_results.json) | E2 scoring-method ablation |
+| [outputs/error_taxonomy_summary.json](outputs/error_taxonomy_summary.json) | Stage G error taxonomy summary |
+| [docs/reproduction.md](docs/reproduction.md) | Reproduction commands |
+| [docs/final_repository_audit.md](docs/final_repository_audit.md) | Final repository audit |
 
-## Citation
+## Limitations
+
+- This is a lightweight reproduction and empirical analysis, not a full RankRAG implementation.
+- The main ranking benchmark uses a 500-query MS MARCO medium subset.
+- Downstream RAG uses 50 questions.
+- Error taxonomy uses 30 stratified diagnostic cases, not a full-distribution estimate.
+- Resource records come from heterogeneous environments and are not a strict speed benchmark.
+- Base model weights and LoRA adapters are not published in this Git repository.
+- Better passage ranking increases the chance that correct evidence enters the context, but it does not guarantee the generator will use that evidence correctly.
+
+## Citation and Acknowledgment
+
+This project is inspired by the RankRAG idea of unifying context ranking with retrieval-augmented generation. The repository currently contains a verifiable title and venue-level reference, but no DOI or BibTeX metadata is added here unless it is independently confirmed.
 
 ```text
-Yue Yu, Wei Ping, Zihan Liu, Boxin Wang, Jiaxuan You, Chao Zhang,
-Mohammad Shoeybi, Bryan Catanzaro. 2024.
 RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs.
 NeurIPS 2024.
 ```
+
+## License
+
+No LICENSE file is currently present in this repository. No open-source license is claimed here.
