@@ -1,213 +1,166 @@
+<div align="center">
+
 # RankRAG-Jittor
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+**基于 Jittor 的 RankRAG 风格大模型重排序轻量复现与实证分析。**
 
-基于 Jittor 的 RankRAG 风格大模型重排序轻量复现与实证分析。
+[English](README.md) · [简体中文](README.zh-CN.md) · [结果总表](docs/final_results.md) · [复现说明](docs/reproduction.md)
 
-## 项目简介
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB)
+![Jittor](https://img.shields.io/badge/Jittor-alignment-2563EB)
+![PyTorch](https://img.shields.io/badge/PyTorch-LoRA%20reranking-EE4C2C)
+[![RankRAG Paper](https://img.shields.io/badge/RankRAG-NeurIPS%202024-7C3AED)](https://arxiv.org/abs/2407.02485)
 
-RankRAG 风格的系统会先为用户问题检索一批候选 passage，再判断这些 passage 和问题的相关性，重新排序后把靠前证据交给生成模型回答。本项目围绕这条链路做实证分析：候选资料、重排序、top-k 证据、Qwen 生成、排序与下游回答评估。
+<img src="docs/figures/rankrag_jittor_overview.svg" alt="RankRAG-Jittor overview" width="940">
 
-本项目不是完整复现 RankRAG 原论文，而是复现和分析“LLM 判断 passage relevance -> rerank -> downstream validation”这条思想链。项目同时包含 PyTorch/Jittor 轻量排序器对齐、Qwen zero-shot 与 LoRA 重排序、Cross-Encoder 效果参照、下游 RAG、消融实验、错误类型分析和资源画像。
+</div>
 
-## 复现范围和边界
+## 为什么做 RankRAG-Jittor？
 
-| 已包含 | 未包含 |
+本项目研究“在把资料交给大模型回答问题之前，怎样把真正有用的资料排到前面”。一个 RankRAG 风格流程通常是：先根据 Query 检索一批候选 passage，再用重排序模型判断 passage 和问题的相关性，把 top-k evidence 交给大模型生成答案，最后检查更好的排序是否真的带来更可靠的回答。
+
+这个仓库围绕这条链路做轻量复现和实证分析：Jittor 轻量排序基线、Qwen2.5 大模型重排序、LoRA 任务适配、下游 RAG 验证、错误类型分析和资源画像。它不是 RankRAG 原论文的完整复现，而是聚焦“LLM relevance judgment -> rerank -> downstream validation”这条可复现实验路径。
+
+## 一眼看清
+
+| 项目 | 范围 |
 | --- | --- |
-| PyTorch/Jittor MLP 与 TextCNN 对齐基线 | 完整复现 RankRAG 原论文 |
-| TF-IDF、BM25、Qwen zero-shot、Qwen LoRA、Cross-Encoder 重排序比较 | 原论文中的 Llama 3 8B/70B 实验 |
-| Qwen2.5-1.5B LoRA 数据量和评分方法消融 | 原论文完整数据混合和全部 benchmark |
-| Qwen2.5-1.5B / 7B 下游 RAG 检查 | 排序和生成的大规模联合指令微调 |
-| 30 个分层诊断样例的错误类型分析 | 把 MLP/TextCNN 说成 RankRAG 原论文核心模型 |
-| 基于已记录 artifact 的资源-效果画像 | 严格统一硬件的速度 benchmark |
-
-Cross-Encoder 是外部预训练效果参照。MLP/TextCNN 是轻量对齐基线，不是 RankRAG 原论文核心模型。
-
-## 项目流程
-
-```mermaid
-flowchart LR
-  A["MS MARCO data"] --> B["Candidate passages"]
-  B --> C["Initial retrieval"]
-  C --> D["Reranking"]
-  D --> E["Top-k evidence"]
-  E --> F["Qwen generator"]
-  F --> G["Ranking and downstream evaluation"]
-
-  subgraph L1["Layer 1: PyTorch/Jittor alignment"]
-    L1A["MLP"]
-    L1B["TextCNN"]
-  end
-
-  subgraph L2["Layer 2: RankRAG-style reranking"]
-    L2A["BM25 baseline"]
-    L2B["Qwen zero-shot"]
-    L2C["Qwen LoRA"]
-    L2D["Cross-Encoder reference"]
-  end
-
-  subgraph L3["Layer 3: Evaluation and analysis"]
-    L3A["Ranking metrics"]
-    L3B["Downstream RAG"]
-    L3C["E1/E2 ablations"]
-    L3D["Error taxonomy"]
-    L3E["Resource profile"]
-  end
-
-  D -. "lightweight alignment" .-> L1
-  D -. "reranker comparison" .-> L2
-  G -. "analysis outputs" .-> L3
-```
-
-Mermaid 源文件：[docs/figures/project_pipeline.mmd](docs/figures/project_pipeline.mmd)
+| 评测集 | 500 个 query，4,044 个 query-passage pair |
+| 主要方法 | BM25、Jittor MLP、Jittor TextCNN、Qwen zero-shot、Qwen LoRA、Cross-Encoder 参照 |
+| 框架对齐 | PyTorch 与 Jittor 的 MLP/TextCNN 在同一数据和指标上对齐 |
+| LLM 重排序 | Qwen2.5-1.5B zero-shot scoring 与 Qwen2.5-1.5B LoRA relevance scoring |
+| 消融实验 | 1k / 3k / 10k LoRA 数据量消融，以及 scoring method 消融 |
+| 诊断分析 | 50 题下游 RAG、30 个错误案例、资源—效果画像 |
 
 ## 主结果
 
-主排序结果使用同一个 MS MARCO medium candidate pool：500 个 query，4044 个 query-passage pair。LoRA 行使用阶段 E 的 `10k-rerun`，不是历史 10k 结果。
+<img src="docs/figures/main_reranking_results.svg" alt="Reranking effectiveness on MS MARCO Medium" width="940">
 
-| Method | R@1 | R@3 | R@5 | NDCG@5 | MRR | Pairwise Acc |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| BM25 | 0.230 | 0.554 | 0.784 | 0.5074 | 0.4476 | 0.6253 |
-| Jittor MLP | 0.228 | 0.506 | 0.712 | 0.4698 | 0.4318 | 0.5901 |
-| Jittor TextCNN | 0.180 | 0.450 | 0.678 | 0.4270 | 0.3912 | 0.5484 |
-| Qwen2.5-1.5B zero-shot | 0.236 | 0.552 | 0.812 | 0.5210 | 0.4525 | 0.6342 |
-| Qwen2.5-1.5B LoRA 10k-rerun | 0.356 | 0.696 | 0.866 | 0.6236 | 0.5633 | 0.7343 |
-| Cross-Encoder | 0.434 | 0.808 | 0.934 | 0.7019 | 0.6341 | 0.8049 |
+| 方法 | R@1 | NDCG@5 | MRR |
+| --- | ---: | ---: | ---: |
+| BM25 | 0.230 | 0.5074 | 0.4476 |
+| Jittor MLP | 0.228 | 0.4698 | 0.4318 |
+| Jittor TextCNN | 0.180 | 0.4270 | 0.3912 |
+| Qwen2.5-1.5B Zero-shot | 0.236 | 0.5210 | 0.4525 |
+| Qwen2.5-1.5B LoRA (10k pairs) | 0.356 | 0.6236 | 0.5633 |
+| Cross-Encoder Reference | 0.434 | 0.7019 | 0.6341 |
 
-核心判断：
+LoRA 行使用同一租卡环境下完成的正式 10k LoRA 复跑结果。完整 R@3、R@5、pairwise accuracy、运行元数据和证据路径见 [docs/final_results.md](docs/final_results.md)。
 
-- BM25 在当前子集上仍然很强，说明数据里存在明显词面匹配信号。
-- 从零训练的 MLP/TextCNN 很难超过 BM25，主要价值是 PyTorch/Jittor 对齐。
-- Qwen2.5-1.5B zero-shot 已有一定语义判断能力，但提升有限。
-- 10k LoRA 微调把 R@1 从 zero-shot 的 0.236 提升到 0.356。
-- Cross-Encoder 仍是当前最强效果参照。LoRA 的意义在于 RankRAG 风格 LLM reranking 复现，而不是击败所有专用 reranker。
+三个核心判断：
 
-完整结果：[docs/final_results.md](docs/final_results.md)
+- BM25 在这个子集上依然是很强的词面匹配基线。
+- Qwen LoRA 明显优于 Qwen zero-shot，说明 RankRAG 风格的 LLM relevance judgment 经过任务适配后更有效。
+- Cross-Encoder 是外部预训练效果参照，仍然是最强参考方法；LoRA 的价值是复现 LLM 重排序路径，而不是宣称超过专门的 Cross-Encoder。
+
+## 复现了什么？
+
+### PyTorch 到 Jittor 的对齐
+
+MLP 和 TextCNN 是轻量对齐基线。它们用于确认 PyTorch/Jittor 两条实现路径在同一重排序数据、损失和指标下行为一致，不是 RankRAG 原论文的核心大模型重排序器，也不是为了超过 BM25。
+
+### RankRAG 风格 LLM 重排序
+
+LLM 轨道使用 Qwen2.5-1.5B 对 query-passage relevance 打分。项目先做 zero-shot reranking，再做 LoRA 微调，最后把得到的 passage 排序用于选择 top-k evidence。
+
+### 端到端验证
+
+仓库进一步检查排序提升是否能传递到下游答案生成，并分析数据量、打分方式、资源消耗和错误类型对结论的影响。
+
+| 组件 | 运行框架 | 角色 |
+| --- | --- | --- |
+| MLP / TextCNN | PyTorch + Jittor | 框架对齐轻量基线 |
+| Qwen zero-shot | JittorLLM | 无本地任务训练的语义重排序 |
+| Qwen LoRA | PyTorch + Transformers + PEFT | RankRAG 风格 LLM 重排序目标 |
+| Cross-Encoder | sentence-transformers / PyTorch | 外部预训练效果参照 |
 
 ## PyTorch/Jittor 对齐
 
-项目包含 MLP 和 TextCNN 的 PyTorch/Jittor 实现。它们用于验证框架迁移和趋势对齐，不追求逐位相同，也不声称 Jittor 一定优于 PyTorch。
+<img src="docs/figures/pytorch_jittor_alignment.svg" alt="PyTorch and Jittor alignment baselines" width="940">
 
-详细表格：[docs/final_results.md#2-pytorchjittor-alignment](docs/final_results.md#2-pytorchjittor-alignment)
+这张图不是排行榜。它说明轻量 Jittor 实现与 PyTorch 对照在同一数据划分和指标定义下处于相近经验区间，服务于框架迁移可信度。
 
-## 消融和分析
+## 不止主指标
 
-- LoRA 数据量消融：1k / 3k / 10k-rerun 嵌套训练子集，固定 800 optimizer steps。见 [docs/ablation_analysis.md](docs/ablation_analysis.md)。
-- LoRA 评分方法消融：同一个 10k-rerun adapter 上比较 `generate_parse`、`relevant_logprob`、`logprob_margin`。见 [docs/scoring_ablation_analysis.md](docs/scoring_ablation_analysis.md)。
-- 下游 RAG：BM25 / LoRA / Cross-Encoder 证据输入 Qwen generator，并比较 original prompt 和 strict prompt。见 [docs/downstream_rag_prompt_ablation_2x2.md](docs/downstream_rag_prompt_ablation_2x2.md)。
-- 错误类型分析：30 个分层诊断 query，九类错误。见 [docs/error_taxonomy.md](docs/error_taxonomy.md)。
-- 资源-效果画像：整理效果、训练需求、runtime、显存和硬件记录。见 [docs/cost_effectiveness_analysis.md](docs/cost_effectiveness_analysis.md)。
+| 数据量消融 | 错误类型 | 资源画像 |
+| --- | --- | --- |
+| <img src="outputs/lora_ablation_results.png" alt="LoRA data-size ablation" width="300"> | <img src="docs/figures/error_taxonomy.png" alt="Error taxonomy" width="300"> | <img src="docs/figures/cost_effectiveness_tradeoff.png" alt="Resource-effectiveness profile" width="300"> |
 
-## 仓库结构
+主结果表只压缩呈现最核心指标，详细分析回答不同问题：
 
-```text
-configs/      实验与评估配置
-data/         小型 demo 数据和处理后的元数据
-docs/         报告、复现指南和图
-outputs/      指标、ranking、汇总和生成表格
-scripts/      数据、聚合、检查和编排脚本
-src/          模型、评估、聚合和 RAG 工具
-```
+- 数据量消融比较嵌套的 1k、3k、10k LoRA training pairs，统一 800-step 预算。
+- Scoring 消融区分模型本身和“怎样把 LLM 输出转成排序分数”这两个因素。
+- 下游 RAG 检查 top-k evidence 变强后，生成答案是否真的变好。
+- 错误分析区分 lexical trap、semantic limit、evidence utilization failure、label issue 和 ambiguous query。
+- 资源画像记录效果、运行时间和硬件元数据，但不把异构硬件结果包装成严格速度 benchmark。
 
-## 环境安装
+## 关键发现
 
-仓库提供 [requirements.txt](requirements.txt)。当前没有 `environment.yml`、`pyproject.toml`、`setup.py`、`requirements-jittor.txt` 或 `requirements-lora.txt`。
+- 当 query 和 passage 有大量词面重合时，BM25 依然很有竞争力。
+- 预训练语义能力重要：Qwen zero-shot 和 Cross-Encoder 都强于从零训练的轻量 Jittor 基线。
+- 任务适配继续带来收益：Qwen LoRA 在同一候选池上显著优于 Qwen zero-shot。
+- Cross-Encoder 仍是最强参照，这符合专门预训练重排序器的预期。
+- 更好的排序只提高正确证据进入上下文的概率，生成模型仍可能没有用好证据。
 
-### PyTorch / 分析环境
+## 快速检查
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+git clone https://github.com/healer-666/RankRAG-Jittor.git
+cd RankRAG-Jittor
 pip install -r requirements.txt
-```
-
-Windows PowerShell：
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-
-### Jittor 环境
-
-Jittor 轻量基线按 CPU 模式设计，通常在 Ubuntu 或 WSL 上比原生 Windows 更稳定。见 [docs/jittor_setup.md](docs/jittor_setup.md)。
-
-### LoRA / Qwen 环境
-
-Qwen zero-shot、LoRA 训练/评估和下游生成都需要仓库外的本地模型权重。使用 `QWEN_LORA_MODEL_PATH` 和 `QWEN_GENERATOR_MODEL_PATH` 等环境变量，不要把模型文件放进 Git。
-
-## 数据准备
-
-```bash
-python scripts/prepare_data.py
-
-python scripts/prepare_msmarco_subset.py \
-  --max_train_queries 5000 \
-  --max_valid_queries 500 \
-  --max_test_queries 500 \
-  --candidates_per_query 10 \
-  --output_dir data/processed/msmarco_medium \
-  --run_name msmarco_medium \
-  --seed 42
-
-python scripts/build_lora_data_size_ablation.py
-python scripts/check_lora_data_ablation.py
-```
-
-## 复现命令
-
-### 快速检查
-
-这些命令只做 CPU 检查，不训练模型，也不运行模型推理：
-
-```bash
-python -m py_compile scripts/build_final_project_summary.py
-python -m py_compile scripts/check_final_repository.py
-python scripts/check_lora_data_ablation.py
-python scripts/check_cost_effectiveness_outputs.py
 python scripts/build_final_project_summary.py
+python scripts/build_readme_figures.py
 python scripts/check_final_repository.py
 ```
 
-### 完整复现
+上面命令只基于已有 artifact 重建汇总和 README 图，不会训练、推理、下载模型权重或重新生成 ranking。完整环境和可选实验命令见 [docs/reproduction.md](docs/reproduction.md)。
 
-完整流程包括数据准备、BM25/TF-IDF、PyTorch/Jittor MLP 和 TextCNN、Qwen zero-shot、Qwen LoRA 训练和评估、Cross-Encoder、下游 RAG、E1/E2 聚合、G 错误分析、F 资源画像和最终汇总。
+## 仓库结构
 
-详细命令和环境说明见 [docs/reproduction.md](docs/reproduction.md)。
-
-## 主要输出
-
-| Path | Description |
+| 路径 | 用途 |
 | --- | --- |
-| [outputs/final_results_summary.json](outputs/final_results_summary.json) | 机器可读最终汇总 |
-| [docs/final_results.md](docs/final_results.md) | 最终结果表 |
-| [outputs/cost_effectiveness_table.json](outputs/cost_effectiveness_table.json) | 资源-效果表 |
-| [outputs/lora_ablation_results.json](outputs/lora_ablation_results.json) | E1 LoRA 数据量消融 |
-| [outputs/lora_scoring_ablation_results.json](outputs/lora_scoring_ablation_results.json) | E2 评分方法消融 |
-| [outputs/error_taxonomy_summary.json](outputs/error_taxonomy_summary.json) | G 错误类型汇总 |
-| [docs/reproduction.md](docs/reproduction.md) | 复现命令 |
-| [docs/final_repository_audit.md](docs/final_repository_audit.md) | 最终仓库审计 |
+| `configs/` | 实验和评估配置 |
+| `data/processed/` | 已处理 MS MARCO 子集与 LoRA pair 文件 |
+| `src/` | 检索、重排序、评估和聚合代码 |
+| `scripts/` | 复现检查、汇总、制图和分析脚本 |
+| `outputs/` | 已提交的指标、ranking、汇总和分析图 |
+| `logs/` | 历史运行日志与硬件监控记录 |
+| `docs/` | 复现、结果、消融、错误和资源报告 |
+| `docs/figures/` | README 与报告图 |
 
-## 局限性
+## 文档入口
 
-- 这是轻量复现和实证分析，不是完整 RankRAG 实现。
-- 主排序实验使用 500-query MS MARCO medium 子集。
-- 下游 RAG 使用 50 个问题。
-- 错误类型分析使用 30 个分层诊断样例，不代表 500 个 query 的总体比例。
-- 资源记录来自不同环境，不能当成严格速度 benchmark。
-- 基座模型权重和 LoRA adapter 不在 Git 中发布。
-- 更好的 passage ranking 能提高正确证据进入上下文的概率，但不能保证 generator 一定正确使用证据。
+| 文档 | 适合查看 |
+| --- | --- |
+| [docs/final_results.md](docs/final_results.md) | 完整指标表和结果证据路径 |
+| [docs/reproduction.md](docs/reproduction.md) | 环境、数据准备与复现命令 |
+| [docs/ablation_analysis.md](docs/ablation_analysis.md) | LoRA 数据量消融 |
+| [docs/scoring_ablation_analysis.md](docs/scoring_ablation_analysis.md) | LoRA scoring method 消融 |
+| [docs/downstream_rag_analysis.md](docs/downstream_rag_analysis.md) | 下游 RAG 评测 |
+| [docs/error_taxonomy.md](docs/error_taxonomy.md) | 错误类型定义和诊断案例 |
+| [docs/cost_effectiveness_analysis.md](docs/cost_effectiveness_analysis.md) | 资源—效果画像 |
+| [docs/final_repository_audit.md](docs/final_repository_audit.md) | 最终仓库完整性审计 |
 
-## 引用和致谢
+## 复现边界
 
-本项目受到 RankRAG 将上下文排序与检索增强生成结合这一思想启发。当前仓库只保留可核验的题名和会议级引用，不补写未确认 DOI、作者或 BibTeX 元数据。
+本仓库是轻量复现和实证分析，不包含 Llama 3 实验、完整联合 RankRAG 训练、原论文全部 benchmark，也不把模型权重或 LoRA adapter 纳入 Git。主排序评测使用 MS MARCO medium subset：500 个 query、4,044 个 query-passage pair。Cross-Encoder 是外部预训练参照。资源记录来自不同环境，应理解为 provenance 和 profile，而不是严格速度 benchmark。
 
-```text
-RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs.
-NeurIPS 2024.
+## 引用
+
+RankRAG-Jittor 基于 RankRAG 论文：
+
+- arXiv: [2407.02485](https://arxiv.org/abs/2407.02485)
+- OpenReview: [RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs](https://openreview.net/forum?id=S1fc92uemC)
+
+```bibtex
+@inproceedings{yu2024rankrag,
+  title = {RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs},
+  author = {Yu, Yue and Ping, Wei and Liu, Zihan and Wang, Boxin and You, Jiaxuan and Zhang, Chao and Shoeybi, Mohammad and Catanzaro, Bryan},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year = {2024}
+}
 ```
 
-## 许可证状态
+## License
 
-当前仓库没有 LICENSE 文件，因此这里不声明 MIT、Apache 或其他开源许可证。
+当前仓库未包含 LICENSE 文件。在正式 license 添加前，请按仓库所有者条款使用代码与 artifact。

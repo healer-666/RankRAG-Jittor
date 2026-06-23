@@ -18,9 +18,17 @@ REQUIRED_FILES = [
     "docs/final_results.md",
     "docs/reproduction.md",
     "docs/figures/project_pipeline.mmd",
+    "docs/figures/rankrag_jittor_overview.excalidraw",
+    "docs/figures/rankrag_jittor_overview.svg",
+    "docs/figures/rankrag_jittor_overview.png",
+    "docs/figures/main_reranking_results.svg",
+    "docs/figures/main_reranking_results.png",
+    "docs/figures/pytorch_jittor_alignment.svg",
+    "docs/figures/pytorch_jittor_alignment.png",
     "outputs/final_results_summary.json",
     "outputs/final_results_summary.csv",
     "scripts/build_final_project_summary.py",
+    "scripts/build_readme_figures.py",
     "scripts/check_final_repository.py",
 ]
 FORBIDDEN_WEIGHT_PATTERNS = [
@@ -208,17 +216,25 @@ def check_readme_consistency(root: Path) -> dict[str, Any]:
     en = (root / "README.md").read_text(encoding="utf-8")
     zh = (root / "README.zh-CN.md").read_text(encoding="utf-8")
     checks = {
-        "english_links_chinese": "[简体中文](README.zh-CN.md)" in en,
+        "english_links_chinese": "README.zh-CN.md" in en and "简体中文" in en,
         "chinese_links_english": "[English](README.md)" in zh,
         "english_positioning": POSITIONING_EN in en,
         "chinese_positioning": POSITIONING_ZH in zh,
         "no_forbidden_claims": not any(claim in en or claim in zh for claim in FORBIDDEN_CLAIMS),
-        "uses_10k_rerun": "10k-rerun" in en and "10k-rerun" in zh,
-        "mentions_historical_boundary": "historical" in en.lower() and "历史" in zh,
-        "mentions_500_4044": "500 queries" in en and "4044" in en and "500 个 query" in zh and "4044" in zh,
-        "cross_encoder_reference": "Cross-Encoder is used as an external pretrained effectiveness reference" in en
+        "overview_figure": "docs/figures/rankrag_jittor_overview.svg" in en
+        and "docs/figures/rankrag_jittor_overview.svg" in zh,
+        "main_result_figure": "docs/figures/main_reranking_results.svg" in en
+        and "docs/figures/main_reranking_results.svg" in zh,
+        "alignment_figure": "docs/figures/pytorch_jittor_alignment.svg" in en
+        and "docs/figures/pytorch_jittor_alignment.svg" in zh,
+        "mentions_formal_lora_rerun": "formal same-environment 10k LoRA rerun" in en
+        and "同一租卡环境下完成的正式 10k LoRA 复跑结果" in zh,
+        "mentions_500_4044": "500 queries" in en and "4,044" in en and "500 个 query" in zh and "4,044" in zh,
+        "cross_encoder_reference": "Cross-Encoder remains the strongest external effectiveness reference" in en
         and "Cross-Encoder 是外部预训练效果参照" in zh,
         "mlp_textcnn_alignment": "lightweight alignment baselines" in en and "轻量对齐基线" in zh,
+        "public_lora_label": "Qwen2.5-1.5B LoRA (10k pairs)" in en
+        and "Qwen2.5-1.5B LoRA (10k pairs)" in zh,
     }
     return {"status": "passed" if all(checks.values()) else "failed", "checks": checks}
 

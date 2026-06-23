@@ -1,213 +1,166 @@
+<div align="center">
+
 # RankRAG-Jittor
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+**A Jittor-based lightweight reproduction and empirical analysis of RankRAG-style LLM reranking.**
 
-A Jittor-based lightweight reproduction and empirical analysis of RankRAG-style LLM reranking.
+[English](README.md) · [简体中文](README.zh-CN.md) · [Results](docs/final_results.md) · [Reproduction](docs/reproduction.md)
 
-## Overview
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB)
+![Jittor](https://img.shields.io/badge/Jittor-alignment-2563EB)
+![PyTorch](https://img.shields.io/badge/PyTorch-LoRA%20reranking-EE4C2C)
+[![RankRAG Paper](https://img.shields.io/badge/RankRAG-NeurIPS%202024-7C3AED)](https://arxiv.org/abs/2407.02485)
 
-RankRAG-style systems first retrieve candidate passages, rerank them by relevance to the user query, and pass the best evidence to a generator. This repository studies that reranking chain on a controlled MS MARCO medium subset. It aligns lightweight PyTorch and Jittor rerankers, compares lexical, neural, LLM, LoRA, and Cross-Encoder rerankers, checks downstream RAG behavior, and analyzes ablations, error types, and resource records.
+<img src="docs/figures/rankrag_jittor_overview.svg" alt="RankRAG-Jittor overview" width="940">
 
-The goal is not to reproduce the full RankRAG paper. The project focuses on the empirical chain: judge passage relevance, rerank candidate passages, validate downstream answers, and inspect where errors and costs appear.
+</div>
 
-## Scope and Reproduction Boundary
+## Why RankRAG-Jittor?
 
-| Included | Not included |
+RankRAG-style systems retrieve a candidate pool, rerank passages by relevance to the question, pass the strongest evidence to an LLM, and then evaluate whether better evidence actually improves answers. This repository studies that chain on an MS MARCO medium subset with lightweight Jittor baselines, Qwen2.5 LLM rerankers, LoRA adaptation, downstream RAG validation, error analysis, and resource profiling.
+
+The project is intentionally scoped: it is a reproducible empirical reproduction path, not a full reimplementation of every component or benchmark in the original RankRAG paper.
+
+## At a Glance
+
+| Item | Scope |
 | --- | --- |
-| PyTorch/Jittor MLP and TextCNN alignment baselines | Full reproduction of the original RankRAG paper |
-| TF-IDF, BM25, Qwen zero-shot, Qwen LoRA, and Cross-Encoder reranking comparisons | Llama 3 8B/70B experiments from the original paper |
-| Qwen2.5-1.5B LoRA reranker data-size and scoring-method ablations | Original-paper full data mixture and all benchmarks |
-| Downstream RAG checks with Qwen2.5-1.5B and Qwen2.5-7B generators | Joint large-scale instruction tuning of ranking and generation |
-| Error taxonomy over 30 stratified diagnostic cases | Claiming MLP/TextCNN as RankRAG core models |
-| Resource and effectiveness profile from recorded artifacts | A strict hardware-normalized speed benchmark |
-
-Cross-Encoder is used as an external pretrained effectiveness reference. MLP and TextCNN are lightweight alignment baselines, not original RankRAG core models.
-
-## Project Pipeline
-
-```mermaid
-flowchart LR
-  A["MS MARCO data"] --> B["Candidate passages"]
-  B --> C["Initial retrieval"]
-  C --> D["Reranking"]
-  D --> E["Top-k evidence"]
-  E --> F["Qwen generator"]
-  F --> G["Ranking and downstream evaluation"]
-
-  subgraph L1["Layer 1: PyTorch/Jittor alignment"]
-    L1A["MLP"]
-    L1B["TextCNN"]
-  end
-
-  subgraph L2["Layer 2: RankRAG-style reranking"]
-    L2A["BM25 baseline"]
-    L2B["Qwen zero-shot"]
-    L2C["Qwen LoRA"]
-    L2D["Cross-Encoder reference"]
-  end
-
-  subgraph L3["Layer 3: Evaluation and analysis"]
-    L3A["Ranking metrics"]
-    L3B["Downstream RAG"]
-    L3C["E1/E2 ablations"]
-    L3D["Error taxonomy"]
-    L3E["Resource profile"]
-  end
-
-  D -. "lightweight alignment" .-> L1
-  D -. "reranker comparison" .-> L2
-  G -. "analysis outputs" .-> L3
-```
-
-Mermaid source: [docs/figures/project_pipeline.mmd](docs/figures/project_pipeline.mmd)
+| Evaluation set | 500 queries, 4,044 query-passage pairs |
+| Main methods | BM25, Jittor MLP, Jittor TextCNN, Qwen zero-shot, Qwen LoRA, Cross-Encoder reference |
+| Framework alignment | PyTorch and Jittor MLP/TextCNN rerankers on the same data and metrics |
+| LLM reranking | Qwen2.5-1.5B zero-shot scoring and Qwen2.5-1.5B LoRA relevance scoring |
+| Ablations | 1k / 3k / 10k LoRA data-size ablation and scoring-method ablation |
+| Diagnostics | 50-question downstream RAG checks, 30-case error taxonomy, resource-effectiveness profile |
 
 ## Main Results
 
-The main reranking results use the same MS MARCO medium candidate pool: 500 queries and 4044 query-passage pairs. The LoRA row is the Stage E `10k-rerun`, not the historical 10k run.
+<img src="docs/figures/main_reranking_results.svg" alt="Reranking effectiveness on MS MARCO Medium" width="940">
 
-| Method | R@1 | R@3 | R@5 | NDCG@5 | MRR | Pairwise Acc |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| BM25 | 0.230 | 0.554 | 0.784 | 0.5074 | 0.4476 | 0.6253 |
-| Jittor MLP | 0.228 | 0.506 | 0.712 | 0.4698 | 0.4318 | 0.5901 |
-| Jittor TextCNN | 0.180 | 0.450 | 0.678 | 0.4270 | 0.3912 | 0.5484 |
-| Qwen2.5-1.5B zero-shot | 0.236 | 0.552 | 0.812 | 0.5210 | 0.4525 | 0.6342 |
-| Qwen2.5-1.5B LoRA 10k-rerun | 0.356 | 0.696 | 0.866 | 0.6236 | 0.5633 | 0.7343 |
-| Cross-Encoder | 0.434 | 0.808 | 0.934 | 0.7019 | 0.6341 | 0.8049 |
+| Method | R@1 | NDCG@5 | MRR |
+| --- | ---: | ---: | ---: |
+| BM25 | 0.230 | 0.5074 | 0.4476 |
+| Jittor MLP | 0.228 | 0.4698 | 0.4318 |
+| Jittor TextCNN | 0.180 | 0.4270 | 0.3912 |
+| Qwen2.5-1.5B Zero-shot | 0.236 | 0.5210 | 0.4525 |
+| Qwen2.5-1.5B LoRA (10k pairs) | 0.356 | 0.6236 | 0.5633 |
+| Cross-Encoder Reference | 0.434 | 0.7019 | 0.6341 |
 
-Key observations:
+The LoRA row uses the formal same-environment 10k LoRA rerun. Full R@3, R@5, pairwise accuracy, runtime metadata, and source paths are in [docs/final_results.md](docs/final_results.md).
 
-- BM25 remains strong on this subset, which has clear lexical matching signals.
-- From-scratch MLP/TextCNN models are useful for PyTorch/Jittor alignment, but they lack pretrained semantic ability.
-- Qwen2.5-1.5B zero-shot has some semantic judgment ability, but the gain is limited.
-- The 10k LoRA reranker improves R@1 from 0.236 to 0.356 over the same-size zero-shot Qwen reranker.
-- Cross-Encoder is the strongest effectiveness reference here. LoRA's value is the RankRAG-style LLM reranking reproduction path, not beating every specialized reranker.
+Three takeaways matter most:
 
-Full results: [docs/final_results.md](docs/final_results.md)
+- BM25 remains a strong lexical baseline on this subset.
+- Qwen LoRA substantially improves over Qwen zero-shot, showing the value of task-adapted RankRAG-style relevance judgment.
+- The Cross-Encoder remains the strongest external effectiveness reference; LoRA is a reproduction path for LLM-based reranking, not a claim of beating a specialized reranker.
+
+## What Is Reproduced?
+
+### PyTorch to Jittor Alignment
+
+MLP and TextCNN are lightweight alignment baselines. They test whether the PyTorch and Jittor paths behave coherently on the same reranking data, losses, and metrics. Their role is framework migration and sanity checking, not matching the RankRAG paper's core LLM reranker.
+
+### RankRAG-Style LLM Reranking
+
+The LLM track uses Qwen2.5-1.5B to score query-passage relevance, first as a zero-shot reranker and then through LoRA fine-tuning. The output is a passage ranking used to choose top-k evidence for downstream generation.
+
+### End-to-End Validation
+
+The repository also checks whether ranking improvements survive contact with downstream answer generation, scoring choices, data-size changes, resource measurements, and qualitative error modes.
+
+| Component | Runtime / framework | Role |
+| --- | --- | --- |
+| MLP / TextCNN | PyTorch + Jittor | Framework alignment baselines |
+| Qwen zero-shot | JittorLLM | Semantic reranking without local task training |
+| Qwen LoRA | PyTorch + Transformers + PEFT | RankRAG-style LLM reranking target |
+| Cross-Encoder | sentence-transformers / PyTorch | External pretrained effectiveness reference |
 
 ## PyTorch/Jittor Alignment
 
-The repository includes PyTorch and Jittor implementations for MLP and TextCNN rerankers. Their purpose is to check framework migration and trend alignment on the same data split. The alignment experiments do not claim that Jittor always outperforms PyTorch, and they do not model the full RankRAG architecture.
+<img src="docs/figures/pytorch_jittor_alignment.svg" alt="PyTorch and Jittor alignment baselines" width="940">
 
-Detailed table: [docs/final_results.md#2-pytorchjittor-alignment](docs/final_results.md#2-pytorchjittor-alignment)
+The alignment figure is not a leaderboard. It confirms that the lightweight Jittor implementations are in the same empirical neighborhood as their PyTorch counterparts under the same data split and metric definitions.
 
-## Ablation and Analysis
+## Beyond Headline Metrics
 
-- LoRA data-size ablation: 1k / 3k / 10k-rerun nested training subsets with fixed 800 optimizer steps. See [docs/ablation_analysis.md](docs/ablation_analysis.md).
-- LoRA scoring-method ablation: `generate_parse`, `relevant_logprob`, and `logprob_margin` on the same 10k-rerun adapter. See [docs/scoring_ablation_analysis.md](docs/scoring_ablation_analysis.md).
-- Downstream RAG: BM25 / LoRA / Cross-Encoder evidence passed to Qwen generators under original and strict prompts. See [docs/downstream_rag_prompt_ablation_2x2.md](docs/downstream_rag_prompt_ablation_2x2.md).
-- Error taxonomy: 30 stratified diagnostic queries and nine error types. See [docs/error_taxonomy.md](docs/error_taxonomy.md).
-- Resource profile: effectiveness plus recorded training/runtime/memory metadata. See [docs/cost_effectiveness_analysis.md](docs/cost_effectiveness_analysis.md).
+| Data-size ablation | Error taxonomy | Resource profile |
+| --- | --- | --- |
+| <img src="outputs/lora_ablation_results.png" alt="LoRA data-size ablation" width="300"> | <img src="docs/figures/error_taxonomy.png" alt="Error taxonomy" width="300"> | <img src="docs/figures/cost_effectiveness_tradeoff.png" alt="Resource-effectiveness profile" width="300"> |
 
-## Repository Structure
+The deeper analyses show where the main ranking table is too compressed:
 
-```text
-configs/      Experiment and evaluation configs
-data/         Small demo data and processed metadata
-docs/         Reports, reproducibility guide, and figures
-outputs/      Metrics, rankings, summaries, and generated tables
-scripts/      Data, aggregation, validation, and orchestration scripts
-src/          Core models, evaluators, aggregation, and RAG utilities
-```
+- Data-size ablation compares nested 1k, 3k, and 10k LoRA training pairs under a fixed 800-step budget.
+- Scoring ablation separates model quality from the rule used to turn LLM outputs into ranking scores.
+- Downstream RAG checks whether stronger top-k evidence actually improves generated answers.
+- Error analysis separates lexical traps, semantic limits, evidence-use failures, label issues, and ambiguous queries.
+- Resource profiling records effectiveness and runtime metadata without pretending heterogeneous hardware is a strict benchmark.
 
-## Installation
+## Key Findings
 
-The repository provides [requirements.txt](requirements.txt). There is no `environment.yml`, `pyproject.toml`, `setup.py`, `requirements-jittor.txt`, or `requirements-lora.txt`.
+- Lexical matching is still competitive when candidate passages share surface terms with the query.
+- Pretrained semantic ability helps: Qwen zero-shot and Cross-Encoder both outperform the lightweight from-scratch Jittor baselines.
+- Task adaptation helps more: Qwen LoRA improves substantially over Qwen zero-shot on the same candidate pool.
+- The Cross-Encoder is the strongest reference method, which is expected for a specialized pretrained reranker.
+- Better ranking increases the chance that correct evidence reaches the generator, but answer generation can still fail.
 
-### PyTorch / analysis environment
+## Quick Start
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+git clone https://github.com/healer-666/RankRAG-Jittor.git
+cd RankRAG-Jittor
 pip install -r requirements.txt
-```
-
-On Windows PowerShell:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-
-### Jittor environment
-
-The Jittor baselines were designed for CPU mode and are usually easier to run on Ubuntu or WSL than native Windows. See [docs/jittor_setup.md](docs/jittor_setup.md).
-
-### LoRA / Qwen environment
-
-Qwen zero-shot, LoRA training, LoRA evaluation, and downstream generation require local model weights outside this repository. Use environment variables such as `QWEN_LORA_MODEL_PATH` and `QWEN_GENERATOR_MODEL_PATH`; do not store model files in Git.
-
-## Data Preparation
-
-```bash
-python scripts/prepare_data.py
-
-python scripts/prepare_msmarco_subset.py \
-  --max_train_queries 5000 \
-  --max_valid_queries 500 \
-  --max_test_queries 500 \
-  --candidates_per_query 10 \
-  --output_dir data/processed/msmarco_medium \
-  --run_name msmarco_medium \
-  --seed 42
-
-python scripts/build_lora_data_size_ablation.py
-python scripts/check_lora_data_ablation.py
-```
-
-## Reproduction Commands
-
-### Quick Verification
-
-These commands are CPU-only and do not train or run model inference:
-
-```bash
-python -m py_compile scripts/build_final_project_summary.py
-python -m py_compile scripts/check_final_repository.py
-python scripts/check_lora_data_ablation.py
-python scripts/check_cost_effectiveness_outputs.py
 python scripts/build_final_project_summary.py
+python scripts/build_readme_figures.py
 python scripts/check_final_repository.py
 ```
 
-### Full Reproduction
+The commands above rebuild summaries and figures from existing artifacts only. They do not train, run inference, download model weights, or regenerate rankings. Full environment notes and optional experiment commands are in [docs/reproduction.md](docs/reproduction.md).
 
-The full path includes data preparation, BM25/TF-IDF, PyTorch/Jittor MLP and TextCNN baselines, Qwen zero-shot reranking, Qwen LoRA training/evaluation, Cross-Encoder reference, downstream RAG, E1/E2 aggregation, Stage G error analysis, Stage F resource profile, and final summary generation.
+## Repository Structure
 
-The command list and environment notes are in [docs/reproduction.md](docs/reproduction.md).
-
-## Key Output Files
-
-| Path | Description |
+| Path | Purpose |
 | --- | --- |
-| [outputs/final_results_summary.json](outputs/final_results_summary.json) | Machine-readable final summary |
-| [docs/final_results.md](docs/final_results.md) | Final results tables |
-| [outputs/cost_effectiveness_table.json](outputs/cost_effectiveness_table.json) | Resource-effectiveness table |
-| [outputs/lora_ablation_results.json](outputs/lora_ablation_results.json) | E1 LoRA data-size ablation |
-| [outputs/lora_scoring_ablation_results.json](outputs/lora_scoring_ablation_results.json) | E2 scoring-method ablation |
-| [outputs/error_taxonomy_summary.json](outputs/error_taxonomy_summary.json) | Stage G error taxonomy summary |
-| [docs/reproduction.md](docs/reproduction.md) | Reproduction commands |
-| [docs/final_repository_audit.md](docs/final_repository_audit.md) | Final repository audit |
+| `configs/` | Experiment and evaluation configs |
+| `data/processed/` | Processed MS MARCO subsets and LoRA pair files |
+| `src/` | Retrieval, reranking, evaluation, and aggregation code |
+| `scripts/` | Reproducibility checks, summaries, figures, and analysis scripts |
+| `outputs/` | Committed metrics, rankings, summaries, and analysis figures |
+| `logs/` | Historical run logs and hardware monitoring traces |
+| `docs/` | Detailed reproduction, result, ablation, error, and resource reports |
+| `docs/figures/` | README and report figures |
 
-## Limitations
+## Documentation
 
-- This is a lightweight reproduction and empirical analysis, not a full RankRAG implementation.
-- The main ranking benchmark uses a 500-query MS MARCO medium subset.
-- Downstream RAG uses 50 questions.
-- Error taxonomy uses 30 stratified diagnostic cases, not a full-distribution estimate.
-- Resource records come from heterogeneous environments and are not a strict speed benchmark.
-- Base model weights and LoRA adapters are not published in this Git repository.
-- Better passage ranking increases the chance that correct evidence enters the context, but it does not guarantee the generator will use that evidence correctly.
+| Document | Use it for |
+| --- | --- |
+| [docs/final_results.md](docs/final_results.md) | Full metric tables and source-artifact references |
+| [docs/reproduction.md](docs/reproduction.md) | Environment setup, data preparation, and reproducibility commands |
+| [docs/ablation_analysis.md](docs/ablation_analysis.md) | LoRA data-size ablation |
+| [docs/scoring_ablation_analysis.md](docs/scoring_ablation_analysis.md) | LoRA scoring-method ablation |
+| [docs/downstream_rag_analysis.md](docs/downstream_rag_analysis.md) | Downstream RAG evaluation |
+| [docs/error_taxonomy.md](docs/error_taxonomy.md) | Error-type definitions and diagnostic cases |
+| [docs/cost_effectiveness_analysis.md](docs/cost_effectiveness_analysis.md) | Resource and effectiveness profile |
+| [docs/final_repository_audit.md](docs/final_repository_audit.md) | Final repository integrity audit |
 
-## Citation and Acknowledgment
+## Reproduction Boundary
 
-This project is inspired by the RankRAG idea of unifying context ranking with retrieval-augmented generation. The repository currently contains a verifiable title and venue-level reference, but no DOI or BibTeX metadata is added here unless it is independently confirmed.
+This repository is a lightweight reproduction and empirical analysis. It does not include Llama 3 experiments, complete joint RankRAG training, all original paper benchmarks, or versioned model weights/adapters. The main ranking evaluation uses an MS MARCO medium subset with 500 queries and 4,044 query-passage pairs. The Cross-Encoder is an external pretrained reference. Resource measurements come from heterogeneous environments, so they should be read as provenance and profiling metadata rather than a strict speed benchmark.
 
-```text
-RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs.
-NeurIPS 2024.
+## Citation
+
+RankRAG-Jittor is based on the RankRAG paper:
+
+- arXiv: [2407.02485](https://arxiv.org/abs/2407.02485)
+- OpenReview: [RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs](https://openreview.net/forum?id=S1fc92uemC)
+
+```bibtex
+@inproceedings{yu2024rankrag,
+  title = {RankRAG: Unifying Context Ranking with Retrieval-Augmented Generation in LLMs},
+  author = {Yu, Yue and Ping, Wei and Liu, Zihan and Wang, Boxin and You, Jiaxuan and Zhang, Chao and Shoeybi, Mohammad and Catanzaro, Bryan},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year = {2024}
+}
 ```
 
 ## License
 
-No LICENSE file is currently present in this repository. No open-source license is claimed here.
+No repository license file is currently included. Treat the code and artifacts according to the repository owner's terms until a license is added.

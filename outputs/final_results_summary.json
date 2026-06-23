@@ -4,7 +4,7 @@
     "en": "A Jittor-based lightweight reproduction and empirical analysis of RankRAG-style LLM reranking.",
     "zh": "基于 Jittor 的 RankRAG 风格大模型重排序轻量复现与实证分析。"
   },
-  "git_commit": "bcca77d0eef1130a88e822178a417003b751078e",
+  "git_commit": "6d8087cd982dc07e56f274042edf4332e8ec4e57",
   "dataset": "MS MARCO medium subset",
   "test_query_count": 500,
   "pair_count": 4044,
@@ -602,5 +602,5 @@
     "error_analysis": "outputs/error_taxonomy_summary.json",
     "resource_effectiveness": "outputs/cost_effectiveness_table.json"
   },
-  "generated_at": "2026-06-23T22:46:30"
+  "generated_at": "2026-06-24T00:14:55"
 }

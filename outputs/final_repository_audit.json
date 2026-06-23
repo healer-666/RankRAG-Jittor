@@ -1,12 +1,18 @@
 {
   "status": "passed",
-  "checked_commit": "bcca77d0eef1130a88e822178a417003b751078e",
-  "tracked_file_count": 455,
+  "checked_commit": "6d8087cd982dc07e56f274042edf4332e8ec4e57",
+  "tracked_file_count": 473,
   "large_file_warnings": [],
   "large_file_failures": [],
   "forbidden_weight_files": [],
   "suspected_secrets": [],
   "hardcoded_path_findings": [
+    {
+      "path": "docs/reproduction.md",
+      "line": 8,
+      "type": "windows_drive",
+      "severity": "allowed_windows_example"
+    },
     {
       "path": "outputs/downstream_rag_eval/downstream_rag_case_study.json",
       "line": 368,
@@ -230,6 +236,60 @@
       "severity": "warning"
     },
     {
+      "path": "outputs/final_repository_audit.json",
+      "line": 469,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/final_repository_audit.json",
+      "line": 479,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/final_repository_audit.json",
+      "line": 489,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/final_repository_audit.json",
+      "line": 499,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/final_repository_audit.json",
+      "line": 509,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/final_repository_audit.json",
+      "line": 519,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/final_repository_audit.json",
+      "line": 529,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/final_repository_audit.json",
+      "line": 539,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
+      "path": "outputs/final_repository_audit.json",
+      "line": 549,
+      "type": "windows_drive",
+      "severity": "warning"
+    },
+    {
       "path": "outputs/lora_ablation_data_10k_rerun/qwen_1_5b_lora_metrics.json",
       "line": 18,
       "type": "autodl_tmp",
@@ -302,6 +362,12 @@
       "severity": "warning"
     },
     {
+      "path": "scripts/check_final_repository.py",
+      "line": 57,
+      "type": "autodl_tmp",
+      "severity": "warning"
+    },
+    {
       "path": "scripts/run_stage_e_autodl.sh",
       "line": 3,
       "type": "autodl_tmp",
@@ -329,11 +395,14 @@
       "english_positioning": true,
       "chinese_positioning": true,
       "no_forbidden_claims": true,
-      "uses_10k_rerun": true,
-      "mentions_historical_boundary": true,
+      "overview_figure": true,
+      "main_result_figure": true,
+      "alignment_figure": true,
+      "mentions_formal_lora_rerun": true,
       "mentions_500_4044": true,
       "cross_encoder_reference": true,
-      "mlp_textcnn_alignment": true
+      "mlp_textcnn_alignment": true,
+      "public_lora_label": true
     }
   },
   "result_consistency": {
@@ -349,6 +418,7 @@
       "scripts/build_cost_effectiveness_profile.py",
       "scripts/build_final_project_summary.py",
       "scripts/build_lora_data_size_ablation.py",
+      "scripts/build_readme_figures.py",
       "scripts/check_cost_effectiveness_outputs.py",
       "scripts/check_final_repository.py",
       "scripts/check_lora_data_ablation.py",

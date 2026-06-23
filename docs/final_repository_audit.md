@@ -1,8 +1,8 @@
 # Final Repository Audit
 
 - Status: passed
-- Checked commit: `bcca77d0eef1130a88e822178a417003b751078e`
-- Tracked files: 455
+- Checked commit: `6d8087cd982dc07e56f274042edf4332e8ec4e57`
+- Tracked files: 473
 - Large file warnings: 0
 - Large file failures: 0
 - Forbidden weight files: 0
@@ -30,7 +30,7 @@
 ## Command Validation
 
 - Status: passed
-- Script paths checked: 30
+- Script paths checked: 31
 - Config paths checked: 10
 - Help checks run: 9
 
