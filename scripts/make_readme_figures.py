@@ -18,6 +18,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import numpy as np
+from matplotlib.lines import Line2D
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch, Patch
 
 
@@ -414,12 +415,23 @@ def draw_training_curves() -> None:
     axes[1].set_ylim(0.34, 0.44)
     for ax in axes:
         ax.grid(True, color=PALETTE["grid"], linewidth=0.8)
-    axes[1].legend(loc="lower right", fontsize=9)
+    legend_handles = [
+        Line2D([0], [0], color=color, linestyle=linestyle, linewidth=2.8, marker="o", markersize=5, label=label)
+        for label, _path, color, linestyle in logs
+    ]
+    axes[1].legend(
+        handles=legend_handles,
+        loc="lower right",
+        fontsize=9,
+        frameon=False,
+        handlelength=3.4,
+        borderaxespad=0.8,
+    )
     fig.suptitle("Training behavior on MS MARCO medium", fontsize=17, fontweight="bold", y=1.04)
     fig.text(
         0.5,
         0.965,
-        "Pairwise ranking loss decreases while validation MRR remains in the expected lightweight-reranker range.",
+        "Pairwise ranking loss decreases while validation MRR remains in the expected lightweight-reranker range. Dashed = PyTorch, solid = Jittor.",
         ha="center",
         fontsize=10.5,
         color=PALETTE["muted"],
