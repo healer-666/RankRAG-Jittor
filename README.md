@@ -42,7 +42,7 @@ Query
 
 ## 为什么同时使用 Jittor、JittorLLM 和 PyTorch
 
-RankRAG 的重点是使用大语言模型完成上下文排序与生成，而不是从零训练一个完整大模型。本项目没有把所有模块强行改写为 Jittor，而是按实验目的选择框架：能用 Jittor 对齐的轻量模型用 Jittor，对大模型 LoRA 微调则使用当前更成熟、可复现性更高的 PyTorch 生态。
+RankRAG 的重点是使用大语言模型完成上下文排序与生成，而不是从零训练一个完整大模型。本项目没有把所有模块强行改写为 Jittor，而是按实验目的选择框架：能用 Jittor 对齐的模型尽量使用 Jittor，对大模型 LoRA 微调则使用当前更成熟、可复现性更高的 PyTorch 生态。
 
 考虑到原论文使用的模型和训练规模较大，本项目采用分层复现方案：
 
@@ -55,9 +55,8 @@ RankRAG 的重点是使用大语言模型完成上下文排序与生成，而不
 
 这样划分的原因如下：
 
-* **为什么不全部做 PyTorch/Jittor 对齐**：MLP 和 TextCNN 参数规模小、训练稳定，适合做框架迁移和结果趋势对齐；Qwen2.5-1.5B LoRA 涉及 tokenizer、量化/半精度、LoRA adapter、显存管理和大模型训练生态，强行双框架对齐会把工作重点从 RankRAG 重排序复现转移到大模型训练框架移植。
-* **为什么 Qwen LoRA 不使用 Jittor**：当前实验需要稳定复用 Transformers、PEFT、LoRA adapter 保存/加载和 log-prob scoring。PyTorch 生态在这些环节更成熟，能降低租卡训练失败风险，也便于复现实验结果。
-* **为什么仍然保留 Jittor/JittorLLM**：Jittor 用于轻量排序器实现和 PyTorch 对齐，JittorLLM 用于 Qwen zero-shot 重排序验证，能够体现 Jittor 路径参与了核心排序流程，而不是只做外围脚本。
+**为什么不对所有模块做 PyTorch/Jittor 对齐？**
+MLP 和 TextCNN 规模较小、训练稳定，适合在统一数据和指标下验证框架迁移是否正确。Qwen2.5-1.5B LoRA 的重点则是复现 RankRAG 风格的大模型重排序；若在 Jittor 中重新实现，还需额外适配 LoRA、混合精度、权重加载、显存管理和推理评分等完整训练链路。由于现有 LoRA 实验已经需要租用 RTX 4090 D，双框架训练会导致计算和调试成本难以承受，同时引入更多难以控制的工程变量。因而本项目使用轻量模型完成 PyTorch/Jittor 对齐，使用 JittorLLM 验证 zero-shot 推理，并在成熟的 PyTorch 生态中完成 LoRA 训练，把资源集中在 RankRAG 的核心重排序实验上。
 
 因此，本项目的合理性在于：用 Jittor 完成可控的框架复现与 zero-shot 大模型推理验证，用 PyTorch 完成成本更高、工程依赖更复杂的 LoRA 训练，并在同一候选池和指标下比较最终排序效果。
 
@@ -74,9 +73,9 @@ RankRAG 的重点是使用大语言模型完成上下文排序与生成，而不
 | 实验部分           | 环境                                          |
 | -------------- | ------------------------------------------- |
 | 本地开发与结果整理      | Windows、Python 3.10、RTX 3060 Laptop GPU |
-| PyTorch 轻量基线   | Windows 或 Linux、PyTorch，可在 CPU 上复现 |
+| PyTorch 轻量基线   | Windows 或 Ubuntu、PyTorch，可在 CPU 上复现 |
 | Jittor 轻量基线    | Ubuntu、Jittor，可在 CPU 上复现 |
-| Qwen zero-shot | Linux、JittorLLM、GPU |
+| Qwen zero-shot | Ubuntu、JittorLLM、GPU |
 | LoRA 正式实验      | Ubuntu、RTX 4090 D、PyTorch、Transformers、PEFT |
 
 LoRA 10k 正式实验记录如下，用于说明租用 GPU 环境中的实际资源消耗：
@@ -163,7 +162,7 @@ python src/jittorllm_reranker/evaluate_qwen2_jittor.py \
 
 ## PyTorch 复现步骤
 
-本节命令分为两类环境：PyTorch MLP/TextCNN 可在 Windows 或 Linux 的 CPU 环境中运行；Qwen LoRA 正式实验建议在 **Ubuntu + RTX 4090 D + PyTorch + Transformers + PEFT** 环境中运行，以避免本地 6GB 显存不足和训练时间过长的问题。
+本节命令分为两类环境：PyTorch MLP/TextCNN 可在 Windows 或 Linux 的 CPU 环境中运行；Qwen LoRA 正式实验建议在 **Ubuntu + RTX 4090 D + PyTorch + Transformers + PEFT** 环境中运行，以避免本地显存不足和训练时间过长的问题。
 
 ### 1. PyTorch MLP
 
@@ -210,7 +209,7 @@ python src/lora_reranker/evaluate_lora_reranker.py \
 
 ## 个人完成的主要工作
 
-本项目为个人复现考核项目，核心实现、实验和分析由本人完成。除本地开发外，正式 LoRA 实验还使用租用 RTX 4090 D GPU 完成，训练过程中需要控制显存利用、避免覆盖历史结果、反复检查数据和配置一致性，以降低租卡时间成本。
+本项目为个人复现考核项目，核心实现、实验和分析由本人完成。除本地开发外，正式 LoRA 实验还使用租用 RTX 4090 D GPU 完成：
 
 1. 构建统一的 MS MARCO 训练、验证、测试数据和候选池；
 2. 实现 PyTorch/Jittor MLP 与 TextCNN，并完成训练和测试对齐；
@@ -221,7 +220,7 @@ python src/lora_reranker/evaluate_lora_reranker.py \
 7. 整理训练日志、性能日志、GPU 记录和结果可视化；
 8. 编写数据检查、结果汇总和仓库完整性检查脚本。
 
-其中成本最高的部分是 Qwen LoRA 训练和评估：需要在租卡环境中完成模型上传/路径配置、训练、评估、日志保存、结果下载和多轮一致性检查。最终 README 中保留的是正式结果和可复现命令，不把中间调试失败或本地不完整尝试包装成正式实验。
+其中成本最高的部分是 Qwen LoRA 训练和评估：需要在租卡环境中完成模型上传/路径配置、训练、评估、日志保存、结果下载和多轮一致性检查。最终 README 中保留的是正式结果和可复现命令，没有把中间调试失败或本地不完整尝试包装成正式实验。
 
 ---
 
@@ -300,36 +299,6 @@ LoRA 正式训练日志：
 <img src="docs/figures/readme_resource_profile.svg" alt="Resource profile" width="820">
 
 </details>
-
----
-
-## 代码、脚本与日志索引
-
-| 考核要求               | 仓库位置                                                |
-| ------------------ | --------------------------------------------------- |
-| Jittor 实现代码        | `src/train_jittor.py`、`src/train_textcnn_jittor.py` |
-| PyTorch 对齐代码       | `src/train_torch.py`、`src/train_textcnn_torch.py`   |
-| 数据准备脚本             | `scripts/prepare_msmarco_subset.py`                 |
-| LoRA 数据脚本          | `scripts/build_lora_data_size_ablation.py`          |
-| 训练脚本               | `src/lora_reranker/train_lora_reranker.py`          |
-| 测试脚本               | `src/lora_reranker/evaluate_lora_reranker.py`       |
-| 实验日志               | [`logs/`](logs/)                                    |
-| 性能结果               | [`outputs/`](outputs/)                              |
-| Loss 曲线            | `docs/figures/05_training_curves.png`               |
-| PyTorch/Jittor 对齐图 | `docs/figures/pytorch_jittor_alignment.svg`         |
-| 完整复现命令             | [`docs/reproduction.md`](docs/reproduction.md)      |
-
----
-
-## 快速检查
-
-下面的命令不会重新训练或推理，只会检查已有结果并生成汇总：
-
-```bash
-python scripts/build_final_project_summary.py
-python scripts/build_readme_figures.py
-python scripts/check_final_repository.py
-```
 
 ---
 
