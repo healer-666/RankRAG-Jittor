@@ -186,32 +186,41 @@ def build_overview_figure(root: Path) -> list[str]:
     add_box(ax, 0.75, 4.85, 2.4, 0.78, "Candidate\npassages", "#eff6ff", "#2563eb", fontsize=11)
     add_arrow(ax, (1.95, 6.13), (1.95, 5.65), "#2563eb")
 
-    add_box(ax, 4.45, 6.15, 2.35, 0.64, "Framework alignment\nbaselines", "#dbeafe", "#2563eb", fontsize=9.5)
-    add_box(ax, 4.35, 5.12, 1.35, 0.55, "PyTorch MLP", "#eff6ff", "#60a5fa", fontsize=8.7)
-    add_box(ax, 5.95, 5.12, 1.35, 0.55, "Jittor MLP", "#dbeafe", "#2563eb", fontsize=8.7)
-    add_box(ax, 4.35, 4.28, 1.35, 0.55, "PyTorch\nTextCNN", "#eff6ff", "#60a5fa", fontsize=8.4)
-    add_box(ax, 5.95, 4.28, 1.35, 0.55, "Jittor\nTextCNN", "#dbeafe", "#2563eb", fontsize=8.4)
+    method_panel = FancyBboxPatch(
+        (4.35, 1.82),
+        6.65,
+        4.95,
+        boxstyle="round,pad=0.02,rounding_size=0.06",
+        linewidth=1.4,
+        edgecolor="#cbd5e1",
+        facecolor="#f8fafc",
+    )
+    ax.add_patch(method_panel)
+    ax.text(7.68, 6.48, "Compared rerankers", ha="center", va="center", fontsize=12, fontweight="bold", color="#0f172a")
 
-    add_box(ax, 7.65, 5.95, 2.35, 0.62, "Qwen zero-shot", "#f3e8ff", "#7c3aed", fontsize=10)
-    add_box(ax, 7.65, 5.02, 2.35, 0.62, "Qwen LoRA", "#f3e8ff", "#a855f7", fontsize=10)
-    add_box(ax, 7.65, 4.10, 2.35, 0.62, "LLM relevance\njudgment", "#faf5ff", "#a855f7", fontsize=9.2)
-    add_box(ax, 7.65, 2.95, 2.35, 0.62, "Cross-Encoder\nreference", "#fff7ed", "#f97316", fontsize=9.2, linestyle="--")
-    add_box(ax, 6.02, 2.0, 2.1, 0.68, "Reranking", "#f8fafc", "#64748b", fontsize=11)
+    add_box(ax, 4.68, 5.22, 1.40, 0.56, "BM25\nlexical", "#f1f5f9", "#6b7280", fontsize=8.6)
 
-    add_elbow_arrow(ax, [(3.15, 5.05), (3.72, 5.05), (3.72, 1.55), (6.75, 1.55), (6.75, 2.0)], "#64748b")
-    add_line_arrow(ax, (5.70, 5.39), (5.95, 5.39), "#2563eb")
-    add_line_arrow(ax, (5.70, 4.55), (5.95, 4.55), "#2563eb")
-    add_elbow_arrow(ax, [(6.62, 4.28), (6.62, 3.05), (6.82, 2.68)], "#2563eb")
-    add_line_arrow(ax, (8.82, 5.95), (8.82, 5.64), "#a855f7")
-    add_line_arrow(ax, (8.82, 5.02), (8.82, 4.72), "#a855f7")
-    add_elbow_arrow(ax, [(10.00, 4.41), (10.45, 4.41), (10.45, 2.86), (8.02, 2.68)], "#a855f7")
-    add_elbow_arrow(ax, [(7.65, 3.26), (7.18, 3.26), (7.18, 2.68)], "#f97316")
+    ax.text(7.34, 5.95, "Framework alignment baselines", ha="center", va="center", fontsize=9.5, fontweight="semibold", color="#2563eb")
+    add_box(ax, 6.38, 5.30, 1.25, 0.46, "PyTorch MLP", "#eff6ff", "#60a5fa", fontsize=8.2)
+    add_box(ax, 7.80, 5.30, 1.25, 0.46, "Jittor MLP", "#dbeafe", "#2563eb", fontsize=8.2)
+    add_box(ax, 6.38, 4.62, 1.25, 0.50, "PyTorch\nTextCNN", "#eff6ff", "#60a5fa", fontsize=7.9)
+    add_box(ax, 7.80, 4.62, 1.25, 0.50, "Jittor\nTextCNN", "#dbeafe", "#2563eb", fontsize=7.9)
+
+    ax.text(9.88, 5.95, "LLM rerankers", ha="center", va="center", fontsize=9.5, fontweight="semibold", color="#7c3aed")
+    ax.text(9.88, 5.66, "relevance judgment", ha="center", va="center", fontsize=8.0, color="#7c3aed")
+    add_box(ax, 9.26, 5.08, 1.22, 0.48, "Qwen\nzero-shot", "#f3e8ff", "#7c3aed", fontsize=7.8)
+    add_box(ax, 9.26, 4.42, 1.22, 0.48, "Qwen LoRA", "#f3e8ff", "#a855f7", fontsize=8.0)
+
+    ax.text(6.95, 3.36, "Reference method", ha="center", va="center", fontsize=9.5, fontweight="semibold", color="#f97316")
+    add_box(ax, 5.94, 2.66, 2.00, 0.55, "Cross-Encoder", "#fff7ed", "#f97316", fontsize=9.2, linestyle="--")
+
+    add_arrow(ax, (3.15, 5.24), (4.35, 4.36), "#64748b")
 
     add_box(ax, 12.25, 6.18, 2.8, 0.58, "Ranked passages", "#f8fafc", "#64748b", fontsize=10)
     add_box(ax, 12.25, 5.28, 2.8, 0.58, "Top-3 evidence", "#f8fafc", "#64748b", fontsize=10)
     add_box(ax, 12.25, 4.38, 2.8, 0.58, "Qwen generator", "#f3e8ff", "#7c3aed", fontsize=10)
     add_box(ax, 12.25, 3.48, 2.8, 0.58, "Answer", "#ecfdf5", "#10b981", fontsize=10)
-    add_elbow_arrow(ax, [(8.12, 2.12), (11.55, 2.12), (11.55, 6.47), (12.25, 6.47)], "#64748b")
+    add_arrow(ax, (11.00, 4.36), (12.25, 6.47), "#64748b", rad=0.08)
     add_arrow(ax, (13.65, 6.18), (13.65, 5.86), "#64748b")
     add_arrow(ax, (13.65, 5.28), (13.65, 4.96), "#64748b")
     add_arrow(ax, (13.65, 4.38), (13.65, 4.06), "#64748b")
@@ -329,19 +338,22 @@ def write_excalidraw_overview(path: Path) -> None:
     for x, y, w, h, title in panels:
         elements.append(excalidraw_element("rectangle", x, y, w, h, strokeColor="#dbe4ef", backgroundColor="#ffffff"))
         elements.append(text_element(title, x + 18, y + 20, 16, "#475569"))
+    elements.append(excalidraw_element("rectangle", 348, 150, 535, 425, strokeColor="#cbd5e1", backgroundColor="#f8fafc"))
+    elements.append(text_element("Compared rerankers", 530, 172, 18, "#0f172a"))
     boxes = [
         (55, 135, 190, 50, "Query", "#eff6ff", "#2563eb"),
         (55, 245, 190, 64, "Candidate\npassages", "#eff6ff", "#2563eb"),
-        (360, 130, 190, 58, "Framework alignment\nbaselines", "#dbeafe", "#2563eb"),
-        (350, 225, 110, 45, "PyTorch MLP", "#eff6ff", "#60a5fa"),
-        (485, 225, 110, 45, "Jittor MLP", "#dbeafe", "#2563eb"),
-        (350, 300, 110, 52, "PyTorch\nTextCNN", "#eff6ff", "#60a5fa"),
-        (485, 300, 110, 52, "Jittor\nTextCNN", "#dbeafe", "#2563eb"),
-        (635, 125, 190, 50, "Qwen zero-shot", "#f3e8ff", "#7c3aed"),
-        (635, 205, 190, 50, "Qwen LoRA", "#f3e8ff", "#a855f7"),
-        (635, 285, 190, 52, "LLM relevance\njudgment", "#faf5ff", "#a855f7"),
-        (635, 385, 190, 52, "Cross-Encoder\nreference", "#fff7ed", "#f97316"),
-        (500, 485, 170, 55, "Reranking", "#f8fafc", "#64748b"),
+        (372, 270, 105, 48, "BM25\nlexical", "#f1f5f9", "#6b7280"),
+        (502, 205, 220, 35, "Framework alignment\nbaselines", "#dbeafe", "#2563eb"),
+        (512, 270, 105, 38, "PyTorch MLP", "#eff6ff", "#60a5fa"),
+        (632, 270, 105, 38, "Jittor MLP", "#dbeafe", "#2563eb"),
+        (512, 325, 105, 45, "PyTorch\nTextCNN", "#eff6ff", "#60a5fa"),
+        (632, 325, 105, 45, "Jittor\nTextCNN", "#dbeafe", "#2563eb"),
+        (744, 205, 130, 35, "LLM rerankers\nrelevance judgment", "#f3e8ff", "#7c3aed"),
+        (752, 270, 105, 45, "Qwen\nzero-shot", "#f3e8ff", "#7c3aed"),
+        (752, 325, 105, 40, "Qwen LoRA", "#f3e8ff", "#a855f7"),
+        (475, 430, 220, 35, "Reference method", "#fff7ed", "#f97316"),
+        (510, 485, 160, 45, "Cross-Encoder", "#fff7ed", "#f97316"),
         (990, 132, 230, 46, "Ranked passages", "#f8fafc", "#64748b"),
         (990, 215, 230, 46, "Top-3 evidence", "#f8fafc", "#64748b"),
         (990, 298, 230, 46, "Qwen generator", "#f3e8ff", "#7c3aed"),
@@ -364,15 +376,8 @@ def write_excalidraw_overview(path: Path) -> None:
         elements.append(text_element(label, x + 8, y + 10, 15 if "\n" not in label else 13, "#0f172a"))
     for x1, y1, x2, y2, color in [
         (150, 185, 150, 245, "#2563eb"),
-        (245, 310, 500, 512, "#64748b"),
-        (460, 247, 485, 247, "#2563eb"),
-        (460, 326, 485, 326, "#2563eb"),
-        (555, 352, 575, 485, "#2563eb"),
-        (730, 175, 730, 205, "#a855f7"),
-        (730, 255, 730, 285, "#a855f7"),
-        (825, 311, 665, 485, "#a855f7"),
-        (635, 411, 585, 485, "#f97316"),
-        (670, 532, 990, 155, "#64748b"),
+        (245, 277, 348, 362, "#64748b"),
+        (883, 362, 990, 155, "#64748b"),
         (1105, 178, 1105, 215, "#64748b"),
         (1105, 261, 1105, 298, "#64748b"),
         (1105, 344, 1105, 381, "#64748b"),
