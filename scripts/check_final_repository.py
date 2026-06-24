@@ -239,8 +239,8 @@ def check_readme_consistency(root: Path) -> dict[str, Any]:
         and "docs/figures/readme_lora_ablation.svg" in zh
         and "docs/figures/readme_error_taxonomy.svg" in zh
         and "docs/figures/readme_resource_profile.svg" in zh,
-        "mentions_formal_lora_rerun": "formal same-environment 10k LoRA rerun" in en
-        and "同一租卡环境下完成的正式 10k LoRA 复跑结果" in zh,
+        "mentions_formal_lora_rerun": "10k LoRA rerun completed in a unified RTX 4090 D environment" in en
+        and "统一的 RTX 4090 D 环境下完成的 10k LoRA 重跑结果" in zh,
         "mentions_500_4044": "500 queries" in en and "4,044" in en and "500 个 query" in zh and "4,044" in zh,
         "cross_encoder_reference": "Cross-Encoder remains the strongest external effectiveness reference" in en
         and "Cross-Encoder 是外部预训练效果参照" in zh,

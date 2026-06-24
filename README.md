@@ -45,7 +45,7 @@ The project is intentionally scoped: it is a reproducible empirical reproduction
 | Qwen2.5-1.5B LoRA (10k pairs) | 0.356 | 0.6236 | 0.5633 |
 | Cross-Encoder Reference | 0.434 | 0.7019 | 0.6341 |
 
-The LoRA row uses the formal same-environment 10k LoRA rerun. Full R@3, R@5, pairwise accuracy, runtime metadata, and source paths are in [docs/final_results.md](docs/final_results.md).
+The LoRA row uses the 10k LoRA rerun completed in a unified RTX 4090 D environment. Full R@3, R@5, pairwise accuracy, runtime metadata, and source paths are in [docs/final_results.md](docs/final_results.md).
 
 Three takeaways matter most:
 
@@ -57,7 +57,7 @@ Three takeaways matter most:
 
 ### PyTorch to Jittor Alignment
 
-MLP and TextCNN are lightweight alignment baselines. They test whether the PyTorch and Jittor paths behave coherently on the same reranking data, losses, and metrics. Their role is framework migration and sanity checking, not matching the RankRAG paper's core LLM reranker.
+MLP and TextCNN are lightweight alignment baselines. They test whether the PyTorch and Jittor paths show aligned overall trends and stay in a similar result range on the same reranking data, losses, and metrics. Their role is framework migration and sanity checking, not matching the RankRAG paper's core LLM reranker.
 
 ### RankRAG-Style LLM Reranking
 
