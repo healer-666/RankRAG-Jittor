@@ -21,6 +21,7 @@ REQUIRED_FILES = [
     "docs/figures/rankrag_jittor_overview.excalidraw",
     "docs/figures/rankrag_jittor_overview.svg",
     "docs/figures/rankrag_jittor_overview.png",
+    "docs/figures/rankrag_jittor_overview_final.png",
     "docs/figures/main_reranking_results.svg",
     "docs/figures/main_reranking_results.png",
     "docs/figures/pytorch_jittor_alignment.svg",
@@ -230,8 +231,8 @@ def check_readme_consistency(root: Path) -> dict[str, Any]:
         "chinese_positioning": POSITIONING_ZH in zh,
         "no_old_chinese_readme_link": "README.zh-CN.md" not in en and "README.zh-CN.md" not in zh,
         "no_forbidden_claims": not any(claim in en or claim in zh for claim in FORBIDDEN_CLAIMS),
-        "overview_figure": "docs/figures/rankrag_jittor_overview.svg" in en
-        and "docs/figures/rankrag_jittor_overview.svg" in zh,
+        "overview_figure": "docs/figures/rankrag_jittor_overview_final.png" in en
+        and "docs/figures/rankrag_jittor_overview_final.png" in zh,
         "main_result_figure": "docs/figures/main_reranking_results.svg" in en
         and "docs/figures/main_reranking_results.svg" in zh,
         "alignment_figure": "docs/figures/pytorch_jittor_alignment.svg" in en

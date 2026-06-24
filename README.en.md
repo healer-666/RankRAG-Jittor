@@ -11,7 +11,7 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-LoRA%20reranking-EE4C2C)
 [![RankRAG Paper](https://img.shields.io/badge/RankRAG-NeurIPS%202024-7C3AED)](https://arxiv.org/abs/2407.02485)
 
-<img src="docs/figures/rankrag_jittor_overview.svg" alt="RankRAG-Jittor overview" width="940">
+<img src="docs/figures/rankrag_jittor_overview_final.png" alt="RankRAG-Jittor overview" width="940">
 
 </div>
 
