@@ -1,4 +1,4 @@
-"""Final read-only repository audit for documentation release."""
+"""Final repository audit for documentation release."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ from typing import Any
 
 REQUIRED_FILES = [
     "README.md",
-    "README.zh-CN.md",
+    "README.en.md",
     "docs/final_results.md",
     "docs/reproduction.md",
     "docs/figures/project_pipeline.mmd",
@@ -37,6 +37,11 @@ REQUIRED_FILES = [
     "scripts/build_readme_figures.py",
     "scripts/check_final_repository.py",
 ]
+
+MARKDOWN_TARGETS = ["README.md", "README.en.md"]
+POSITIONING_EN = "A Jittor-based lightweight reproduction and empirical analysis of RankRAG-style LLM reranking."
+POSITIONING_ZH = "基于 Jittor 的 RankRAG 风格大模型重排序轻量复现与实证分析。"
+
 FORBIDDEN_WEIGHT_PATTERNS = [
     ".safetensors",
     ".bin",
@@ -62,9 +67,6 @@ HARDCODED_PATH_PATTERNS = [
     ("windows_user", re.compile(r"C:\\Users\\")),
     ("autodl_tmp", re.compile(r"/root/autodl-tmp")),
 ]
-MARKDOWN_TARGETS = ["README.md", "README.zh-CN.md"]
-POSITIONING_EN = "A Jittor-based lightweight reproduction and empirical analysis of RankRAG-style LLM reranking."
-POSITIONING_ZH = "基于 Jittor 的 RankRAG 风格大模型重排序轻量复现与实证分析。"
 FORBIDDEN_CLAIMS = [
     "Full reproduction of RankRAG",
     "Complete RankRAG implementation",
@@ -184,7 +186,7 @@ def scan_hardcoded_paths(root: Path, files: list[Path]) -> list[dict[str, Any]]:
             for match in pattern.finditer(text):
                 line = text.count("\n", 0, match.start()) + 1
                 severity = "warning"
-                if rel in {"README.md", "README.zh-CN.md"}:
+                if rel in {"README.md", "README.en.md"}:
                     severity = "failure"
                 elif rel == allowed_windows_example and kind == "windows_drive":
                     severity = "allowed_windows_example"
@@ -219,13 +221,14 @@ def check_links(root: Path, paths: list[Path]) -> list[dict[str, Any]]:
 
 
 def check_readme_consistency(root: Path) -> dict[str, Any]:
-    en = (root / "README.md").read_text(encoding="utf-8")
-    zh = (root / "README.zh-CN.md").read_text(encoding="utf-8")
+    zh = (root / "README.md").read_text(encoding="utf-8")
+    en = (root / "README.en.md").read_text(encoding="utf-8")
     checks = {
-        "english_links_chinese": "README.zh-CN.md" in en and "简体中文" in en,
-        "chinese_links_english": "[English](README.md)" in zh,
+        "chinese_default_links_english": "[English](README.en.md)" in zh,
+        "english_links_chinese_default": "[简体中文](README.md)" in en,
         "english_positioning": POSITIONING_EN in en,
         "chinese_positioning": POSITIONING_ZH in zh,
+        "no_old_chinese_readme_link": "README.zh-CN.md" not in en and "README.zh-CN.md" not in zh,
         "no_forbidden_claims": not any(claim in en or claim in zh for claim in FORBIDDEN_CLAIMS),
         "overview_figure": "docs/figures/rankrag_jittor_overview.svg" in en
         and "docs/figures/rankrag_jittor_overview.svg" in zh,
@@ -240,13 +243,14 @@ def check_readme_consistency(root: Path) -> dict[str, Any]:
         and "docs/figures/readme_error_taxonomy.svg" in zh
         and "docs/figures/readme_resource_profile.svg" in zh,
         "mentions_formal_lora_rerun": "10k LoRA rerun completed in a unified RTX 4090 D environment" in en
-        and "统一的 RTX 4090 D 环境下完成的 10k LoRA 重跑结果" in zh,
-        "mentions_500_4044": "500 queries" in en and "4,044" in en and "500 个 query" in zh and "4,044" in zh,
+        and "在统一的 RTX 4090 D 环境下完成的 10k LoRA 重跑结果" in zh,
+        "mentions_500_4044": "500 queries" in en and "4,044" in en and "500 queries" in zh and "4,044" in zh,
         "cross_encoder_reference": "Cross-Encoder remains the strongest external effectiveness reference" in en
-        and "Cross-Encoder 是外部预训练效果参照" in zh,
+        and "Cross-Encoder R@1 = 0.434" in zh,
         "mlp_textcnn_alignment": "lightweight alignment baselines" in en and "轻量对齐基线" in zh,
         "public_lora_label": "Qwen2.5-1.5B LoRA (10k pairs)" in en
         and "Qwen2.5-1.5B LoRA (10k pairs)" in zh,
+        "parallel_reranker_pool": "parallel comparison pool" in en and "并列方法池" in zh,
     }
     return {"status": "passed" if all(checks.values()) else "failed", "checks": checks}
 
@@ -258,6 +262,7 @@ def check_result_consistency(root: Path) -> dict[str, Any]:
     e2 = json.loads((root / "outputs/lora_scoring_ablation_results.json").read_text(encoding="utf-8"))
     err = json.loads((root / "outputs/error_taxonomy_summary.json").read_text(encoding="utf-8"))
     failures = []
+
     final_main = {row["method"]: row for row in final["main_reranking_results"]}
     cost_main = {row["method"]: row for row in cost["methods"]}
     for method in ["BM25", "Jittor MLP", "Jittor TextCNN", "Qwen2.5-1.5B LoRA 10k-rerun", "Cross-Encoder"]:
@@ -276,7 +281,7 @@ def check_result_consistency(root: Path) -> dict[str, Any]:
 
 
 def validate_commands(root: Path) -> dict[str, Any]:
-    docs = [(root / "README.md").read_text(encoding="utf-8"), (root / "README.zh-CN.md").read_text(encoding="utf-8")]
+    docs = [(root / "README.md").read_text(encoding="utf-8"), (root / "README.en.md").read_text(encoding="utf-8")]
     docs.append((root / "docs/reproduction.md").read_text(encoding="utf-8"))
     text = "\n".join(docs)
     paths = sorted(set(re.findall(r"(?<![\w/-])(?:scripts|src)/[A-Za-z0-9_./-]+\.py", text)))
@@ -286,6 +291,7 @@ def validate_commands(root: Path) -> dict[str, Any]:
     for item in paths + configs:
         if not (root / item).exists():
             missing.append(item)
+
     output_warnings = []
     for item in outputs:
         clean = item.rstrip(".,);")
@@ -293,6 +299,7 @@ def validate_commands(root: Path) -> dict[str, Any]:
             continue
         if clean.endswith((".json", ".md", ".csv", ".mmd", ".png", ".jsonl")) and not (root / clean).exists():
             output_warnings.append(clean)
+
     help_results = {}
     for script in SAFE_HELP_SCRIPTS:
         if script in paths and (root / script).exists():
@@ -432,6 +439,7 @@ def main() -> None:
         "warnings": warnings,
         "failures": failures,
     }
+
     output_json = root / args.output_json
     output_md = root / args.output_md
     output_json.parent.mkdir(parents=True, exist_ok=True)

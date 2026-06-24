@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "checked_commit": "6b5b95a5a6d32ef43acc7df57dc40879f09e8307",
+  "checked_commit": "4cdb8b609f756c2aaa4f7cac77329aac3a6224a9",
   "tracked_file_count": 479,
   "large_file_warnings": [],
   "large_file_failures": [],
@@ -237,55 +237,55 @@
     },
     {
       "path": "outputs/final_repository_audit.json",
-      "line": 470,
+      "line": 472,
       "type": "windows_drive",
       "severity": "warning"
     },
     {
       "path": "outputs/final_repository_audit.json",
-      "line": 480,
+      "line": 482,
       "type": "windows_drive",
       "severity": "warning"
     },
     {
       "path": "outputs/final_repository_audit.json",
-      "line": 490,
+      "line": 492,
       "type": "windows_drive",
       "severity": "warning"
     },
     {
       "path": "outputs/final_repository_audit.json",
-      "line": 500,
+      "line": 502,
       "type": "windows_drive",
       "severity": "warning"
     },
     {
       "path": "outputs/final_repository_audit.json",
-      "line": 510,
+      "line": 512,
       "type": "windows_drive",
       "severity": "warning"
     },
     {
       "path": "outputs/final_repository_audit.json",
-      "line": 520,
+      "line": 522,
       "type": "windows_drive",
       "severity": "warning"
     },
     {
       "path": "outputs/final_repository_audit.json",
-      "line": 530,
+      "line": 532,
       "type": "windows_drive",
       "severity": "warning"
     },
     {
       "path": "outputs/final_repository_audit.json",
-      "line": 540,
+      "line": 542,
       "type": "windows_drive",
       "severity": "warning"
     },
     {
       "path": "outputs/final_repository_audit.json",
-      "line": 550,
+      "line": 552,
       "type": "windows_drive",
       "severity": "warning"
     },
@@ -363,7 +363,7 @@
     },
     {
       "path": "scripts/check_final_repository.py",
-      "line": 63,
+      "line": 68,
       "type": "autodl_tmp",
       "severity": "warning"
     },
@@ -390,10 +390,11 @@
   "readme_consistency": {
     "status": "passed",
     "checks": {
-      "english_links_chinese": true,
-      "chinese_links_english": true,
+      "chinese_default_links_english": true,
+      "english_links_chinese_default": true,
       "english_positioning": true,
       "chinese_positioning": true,
+      "no_old_chinese_readme_link": true,
       "no_forbidden_claims": true,
       "overview_figure": true,
       "main_result_figure": true,
@@ -403,7 +404,8 @@
       "mentions_500_4044": true,
       "cross_encoder_reference": true,
       "mlp_textcnn_alignment": true,
-      "public_lora_label": true
+      "public_lora_label": true,
+      "parallel_reranker_pool": true
     }
   },
   "result_consistency": {
